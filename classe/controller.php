@@ -1,0 +1,2 @@
+<?php
+// futur class
