@@ -1,8 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : dim. 01 mai 2022 à 00:58
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-DROP DATABASE IF EXISTS `Leveling`;
-CREATE DATABASE `Leveling`;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `leveling`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
@@ -13,8 +36,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `age` int(3) NOT NULL,
   `pseudo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `bio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `img` longblob NOT NULL,
+  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`) VALUES
+(12, 'LAU', 'Tom', 0x746f6d6c657374696738380000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-626dd66fd39045.08057597.jpg', 'admin');
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
