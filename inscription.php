@@ -1,7 +1,8 @@
 <?php
 require_once("Config/controller.php");
+require_once("Config/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
-
+$setup = new setup();
 ?>
     <!doctype html>
     <html lang="fr">
@@ -71,44 +72,13 @@ if (isset($_POST['btn']) && isset($_FILES['img'])) {
         && !empty($_POST['mdp']) && !empty($_POST['bio']) && !empty($_POST['pseudo'])
         && !empty($_POST['age'])) {
 
-        /*
-            $_FILES[''] nous donne un tableau à double entrer.
-            Pour pouvoir controler si c'est une image ou non on va avoir besoin de ça
-        */
+        $newimg = $setup->FakeImage($_FILES['img']);
 
-        $img_name = $_FILES['img']['name'];
-        $img_size = $_FILES['img']['size'];
-        $img_tpm = $_FILES['img']['tmp_name'];
-        $img_err = $_FILES['img']['error'];
-
-        // vérification de si l'image est une vrai image ou pas
-        if ($img_err === 0) {
-            if ($img_size > 3333333) {
-                echo "<p>Taille de l'image trop élevée</p>";
-            } else {
-                $imp_extention = pathinfo($img_name, PATHINFO_EXTENSION); // on récupère uniquement l'extention du fichier
-                $imp_extention_lower = strtolower($imp_extention); // pour être sur on la passe en minuscule
-
-                // création de notre tableau d'extension accepté
-                $allowed_extension = array("jpg", "png", "jpeg");
-
-                // vérication de si l'extension est bien dans notre tableau
-                if (in_array($imp_extention_lower, $allowed_extension)) {
-                    // on déplace l'image dans le dossier de notre site
-                    $newimg = uniqid("IMG-", true) . '.' . $imp_extention_lower;
-                    $path = "./assets/img/UserProfilePicture/" . $newimg;
-                    move_uploaded_file($img_tpm, $path);
-                    // on peut maintenant utiliser la fonction d'insertion d'un utilisateur
-                    $controler->insertUser($_POST, $newimg);
-                } else {
-                    echo "<p>Veuillez insérer une image</p>";
-                }
-            }
+        if ($newimg === "err") {
+            echo "veuillez insérer une image";
         } else {
-            echo "<p>Oups, une erreur est survenue</p>";
+            $controler->insertUser($_POST, $newimg);
         }
-
-
     } else {
         echo "<p>Veuillez renseigner tous les champs</p>";
     }
