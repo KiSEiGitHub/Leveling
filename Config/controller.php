@@ -28,7 +28,7 @@ class controller
         $data = array(
             ":nom" => $tab['nom'],
             ":prenom" => $tab['prenom'],
-            ":password" => $tab['mdp'],
+            ":password" => md5($tab['mdp']),
             ":age" => $tab['age'],
             ":pseudo" => $tab['pseudo'],
             ":bio" => $tab['bio'],
@@ -46,6 +46,18 @@ class controller
     public function getUser($id)
     {
         $r = "select * from user where id =" . $id;
+        if ($this->pdo != null) {
+            $r2 = $this->pdo->prepare($r);
+            $r2->execute();
+            return $r2->fetch();
+        } else {
+            return "pas bon";
+        }
+    }
+
+    public function Login($pseudo)
+    {
+        $r = "select * from user where pseudo ='$pseudo'";
         if ($this->pdo != null) {
             $r2 = $this->pdo->prepare($r);
             $r2->execute();

@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if($_SESSION['pseudo'] == null) {
+    header('Location: Connexion.php');
+    exit;
+}
+
+require_once("Config/controller.php");
+require_once("Config/setup.php");
+$controler = new controller("localhost", "leveling", "root", "");
+$setup = new setup();
+
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -13,9 +28,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <?php
-        header('location: inscription.php');
-    ?>
+    <h3>oui</h3>
+    <a href="Deconnexion.php">deco</a>
 <script src="js/main.js"></script>
 </body>
 </html>
