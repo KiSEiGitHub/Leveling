@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 01 mai 2022 à 00:58
+-- Généré le : mar. 03 mai 2022 à 19:08
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -32,21 +32,22 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `prenom` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `password` binary(64) NOT NULL,
+  `password` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `age` int(3) NOT NULL,
   `pseudo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `bio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `DateDeNaissance` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`) VALUES
-(12, 'LAU', 'Tom', 0x746f6d6c657374696738380000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-626dd66fd39045.08057597.jpg', 'admin');
+INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`) VALUES
+(18, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'je suis mystÃ©rieux', 'IMG-6271794664ae04.87085685.png', 'admin', '04-08-2000');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

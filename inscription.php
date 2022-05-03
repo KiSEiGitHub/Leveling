@@ -45,6 +45,10 @@ $setup = new setup();
             age
             <input type="number" name="age">
         </label>
+        <label for="dateNaissance">
+            Date de naissance
+            <input type="date" name="dateNaissance">
+        </label>
         <label for="mail">
             Adresse mail
             <input type="email" name="mail">

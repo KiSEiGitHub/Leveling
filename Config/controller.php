@@ -24,16 +24,17 @@ class controller
     // méthodes
     public function insertUser($tab, $img)
     {
-        $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role)";
+        $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance)";
         $data = array(
             ":nom" => $tab['nom'],
             ":prenom" => $tab['prenom'],
-            ":password" => $tab['mdp'],
+            ":password" => md5($tab['mdp']),
             ":age" => $tab['age'],
             ":pseudo" => $tab['pseudo'],
             ":bio" => $tab['bio'],
             ":img" => $img,
             ":role" => 'admin', // ça faudra changer sur "user" quand on aura crée tous les trois nos comptes
+            ":dateNaissance" => $tab['dateNaissance']
         );
 
         if ($this->pdo != null) {
@@ -46,6 +47,18 @@ class controller
     public function getUser($id)
     {
         $r = "select * from user where id =" . $id;
+        if ($this->pdo != null) {
+            $r2 = $this->pdo->prepare($r);
+            $r2->execute();
+            return $r2->fetch();
+        } else {
+            return "pas bon";
+        }
+    }
+
+    public function Login($pseudo)
+    {
+        $r = "select * from user where pseudo ='$pseudo'";
         if ($this->pdo != null) {
             $r2 = $this->pdo->prepare($r);
             $r2->execute();
