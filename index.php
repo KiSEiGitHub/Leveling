@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['pseudo'] == null) {
+if ($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');
     exit;
 }
@@ -25,11 +25,12 @@ $setup = new setup();
 
     <!--  CSS  -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/signin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h3>oui</h3>
-    <a href="Deconnexion.php">deco</a>
+<h3>Bonjour <?= $_SESSION['pseudo'] ?></h3>
+<a href="Deconnexion.php">deco</a>
 <script src="js/main.js"></script>
 </body>
 </html>
