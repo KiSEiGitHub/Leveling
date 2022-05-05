@@ -30,30 +30,30 @@ $setup = new setup();
     <div class="inscription-form">
         <form method="post" action="#" enctype="multipart/form-data">
             <div class="profile-picture">
-
                 <div class="user">
-                    <img src="images/user.png" alt="" width="40%">
+                    <img src="images/user.png" alt="">
                     <label>
                         <input type="file" name="img"/>
-                        <!--                        <a class="choosepp">Ajouter une photo de profil</a>-->
                     </label>
                 </div>
-
             </div>
 
             <div class="form-floating">
-                <label for="pseudo">Pseudo</label>
-                <input type="text" class="form-control" id="floatingInput" name="pseudo">
+                <label for="pseudo">Pseudo
+                    <input type="text" class="form-control" id="floatingInput" name="pseudo">
+                </label>
             </div>
 
             <div class="form-floating">
-                <label for="mdp">Mot de passe</label>
-                <input type="password" class="form-control" id="floatingPassword" name="mdp">
+                <label for="mdp">Mot de passe
+                    <input type="password" class="form-control" id="floatingPassword" name="mdp">
+                </label>
             </div>
 
             <div class="form-floating">
-                <label for="prenom">Prénom</label>
-                <input type="password" class="form-control" id="floatingPassword" name="prenom">
+                <label for="prenom">Prénom
+                    <input type="password" class="form-control" id="floatingPassword" name="prenom">
+                </label>
             </div>
 
             <div class="form-floating">
@@ -64,49 +64,60 @@ $setup = new setup();
 
 
             <div class="form-floating">
-                <label for="dateNaissance">Date de naissance</label>
-                <input type="date" class="form-control" id="floatingPassword" name="dateNaissance">
+                <label for="dateNaissance">Date de naissance
+                    <input type="date" class="form-control" id="floatingPassword" name="dateNaissance">
+                </label>
             </div>
 
             <div class="form-floating">
-                <label for="age">Age</label>
-                <input type="number" class="form-control" id="floatingPassword" name="age">
+                <label for="age">Age
+                    <input type="number" class="form-control" id="floatingPassword" name="age">
+                </label>
             </div>
 
             <div class="form-floating">
-                <label for="mail">E-mail</label>
-                <input type="email" class="form-control" id="floatingPassword" name="mail">
+                <label for="mail">E-mail
+                    <input type="email" class="form-control" id="floatingPassword" name="mail">
+                </label>
             </div>
 
 
             <div class="form-floating">
-                <label for="bio">Bio</label>
-                <input type="text" class="form-control" id="floatingPassword" name="bio">
+                <label for="bio">Bio
+                    <input type="text" class="form-control" id="floatingPassword" name="bio">
+                </label>
             </div>
 
-            <input type="submit" name="btn" value="Se connecter">
+            <input type="submit" name="btn" value="S'inscrire">
 
             <div class="inscription">
-                <span>Déjà inscrit ?&nbsp;</span>
-                <a href="Connexion.php">Connexion</a>
+                <span>
+                    Déjà inscrit ?&nbsp;
+                    <a href="Connexion.php">Connexion</a>
+                </span>
+
             </div>
             <?php
             if (isset($_POST['btn']) && isset($_FILES['img'])) {
                 if (
                     !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail'])
                     && !empty($_POST['mdp']) && !empty($_POST['bio']) && !empty($_POST['pseudo'])
-                    && !empty($_POST['age'] && !empty($_POST['dateNaissance']))
+                    && !empty($_POST['age'] && !empty($_POST['dateNaissance']) && !empty($_FILES['img']))
                 ) {
-
-                    $newimg = $setup->FakeImage($_FILES['img']);
-
-                    if ($newimg === "err") {
-                        echo "veuillez insérer une image";
+                    if ($_FILES['img']['name'] == '') {
+                        echo "<p class='error'>Veuillez ajouté une image de profil</p>";
                     } else {
-                        $controler->insertUser($_POST, $newimg);
+                        $newimg = $setup->FakeImage($_FILES['img']);
+
+                        if ($newimg === "err") {
+                            echo "veuillez insérer une image valide";
+                        } else {
+                            $controler->insertUser($_POST, $newimg);
+                        }
                     }
+
                 } else {
-                    echo "<p style='color: red'>Veuillez renseigner tous les champs</p>";
+                    echo "<p class='error'>Veuillez renseigner tous les champs</p>";
                 }
             }
             ?>
