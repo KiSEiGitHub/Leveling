@@ -106,7 +106,7 @@ $setup = new setup();
                         $controler->insertUser($_POST, $newimg);
                     }
                 } else {
-                    echo "<p>Veuillez renseigner tous les champs</p>";
+                    echo "<p style='color: red'>Veuillez renseigner tous les champs</p>";
                 }
             }
             ?>
