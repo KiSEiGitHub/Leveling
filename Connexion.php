@@ -9,7 +9,6 @@ require_once("Config/controller.php");
 require_once("Config/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
-
 ?>
 
 <!doctype html>
@@ -30,7 +29,6 @@ $setup = new setup();
         <form method="post" action="#">
             <img class="mb-4" src="./assets/img/website/leveling-logo.png" alt="" height="57">
             <h1 class="connexion">CONNEXION</h1>
-
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Pseudo" name="pseudo">
             </div>
