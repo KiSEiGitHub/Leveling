@@ -25,7 +25,6 @@
     <main class="form-inscription">
         <div class="inscription-form">
             <form method="post" action="#">
-                <img class="mb-4" src="./assets/img/website/leveling-logo.png" alt="" height="57">
                 <div class="profile-picture">
 
                     <div class="user">
@@ -50,19 +49,32 @@
                 </div>
 
                 <div class="form-floating">
-                    <label for="exampleFormControlSelect1">Confirmation du mot de passe</label>
-                    <input type="password" class="form-control" id="floatingPassword" name="confirmmdp">
+                    <label for="exampleFormControlSelect1">Prénom</label>
+                    <input type="password" class="form-control" id="floatingPassword" name="prenom">
                 </div>
 
                 <div class="form-floating">
+                    <label for="exampleFormControlSelect1">Nom</label>
+                    <input type="password" class="form-control" id="floatingPassword" name="nom">
+                </div>
+
+
+                <div class="form-floating">
                     <label for="exampleFormControlSelect1">Date de naissance</label>
-                    <input type="date" class="form-control" id="floatingPassword" name="birthday">
+                    <input type="date" class="form-control" id="floatingPassword" name="age">
                 </div>
 
                 <div class="form-floating">
                     <label for="exampleFormControlSelect1">E-mail</label>
-                    <input type="email" class="form-control" id="floatingPassword" name="email">
+                    <input type="email" class="form-control" id="floatingPassword" name="mail">
                 </div>
+
+
+                <div class="form-floating">
+                    <label for="exampleFormControlSelect1">Bio</label>
+                    <input type="email" class="form-control" id="floatingPassword" name="bio">
+                </div>
+
 
                 <input type="submit" name="btn" value="Se connecter">
 
