@@ -55,12 +55,15 @@ $setup = new setup();
                 $FakePassword = $_POST['mdp'];
 
                 $UserWhoWantToLogin = $controler->Login($FakePseudo);
-
+            
+                
+                // LIGNE
+                $_SESSION['id'] = $UserWhoWantToLogin['id'];
                 $_SESSION['pseudo'] = $UserWhoWantToLogin['pseudo'];
                 $_SESSION['mdp'] = $UserWhoWantToLogin['password'];
 
                 if ($FakePseudo == $_SESSION['pseudo'] && md5($FakePassword) == $_SESSION['mdp']) {
-                    header('Location: index.php');
+                   // header('Location: index.php');
                 } else {
                     echo "<p>Mot de passe ou pseudo incorrect</p>";
                 }
