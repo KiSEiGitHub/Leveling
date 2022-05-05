@@ -13,6 +13,7 @@ $setup = new setup();
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -23,12 +24,15 @@ $setup = new setup();
     <!--  CSS  -->
     <link rel="stylesheet" href="scss/styles.css">
 </head>
+
 <body>
+
 <main class="form-signin">
     <div class="sign-form">
         <form method="post" action="check.php">
             <img class="mb-4" src="./assets/img/website/leveling-logo.png" alt="" height="57">
             <h1 class="connexion">CONNEXION</h1>
+
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Pseudo" name="pseudo">
             </div>
@@ -45,10 +49,9 @@ $setup = new setup();
             </div>
 
             <p>&copy; 2022</p>
-
         </form>
     </div>
 </main>
 </body>
-</html>
 
+</html>
