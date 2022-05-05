@@ -24,8 +24,7 @@ $setup = new setup();
     <title>Leveling</title>
 
     <!--  CSS  -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="scss/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
