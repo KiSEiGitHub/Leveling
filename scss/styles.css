@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "arialroundedmt";
+  src: url("./assets/fonts/arialrounded.tff") format("truetype");
+}
+@font-face {
+  font-family: "toxigenesis";
+  src: url("./assets/fonts/toxigenesis.tff") format("truetype");
+}
 *, ::after, ::before {
   margin: 0;
   padding: 0;
@@ -149,15 +157,6 @@
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-weight: 800;
-}
-
-@font-face {
-  font-family: arialroundedmt;
-  src: url(fonts/arialroundedmt.tff);
-}
-@font-face {
-  font-family: toxigenesis;
-  src: url(fonts/toxigenesis.tff);
 }
 
 /*# sourceMappingURL=styles.css.map */
