@@ -31,6 +31,7 @@ $setup = new setup();
 <body>
 <h3>Bonjour <?= $_SESSION['pseudo'] ?></h3>
 <a href="Deconnexion.php">deco</a>
+<a href="profil.php">profil</a>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,13 +1,19 @@
 <?php
+session_start();
 
-if ($_SESSION['pseudo'] == null) {
+if($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');
-    exit;
 }
 
 require_once("Config/controller.php");
 $controler = new controller("localhost", "leveling", "root", "");
-$user = $controler->getUser(20);
+
+$user = $controler->getUser($_SESSION['id']);
+    
+
+
+
+
 ?>
 
 

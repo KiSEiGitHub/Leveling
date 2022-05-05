@@ -56,7 +56,18 @@ class controller
             return "pas bon";
         }
     }
-
+    public function getAllUsers(){
+    
+    $requete = "select * from user;";
+    if($this->pdo !=null){
+         $select= $this->pdo->prepare($requete);
+         $select->execute();
+    //extraction de tous les users
+         return $select->fetchAll();
+    }else{
+        return null;
+        }    
+    }
     public function Login($pseudo)
     {
         $r = "select * from user where pseudo ='$pseudo'";
