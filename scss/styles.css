@@ -1,8 +1,7 @@
 *, ::after, ::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .form-signin {
@@ -11,25 +10,20 @@
   position: relative;
   background-color: #60de18;
 }
-
 .form-signin .sign-form {
   position: absolute;
   top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .form-signin .sign-form h1 {
   color: #fff;
   margin: 10px 0;
   font-family: toxigenesis;
 }
-
 .form-signin .sign-form .form-floating {
   font-family: arialroundedmt;
 }
-
 .form-signin .sign-form .form-floating input {
   outline: none;
   border: 2px solid #e3e3e3;
@@ -38,24 +32,10 @@
   border-radius: 20px;
   margin: 5px 0;
 }
-
-.form-signin .sign-form .form-floating input::-webkit-input-placeholder {
-  padding-left: 14px;
-}
-
-.form-signin .sign-form .form-floating input:-ms-input-placeholder {
-  padding-left: 14px;
-}
-
-.form-signin .sign-form .form-floating input::-ms-input-placeholder {
-  padding-left: 14px;
-}
-
 .form-signin .sign-form .form-floating input::placeholder {
   padding-left: 14px;
 }
-
-.form-signin .sign-form input[type="submit"] {
+.form-signin .sign-form input[type=submit] {
   margin-top: 10px;
   border-radius: 20px;
   border: none;
@@ -65,21 +45,16 @@
   background-color: #fff;
   font-weight: 700;
   color: #4cac15;
-  font-family: arialroundedmt;
 }
-
 .form-signin .sign-form .inscription {
   margin-top: 10px;
 }
-
 .form-signin .sign-form .inscription span, .form-signin .sign-form .inscription a {
   color: #fff;
 }
-
 .form-signin .sign-form .inscription a {
   text-decoration: none;
 }
-
 .form-signin .sign-form p {
   margin-top: 10px;
   color: #fff;
@@ -90,79 +65,61 @@
   height: 100vh;
   width: 100%;
   position: relative;
+  margin-top: 25px;
 }
-
 .form-inscription .inscription-form {
   position: absolute;
   top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .form-inscription .inscription-form h1 {
   text-align: center;
   color: #60de18;
   margin: 10px 0;
   font-family: toxigenesis;
 }
-
 .form-inscription .inscription-form .profile-picture {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 300px;
 }
-
 .form-inscription .inscription-form .user {
   color: #60de18;
   margin: 1em;
 }
-
 .form-inscription .inscription-form .user img {
   display: block;
   margin: 0 auto;
 }
-
 .form-inscription .inscription-form .user p {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: #60de18;
   text-align: center;
 }
-
 .form-inscription .inscription-form .user label {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
 }
-
 .form-inscription .inscription-form .user label:hover {
   cursor: pointer;
 }
-
 .form-inscription .inscription-form .user label .choosepp {
   display: block;
   text-align: center;
   margin-top: 1em;
 }
-
 .form-inscription .inscription-form .form-floating {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
 }
-
 .form-inscription .inscription-form .form-floating label {
   color: #60de18;
 }
-
 .form-inscription .inscription-form .form-floating input {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   outline: none;
   border: 2px solid #e3e3e3;
   width: 300px;
@@ -171,24 +128,10 @@
   margin: 7px 0;
   display: block;
 }
-
-.form-inscription .inscription-form .form-floating input::-webkit-input-placeholder {
-  padding-left: 14px;
-}
-
-.form-inscription .inscription-form .form-floating input:-ms-input-placeholder {
-  padding-left: 14px;
-}
-
-.form-inscription .inscription-form .form-floating input::-ms-input-placeholder {
-  padding-left: 14px;
-}
-
 .form-inscription .inscription-form .form-floating input::placeholder {
   padding-left: 14px;
 }
-
-.form-inscription .inscription-form input[type="submit"] {
+.form-inscription .inscription-form input[type=submit] {
   margin-top: 10px;
   border-radius: 20px;
   border: none;
@@ -197,46 +140,34 @@
   width: 150px;
   height: 30px;
   background-color: #60de18;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   color: white;
-  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-
 .form-inscription .inscription-form .inscription {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-
 .form-inscription .inscription-form .inscription span, .form-inscription .inscription-form .inscription a {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: #60de18;
 }
-
 .form-inscription .inscription-form .inscription a {
   text-decoration: none;
   font-weight: 700;
 }
-
 .form-inscription .inscription-form p {
   margin-top: 10px;
-  color: #fff;
 }
 
 #green-bar {
   height: 3em;
   background-color: #60de18;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #green-bar > img {
@@ -247,9 +178,9 @@
   font-family: arialroundedmt;
   src: url(fonts/arialroundedmt.tff);
 }
-
 @font-face {
   font-family: toxigenesis;
   src: url(fonts/toxigenesis.tff);
 }
+
 /*# sourceMappingURL=styles.css.map */
