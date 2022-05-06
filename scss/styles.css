@@ -9,8 +9,7 @@
 *, ::after, ::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .form-signin {
@@ -19,15 +18,12 @@
   position: relative;
   background-color: #60de18;
 }
-
 .form-signin .sign-form {
   position: absolute;
   top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .form-signin .sign-form h1 {
   color: #fff;
   margin: 10px 0;
@@ -36,7 +32,6 @@
 .form-signin .sign-form .form-floating {
   font-family: arialroundedmt;
 }
-
 .form-signin .sign-form .form-floating input {
   outline: none;
   border: 2px solid #e3e3e3;
@@ -45,24 +40,10 @@
   border-radius: 20px;
   margin: 5px 0;
 }
-
-.form-signin .sign-form .form-floating input::-webkit-input-placeholder {
-  padding-left: 14px;
-}
-
-.form-signin .sign-form .form-floating input:-ms-input-placeholder {
-  padding-left: 14px;
-}
-
-.form-signin .sign-form .form-floating input::-ms-input-placeholder {
-  padding-left: 14px;
-}
-
 .form-signin .sign-form .form-floating input::placeholder {
   padding-left: 14px;
 }
-
-.form-signin .sign-form input[type="submit"] {
+.form-signin .sign-form input[type=submit] {
   margin-top: 10px;
   border-radius: 20px;
   border: none;
@@ -73,19 +54,15 @@
   font-weight: 700;
   color: #4cac15;
 }
-
 .form-signin .sign-form .inscription {
   margin-top: 10px;
 }
-
 .form-signin .sign-form .inscription span, .form-signin .sign-form .inscription a {
   color: #fff;
 }
-
 .form-signin .sign-form .inscription a {
   text-decoration: none;
 }
-
 .form-signin .sign-form p {
   margin-top: 10px;
   color: #fff;
@@ -182,13 +159,4 @@
   font-weight: 800;
 }
 
-.navbar {
-  background-color: #60de18;
-}
-
-.navbar img {
-  height: 15%;
-  width: 15%;
-  margin-left: 1%;
-}
 /*# sourceMappingURL=styles.css.map */
