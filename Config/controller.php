@@ -56,18 +56,21 @@ class controller
             return "pas bon";
         }
     }
-    public function getAllUsers(){
-    
-    $requete = "select * from user;";
-    if($this->pdo !=null){
-         $select= $this->pdo->prepare($requete);
-         $select->execute();
-    //extraction de tous les users
-         return $select->fetchAll();
-    }else{
-        return null;
-        }    
+
+    public function getAllUsers()
+    {
+
+        $requete = "select * from user;";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($requete);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
+        }
     }
+
     public function Login($pseudo)
     {
         $r = "select * from user where pseudo ='$pseudo'";
@@ -79,7 +82,16 @@ class controller
             return "pas bon";
         }
     }
-    public function searchUser($recherche){
-        
+
+    public function searchUser($recherche)
+    {
+        $r = 'SELECT * FROM user WHERE pseudo LIKE "%' . $recherche . '%" ORDER BY id DESC';
+        if ($this->pdo != null) {
+            $r2 = $this->pdo->prepare($r);
+            $r2->execute();
+            return $r2->fetch();
+        } else {
+            return "erryu";
+        }
     }
 }

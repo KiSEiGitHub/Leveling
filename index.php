@@ -11,14 +11,6 @@ require_once("Config/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
-
-
-$bdd = new PDO("mysql:host=127.0.0.1;dbname=leveling;charset=utf8", 'root', '');
-$allusers = $bdd->query('SELECT * FROM user ORDER BY id DESC');
-if(isset($_GET['s']) AND !empty($_GET['s'])){
-    $recherche = htmlspecialchars($_GET['s']);
-    $allusers = $bdd->query('SELECT * FROM user WHERE pseudo LIKE "%'.$recherche.'%" ORDER BY id DESC');
-}
 ?>
 
 
@@ -39,29 +31,13 @@ if(isset($_GET['s']) AND !empty($_GET['s'])){
 </head>
 <body>
 <h3>Bonjour <?= $_SESSION['pseudo'] ?></h3>
+
+<!-- ça c'est juste pour le dev -->
+<!-- on supprimera après -->
 <a href="Deconnexion.php">deco</a>
 <a href="profil.php">profil</a>
-<script src="js/main.js"></script>
-<!-- BARRE DE RECHERCHE -->
-<form method="get" action="">
-    <input type="search" name="s" placeholder="Rechercher">
-    
-</form>
-<section class="afficher_utilisateur">
-    <?php
-        if($allusers->rowCount()>0){
-            while($user = $allusers->fetch()){
-                ?>
-                <p><?= $user['pseudo'];?></p>
-                <?php
-            }
-        }else{
-            ?>
-            <p>Auncun résultat trouvé</p>
-            <?php
-        }
-    ?>
+<a href="search.php">search</a>
 
-</section>
+<script src="js/main.js"></script>
 </body>
 </html>
