@@ -13,8 +13,8 @@ $setup = new setup();
 
 
 
-$all = $controler->getAllUsers();
-$ = $bdd->query('SELECT * FROM user ORDER BY id DESC');
+$bdd = new PDO("mysql:host=127.0.0.1;dbname=leveling;charset=utf8", 'root', '');
+$allusers = $bdd->query('SELECT * FROM user ORDER BY id DESC');
 if(isset($_GET['s']) AND !empty($_GET['s'])){
     $recherche = htmlspecialchars($_GET['s']);
     $allusers = $bdd->query('SELECT * FROM user WHERE pseudo LIKE "%'.$recherche.'%" ORDER BY id DESC');

@@ -13,6 +13,7 @@ $setup = new setup();
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -23,12 +24,15 @@ $setup = new setup();
     <!--  CSS  -->
     <link rel="stylesheet" href="scss/styles.css">
 </head>
+
 <body>
+
 <main class="form-signin">
     <div class="sign-form">
-        <form method="post" action="#">
+        <form method="post" action="check.php">
             <img class="mb-4" src="./assets/img/website/leveling-logo.png" alt="" height="57">
             <h1 class="connexion">CONNEXION</h1>
+
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Pseudo" name="pseudo">
             </div>
@@ -37,7 +41,7 @@ $setup = new setup();
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe" name="mdp">
             </div>
 
-            <input type="submit" name="btn" value="Se connecter">
+            <input type="submit" name="btn_Connexion" value="Se connecter">
 
             <div class="inscription">
                 <span>Toujours pas inscrit ?&nbsp;</span>
@@ -45,39 +49,9 @@ $setup = new setup();
             </div>
 
             <p>&copy; 2022</p>
-
         </form>
-        <?php
-
-        if (isset($_POST['btn'])) {
-            if (!empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
-                $FakePseudo = $_POST['pseudo'];
-                $FakePassword = $_POST['mdp'];
-
-                $UserWhoWantToLogin = $controler->Login($FakePseudo);
-            
-                
-                // LIGNE
-                $_SESSION['id'] = $UserWhoWantToLogin['id'];
-                $_SESSION['pseudo'] = $UserWhoWantToLogin['pseudo'];
-                $_SESSION['mdp'] = $UserWhoWantToLogin['password'];
-
-                if ($FakePseudo == $_SESSION['pseudo'] && md5($FakePassword) == $_SESSION['mdp']) {
-                   // header('Location: index.php');
-                } else {
-                    echo "<p>Mot de passe ou pseudo incorrect</p>";
-                }
-
-            } else {
-                echo "<p>Renseigner les champs</p>";
-            }
-        }
-
-        ?>
-
     </div>
-
 </main>
 </body>
-</html>
 
+</html>

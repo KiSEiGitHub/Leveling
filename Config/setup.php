@@ -2,7 +2,7 @@
 
 class setup
 {
-    public function FakeImage($img)
+    public function FakeImage($img,$chemin)
     {
         $name = $img['name'];
         $size = $img['size'];
@@ -24,7 +24,7 @@ class setup
                 if (in_array($imp_extention_lower, $allowed_extension)) {
                     // on déplace l'image dans le dossier de notre site
                     $newimg = uniqid("IMG-", true) . '.' . $imp_extention_lower;
-                    $path = "./assets/img/UserProfilePicture/" . $newimg;
+                    $path = $chemin . $newimg;
                     move_uploaded_file($tpm, $path);
                 } else {
                     return "err";

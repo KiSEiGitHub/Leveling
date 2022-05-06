@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 05 mai 2022 à 09:25
+-- Généré le : ven. 06 mai 2022 à 17:29
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `games` (
   `last_utilisation` date NOT NULL,
   `finish_100` int(11) NOT NULL,
   `img` longblob NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`idgames`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -78,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `DateDeNaissance` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
