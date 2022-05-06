@@ -79,5 +79,7 @@ class controller
             return "pas bon";
         }
     }
-
+    public function searchUser($recherche){
+        
+    }
 }

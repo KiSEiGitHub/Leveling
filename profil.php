@@ -1,3 +1,23 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS !-->
+    <link rel="stylesheet" href="./scss/styles.css">
+    <title>Profil</title>
+</head>
+<body>
+    <div class="navbar">
+    <img src="assets/img/website/leveling-logo.png">
+
+
+    </div>
+
+
 <?php
 session_start();
 
@@ -17,16 +37,6 @@ $user = $controler->getUser($_SESSION['id']);
 ?>
 
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profil</title>
-</head>
-<body>
 
 <!-- Donc sur la page profil il nous faut ça pour afficher les infos des user -->
 <h3>prénom : <?= $user['prenom'] ?></h3>
@@ -37,5 +47,8 @@ $user = $controler->getUser($_SESSION['id']);
 
 <!-- le chemin de l'image doit être celui la exactement pareil pour chaque user -->
 <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
+
+
+
 </body>
 </html>
