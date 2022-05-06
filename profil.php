@@ -1,3 +1,14 @@
+<?php
+session_start();
+if ($_SESSION['pseudo'] == null) {
+    header('Location: Connexion.php');
+}
+
+require_once("Config/controller.php");
+$controler = new controller("localhost", "leveling", "root", "");
+$user = $controler->getUser($_SESSION['id']);
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -11,32 +22,9 @@
     <title>Profil</title>
 </head>
 <body>
-    <div class="navbar">
-    <img src="assets/img/website/leveling-logo.png">
-
-
-    </div>
-
-
-<?php
-session_start();
-
-if($_SESSION['pseudo'] == null) {
-    header('Location: Connexion.php');
-}
-
-require_once("Config/controller.php");
-$controler = new controller("localhost", "leveling", "root", "");
-
-$user = $controler->getUser($_SESSION['id']);
-    
-
-
-
-
-?>
-
-
+<nav>
+    <img src="assets/img/website/leveling-logo.png" alt="azr">
+</nav>
 
 <!-- Donc sur la page profil il nous faut ça pour afficher les infos des user -->
 <h3>prénom : <?= $user['prenom'] ?></h3>
@@ -47,7 +35,6 @@ $user = $controler->getUser($_SESSION['id']);
 
 <!-- le chemin de l'image doit être celui la exactement pareil pour chaque user -->
 <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
-
 
 
 </body>
