@@ -34,11 +34,18 @@ $setup = new setup();
 <body>
 <?php
 $TousMesUser = $controler->getAllUsers();
+function getRandomWord($len = 10)
+{
+    $word = array_merge(range('a', 'z'), range('A', 'Z'));
+    shuffle($word);
+    return substr(implode($word), 0, $len);
+}
 
 foreach ($TousMesUser as $UnDeMesUser) {
-    $Before = $UnDeMesUser['pseudo'];
-    $After = explode(" ", $Before);
-
+    $BSONE = getRandomWord(25) . $UnDeMesUser['id'];
+    $BSTWO = getRandomWord(25) . $UnDeMesUser['id'];
+    $BSTHREE = getRandomWord(25) . $UnDeMesUser['id'];
+    $BSFOUR = getRandomWord(25) . $UnDeMesUser['id'];
     ?>
 
     <!-- Accordion -->
@@ -46,44 +53,47 @@ foreach ($TousMesUser as $UnDeMesUser) {
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#<?= $After[0] ?>"
+                        data-bs-target="#<?= $BSONE ?>"
                         aria-expanded="true" aria-controls="collapseOne">
                     <?= $UnDeMesUser['pseudo'] ?>
                 </button>
             </h2>
-            <div id="<?= $After[0] ?>" class="accordion-collapse collapse show"
+            <div id="<?= $BSONE ?>" class="accordion-collapse collapse show"
                  aria-labelledby="headingOne"
                  data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <p>bio : <?= $UnDeMesUser['bio'] ?></p>
+
+                    <!-- Add user -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#<?= $UnDeMesUser['prenom'] ?>">
+                            data-bs-target="#<?= $BSTWO ?>">
                         <i class="fa-solid fa-user-plus"></i>
                     </button>
+
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#<?= $UnDeMesUser['prenom'] ?>"
+                                    data-bs-target="#<?= $BSTHREE ?>"
                                     type="button" role="tab" aria-controls="home" aria-selected="true">
                                 Description
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#<?= $UnDeMesUser['nom'] ?>"
+                                    data-bs-target="#<?= $BSFOUR ?>"
                                     type="button" role="tab" aria-controls="profile" aria-selected="false">
                                 Bio
                             </button>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="<?= $UnDeMesUser['prenom'] ?>" role="tabpanel"
+                        <div class="tab-pane fade show active" id="<?= $BSTHREE ?>" role="tabpanel"
                              aria-labelledby="home-tab">
                             <p> <?= $UnDeMesUser['prenom'] ?></p>
                             <p> <?= $UnDeMesUser['nom'] ?></p>
                             <p> <?= $UnDeMesUser['mail'] ?></p>
                         </div>
-                        <div class="tab-pane fade" id="<?= $UnDeMesUser['nom'] ?>" role="tabpanel"
+                        <div class="tab-pane fade" id="<?= $BSFOUR ?>" role="tabpanel"
                              aria-labelledby="profile-tab">
                             <p> <?= $UnDeMesUser['bio'] ?></p>
                         </div>
@@ -94,7 +104,7 @@ foreach ($TousMesUser as $UnDeMesUser) {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="<?= $UnDeMesUser['prenom'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="<?= $BSTWO ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -104,7 +114,7 @@ foreach ($TousMesUser as $UnDeMesUser) {
                 </div>
                 <div class="modal-body">
                     <p>
-                        User : <?= $UnDeMesUser['prenom'] ?> ajouté !
+                        User : <?= $UnDeMesUser['pseudo'] ?> ajouté !
                     </p>
                 </div>
                 <div class="modal-footer">
