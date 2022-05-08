@@ -45,6 +45,29 @@ class controller
         }
     }
 
+    public function insertGame($tab, $img_pp, $img_banner, $img_others)
+    {
+        $r = "insert into games values(null, :name, :description, :genre, :plateforme, :date_sortie, :evaluation, :prix, :img_pp, :img_banner, :img_others)";
+        $data = array(
+            ":name" => $tab['name'],
+            ":description" => $tab['description'],
+            ":genre" => $tab['genre'],
+            ":plateforme" => $tab['plateforme'],
+            ":date_sortie" => $tab['date_sortie'],
+            ":evaluation" => $tab['evaluation'],
+            ":prix" => $tab['prix'],
+            ":img_pp" => $img_pp,
+            ":img_banner" => $img_banner,
+            ":img_others" => $img_others,
+
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+        }
+    }
+
     // fonction qui récupère UN SEUL utilisateur
     public function getUser($id)
     {
@@ -84,6 +107,7 @@ class controller
         }
     }
 
+
     public function searchUser($recherche)
     {
         $r = 'SELECT * FROM user WHERE pseudo LIKE "%' . $recherche . '%" ORDER BY id DESC';
@@ -95,4 +119,5 @@ class controller
             return "erryu";
         }
     }
+
 }

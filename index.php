@@ -39,6 +39,10 @@ $setup = new setup();
 <a href="Deconnexion.php">deco</a>
 <a href="profil.php">profil</a>
 <a href="search.php">search</a>
+<a href="insert_games.php">ajouter un jeu</a>
+
+<script src="js/main.js"></script>
+<!-- BARRE DE RECHERCHE -->
 
 
 <script src="js/main.js"></script>

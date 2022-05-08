@@ -38,7 +38,7 @@ $setup = new setup();
                     <img src="images/user.png" alt="">
                     <label>
                         <input type="file" name="img"/>
-                    </label>
+                    </label>               
                 </div>
             </div>
 
