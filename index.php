@@ -41,6 +41,7 @@ if(isset($_GET['s']) AND !empty($_GET['s'])){
 <h3>Bonjour <?= $_SESSION['pseudo'] ?></h3>
 <a href="Deconnexion.php">deco</a>
 <a href="profil.php">profil</a>
+<a href="insert_games.php">ajouter un jeu</a>
 <script src="js/main.js"></script>
 <!-- BARRE DE RECHERCHE -->
 <form method="get" action="">

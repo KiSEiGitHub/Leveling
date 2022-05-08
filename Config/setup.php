@@ -33,4 +33,5 @@ class setup
         }
         return $newimg;
     }
+    
 }
