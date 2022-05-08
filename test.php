@@ -92,6 +92,7 @@ foreach ($TousMesUser as $UnDeMesUser) {
                             <p> <?= $UnDeMesUser['prenom'] ?></p>
                             <p> <?= $UnDeMesUser['nom'] ?></p>
                             <p> <?= $UnDeMesUser['mail'] ?></p>
+                            <p> <?= $UnDeMesUser['lvl'] ?></p>
                         </div>
                         <div class="tab-pane fade" id="<?= $BSFOUR ?>" role="tabpanel"
                              aria-labelledby="profile-tab">
@@ -126,6 +127,30 @@ foreach ($TousMesUser as $UnDeMesUser) {
     </div>
 
 <?php } ?>
+<hr>
+
+<div style="
+display: flex;
+justify-content: center;
+">
+    <?php
+    foreach ($TousMesUser as $OKOK) {
+        ?>
+        <div class="card" style="width: 13rem; margin: 0 10px">
+            <img src="assets/img/UserProfilePicture/<?= $OKOK['img'] ?>" alt="pfp" style="width: 100%; height: 150px;">
+            <div class="card-body">
+                <h5 class="card-title"><?= $OKOK['pseudo'] ?></h5>
+                <p class="card-text">
+                    <?= $OKOK['bio'] ?>.
+                </p>
+                <button type="button" class="btn btn-primary">
+                    <i class="fa-solid fa-user-plus"></i>
+                </button>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+<hr>
 
 <script src="js/main.js"></script>
 <!-- JavaScript Bundle with Popper -->
