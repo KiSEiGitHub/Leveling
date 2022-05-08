@@ -56,13 +56,13 @@ $setup = new setup();
 
             <div class="form-floating">
                 <label for="prenom">Prénom
-                    <input type="password" class="form-control" id="floatingPassword" name="prenom">
+                    <input type="text" class="form-control" id="floatingPassword" name="prenom">
                 </label>
             </div>
 
             <div class="form-floating">
                 <label for="nom">Nom
-                    <input type="password" class="form-control" id="floatingPassword" name="nom">
+                    <input type="text" class="form-control" id="floatingPassword" name="nom">
                 </label>
             </div>
 

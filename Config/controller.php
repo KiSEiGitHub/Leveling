@@ -24,7 +24,7 @@ class controller
     // méthodes
     public function insertUser($tab, $img)
     {
-        $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance, :mail)";
+        $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance, :mail, :lvl)";
         $data = array(
             ":nom" => $tab['nom'],
             ":prenom" => $tab['prenom'],
@@ -35,7 +35,8 @@ class controller
             ":img" => $img,
             ":role" => 'admin', // ça faudra changer sur "user" quand on aura crée tous les trois nos comptes
             ":dateNaissance" => $tab['dateNaissance'],
-            ":mail" => $tab['mail']
+            ":mail" => $tab['mail'],
+            ":lvl" => 1
         );
 
         if ($this->pdo != null) {
