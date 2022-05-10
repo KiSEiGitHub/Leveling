@@ -2,7 +2,7 @@
 
 class setup
 {
-    public function FakeImage($img,$chemin)
+    public function FakeImage($img, $chemin)
     {
         $name = $img['name'];
         $size = $img['size'];
@@ -33,5 +33,79 @@ class setup
         }
         return $newimg;
     }
-    
+
+    public function getLvl($lvl)
+    {
+        $level = "";
+        $ranks = "";
+
+        switch ($lvl) {
+            case '1' :
+            {
+                $level = "assets/img/ranks/novice/icon.png";
+                $ranks = "assets/img/ranks/novice/text.png";
+                break;
+            }
+            case '2' :
+            {
+                $level = "assets/img/ranks/apprentice/icon.png";
+                $ranks = "assets/img/ranks/apprentice/text.png";
+                break;
+            }
+            case '3' :
+            {
+                $level = "assets/img/ranks/adept/icon.png";
+                $ranks = "assets/img/ranks/adept/text.png";
+                break;
+            }
+            case '4' :
+            {
+                $level = "assets/img/ranks/veteran/icon.png";
+                $ranks = "assets/img/ranks/veteran/text.png";
+                break;
+            }
+            case '5' :
+            {
+                $level = "assets/img/ranks/pro/icon.png";
+                $ranks = "assets/img/ranks/pro/text.png";
+                break;
+            }
+            case '6' :
+            {
+                $level = "assets/img/ranks/expert/icon.png";
+                $ranks = "assets/img/ranks/expert/text.png";
+                break;
+            }
+            case '7' :
+            {
+                $level = "assets/img/ranks/champion/icon.png";
+                $ranks = "assets/img/ranks/champion/text.png";
+                break;
+            }
+            case '8' :
+            {
+                $level = "assets/img/ranks/master/icon.png";
+                $ranks = "assets/img/ranks/master/text.png";
+                break;
+            }
+            case '9' :
+            {
+                $level = "assets/img/ranks/grand_master/icon.png";
+                $ranks = "assets/img/ranks/grand_master/text.png";
+                break;
+            }
+            case '10' :
+            {
+                $level = "assets/img/ranks/legend/icon.png";
+                $ranks = "assets/img/ranks/legend/text.png";
+                break;
+            }
+            default :
+            {
+                return null;
+            }
+        }
+        return [$level, $ranks];
+    }
+
 }

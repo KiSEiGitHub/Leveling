@@ -1,0 +1,36 @@
+/*Inclure la possibilité de changer l'image de couverture*/
+
+#cover-image {
+  width: 100%;
+  height: 15em;
+  background-color: #cfcfcf;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+
+  #username {
+    font-size: 2em;
+    align-self: flex-end;
+    color: white;
+    font-family: toxigenesis;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    height: 3em;
+    align-self: flex-end;
+
+    li {
+      color: white;
+      border-right: 1px solid white;
+      display: inline;
+      align-self: flex-end;
+      padding: 0 10px;
+      font-size: 1.2em;
+    }
+  }
+}

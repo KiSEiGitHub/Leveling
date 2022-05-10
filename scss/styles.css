@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "arialroundedmt";
   src: url("./assets/fonts/arialrounded.tff") format("truetype");
@@ -159,13 +160,123 @@
   font-weight: 800;
 }
 
-nav {
+#green-bar {
   width: 100%;
   height: 60px;
   background-color: #60de18;
+  display: flex;
+  justify-content: space-between;
 }
-nav img {
+#green-bar img {
+  display: block;
+  margin-left: 20px;
+  align-self: flex-end;
+}
+#green-bar #search {
+  display: block;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  outline: none;
+  align-self: center;
+  height: 25px;
+}
+#green-bar #search::placeholder {
+  padding-left: 15px;
+}
+
+/*Inclure la possibilité de changer l'image de couverture*/
+#cover-image {
   width: 100%;
+  height: 15em;
+  background-color: #cfcfcf;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+}
+#cover-image #username {
+  font-size: 2em;
+  align-self: flex-end;
+  color: white;
+  font-family: toxigenesis;
+}
+#cover-image ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  height: 3em;
+  align-self: flex-end;
+}
+#cover-image ul li {
+  color: white;
+  border-right: 1px solid white;
+  display: inline;
+  align-self: flex-end;
+  padding: 0 10px;
+  font-size: 1.2em;
+}
+
+/*Inclure la possibilité de changer la photo de profil*/
+#profile-picture {
+  position: absolute;
+  z-index: 1999;
+  top: 110px;
+  left: 45px;
+}
+#profile-picture #pp {
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+  margin: 0 0 1em 0;
+  position: absolute;
+  z-index: 2;
+}
+#profile-picture #lvl-icon {
+  margin-top: 12.5em;
+  position: absolute;
+  left: 88px;
+  z-index: 3;
+}
+#profile-picture #lvl-rank {
+  position: absolute;
+  z-index: 3;
+  top: 270px;
+  left: -77px;
+}
+
+#about-block {
+  margin: 12em 0 0 3em;
+  border-radius: 15px;
+  background-color: white;
+  height: auto;
+  width: 15em;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+#about-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+}
+#about-block ul {
+  margin: 1em 0 1em 2em;
+  list-style-type: circle;
+}
+#about-block ul li {
+  padding: 0.5em;
+}
+#about-block ul li span {
+  color: #60de18;
+  font-weight: 500;
+}
+
+#main-block {
+  margin: 0 auto;
+  max-width: 70em;
+  background-color: antiquewhite;
 }
 
 /*# sourceMappingURL=styles.css.map */
