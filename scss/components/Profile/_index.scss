@@ -2,9 +2,12 @@
 @import "./coverImage";
 @import "./profilePicture";
 @import "./aboutBlock";
+@import "./feedBlock";
+@import "./bio";
+@import "./postBlock";
+@import "./chat";
 
 #main-block {
   margin: 0 auto;
   max-width: 70em;
-  background-color: antiquewhite;
 }

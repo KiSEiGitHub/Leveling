@@ -26,6 +26,12 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 <body>
 
+<!--Barre verte-->
+<div id="green-bar">
+    <img src="images/leveling-logo.png" alt="" width="200em">
+    <input type="text" name="search" placeholder="Rechercher" id="search">
+</div>
+
 <!--Block principal-->
 <div id="main-block">
     <!--Image de couverture-->
@@ -73,8 +79,80 @@ $ranks = $setup->getLvl($user['lvl']);
         </ul>
     </div>
 
-    <div id="feed-block"></div>
+    <!--Icônes Ajouter un ami + Envoyer un message -->
+    <div class="icons-friend-message">
+        <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
+        <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
+    </div>
 
+    <div id="feed-block">
+        <h3>ACTUALITÉS</h3>
+        <ul>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>@Mirinae</span>
+                a rejoint le groupe
+                <span>#SORPlayers</span>
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px"> <img src="images/user-circle.png" alt=""
+                                                                            width="35px">
+                <span>@Mirinae</span> et <span>@KiSei</span>
+                sont devenus amis
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>@Mirinae</span> a obtenu <span>Assassin's Creed : Odyssey</span>
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>100</span> jeux terminés à 100%
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>@Mirinae</span> stream <span>Beyond Good and Evil 2</span>
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px"> <img src="images/user-circle.png" alt=""
+                                                                            width="35px">
+                <span>@Mirinae</span> et <span>@JLSermax</span> jouent à <span>Watch Dogs : Legion</span>
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>@Mirinae</span> a rejoint le groupe <span>#Vaporwave</span>
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>@Mirinae</span> a terminé <span>For Honor</span> à <span>100%</span>
+            </li>
+            <li>
+                <img src="images/user-circle.png" alt="" width="35px">
+                <span>@Mirinae</span> a terminé <span>South park : L'annale du destin</span>
+            </li>
+        </ul>
+    </div>
+
+    <!--Bio-->
+    <div id="bio">
+        <p>BIO : PC player ONLY, Horror and survival games lover</p>
+    </div>
+
+    <!--Block pour poster un message-->
+    <div id="post-block">
+        <div id="share">
+            <p>Que souhaitez-vous partager ?</p>
+            <div id="icons">
+                <img src="assets/img/icons/file-image-solid.png" alt="" width="15em">
+                <img src="assets/img/icons/file-video-solid.png" alt="" width="15em">
+                <img src="assets/img/icons/calendar-day-solid.png" alt="" width="18em">
+                <img src="assets/img/icons/link-solid.png" alt="" width="25em">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Icône du chat-->
+<div id="chat">
+    <img src="assets/img/icons/comment-dots-solid.png" alt="" width="50px">
 </div>
 
 

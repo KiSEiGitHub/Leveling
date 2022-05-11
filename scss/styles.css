@@ -197,25 +197,37 @@
 }
 #cover-image #username {
   font-size: 2em;
+  margin: 0 0 10px 290px;
   align-self: flex-end;
   color: white;
   font-family: toxigenesis;
+  width: 9.5em;
 }
 #cover-image ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   list-style-type: none;
-  height: 3em;
+  height: 4em;
   align-self: flex-end;
+  font-weight: 600;
 }
 #cover-image ul li {
   color: white;
   border-right: 1px solid white;
   display: inline;
   align-self: flex-end;
-  padding: 0 10px;
+  padding: 15px 20px;
   font-size: 1.2em;
+}
+#cover-image button {
+  height: 3em;
+  width: 10em;
+  border: none;
+  background: none;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px;
+  color: white;
+  position: absolute;
 }
 
 /*Inclure la possibilité de changer la photo de profil*/
@@ -254,6 +266,7 @@
   width: 15em;
   font-family: "Quicksand", sans-serif;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
 }
 #about-block h3 {
   text-align: center;
@@ -273,10 +286,76 @@
   font-weight: 500;
 }
 
+#feed-block {
+  margin: 12em 0 0 20em;
+  width: 47em;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+#feed-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+}
+#feed-block ul {
+  margin: 1em 0 1em 2em;
+  list-style-type: circle;
+}
+#feed-block ul li {
+  padding: 0.5em;
+}
+#feed-block ul li span {
+  color: #60de18;
+  font-weight: 500;
+}
+
+#bio {
+  font-weight: 600;
+  margin: 10px 0 0 18.5em;
+}
+
+.icons-friend-message {
+  margin-left: 65em;
+  position: absolute;
+}
+.icons-friend-message img {
+  margin: 8px 2px;
+}
+
+#post-block {
+  margin: 3em 0 0 20em;
+}
+#post-block #icons {
+  padding: 0.5em 1em;
+}
+#post-block #share {
+  width: 47em;
+  height: 5em;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+#post-block #share p {
+  margin-left: 10px;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+}
+
+#chat {
+  display: flex;
+  justify-content: flex-end;
+}
+#chat img {
+  margin: 2em;
+}
+
 #main-block {
   margin: 0 auto;
   max-width: 70em;
-  background-color: antiquewhite;
 }
 
 /*# sourceMappingURL=styles.css.map */

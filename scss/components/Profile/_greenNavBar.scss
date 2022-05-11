@@ -1,28 +1,28 @@
 #green-bar {
-  width: 100%;
-  height: 60px;
-  background-color: #60de18;
+    width: 100%;
+    height: 60px;
+    background-color: #60de18;
 
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 
-  img {
-    display: block;
-    margin-left: 20px;
-    align-self: flex-end;
-  }
-
-  #search {
-    display: block;
-    margin-right: 20px;
-    border-radius: 20px;
-    border: 1px solid gray;
-    outline: none;
-    align-self: center;
-    height: 25px;
-
-    &::placeholder {
-      padding-left: 15px;
+    img {
+        display: block;
+        margin-left: 20px;
+        align-self: flex-end;
     }
-  }
+
+    #search {
+        display: block;
+        margin-right: 20px;
+        border-radius: 20px;
+        border: 1px solid gray;
+        outline: none;
+        align-self: center;
+        height: 25px;
+
+        &::placeholder {
+            padding-left: 15px;
+        }
+    }
 }
