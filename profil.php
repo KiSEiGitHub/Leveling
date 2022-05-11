@@ -134,7 +134,9 @@ $ranks = $setup->getLvl($user['lvl']);
 
     <!--Bio-->
     <div id="bio">
-        <p>BIO : PC player ONLY, Horror and survival games lover</p>
+        <p>
+            Bio : <?= $user['bio'] ?>
+        </p>
     </div>
 
     <!--Block pour poster un message-->
