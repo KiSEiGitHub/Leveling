@@ -40,8 +40,20 @@ $setup = new setup();
                 <input type="date" name="date_sortie"/> 
             </label>
             <br> <br>
-            <label for="evaluation">Evaluation du jeu : /20
-                <input type="text" name="evaluation"/> 
+            <label for="note_test">Note de test : /20
+                <input type="text" name="note_test"/> 
+            </label>
+            <br> <br>
+            <label for="note_avis">Note de avis : /20
+                <input type="text" name="note_avis"/> 
+            </label>
+            <br> <br>
+            <label for="modele_eco">Modele économique : 
+                <input type="text" name="modele_eco"/> 
+            </label>
+            <br> <br>
+            <label for="classification">Classification : 
+                <input type="text" name="classification"/> 
             </label>
             <br> <br>
             <label for="prix">Prix : 
@@ -69,7 +81,8 @@ $setup = new setup();
         if(isset($_POST['btn']) && isset($_FILES['img_pp']) && isset($_FILES['img_banner']) && isset($_FILES['img_others'])){
             if(
                 !empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['genre']) && !empty($_POST['date_sortie'])
-                && !empty($_POST['evaluation']) && !empty($_POST['prix'])  && !empty($_POST['plateforme']) 
+                && !empty($_POST['note_test']) && !empty($_POST['note_avis']) && !empty($_POST['modele_eco']) && !empty($_POST['classification'])
+                && !empty($_POST['prix']) && !empty($_POST['plateforme']) 
                 && !empty($_FILES['img_pp']) && !empty($_FILES['img_banner']) && !empty($_FILES['img_others'])
             ){
                 if ($_FILES['img_pp']['name'] == '' &&  $_FILES['img_banner']['name'] == '' && $_FILES['img_others']['name'] == '') {
