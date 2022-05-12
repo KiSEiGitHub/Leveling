@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 08 mai 2022 à 16:30
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Généré le : jeu. 12 mai 2022 à 10:10
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `lvl` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -100,7 +100,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`, `mail`, `lvl`) VALUES
 (20, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-6272c34bab0848.33289667.jpg', 'admin', '0200-08-04', 'tom.lau.974@gmail.com', 0),
-(21, 'AlarÃ§on', 'Salim', 'de888202780abc6fac34f876ded670bf', 19, 'JL SerMaX', 'Penta chaque game viens pas test', 'IMG-627383326958d7.80933972.jpg', 'admin', '20003-01-25', 'alarconsalim95@gmail.com', 0);
+(21, 'AlarÃ§on', 'Salim', 'de888202780abc6fac34f876ded670bf', 19, 'JL SerMaX', 'Penta chaque game viens pas test', 'IMG-627383326958d7.80933972.jpg', 'admin', '20003-01-25', 'alarconsalim95@gmail.com', 0),
+(25, 'Garcia', 'Clara', '2c6ab096dddc9c5e2921f2cc1e95bdc5', 23, 'Mirinae', 'Carglass rÃ©pare', 'IMG-627cbd751cc748.34784138.jpg', 'admin', '1998-09-09', 'clara.garcia.contact@gmail.com', 10);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
