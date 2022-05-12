@@ -41,6 +41,7 @@ $setup = new setup();
 <a href="profil.php">profil</a>
 <a href="search.php">search</a>
 <a href="insert_games.php">ajouter un jeu</a>
+<a href="testpays.php">Pays</a>
 
 <!-- Javascript -->
 <script src="js/main.js"></script>

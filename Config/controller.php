@@ -124,4 +124,17 @@ class controller
         }
     }
 
+    public function selectAllPays()
+    {
+        $requete = "select * from pays;";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($requete);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
+        }
+    }
+
 }
