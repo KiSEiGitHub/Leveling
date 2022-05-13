@@ -8,10 +8,11 @@
     z-index: 0;
     display: flex;
     justify-content: space-between;
+    background-size: cover;
 
     #username {
         font-size: 2em;
-        margin: 0 0 10px 290px;
+        margin: 0 0 10px 300px;
         align-self: flex-end;
         color: white;
         font-family: toxigenesis;
@@ -29,11 +30,28 @@
 
         li {
             color: white;
+            display: inline;
+            align-self: flex-end;
+            padding: 15px 20px;
+            font-size: 1.2em;
+
+            a{
+                text-decoration: none;
+                color: white;
+            } 
+
+        }
+
+        .border-white {
+            color: white;
             border-right: 1px solid white;
             display: inline;
             align-self: flex-end;
             padding: 15px 20px;
             font-size: 1.2em;
+
+
+            
         }
     }
 
