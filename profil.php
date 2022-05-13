@@ -33,7 +33,9 @@ $ranks = $setup->getLvl($user['lvl']);
 
     <!--Barre de navigation-->
     <div id="green-bar">
-        <h1>LEVELING</h1>
+        <h1>
+            <a href="index.php">LEVELING</a>
+        </h1>
         <div class="nav-icons">
             <input type="text" name="search" placeholder="Rechercher" id="search">
             <?php
@@ -62,7 +64,7 @@ $ranks = $setup->getLvl($user['lvl']);
             </p>
             <ul>
                 <li class="border-white"><a href=" ./profil.php">Description</a></li>
-                <li class="border-white"><a href=" ./profil_jeux.php">Jeux</a></li>
+                <li class="border-white"><a href="Jeux/index.php">Jeux</a></li>
                 <li class="border-white"><a href=" ./profil_groupes.php">Groupes</a></li>
                 <li><a href="./profil_amis.php">Amis</a></li>
             </ul>

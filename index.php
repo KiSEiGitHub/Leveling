@@ -1,15 +1,16 @@
 <?php
 session_start();
 
-if ($_SESSION['pseudo'] == null) {
-    header('Location: Connexion.php');
-    exit;
-}
-
 require_once("Config/controller.php");
 require_once("Config/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
+
+if (isset($_SESSION['pseudo'])) {
+    $user = $controler->getUser($_SESSION['id']);
+} else {
+    $user = null;
+}
 
 ?>
 
@@ -33,7 +34,28 @@ $setup = new setup();
 </head>
 
 <body>
-<h3>Bonjour <?= $_SESSION['pseudo'] ?></h3>
+<!--Barre de navigation-->
+<div id="green-bar">
+    <h1>
+        <a href="index.php">LEVELING</a>
+    </h1>
+    <div class="nav-icons">
+        <input type="text" name="search" placeholder="Rechercher" id="search">
+        <?php
+        if (isset($_SESSION['pseudo'])) {
+            ?>
+            <a href="./profil.php">
+                <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+            </a>
+            <?php
+        } else { ?>
+            <a href="./profil.php">
+                <img class="nav-user" src="./images/user-circle.png" alt="">
+            </a>
+        <?php } ?>
+        <a href="./settings.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
+    </div>
+</div>
 
 <!-- ça c'est juste pour le dev -->
 <!-- on supprimera après -->

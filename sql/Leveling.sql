@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 mai 2022 à 10:10
+-- Généré le : jeu. 12 mai 2022 à 10:06
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -91,7 +91,7 @@ VALUES (2,
         des compÃ©titions oÃ¹ les enjeux sont Ã©levÃ©s et dâ€™excitantes batailles JcJ en Ã©quipe. Tom Clancyâ€™s Rainbow SixÂ® Siege propose une expÃ©rience en constante expansion oÃ¹ les occasions de parfaire votre stratÃ©gie et de mener votre Ã©quipe Ã  la victoire sont illimitÃ©es.', 'Jeu de tir Ã  la premiÃ¨re personn', 'PC/Playstation/Xbox', '2015-11-26', '17', 0, '', 0, '8,
         00 ', 'IMG-6277c4d6a07249.43984088.png', 'IMG-6277c4d6a0a457.72092173.jpg', 'IMG-6277c4d6a0cbc4.07722543.jpg'),
 (10, 'Tom Clancyâ€™s The Division 2', 'Dans The Division 2,
-        explorez le monde ouvert dynamique et hostile de Washington DC et sauvez une nation au bord de l\'effondrement. Partez au combat avec vos amis en coop en ligne ou affrontez d\'autres joueurs en JcJ compÃ©titif.', 'Tir tactique et d\'action-RPG',
+        explorez le monde ouvert dynamique et hostile de Washington DC et sauvez une nation au bord de l\'effondrement. Partez au combat avec vos Amis en coop en ligne ou affrontez d\'autres joueurs en JcJ compÃ©titif.', 'Tir tactique et d\'action-RPG',
         'PC', '2019-02-07', '16', 0, '', 0, '18,00', 'IMG-6277c6a22b28e2.44535644.jpg',
         'IMG-6277c6a22b50d9.69718513.png', 'IMG-6277c6a22b6de6.00832467.jpg'),
        (11, 'Watch_Dogs 2',
@@ -99,7 +99,7 @@ VALUES (2,
         'Aventure / Infiltation', 'PC/Playstation/Xbox', '2016-11-15', '15', 0, '', 0, '59,99',
         'IMG-6277c834d664b1.00746124.jpg', 'IMG-6277c834d68705.79138266.jpg', 'IMG-6277c834d6a5d1.31294186.jpg'),
        (12, 'Just Dance 2022',
-        'Ramenez vos amis et votre famille : c\'est l\'heure de monter le volume et de se lÃ¢cher ! Avec plus de 79 millions d\'exemplaires vendus dans le monde,
+        'Ramenez vos Amis et votre famille : c\'est l\'heure de monter le volume et de se lÃ¢cher ! Avec plus de 79 millions d\'exemplaires vendus dans le monde,
         la plus grande franchise de jeu vidÃ©o musical de tous les temps est de retour cet automne avec Just Dance 2022 et ses 40 nouvelles chansons dans des univers inÃ©dits.', 'Dance ', 'Switch', '2021-04-04', '16', 0, '', 0, '59,
         99 ', 'IMG-6277cbba06bf30.27950667.jpg', 'IMG-6277cbba06e8f9.37939005.jpg', 'IMG-6277cbba070b55.21555159.png'),
 (13, 'Trackmania', 'DONNEZ LIBRE COURS Ã€ VOTRE CRÃ‰ATIVITÃ‰ CrÃ©ez des circuits et faites-les tester sur des serveurs dÃ©diÃ©s.', 'Racing', 'PC', '2020-07-01', '17', 0, '', 0, '9,
