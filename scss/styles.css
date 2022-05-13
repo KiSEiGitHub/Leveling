@@ -1,9 +1,5 @@
 @charset "UTF-8";
 @font-face {
-  font-family: "arialroundedmt";
-  src: url("./assets/fonts/arialrounded.tff") format("truetype");
-}
-@font-face {
   font-family: "toxigenesis";
   src: url("./assets/fonts/toxigenesis.tff") format("truetype");
 }
@@ -11,13 +7,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
 
 .form-signin {
   height: 100vh;
   width: 100%;
   position: relative;
-  background-color: #60de18;
+  background-color: #2A2B2F;
+  font-family: "Quicksand", sans-serif;
 }
 .form-signin .sign-form {
   position: absolute;
@@ -51,9 +49,9 @@
   outline: none;
   padding: 5px 15px;
   width: auto;
-  background-color: #fff;
+  background-color: #1991FF;
   font-weight: 700;
-  color: #4cac15;
+  color: white;
 }
 .form-signin .sign-form .inscription {
   margin-top: 10px;
@@ -73,11 +71,7 @@
 #green-bar {
   width: 100%;
   height: 3em;
-  background-color: #60de18;
-  position: fixed;
-}
-#green-bar img {
-  padding: 1.46em 0 0 3em;
+  background-color: #2A2B2F;
 }
 
 .form-inscription {
@@ -110,7 +104,7 @@
 .form-inscription .inscription-form form .form-floating label {
   display: block;
   text-align: center;
-  color: #4cac15;
+  color: #2A2B2F;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
 }
@@ -131,7 +125,7 @@
   outline: none;
   padding: 5px 15px;
   color: #fff;
-  background-color: #60de18;
+  background-color: #1991FF;
   width: 150px;
   height: 30px;
   font-family: "Quicksand", sans-serif;
@@ -141,14 +135,14 @@
 .form-inscription .inscription-form form .inscription span {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
-  color: #60de18;
+  color: #2A2B2F;
   display: block;
   text-align: center;
   margin-top: 15px;
 }
 .form-inscription .inscription-form form .inscription span a {
   font-family: "Quicksand", sans-serif;
-  color: #60de18;
+  color: #2A2B2F;
   text-decoration-thickness: 2px;
   font-weight: 700;
 }
@@ -163,14 +157,34 @@
 #green-bar {
   width: 100%;
   height: 60px;
-  background-color: #60de18;
+  background-color: #2A2B2F;
   display: flex;
   justify-content: space-between;
 }
-#green-bar img {
-  display: block;
-  margin-left: 20px;
-  align-self: flex-end;
+#green-bar h1 {
+  color: white;
+  font-family: toxigenesis;
+  margin: 30px 0 0 20px;
+}
+#green-bar .nav-icons {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  justify-content: flex-end;
+}
+#green-bar .nav-icons input {
+  margin: 0 0 0 10px;
+}
+#green-bar .nav-icons input#search {
+  padding-left: 10px;
+}
+#green-bar .nav-icons img {
+  margin-right: 1.2em;
+  height: 30px;
+  width: 30px;
+}
+#green-bar .nav-icons .nav-user {
+  border-radius: 50%;
 }
 #green-bar #search {
   display: block;
@@ -194,10 +208,11 @@
   z-index: 0;
   display: flex;
   justify-content: space-between;
+  background-size: cover;
 }
 #cover-image #username {
   font-size: 2em;
-  margin: 0 0 10px 290px;
+  margin: 0 0 10px 300px;
   align-self: flex-end;
   color: white;
   font-family: toxigenesis;
@@ -213,6 +228,17 @@
   font-weight: 600;
 }
 #cover-image ul li {
+  color: white;
+  display: inline;
+  align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+#cover-image ul li a {
+  text-decoration: none;
+  color: white;
+}
+#cover-image ul .border-white {
   color: white;
   border-right: 1px solid white;
   display: inline;
@@ -282,7 +308,7 @@
   padding: 0.5em;
 }
 #about-block ul li span {
-  color: #60de18;
+  color: #1991FF;
   font-weight: 500;
 }
 
@@ -293,6 +319,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
+  font-family: "Quicksand", sans-serif;
 }
 #feed-block h3 {
   text-align: center;
@@ -308,7 +335,7 @@
   padding: 0.5em;
 }
 #feed-block ul li span {
-  color: #60de18;
+  color: #1991FF;
   font-weight: 500;
 }
 

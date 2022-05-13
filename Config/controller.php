@@ -47,14 +47,18 @@ class controller
 
     public function insertGame($tab, $img_pp, $img_banner, $img_others)
     {
-        $r = "insert into games values(null, :name, :description, :genre, :plateforme, :date_sortie, :evaluation, :prix, :img_pp, :img_banner, :img_others)";
+        $r = "insert into games values(null, :name, :description, :genre, :plateforme, :date_sortie, :note_test, :note_avis, :modele_eco, :classification, 
+        :prix, :img_pp, :img_banner, :img_others)";
         $data = array(
             ":name" => $tab['name'],
             ":description" => $tab['description'],
             ":genre" => $tab['genre'],
             ":plateforme" => $tab['plateforme'],
             ":date_sortie" => $tab['date_sortie'],
-            ":evaluation" => $tab['evaluation'],
+            ":note_test" => $tab['note_test'],
+            ":note_avis" => $tab['note_avis'],
+            ":modele_eco" => $tab['modele_eco'],
+            ":classification" => $tab['classification'],
             ":prix" => $tab['prix'],
             ":img_pp" => $img_pp,
             ":img_banner" => $img_banner,
@@ -117,6 +121,19 @@ class controller
             return $r2->fetch();
         } else {
             return "erryu";
+        }
+    }
+
+    public function selectAllPays()
+    {
+        $requete = "select * from pays;";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($requete);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
         }
     }
 
