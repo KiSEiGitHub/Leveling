@@ -1,1 +1,30 @@
 // l'index.scss de chaque dossier doit SEULEMENT contenir l'importation de tous les petits fichers scss que vous faite SI vous le voulez
+
+@import "OneGame";
+
+#games-block {
+  margin: 0 auto;
+  max-width: 70em;
+  height: auto;
+
+  h1 {
+    margin-top: 25px;
+  }
+
+  #AllGames {
+    max-width: 70em;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    img {
+      width: 200px;
+      border-radius: 25px;
+      display: block;
+      margin: 10px;
+    }
+
+  }
+}
