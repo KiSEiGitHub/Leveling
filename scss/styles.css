@@ -373,6 +373,10 @@
   color: #d4d4d4;
   padding: 0.4em 0.1em;
 }
+#post-block #share #icons {
+  display: block;
+  margin-top: -10px;
+}
 
 #chat {
   display: flex;
