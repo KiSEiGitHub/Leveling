@@ -34,7 +34,7 @@ if (isset($_SESSION['pseudo'])) {
         <?php
         if (isset($_SESSION['pseudo'])) {
             ?>
-            <a href="profil.php">
+            <a href="../profil.php">
                 <img src="../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
             </a>
             <?php
