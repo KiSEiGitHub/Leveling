@@ -161,10 +161,12 @@
   display: flex;
   justify-content: space-between;
 }
-#green-bar h1 {
+#green-bar h1 a {
   color: white;
   font-family: toxigenesis;
   margin: 30px 0 0 20px;
+  text-decoration: none;
+  display: block;
 }
 #green-bar .nav-icons {
   display: flex;
@@ -251,7 +253,7 @@
   width: 10em;
   border: none;
   background: none;
-  text-shadow: black 1px 0 10px;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px;
   color: white;
   position: absolute;
 }
@@ -371,6 +373,10 @@
   color: #d4d4d4;
   padding: 0.4em 0.1em;
 }
+#post-block #share #icons {
+  display: block;
+  margin-top: -10px;
+}
 
 #chat {
   display: flex;
@@ -383,6 +389,128 @@
 #main-block {
   margin: 0 auto;
   max-width: 70em;
+  height: auto;
+}
+
+#OneGame-block {
+  margin: 20px auto 0;
+  max-width: 70em;
+  height: auto;
+}
+#OneGame-block #frontDescription {
+  display: flex;
+}
+#OneGame-block #frontDescription .img-container img {
+  width: 300px;
+}
+#OneGame-block #frontDescription .tagert-block-game {
+  margin: 0 15px;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame {
+  width: 100%;
+  height: 350px;
+  border: 1px solid #c7c7c7;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-text {
+  padding: 15px;
+  font-size: 1.2em;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame hr {
+  width: 100%;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  height: 180px;
+  align-items: center;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #c7c7c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle p {
+  font-size: 1.7em;
+}
+#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .descrioption-cercle-text {
+  margin: 0 10px;
+}
+#OneGame-block #bottomDescription {
+  display: flex;
+  margin-top: 15px;
+}
+#OneGame-block #bottomDescription #about {
+  width: 430px;
+  height: 500px;
+  margin: 0 15px;
+  border: 1px solid #c7c7c7;
+  border-radius: 25px;
+}
+#OneGame-block #bottomDescription #about h2 {
+  text-align: center;
+  margin: 10px 0;
+}
+#OneGame-block #bottomDescription #about .flex-item-about {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+#OneGame-block #bottomDescription #about .flex-item-about .circle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #646464;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+#OneGame-block #bottomDescription #about .flex-item-about p:nth-child(2) {
+  color: grey;
+  font-weight: 600;
+  margin-right: 5px;
+}
+#OneGame-block #bottomDescription #about .flex-item-about p:nth-child(3) {
+  color: #1991FF;
+  font-weight: 600;
+}
+#OneGame-block #bottomDescription #img-container {
+  margin: 0 15px;
+  width: 100%;
+  height: 0;
+  border-radius: 25px;
+}
+#OneGame-block #bottomDescription #img-container img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
+#games-block {
+  margin: 0 auto;
+  max-width: 70em;
+  height: auto;
+}
+#games-block h1 {
+  margin-top: 25px;
+}
+#games-block #AllGames {
+  max-width: 70em;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#games-block #AllGames img {
+  width: 200px;
+  border-radius: 25px;
+  display: block;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
