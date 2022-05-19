@@ -137,4 +137,29 @@ class controller
         }
     }
 
+    public function getAllGames()
+    {
+        $requete = "select * from games;";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($requete);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
+        }
+    }
+
+    public function OneGame($id)
+    {
+        $r = 'SELECT * FROM games WHERE idinsert_games =' . $id;
+        if ($this->pdo != null) {
+            $r2 = $this->pdo->prepare($r);
+            $r2->execute();
+            return $r2->fetch();
+        } else {
+            return "err";
+        }
+    }
+
 }
