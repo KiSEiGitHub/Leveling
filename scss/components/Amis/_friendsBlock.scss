@@ -1,0 +1,46 @@
+#friends-block{
+    margin: 9em 0 0 0;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    position: absolute;
+    font-family: 'Quicksand', sans-serif;
+    background-color: white;
+    width: 70em;
+    flex-wrap: wrap;
+
+    h3 {
+        text-align: center;
+        color: #d4d4d4;
+        padding: 0.4em 0.1em;
+        border-bottom: 1px solid #F5F5F5
+
+    }
+
+    .left-side, .right-side {
+        width: 50%;
+        position: inherit;
+    }
+
+    .right-side {
+        margin-left:50%;
+    }
+
+    .friend {
+        background-color: aliceblue;
+        font-size: 2em;
+        font-family: toxigenesis;
+        display: flex;
+        align-items: center;
+        padding-left: 1em;
+        margin: 0.2em 0;
+
+
+        a{
+            text-decoration: none;
+            font-family: toxigenesis;
+            padding-left: 0.5em;
+        }
+
+    }
+
+}

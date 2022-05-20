@@ -11,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
     </style>
     <link rel="stylesheet" href="scss/styles.css">
-    <title>Préférences du profil</title>
+    <title>Jeux</title>
 </head>
 
 <body>

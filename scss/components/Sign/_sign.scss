@@ -19,8 +19,6 @@
 
     .form-floating {
 
-      font-family: arialroundedmt;
-
       input {
         outline: none;
         border: 2px solid #e3e3e3;
@@ -29,11 +27,11 @@
         border-radius: 20px;
         margin: 5px 0;
 
-        &::placeholder {
-          padding-left: 14px;
-        }
-
       }
+
+        input#floatingInput, input#floatingPassword {
+        padding-left: 10px;
+        }
 
     }
 
@@ -58,16 +56,11 @@
         color: #fff;
       }
 
-      a {
-        text-decoration: none;
-      }
-
     }
 
     p {
       margin-top: 10px;
       color: #fff;
-      font-family: Arialroundedmt;
     }
 
   }
