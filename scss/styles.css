@@ -3,11 +3,13 @@
   font-family: "toxigenesis";
   src: url("./assets/fonts/toxigenesis.tff") format("truetype");
 }
+
 *, ::after, ::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .form-signin {
@@ -15,22 +17,23 @@
   width: 100%;
   position: relative;
   background-color: #2A2B2F;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
+
 .form-signin .sign-form {
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
+
 .form-signin .sign-form h1 {
   color: #fff;
   margin: 10px 0;
   font-family: toxigenesis;
 }
-.form-signin .sign-form .form-floating {
-  font-family: arialroundedmt;
-}
+
 .form-signin .sign-form .form-floating input {
   outline: none;
   border: 2px solid #e3e3e3;
@@ -39,10 +42,12 @@
   border-radius: 20px;
   margin: 5px 0;
 }
-.form-signin .sign-form .form-floating input::placeholder {
-  padding-left: 14px;
+
+.form-signin .sign-form .form-floating input#floatingInput, .form-signin .sign-form .form-floating input#floatingPassword {
+  padding-left: 10px;
 }
-.form-signin .sign-form input[type=submit] {
+
+.form-signin .sign-form input[type="submit"] {
   margin-top: 10px;
   border-radius: 20px;
   border: none;
@@ -53,15 +58,15 @@
   font-weight: 700;
   color: white;
 }
+
 .form-signin .sign-form .inscription {
   margin-top: 10px;
 }
+
 .form-signin .sign-form .inscription span, .form-signin .sign-form .inscription a {
   color: #fff;
 }
-.form-signin .sign-form .inscription a {
-  text-decoration: none;
-}
+
 .form-signin .sign-form p {
   margin-top: 10px;
   color: #fff;
@@ -80,38 +85,51 @@ input#floatingInput, input#floatingPassword {
 .form-inscription {
   width: 100%;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .form-inscription .inscription-form form {
   width: 300px;
   height: auto;
 }
+
 .form-inscription .inscription-form form .profile-picture .user img {
   display: block;
   margin: 0 auto;
   width: 150px;
 }
+
 .form-inscription .inscription-form form .profile-picture .user label {
   display: block;
   margin-top: 15px;
 }
+
 .form-inscription .inscription-form form .profile-picture .user label input {
   display: block;
   margin: 0 auto;
 }
+
 .form-inscription .inscription-form form .form-floating {
   margin: 15px auto;
 }
+
 .form-inscription .inscription-form form .form-floating label {
   display: block;
   text-align: left;
   color: #2A2B2F;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
+
 .form-inscription .inscription-form form .form-floating label input {
   display: block;
   margin-top: 0.2em;
@@ -144,7 +162,8 @@ input#floatingInput, input#floatingPassword {
   height: 90px;
   width: 300px;
 }
-.form-inscription .inscription-form form input[type=submit] {
+
+.form-inscription .inscription-form form input[type="submit"] {
   display: block;
   margin: 0 auto;
   border-radius: 25px;
@@ -155,29 +174,33 @@ input#floatingInput, input#floatingPassword {
   background-color: #1991FF;
   width: 150px;
   height: 30px;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
-  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+          box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
+
 .form-inscription .inscription-form form .inscription span {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   color: #2A2B2F;
   display: block;
   text-align: center;
   margin-top: 15px;
 }
+
 .form-inscription .inscription-form form .inscription span a {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: #2A2B2F;
   text-decoration-thickness: 2px;
   font-weight: 700;
 }
+
 .form-inscription .inscription-form form .error {
   color: red;
   margin-top: 15px;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 800;
 }
 
@@ -185,9 +208,14 @@ input#floatingInput, input#floatingPassword {
   width: 100%;
   height: 60px;
   background-color: #2A2B2F;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 #green-bar h1 a {
   color: white;
   font-family: toxigenesis;
@@ -195,35 +223,62 @@ input#floatingInput, input#floatingPassword {
   text-decoration: none;
   display: block;
 }
+
 #green-bar .nav-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 40px;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
+
 #green-bar .nav-icons input {
   margin: 0 0 0 10px;
 }
+
 #green-bar .nav-icons input#search {
   padding-left: 10px;
 }
+
 #green-bar .nav-icons img {
   margin-right: 1.2em;
   height: 30px;
   width: 30px;
 }
+
 #green-bar .nav-icons .nav-user {
   border-radius: 50%;
 }
+
 #green-bar #search {
   display: block;
   margin-right: 20px;
   border-radius: 20px;
   border: 1px solid gray;
   outline: none;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   height: 25px;
 }
+
+#green-bar #search::-webkit-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search:-ms-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search::-ms-input-placeholder {
+  padding-left: 15px;
+}
+
 #green-bar #search::placeholder {
   padding-left: 15px;
 }
@@ -235,52 +290,71 @@ input#floatingInput, input#floatingPassword {
   background-color: #cfcfcf;
   position: relative;
   z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-size: cover;
 }
+
 #cover-image #username {
   font-size: 2em;
   margin: 0 0 10px 300px;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   color: white;
   font-family: toxigenesis;
   width: 9.5em;
 }
+
 #cover-image ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   list-style-type: none;
   height: 4em;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   font-weight: 600;
 }
+
 #cover-image ul li {
   color: white;
   display: inline;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
 }
+
 #cover-image ul li a {
   text-decoration: none;
   color: white;
 }
+
 #cover-image ul .border-white {
   color: white;
   border-right: 1px solid white;
   display: inline;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
 }
+
 #cover-image button {
   height: 3em;
   width: 10em;
   border: none;
   background: none;
-  text-shadow: rgb(0, 0, 0) 1px 0 10px;
+  text-shadow: black 1px 0 10px;
   color: white;
   position: absolute;
 }
@@ -292,6 +366,7 @@ input#floatingInput, input#floatingPassword {
   top: 110px;
   left: 45px;
 }
+
 #profile-picture #pp {
   height: 15em;
   width: 15em;
@@ -300,12 +375,14 @@ input#floatingInput, input#floatingPassword {
   position: absolute;
   z-index: 2;
 }
+
 #profile-picture #lvl-icon {
   margin-top: 12.5em;
   position: absolute;
   left: 88px;
   z-index: 3;
 }
+
 #profile-picture #lvl-rank {
   position: absolute;
   z-index: 3;
@@ -319,23 +396,28 @@ input#floatingInput, input#floatingPassword {
   background-color: white;
   height: auto;
   width: 15em;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
+
 #about-block h3 {
   text-align: center;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
 }
+
 #about-block ul {
   margin: 1em 0 1em 2em;
   list-style-type: circle;
 }
+
 #about-block ul li {
   padding: 0.5em;
 }
+
 #about-block ul li span {
   color: #1991FF;
   font-weight: 500;
@@ -346,37 +428,45 @@ input#floatingInput, input#floatingPassword {
   width: 47em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
+
 #feed-block h3 {
   text-align: center;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
 }
+
 #feed-block ul {
   margin: 1em 0 1em 2em;
   list-style-type: circle;
 }
+
 #feed-block ul li {
   padding: 0.5em;
 }
+
 #feed-block ul li span {
   color: #1991FF;
   font-weight: 500;
 }
 
 #bio {
+  width: 45em;
   font-weight: 600;
   margin: 10px 0 0 18.5em;
+  height: auto;
 }
 
 .icons-friend-message {
   margin-left: 65em;
   position: absolute;
 }
+
 .icons-friend-message img {
   margin: 8px 2px;
 }
@@ -384,33 +474,326 @@ input#floatingInput, input#floatingPassword {
 #post-block {
   margin: 3em 0 0 20em;
 }
+
 #post-block #icons {
   padding: 0.5em 1em;
 }
+
 #post-block #share {
   width: 47em;
   height: 5em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
+
 #post-block #share p {
   margin-left: 10px;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
 }
+
 #post-block #share #icons {
   display: block;
   margin-top: -10px;
 }
 
 #chat {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
+
 #chat img {
   margin: 2em;
+}
+
+#main-block {
+  margin: 0 auto;
+  max-width: 70em;
+  height: auto;
+}
+
+#green-bar {
+  width: 100%;
+  height: 60px;
+  background-color: #2A2B2F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#green-bar h1 a {
+  color: white;
+  font-family: toxigenesis;
+  margin: 30px 0 0 20px;
+  text-decoration: none;
+  display: block;
+}
+
+#green-bar .nav-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 40px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#green-bar .nav-icons input {
+  margin: 0 0 0 10px;
+}
+
+#green-bar .nav-icons input#search {
+  padding-left: 10px;
+}
+
+#green-bar .nav-icons img {
+  margin-right: 1.2em;
+  height: 30px;
+  width: 30px;
+}
+
+#green-bar .nav-icons .nav-user {
+  border-radius: 50%;
+}
+
+#green-bar #search {
+  display: block;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  outline: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 25px;
+}
+
+#green-bar #search::-webkit-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search:-ms-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search::-ms-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search::placeholder {
+  padding-left: 15px;
+}
+
+/*Inclure la possibilité de changer l'image de couverture*/
+#cover-image {
+  width: 100%;
+  height: 15em;
+  background-color: #cfcfcf;
+  position: relative;
+  z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-size: cover;
+}
+
+#cover-image #username {
+  font-size: 2em;
+  margin: 0 0 10px 300px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: white;
+  font-family: toxigenesis;
+  width: 9.5em;
+}
+
+#cover-image ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+  height: 4em;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-weight: 600;
+}
+
+#cover-image ul li {
+  color: white;
+  display: inline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+#cover-image ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+#cover-image ul .border-white {
+  color: white;
+  border-right: 1px solid white;
+  display: inline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+#cover-image button {
+  height: 3em;
+  width: 10em;
+  border: none;
+  background: none;
+  text-shadow: black 1px 0 10px;
+  color: white;
+  position: absolute;
+}
+
+/*Inclure la possibilité de changer la photo de profil*/
+#profile-picture {
+  position: absolute;
+  z-index: 1999;
+  top: 110px;
+  left: 45px;
+}
+
+#profile-picture #pp {
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+  margin: 0 0 1em 0;
+  position: absolute;
+  z-index: 2;
+}
+
+#profile-picture #lvl-icon {
+  margin-top: 12.5em;
+  position: absolute;
+  left: 88px;
+  z-index: 3;
+}
+
+#profile-picture #lvl-rank {
+  position: absolute;
+  z-index: 3;
+  top: 270px;
+  left: -77px;
+}
+
+#friends-block {
+  margin: 9em 0 0 0;
+  border-radius: 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+  background-color: white;
+  width: 70em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#friends-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+#friends-block .left-side, #friends-block .right-side {
+  width: 50%;
+  position: inherit;
+}
+
+#friends-block .right-side {
+  margin-left: 50%;
+}
+
+#friends-block .friend {
+  background-color: aliceblue;
+  font-size: 2em;
+  font-family: toxigenesis;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1em;
+  margin: 0.2em 0;
+}
+
+#friends-block .friend a {
+  text-decoration: none;
+  font-family: toxigenesis;
+  padding-left: 0.5em;
+}
+
+@font-face {
+  font-family: "toxigenesis";
+  src: url("./assets/fonts/toxigenesis.tff") format("truetype");
+}
+
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#best-friend {
+  margin: 3em 0 0 20em;
+}
+
+#best-friend #icons {
+  padding: 0.5em 1em;
+}
+
+#best-friend #share {
+  width: 47em;
+  height: 5em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+
+#best-friend #share p {
+  margin-left: 10px;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+}
+
+#best-friend #share #icons {
+  display: block;
+  margin-top: -10px;
 }
 
 #main-block {
@@ -424,15 +807,21 @@ input#floatingInput, input#floatingPassword {
   max-width: 70em;
   height: auto;
 }
+
 #OneGame-block #frontDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 #OneGame-block #frontDescription .img-container img {
   width: 300px;
 }
+
 #OneGame-block #frontDescription .tagert-block-game {
   margin: 0 15px;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame {
   width: 100%;
   height: 350px;
@@ -440,40 +829,62 @@ input#floatingInput, input#floatingPassword {
   border-radius: 25px;
   margin-top: 10px;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-text {
   padding: 15px;
   font-size: 1.2em;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame hr {
   width: 100%;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note {
   padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 180px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle {
   border-radius: 50%;
   width: 100px;
   height: 100px;
   border: 1px solid #c7c7c7;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 10px;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle p {
   font-size: 1.7em;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .descrioption-cercle-text {
   margin: 0 10px;
 }
+
 #OneGame-block #bottomDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 15px;
 }
+
 #OneGame-block #bottomDescription #about {
   width: 430px;
   height: 500px;
@@ -481,15 +892,22 @@ input#floatingInput, input#floatingPassword {
   border: 1px solid #c7c7c7;
   border-radius: 25px;
 }
+
 #OneGame-block #bottomDescription #about h2 {
   text-align: center;
   margin: 10px 0;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about .circle {
   width: 12px;
   height: 12px;
@@ -497,21 +915,25 @@ input#floatingInput, input#floatingPassword {
   border-radius: 50%;
   margin-right: 5px;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about p:nth-child(2) {
   color: grey;
   font-weight: 600;
   margin-right: 5px;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about p:nth-child(3) {
   color: #1991FF;
   font-weight: 600;
 }
+
 #OneGame-block #bottomDescription #img-container {
   margin: 0 15px;
   width: 100%;
   height: 0;
   border-radius: 25px;
 }
+
 #OneGame-block #bottomDescription #img-container img {
   width: 100%;
   border-radius: 20px;
@@ -523,21 +945,28 @@ input#floatingInput, input#floatingPassword {
   max-width: 70em;
   height: auto;
 }
+
 #games-block h1 {
   margin-top: 25px;
 }
+
 #games-block #AllGames {
   max-width: 70em;
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #games-block #AllGames img {
   width: 200px;
   border-radius: 25px;
   display: block;
   margin: 10px;
 }
-
 /*# sourceMappingURL=styles.css.map */
