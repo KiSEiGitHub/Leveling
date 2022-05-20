@@ -1,0 +1,42 @@
+#best-game{
+  margin: 3em 0 0 20em;
+
+  #icons {
+    padding: 0.5em 1em;
+
+  }
+
+  #share {
+    width: 47em;
+    height: 7em;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-left: 1em;
+      border-radius: 10%;
+    }
+
+    h1{
+      a{
+        font-family: toxigenesis;
+        margin-left: 0.5em;
+        text-decoration: none;
+      }
+
+    }
+
+    span {
+      font-size: 30px;
+    }
+
+    p {
+      color: #d4d4d4;
+      margin-left: 1em;
+    }
+
+  }
+}

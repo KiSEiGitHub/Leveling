@@ -5,6 +5,10 @@
 
 }
 
+  input#floatingInput, input#floatingPassword {
+  padding-left: 10px;
+        }
+
 
 .form-inscription {
   width: 100%;
@@ -15,7 +19,7 @@
 
   .inscription-form {
     form {
-      width: 500px;
+      width: 300px;
       height: auto;
 
       .profile-picture {
@@ -45,19 +49,45 @@
 
         label {
           display: block;
-          text-align: center;
+          text-align: left;
           color: #2A2B2F;
           font-family: 'Quicksand', sans-serif;
           font-weight: 700;
+          margin-bottom: 10px;
 
           input {
             display: block;
-            margin: 0 auto;
+            margin-top:0.2em;
             border-radius: 25px;
             border: 1px solid #d5d5d5;
             outline: none;
             height: 30px;
-            width: 250px;
+            width: 300px;
+          }
+        }
+      }
+
+      
+      .form-floating-bio {
+        margin: 15px auto;
+
+        label {
+          display: block;
+          text-align: left;
+          color: #2A2B2F;
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 700;
+          margin-bottom: 10px;
+
+          input {
+            display: block;
+            margin-top:0.2em;
+            border-radius: 25px;
+            border: 1px solid #d5d5d5;
+            outline: none;
+            height: 90px;
+            width: 300px;
+
           }
         }
       }

@@ -1,11 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
+<<<<<<< HEAD
 -- Généré le : mer. 18 mai 2022 à 19:07
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
+=======
+-- Généré le : ven. 20 mai 2022 à 16:57
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
+>>>>>>> 8108ce75ccab94323bd8d026805d70c57a4f3d49
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,10 +40,17 @@ CREATE TABLE IF NOT EXISTS `about` (
   `jeux_possede` int(11) NOT NULL,
   `jeux_termine` int(11) NOT NULL,
   `jeux_cent` int(11) NOT NULL,
+<<<<<<< HEAD
   `jeu_fav` varchar(20) NOT NULL,
   `genre_fav` varchar(15) NOT NULL,
   `plateforme_fav` varchar(10) NOT NULL,
   `inscrit` varchar(10) NOT NULL,
+=======
+  `jeu_fav` varchar(50) NOT NULL,
+  `genre_fav` varchar(20) NOT NULL,
+  `plateforme_fav` varchar(10) NOT NULL,
+  `inscription` varchar(10) NOT NULL,
+>>>>>>> 8108ce75ccab94323bd8d026805d70c57a4f3d49
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -391,8 +404,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`, `mail`, `lvl`) VALUES
-(20, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-6272c34bab0848.33289667.jpg', 'admin', '0200-08-04', 'tom.lau.974@gmail.com', 0),
-(21, 'AlarÃ§on', 'Salim', 'de888202780abc6fac34f876ded670bf', 19, 'JL SerMaX', 'Penta chaque game viens pas test', 'IMG-627383326958d7.80933972.jpg', 'admin', '20003-01-25', 'alarconsalim95@gmail.com', 0),
+(20, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-6272c34bab0848.33289667.jpg', 'admin', '0200-08-04', 'tom.lau.974@gmail.com', 10),
+(21, 'AlarÃ§on', 'Salim', 'de888202780abc6fac34f876ded670bf', 19, 'JL SerMaX', 'Penta chaque game viens pas test', 'IMG-627383326958d7.80933972.jpg', 'admin', '20003-01-25', 'alarconsalim95@gmail.com', 10),
 (25, 'Garcia', 'Clara', '2c6ab096dddc9c5e2921f2cc1e95bdc5', 23, 'Mirinae', 'Carglass rÃ©pare', 'IMG-627cbd751cc748.34784138.jpg', 'admin', '1998-09-09', 'clara.garcia.contact@gmail.com', 10);
 COMMIT;
 

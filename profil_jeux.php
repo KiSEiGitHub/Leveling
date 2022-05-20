@@ -26,7 +26,7 @@ $ranks = $setup->getLvl($user['lvl']);
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
     </style>
     <link rel="stylesheet" href="scss/styles.css">
-    <title>Groupes</title>
+    <title>Jeux</title>
 </head>
 
 <body>
@@ -69,7 +69,7 @@ $ranks = $setup->getLvl($user['lvl']);
                     <a href=" ./profil.php">Description</a>
                 </li>
                 <li class="border-white">
-                <a href="./profil_jeux.php">Jeux</a>
+                    <a href="./profil_jeux.php">Jeux</a>
                 </li>
                 <li class="border-white">
                     <a href=" ./profil_groupes.php">Groupes</a>
@@ -102,55 +102,105 @@ $ranks = $setup->getLvl($user['lvl']);
         </div>
 
 
-        <!--Block du meilleur groupe-->
-        <div id="best-group">
+        <!--Block du meilleur jeu-->
+        <div id="best-game">
             <div id="share">
-                     <img src="assets/img/icons/users-solid.png" alt="" width="80px">
+                     <img src="assets/img/icons/game.png" alt="" width="70px">
                     <div id="text">
-                    <h1><a href="">#Group</a></h1>
-                    <p><span>0</span> EXP de contribution</p>
+                    <h1><a href="">Game</a></h1>
+                    <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
                     </div>
             </div>
         </div>
 
-        <!--Block groupes-->
-        <div id="groups-block">
-            <h3>GROUPES</h3>
+        <!--Block jeux-->
+        <div id="games-block">
+            <h3>JEUX</h3>
 
-            <div class="left-side">
-                <div class="friend">
-                    <img src="assets/img/icons/users-solid.png" alt="" width="80px">
-                    <div class="text">
-                    <a href="">#Group</a>
-                    <p><span>0</span> Membres <span>- 0</span> En ligne <span>- 0</span> En jeu</p>
-                    </div>
+            <div class="games-gallery">
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
                 </div>
 
-                <div class="friend">
-                    <img src="assets/img/icons/users-solid.png" alt="" width="80px">
-                    <div class="text">
-                    <a href="">#Group</a>
-                    <p><span>0</span> Membres <span>- 0</span> En ligne <span>- 0</span> En jeu</p>
-                    </div>
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
                 </div>
 
-                <div class="friend">
-                    <img src="assets/img/icons/users-solid.png" alt="" width="80px">
-                    <div class="text">
-                    <a href="">#Group</a>
-                    <p><span>0</span> Membres <span>- 0</span> En ligne <span>- 0</span> En jeu</p>
-                    </div>
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
                 </div>
 
-                <div class="friend">
-                    <img src="assets/img/icons/users-solid.png" alt="" width="80px">
-                    <div class="text">
-                    <a href="">#Group</a>
-                    <p><span>0</span> Membres <span>- 0</span> En ligne <span>- 0</span> En jeu</p>
-                    </div>
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+                
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+        
                 </div>
 
             </div>
+
+            </div>
+
+        </div>
+
+        <div id="wishlist-block">
+            <h3>LISTE DE SOUHAIT</h3>
+
+            <div class="games-gallery">
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+                
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+
+                <div class="game">
+                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+                </div>
+        
+                </div>
+
+            </div>
+
+            </div>
+
+            
 
 
         </div>
