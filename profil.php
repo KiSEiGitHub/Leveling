@@ -75,7 +75,7 @@ $ranks = $setup->getLvl($user['lvl']);
                     <a href=" ./profil.php">Description</a>
                 </li>
                 <li class="border-white">
-                    <a href="Jeux/index.php">Jeux</a>
+                    <a href="./profil_jeux.php">Jeux</a>
                 </li>
                 <li class="border-white">
                     <a href=" ./profil_groupes.php">Groupes</a>
