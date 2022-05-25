@@ -18,15 +18,19 @@ $ranks = $setup->getLvl($user['lvl']);
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS !-->
     <link rel="stylesheet" href="./scss/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
     </style>
     <title>Profil</title>
 </head>
@@ -43,14 +47,14 @@ $ranks = $setup->getLvl($user['lvl']);
             <?php
             if (isset($_SESSION['pseudo'])) {
             ?>
-                <a href="./profil.php">
-                    <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp" />
-                </a>
+            <a href="./profil.php">
+                <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp" />
+            </a>
             <?php
             } else { ?>
-                <a href="./profil.php">
-                    <img class="nav-user" src="./images/user-circle.png" alt="">
-                </a>
+            <a href="./profil.php">
+                <img class="nav-user" src="./images/user-circle.png" alt="">
+            </a>
             <?php } ?>
             <a href="./settings.php">
                 <img class="nav-user" src="./images/settings.png" alt="">
@@ -62,9 +66,9 @@ $ranks = $setup->getLvl($user['lvl']);
     <div id="main-block">
         <!--Image de couverture-->
         <style>
-            #cover-image {
-                background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
-            }
+        #cover-image {
+            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
+        }
         </style>
         <div id="cover-image">
             <p id="username">
@@ -94,8 +98,8 @@ $ranks = $setup->getLvl($user['lvl']);
                     echo "<p>No ranks</p>";
                 } else {
                 ?>
-                    <img id="lvl-icon" src="<?= $ranks[0] ?>" alt="rank" width="65px">
-                    <img id="lvl-rank" src="<?= $ranks[1] ?>" alt="ranks" width="400px">
+                <img id="lvl-icon" src="<?= $ranks[0] ?>" alt="rank" width="65px">
+                <img id="lvl-rank" src="<?= $ranks[1] ?>" alt="ranks" width="400px">
                 <?php } ?>
             </div>
         </div>
@@ -138,7 +142,8 @@ $ranks = $setup->getLvl($user['lvl']);
                     <span>#SORPlayers</span>
                 </li>
                 <li>
-                    <img src="images/user-circle.png" alt="" width="35px"> <img src="images/user-circle.png" alt="" width="35px">
+                    <img src="images/user-circle.png" alt="" width="35px"> <img src="images/user-circle.png" alt=""
+                        width="35px">
                     <span>@Mirinae</span> et <span>@KiSei</span>
                     sont devenus amis
                 </li>
@@ -155,7 +160,8 @@ $ranks = $setup->getLvl($user['lvl']);
                     <span>@Mirinae</span> stream <span>Beyond Good and Evil 2</span>
                 </li>
                 <li>
-                    <img src="images/user-circle.png" alt="" width="35px"> <img src="images/user-circle.png" alt="" width="35px">
+                    <img src="images/user-circle.png" alt="" width="35px"> <img src="images/user-circle.png" alt=""
+                        width="35px">
                     <span>@Mirinae</span> et <span>@JLSermax</span> jouent à <span>Watch Dogs : Legion</span>
                 </li>
                 <li>
@@ -199,7 +205,8 @@ $ranks = $setup->getLvl($user['lvl']);
         <img src="assets/img/icons/comment-dots-solid.png" alt="" width="50px">
     </div>
     <div class="btn-message">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">Toggle right offcanvas
         </button>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
