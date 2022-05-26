@@ -69,7 +69,7 @@ $ranks = $setup->getLvl($user['lvl']);
                     <a href=" ./profil.php">Description</a>
                 </li>
                 <li class="border-white">
-                    <a href="Jeux/index.php">Jeux</a>
+                    <a href="./profil_jeux.php">Jeux</a>
                 </li>
                 <li class="border-white">
                     <a href=" ./profil_groupes.php">Groupes</a>
@@ -80,7 +80,7 @@ $ranks = $setup->getLvl($user['lvl']);
             </ul>
 
 
-            <!--Photode profil + Rang-->
+            <!--Photo de profil + Rang-->
             <div id="profile-picture">
                 <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
                 <?php
@@ -105,13 +105,11 @@ $ranks = $setup->getLvl($user['lvl']);
         <!--Block du meilleur ami-->
         <div id="best-friend">
             <div id="share">
-                <p>Que souhaitez-vous partager ?</p>
-                <div id="icons">
-                    <img src="assets/img/icons/file-image-solid.png" alt="" width="15em">
-                    <img src="assets/img/icons/file-video-solid.png" alt="" width="15em">
-                    <img src="assets/img/icons/calendar-day-solid.png" alt="" width="18em">
-                    <img src="assets/img/icons/link-solid.png" alt="" width="25em">
-                </div>
+                    <img src="images/user.png" alt="" width="80px">
+                    <div id="text">
+                    <h1><a href="">@Friend</a></h1>
+                    <p><span>0</span> Heures de jeu passées ensembles</p>
+                    </div>
             </div>
         </div>
 
@@ -119,89 +117,60 @@ $ranks = $setup->getLvl($user['lvl']);
         <div id="friends-block">
             <h3>AMIS</h3>
 
-            <div class="left-side">
+            <div class="list">
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Lucas</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Duo_Duck_Hunt</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Ike</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Lucina</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Marth</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Palutena</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Dresseur_Pokemon</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Ness</a>
-                </div>
-
-            </div>
-
-
-            <div class="right-side">
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Mr_GameandWatch</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Peach</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Link</a>
+                    <a href="">@Friend</a>
                 </div>
 
                 <div class="friend">
                     <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Villager</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Captain_Falcon</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Bowser</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Ganondorf</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Daisy</a>
+                    <a href="">@Friend</a>
                 </div>
 
 

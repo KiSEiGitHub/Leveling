@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
+<<<<<<< HEAD
+-- Généré le : mer. 18 mai 2022 à 19:07
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
+=======
 -- Généré le : ven. 20 mai 2022 à 16:57
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
+>>>>>>> 8108ce75ccab94323bd8d026805d70c57a4f3d49
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,10 +40,17 @@ CREATE TABLE IF NOT EXISTS `about` (
   `jeux_possede` int(11) NOT NULL,
   `jeux_termine` int(11) NOT NULL,
   `jeux_cent` int(11) NOT NULL,
+<<<<<<< HEAD
+  `jeu_fav` varchar(20) NOT NULL,
+  `genre_fav` varchar(15) NOT NULL,
+  `plateforme_fav` varchar(10) NOT NULL,
+  `inscrit` varchar(10) NOT NULL,
+=======
   `jeu_fav` varchar(50) NOT NULL,
   `genre_fav` varchar(20) NOT NULL,
   `plateforme_fav` varchar(10) NOT NULL,
   `inscription` varchar(10) NOT NULL,
+>>>>>>> 8108ce75ccab94323bd8d026805d70c57a4f3d49
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

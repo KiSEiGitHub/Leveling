@@ -1,4 +1,4 @@
-#friends-block{
+#groups-block{
     margin: 12em 0 0 0;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -8,7 +8,7 @@
     h3 {
         text-align: center;
         color: #d4d4d4;
-        padding: 0.4em 0.1em;
+        padding: 0.3em 0.1em;
         border-bottom: 1px solid #F5F5F5
 
     }
@@ -19,18 +19,32 @@
     }
 
     .friend {
-        font-size: 2em;
         font-family: toxigenesis;
         display: flex;
         align-items: center;
         padding-left: 1em;
-        margin: 0.2em 0;
+        margin: 0.6em 0;
+
+        img {
+            border-radius: 20%;
+        }
+
+        .text {
+            color: #d4d4d4;
+            margin-left: 1em;
+
+            span {
+                font-size: 30px;
+            }
+
+
+        }
 
 
         a{
             text-decoration: none;
             font-family: toxigenesis;
-            padding-left: 0.5em;
+            font-size: 2em;
         }
 
     }
