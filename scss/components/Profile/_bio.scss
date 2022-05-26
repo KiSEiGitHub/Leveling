@@ -1,14 +1,26 @@
 #bio {
-    width: 45em;
-    font-weight: 600;
-    margin: 10px 0 0 18.5em;
-    height: auto;
+  width: 45em;
+  font-weight: 600;
+  margin: 10px 0 0 18.5em;
+  height: auto;
 }
-.icons-friend-message{
-    margin-left: 65em;
-    position: absolute;
 
-    img{
-        margin : 8px 2px;
+.icons-friend-message {
+  margin-left: 60em;
+  position: absolute;
+
+  .btn-styled {
+    outline: none;
+    border: none;
+    background-color: #fff;
+
+    &:hover {
+      background-color: #fff;
     }
+
+  }
+
+  img {
+    margin: 8px 2px;
+  }
 }
