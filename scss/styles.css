@@ -1246,51 +1246,35 @@ input#floatingInput, input#floatingPassword {
   max-width: 70em;
   height: auto;
 }
-
 .central-preference .flex-input-preference {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .central-preference .flex-input-preference .left-preference {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 650px;
   height: 100px;
 }
-
 .central-preference .flex-input-preference .left-preference p {
   margin-left: 80px;
 }
-
 .central-preference .flex-input-preference .right-preference {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 100%;
   height: 100px;
 }
-
 .central-preference .flex-input-preference .right-preference input {
   border-radius: 15px;
   width: 350px;
 }
-
 .central-preference .flex-input-preference .right-preference textarea {
   border-radius: 15px;
 }
-
 .central-preference .flex-input-preference .right-preference .button-submit-preference {
   border-color: white;
   background-color: #1991ff;
   color: white;
 }
+
 /*# sourceMappingURL=styles.css.map */
