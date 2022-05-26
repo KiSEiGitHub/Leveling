@@ -1,9 +1,37 @@
-#chat {
-    display: flex;
-    justify-content: flex-end;
-    
+#offcanvasScrolling {
+  background-color: #2A2B2F;
+  color: #fff;
 
-    img{
-        margin: 2em;
+  h5 {
+    font-size: 32px;
+    margin-top: 50px;
+  }
+
+  button {
+    background-color: #fff;
+  }
+
+  .offcanvas-body {
+
+    .header-title-message {
+      margin-top: 50px;
     }
+
+    .user-message-block {
+      display: flex;
+      margin: 15px 0;
+
+      .profil-picture-message {
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      p {
+        position: relative;
+        top: 7px;
+        left: 15px;
+        font-size: 20px;
+      }
+    }
+  }
 }
