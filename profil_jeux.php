@@ -54,17 +54,6 @@ $ranks = $setup->getLvl($user['lvl']);
     </div>
 </div>
 
-    <!--Block du meilleur jeu-->
-    <div id="best-game">
-        <div id="share">
-            <img src="assets/img/icons/game.png" alt="" width="70px">
-            <div id="text">
-                <h1><a href="">Game</a></h1>
-                <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
-            </div>
-        </div>
-    </div>
-
     <!--Block jeux-->
     <div id="games-block">
         <h3>GALLERIE</h3>
