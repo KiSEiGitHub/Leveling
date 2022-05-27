@@ -360,7 +360,7 @@ input#floatingInput, input#floatingPassword {
 }
 
 #bio {
-  width: 45em;
+  max-width: 45em;
   font-weight: 600;
   margin: 10px 0 0 18.5em;
   height: auto;
@@ -875,144 +875,12 @@ input#floatingInput, input#floatingPassword {
   height: auto;
 }
 
-#green-bar {
-  width: 100%;
-  height: 60px;
-  background-color: #2A2B2F;
-  display: flex;
-  justify-content: space-between;
-}
-#green-bar h1 a {
-  color: white;
-  font-family: toxigenesis;
-  margin: 30px 0 0 20px;
-  text-decoration: none;
-  display: block;
-}
-#green-bar .nav-icons {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
-  justify-content: flex-end;
-}
-#green-bar .nav-icons input {
-  margin: 0 0 0 10px;
-}
-#green-bar .nav-icons input#search {
-  padding-left: 10px;
-}
-#green-bar .nav-icons img {
-  margin-right: 1.2em;
-  height: 30px;
-  width: 30px;
-}
-#green-bar .nav-icons .nav-user {
-  border-radius: 50%;
-}
-#green-bar #search {
-  display: block;
-  margin-right: 20px;
-  border-radius: 20px;
-  border: 1px solid gray;
-  outline: none;
-  align-self: center;
-  height: 25px;
-}
-#green-bar #search::placeholder {
-  padding-left: 15px;
-}
-
-/*Inclure la possibilité de changer l'image de couverture*/
-#cover-image {
-  width: 100%;
-  height: 15em;
-  background-color: #cfcfcf;
-  position: relative;
-  z-index: 0;
-  display: flex;
-  justify-content: space-between;
-  background-size: cover;
-}
-#cover-image #username {
-  font-size: 2em;
-  margin: 0 0 10px 300px;
-  align-self: flex-end;
-  color: white;
-  font-family: toxigenesis;
-  width: 9.5em;
-}
-#cover-image ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style-type: none;
-  height: 4em;
-  align-self: flex-end;
-  font-weight: 600;
-}
-#cover-image ul li {
-  color: white;
-  display: inline;
-  align-self: flex-end;
-  padding: 15px 20px;
-  font-size: 1.2em;
-}
-#cover-image ul li a {
-  text-decoration: none;
-  color: white;
-}
-#cover-image ul .border-white {
-  color: white;
-  border-right: 1px solid white;
-  display: inline;
-  align-self: flex-end;
-  padding: 15px 20px;
-  font-size: 1.2em;
-}
-#cover-image button {
-  height: 3em;
-  width: 10em;
-  border: none;
-  background: none;
-  text-shadow: rgb(0, 0, 0) 1px 0 10px;
-  color: white;
-  position: absolute;
-}
-
-/*Inclure la possibilité de changer la photo de profil*/
-#profile-picture {
-  position: absolute;
-  z-index: 1999;
-  top: 110px;
-  left: 45px;
-}
-#profile-picture #pp {
-  height: 15em;
-  width: 15em;
-  border-radius: 50%;
-  margin: 0 0 1em 0;
-  position: absolute;
-  z-index: 2;
-}
-#profile-picture #lvl-icon {
-  margin-top: 12.5em;
-  position: absolute;
-  left: 88px;
-  z-index: 3;
-}
-#profile-picture #lvl-rank {
-  position: absolute;
-  z-index: 3;
-  top: 270px;
-  left: -77px;
-}
-
 #games-block {
   margin: 15em 0 0 0;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   font-family: "Quicksand", sans-serif;
-  width: 70em;
+  max-width: 70em;
 }
 #games-block h3 {
   text-align: center;
@@ -1020,58 +888,37 @@ input#floatingInput, input#floatingPassword {
   padding: 0.3em 0.1em;
   border-bottom: 1px solid #F5F5F5;
 }
+#games-block .game-filter {
+  margin: 10px 0;
+  padding: 5px 28px;
+  display: flex;
+}
+#games-block .game-filter p {
+  font-weight: 800;
+  color: #b7b7b7;
+  margin-right: 10px;
+}
+#games-block .game-filter button {
+  margin: 0 5px;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #d5d5d5;
+  border-radius: 20px;
+  padding: 2px 10px;
+  cursor: pointer;
+  color: gainsboro;
+  font-weight: 800;
+}
 #games-block .games-gallery {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-#games-block .game {
-  font-family: toxigenesis;
-  display: flex;
-  align-items: center;
-  margin: 1em 0;
-}
-#games-block .game img {
-  border-radius: 10%;
-}
-
-#wishlist-block {
-  margin: 2em 0 0 0;
+#games-block .games-gallery .Game img {
+  width: 140px;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: "Quicksand", sans-serif;
-  width: 70em;
-}
-#wishlist-block h3 {
-  text-align: center;
-  color: #d4d4d4;
-  padding: 0.3em 0.1em;
-  border-bottom: 1px solid #F5F5F5;
-}
-#wishlist-block .games-gallery {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-#wishlist-block .game {
-  font-family: toxigenesis;
-  display: flex;
-  align-items: center;
-  margin: 1em 0;
-}
-#wishlist-block .game img {
-  border-radius: 10%;
-}
-
-@font-face {
-  font-family: "toxigenesis";
-  src: url("./assets/fonts/toxigenesis.tff") format("truetype");
-}
-*, ::after, ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+  margin: 8px;
 }
 
 #best-game {
@@ -1081,7 +928,7 @@ input#floatingInput, input#floatingPassword {
   padding: 0.5em 1em;
 }
 #best-game #share {
-  width: 47em;
+  max-width: 47em;
   height: 7em;
   border-radius: 15px;
   background-color: white;
@@ -1212,7 +1059,7 @@ input#floatingInput, input#floatingPassword {
 }
 
 #games-block {
-  margin: 0 auto;
+  margin: 50px auto 0;
   max-width: 70em;
   height: auto;
 }

@@ -412,6 +412,7 @@ CREATE TABLE IF NOT EXISTS `user_friends` (
 -- --------------------------------------------------------
 
 --
+
 -- Structure de la table `user_games`
 --
 
