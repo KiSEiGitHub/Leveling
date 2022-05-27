@@ -59,7 +59,7 @@ $setup = new setup();
 
                 <div class="form-floating">
                     <label for="pseudo">Pseudo
-                        <input type="text" class="form-control" id="floatingInput" name="pseudo">
+                        <input type="text" class="form-control" id="floatingInput" name="pseudo" maxlength="10">
                     </label>
                 </div>
 
@@ -71,13 +71,13 @@ $setup = new setup();
 
                 <div class="form-floating">
                     <label for="prenom">Prénom
-                        <input type="text" class="form-control" id="floatingPassword" name="prenom">
+                        <input type="text" class="form-control" id="floatingPassword" name="prenom" maxlength="10">
                     </label>
                 </div>
 
                 <div class="form-floating">
                     <label for="nom">Nom
-                        <input type="text" class="form-control" id="floatingPassword" name="nom">
+                        <input type="text" class="form-control" id="floatingPassword" name="nom" maxlength="10">
                     </label>
                 </div>
 
@@ -103,7 +103,7 @@ $setup = new setup();
 
                 <div class="form-floating-bio">
                     <label for="bio">Bio
-                        <input type="text" class="form-control" id="floatingPassword" name="bio" rows="3">
+                        <input type="text" class="form-control" id="floatingPassword" name="bio" rows="3" maxlength="100">
                     </label>
                 </div>
 
