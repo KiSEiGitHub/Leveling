@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 27 mai 2022 à 03:26
+-- Généré le : ven. 27 mai 2022 à 04:00
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -398,6 +398,21 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `user_friends`
+--
+
+DROP TABLE IF EXISTS `user_friends`;
+CREATE TABLE IF NOT EXISTS `user_friends` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_user_friend` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+
 -- Structure de la table `user_games`
 --
 

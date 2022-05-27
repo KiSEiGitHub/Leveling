@@ -30,27 +30,7 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-<div id="green-bar">
-    <h1>
-        <a href="index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="./profil.php">
-                <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-            </a>
-            <?php
-        } else { ?>
-            <a href="./profil.php">
-                <img class="nav-user" src="./images/user-circle.png" alt="">
-            </a>
-        <?php } ?>
-        <a href="./settings.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
-    </div>
-</div>
+<?php require_once 'components/greenbar.php' ?>
 
 <!--Block principal-->
 <div id="main-block">
@@ -60,39 +40,19 @@ $ranks = $setup->getLvl($user['lvl']);
             background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
         }
     </style>
-    <div id="cover-image">
-        <p id="username">
-            @<?= $user['pseudo'] ?>
-        </p>
-        <ul>
-            <li class="border-white">
-                <a href=" ./profil.php">Description</a>
-            </li>
-            <li class="border-white">
-                <a href="./profil_jeux.php">Jeux</a>
-            </li>
-            <li class="border-white">
-                <a href=" ./profil_groupes.php">Groupes</a>
-            </li>
-            <li>
-                <a href="./profil_amis.php">Amis</a>
-            </li>
-        </ul>
+        <?php require_once 'components/header_profil.php'?>
+</div>
 
-
-        <!--Photo de profil + Rang-->
-        <div id="profile-picture">
-            <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
-            <?php
-            if ($ranks === null) {
-                echo "<p>No ranks</p>";
-            } else {
-                ?>
-                <img id="lvl-icon" src="<?= $ranks[0] ?>" alt="rank" width="65px">
-                <img id="lvl-rank" src="<?= $ranks[1] ?>" alt="ranks" width="400px">
-            <?php } ?>
+<!--Block du meilleur jeu-->
+<div id="best-game">
+    <div id="share">
+        <img src="assets/img/icons/game.png" alt="" width="70px">
+        <div id="text">
+            <h1><a href="">Game</a></h1>
+            <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
         </div>
     </div>
+</div>
 
     <!--Block du meilleur jeu-->
     <div id="best-game">
