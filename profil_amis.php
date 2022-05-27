@@ -30,154 +30,103 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-    <div id="green-bar">
-        <h1>
-            <a href="index.php">LEVELING</a>
-        </h1>
-        <div class="nav-icons">
-            <input type="text" name="search" placeholder="Rechercher" id="search">
-            <?php
-            if (isset($_SESSION['pseudo'])) {
-            ?>
-                <a href="./profil.php">
-                    <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-                </a>
-            <?php
-            } else { ?>
-                <a href="./profil.php">
-                    <img class="nav-user" src="./images/user-circle.png" alt="">
-                </a>
-            <?php } ?>
-            <a href="./settings.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
+<?php require_once 'components/greenbar.php' ?>
+
+<!--Block principal-->
+<div id="main-block">
+    <!--Image de couverture-->
+    <style>
+        #cover-image {
+            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
+        }
+    </style>
+    <?php require_once 'components/header_profil.php' ?>
+</div>
+
+
+<!--Icônes Ajouter un ami + Envoyer un message -->
+<div class="icons-friend-message">
+    <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
+    <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
+</div>
+
+
+<!--Block du meilleur ami-->
+<div id="best-friend">
+    <div id="share">
+        <img src="images/user.png" alt="" width="80px">
+        <div id="text">
+            <h1><a href="">@Friend</a></h1>
+            <p><span>0</span> Heures de jeu passées ensembles</p>
         </div>
     </div>
+</div>
 
-    <!--Block principal-->
-    <div id="main-block">
-        <!--Image de couverture-->
-        <style>
-            #cover-image {
-                background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
-            }
-        </style>
-        <div id="cover-image">
-            <p id="username">
-                @<?= $user['pseudo'] ?>
-            </p>
-            <ul>
-                <li class="border-white">
-                    <a href=" ./profil.php">Description</a>
-                </li>
-                <li class="border-white">
-                    <a href="./profil_jeux.php">Jeux</a>
-                </li>
-                <li class="border-white">
-                    <a href=" ./profil_groupes.php">Groupes</a>
-                </li>
-                <li>
-                    <a href="./profil_amis.php">Amis</a>
-                </li>
-            </ul>
+<!--Block amis-->
+<div id="friends-block">
+    <h3>AMIS</h3>
 
+    <div class="list">
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
 
-            <!--Photo de profil + Rang-->
-            <div id="profile-picture">
-                <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
-                <?php
-                if ($ranks === null) {
-                    echo "<p>No ranks</p>";
-                } else {
-                ?>
-                    <img id="lvl-icon" src="<?= $ranks[0] ?>" alt="rank" width="65px">
-                    <img id="lvl-rank" src="<?= $ranks[1] ?>" alt="ranks" width="400px">
-                <?php } ?>
-            </div>
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
+        </div>
+
+        <div class="friend">
+            <img src="images/user.png" alt="" width="60px">
+            <a href="">@Friend</a>
         </div>
 
 
-        <!--Icônes Ajouter un ami + Envoyer un message -->
-        <div class="icons-friend-message">
-            <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
-            <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
-        </div>
+    </div>
 
 
-        <!--Block du meilleur ami-->
-        <div id="best-friend">
-            <div id="share">
-                    <img src="images/user.png" alt="" width="80px">
-                    <div id="text">
-                    <h1><a href="">@Friend</a></h1>
-                    <p><span>0</span> Heures de jeu passées ensembles</p>
-                    </div>
-            </div>
-        </div>
-
-        <!--Block amis-->
-        <div id="friends-block">
-            <h3>AMIS</h3>
-
-            <div class="list">
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-                <div class="friend">
-                    <img src="images/user.png" alt="" width="60px">
-                    <a href="">@Friend</a>
-                </div>
-
-
-            </div>
-
-
-        </div>
+</div>
 
 
 </body>

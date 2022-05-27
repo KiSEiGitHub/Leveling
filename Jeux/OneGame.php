@@ -32,29 +32,7 @@ if (!$OneGame) {
     <link rel="stylesheet" href="../scss/styles.css">
 </head>
 <body>
-<div id="green-bar">
-    <h1>
-        <a href="index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../profil.php">
-                <img src="../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-            </a>
-            <?php
-        } else { ?>
-            <a href="../profil.php">
-                <img class="nav-user" src="../images/user-circle.png" alt="">
-            </a>
-        <?php } ?>
-        <a href="settings.php">
-            <img class="nav-user" src="../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
+<?php require_once '../components/greenbar.php'?>
 
 <main id="OneGame-block">
     <div id="frontDescription">
