@@ -1,74 +1,72 @@
-#games-block{
-        margin: 15em 0 0 0;
-        border-radius: 15px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-        font-family: 'Quicksand', sans-serif;
-        width: 70em;
+#games-block {
+  margin: 15em 0 0 0;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
+  width: 70em;
 
-        h3 {
-            text-align: center;
-            color: #d4d4d4;
-            padding: 0.3em 0.1em;
-            border-bottom: 1px solid #F5F5F5
-    
-        }
+  h3 {
+    text-align: center;
+    color: #d4d4d4;
+    padding: 0.3em 0.1em;
+    border-bottom: 1px solid #F5F5F5
+
+  }
 
 
-        .games-gallery {
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-        }
-    
-        .game {
-            font-family: toxigenesis;
-            display: flex;
-            align-items: center;
-            margin: 1em 0;
+  .games-gallery {
+    display: flex;
+    justify-content: space-evenly;
+  }
 
-    
+  .game {
+    font-family: toxigenesis;
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
 
-            img {
-                border-radius: 10%;
-            } 
-        }
-    
+
+    img {
+      border-radius: 10%;
     }
+  }
+
+}
 
 
 #wishlist-block {
-    margin: 2em 0 0 0;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    font-family: 'Quicksand', sans-serif;
-    width: 70em;
+  margin: 2em auto 0;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+  font-family: 'Quicksand', sans-serif;
+  width: 70em;
 
-    h3 {
-        text-align: center;
-        color: #d4d4d4;
-        padding: 0.3em 0.1em;
-        border-bottom: 1px solid #F5F5F5
+  h3 {
+    text-align: center;
+    color: #d4d4d4;
+    padding: 0.3em 0.1em;
+    border-bottom: 1px solid #F5F5F5
 
-    }
+  }
 
 
-    .games-gallery {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
+  .games-gallery {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 
     .game {
-        font-family: toxigenesis;
-        display: flex;
-        align-items: center;
-        margin: 1em 0;
+      font-family: toxigenesis;
+      display: flex;
+      align-items: center;
+      margin: 1em 0;
 
 
-
-        img {
-            border-radius: 10%;
-        } 
+      img {
+        border-radius: 10%;
+      }
     }
+
+  }
 
 }
