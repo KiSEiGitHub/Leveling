@@ -1,4 +1,4 @@
-#best-game{
+#best-game {
   margin: 3em 0 0 20em;
 
   #icons {
@@ -7,7 +7,7 @@
   }
 
   #share {
-    width: 47em;
+    max-width: 47em;
     height: 7em;
     border-radius: 15px;
     background-color: white;
@@ -20,8 +20,8 @@
       border-radius: 10%;
     }
 
-    h1{
-      a{
+    h1 {
+      a {
         font-family: toxigenesis;
         margin-left: 0.5em;
         text-decoration: none;

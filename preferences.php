@@ -52,7 +52,7 @@ $ranks = $setup->getLvl($user['lvl']);
                     <img class="nav-user" src="./images/user-circle.png" alt="">
                 </a>
             <?php } ?>
-            <a href="./settings.php">
+            <a href="./preferences.php">
                 <img class="nav-user" src="./images/settings.png" alt="">
             </a>
         </div>

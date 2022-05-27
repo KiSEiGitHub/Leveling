@@ -1,7 +1,6 @@
 // l'index.scss de chaque dossier doit SEULEMENT contenir l'importation de tous les petits fichers scss que vous faite SI vous le voulez
-
-@import "gamesBlock";
-@import "bestGame";
+@import "settings";
+@import "settingsBlock";
 
 #main-block {
   margin: 0 auto;

@@ -30,27 +30,7 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-    <div id="green-bar">
-        <h1>
-            <a href="index.php">LEVELING</a>
-        </h1>
-        <div class="nav-icons">
-            <input type="text" name="search" placeholder="Rechercher" id="search">
-            <?php
-            if (isset($_SESSION['pseudo'])) {
-            ?>
-                <a href="./profil.php">
-                    <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-                </a>
-            <?php
-            } else { ?>
-                <a href="./profil.php">
-                    <img class="nav-user" src="./images/user-circle.png" alt="">
-                </a>
-            <?php } ?>
-            <a href="./settings.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
-        </div>
-    </div>
+    <?php require_once 'components/greenbar.php' ?>
 
     <!--Block principal-->
     <div id="main-block">
@@ -60,152 +40,72 @@ $ranks = $setup->getLvl($user['lvl']);
                 background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
             }
         </style>
-        <div id="cover-image">
-            <p id="username">
-                @<?= $user['pseudo'] ?>
-            </p>
-            <ul>
-                <li class="border-white">
-                    <a href=" ./profil.php">Description</a>
-                </li>
-                <li class="border-white">
-                    <a href="./profil_jeux.php">Jeux</a>
-                </li>
-                <li class="border-white">
-                    <a href=" ./profil_groupes.php">Groupes</a>
-                </li>
-                <li>
-                    <a href="./profil_amis.php">Amis</a>
-                </li>
-            </ul>
+        <?php require_once 'components/header_profil.php' ?>
+    </div>
+
+    <!--Icônes Ajouter un ami + Envoyer un message -->
+    <div class="icons-friend-message">
+        <a href="profil_settings.php"><img src="assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
+        <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
+        <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
+    </div>
 
 
-            <!--Photo de profil + Rang-->
-            <div id="profile-picture">
-                <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
-                <?php
-                if ($ranks === null) {
-                    echo "<p>No ranks</p>";
-                } else {
-                ?>
-                    <img id="lvl-icon" src="<?= $ranks[0] ?>" alt="rank" width="65px">
-                    <img id="lvl-rank" src="<?= $ranks[1] ?>" alt="ranks" width="400px">
-                <?php } ?>
+    <!--Block du meilleur jeu-->
+    <div id="best-game">
+        <div id="share">
+            <img src="assets/img/icons/game.png" alt="" width="70px">
+            <div id="text">
+                <h1><a href="">Game</a></h1>
+                <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
             </div>
         </div>
+    </div>
 
+    <!--Block jeux-->
+    <div id="games-block">
+        <h3>GALLERIE</h3>
 
-        <!--Icônes Ajouter un ami + Envoyer un message -->
-        <div class="icons-friend-message">
-            <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
-            <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
+        <div class="game-filter">
+            <p>Trier par</p>
+            <button id="OuiMonsieur">Date d'acquisition</button>
+            <button id="OuiMonsieur">Genre</button>
+            <button id="OuiMonsieur">Terminé à 100%</button>
+            <button id="OuiMonsieur">Date de sortie</button>
+            <button id="OuiMonsieur">Evaluation</button>
+            <button id="OuiMonsieur">Dernière utilisation</button>
         </div>
 
-
-        <!--Block du meilleur jeu-->
-        <div id="best-game">
-            <div id="share">
-                     <img src="assets/img/icons/game.png" alt="" width="70px">
-                    <div id="text">
-                    <h1><a href="">Game</a></h1>
-                    <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
-                    </div>
-            </div>
+        <div class="games-gallery">
+            <?php
+            $AllGames = $controler->getAllGames();
+            foreach ($AllGames as $OneGames) { ?>
+                <div class="Game">
+                    <a href="Jeux/OneGame.php?gameid=<?= $OneGames['idinsert_games'] ?>">
+                        <img src="assets/img/insert_games/pp/<?= $OneGames['img_pp'] ?>" alt="">
+                    </a>
+                </div>
+            <?php } ?>
         </div>
+    </div>
 
-        <!--Block jeux-->
-        <div id="games-block">
-            <h3>JEUX</h3>
+    <div id="games-block">
+        <h3>LISTE DE SOUHAIT</h3>
 
-            <div class="games-gallery">
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
+        <div class="games-gallery">
+            <?php
+            $AllGames = $controler->getAllGames();
+            foreach ($AllGames as $OneGames) { ?>
+                <div class="Game">
+                    <a href="Jeux/OneGame.php?gameid=<?= $OneGames['idinsert_games'] ?>">
+                        <img src="assets/img/insert_games/pp/<?= $OneGames['img_pp'] ?>" alt="">
+                    </a>
                 </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-                
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-        
-                </div>
-
-            </div>
-
-            </div>
-
+            <?php } ?>
         </div>
+    </div>
 
-        <div id="wishlist-block">
-            <h3>LISTE DE SOUHAIT</h3>
-
-            <div class="games-gallery">
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-                
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-
-                <div class="game">
-                    <a href=""><img src="assets/img/icons/game.png" alt="" width="120px"></a>
-                </div>
-        
-                </div>
-
-            </div>
-
-            </div>
-
-            
-
-
-        </div>
-
-
+    <script src="js/main.js"></script>
 </body>
 
 </html>

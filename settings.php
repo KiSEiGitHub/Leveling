@@ -1,3 +1,18 @@
+<?php
+session_start();
+if ($_SESSION['pseudo'] == null) {
+    header('Location: Connexion.php');
+}
+
+require_once("Config/controller.php");
+require_once("Config/setup.php");
+$controler = new controller("localhost", "leveling", "root", "");
+$setup = new setup();
+
+$user = $controler->getUser($_SESSION['id']);
+$ranks = $setup->getLvl($user['lvl']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
