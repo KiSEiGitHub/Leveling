@@ -30,29 +30,37 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-<?php require_once 'components/greenbar.php' ?>
+    <?php require_once 'components/greenbar.php' ?>
 
-<!--Block principal-->
-<div id="main-block">
-    <!--Image de couverture-->
-    <style>
-        #cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
-        }
-    </style>
-        <?php require_once 'components/header_profil.php'?>
-</div>
+    <!--Block principal-->
+    <div id="main-block">
+        <!--Image de couverture-->
+        <style>
+            #cover-image {
+                background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
+            }
+        </style>
+        <?php require_once 'components/header_profil.php' ?>
+    </div>
 
-<!--Block du meilleur jeu-->
-<div id="best-game">
-    <div id="share">
-        <img src="assets/img/icons/game.png" alt="" width="70px">
-        <div id="text">
-            <h1><a href="">Game</a></h1>
-            <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
+    <!--Icônes Ajouter un ami + Envoyer un message -->
+    <div class="icons-friend-message">
+        <a href="profil_settings.php"><img src="assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
+        <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
+        <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
+    </div>
+
+
+    <!--Block du meilleur jeu-->
+    <div id="best-game">
+        <div id="share">
+            <img src="assets/img/icons/game.png" alt="" width="70px">
+            <div id="text">
+                <h1><a href="">Game</a></h1>
+                <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
+            </div>
         </div>
     </div>
-</div>
 
     <!--Block jeux-->
     <div id="games-block">
