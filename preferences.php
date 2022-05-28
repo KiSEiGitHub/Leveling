@@ -45,12 +45,6 @@ $ranks = $setup->getLvl($user['lvl']);
     <div class="preference">
         <form action="#" method="post">
             <div class="flex-input">
-                <label for="email">
-                    Adresse mail
-                    <input type="text" name="email" placeholder="">
-                </label>
-            </div>
-            <div class="flex-input">
                 <label for="discord">
                     Compte discord
                     <input type="text" name="discord" placeholder="">
@@ -73,6 +67,19 @@ $ranks = $setup->getLvl($user['lvl']);
                     <input type="submit" class="btn btn-outline-info" name="btn-pref" value="Valider">
                 </label>
             </div>
+            <?php
+            // back-end
+
+            // On contrôle si on à appuyer sur le bouton valider
+            if (isset($_POST['btn-pref'])) {
+                // on contrôle maintenant les champs, si ils sont remplis ou pas
+                if (!empty($_POST['discord']) && !empty($_POST['steam']) && !empty($_POST['twitch'])) {
+                    $controler->InsertPreference($_SESSION['id'], $_POST);
+                } else {
+                    echo "<p style='color: red'>Veuillez remplir les champs</p>";
+                }
+            }
+            ?>
         </form>
     </div>
 </main>
