@@ -1,114 +1,113 @@
-#settings-block{
-    margin: 4em 0 0 0;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    font-family: 'Quicksand', sans-serif;
-    width: 70em;
+#settings-block {
+  margin: 4em 0 0 0;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
+  max-width: 70em;
 
-    h3 {
-        text-align: center;
-        color: #d4d4d4;
-        padding: 0.4em 0.1em;
-        border-bottom: 1px solid #F5F5F5;
+  h3 {
+    text-align: center;
+    color: #d4d4d4;
+    padding: 0.4em 0.1em;
+    border-bottom: 1px solid #F5F5F5;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    width: 100%;
+
+    .card {
+      font-weight: 700;
+      border-radius: 5px;
+      padding: 2em 0 0 1em;
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: 3fr 5fr;
-        grid-template-rows: auto;
-        width: 100%;
+    .card:nth-child(1) {
+      line-height: 1.9em;
+      padding-left: 2em;
 
-        .card {
-
-            font-weight: 700;
-            border-radius:5px;
-            padding: 2em 0 0 1em;
-        }
-
-        .card:nth-child(1){
-                line-height: 1.9em;
-                padding-left:2em;
-
-                :nth-child(1){
-                margin:5.5em 0 3em 0;
-            }
-            }
-
-        .card:nth-child(2){
-                font-weight: 100;
-        }
-        }
-    }
-
-
-    .pp{
-        border-radius: 50%;
-    }
-
-    #cover-image {
-        width: 300px;
-        height: 100px;
-        display: inline-block;
-    }
-     
-    input[type="file"]{
-        margin: 15px 15px;
-    }
-
-    input[type="text"], input[type="password"], input[type="date"], input[type="number"],select{
-        margin: 15.5px auto;
-        border-radius: 25px;
-        border: 1px solid #d5d5d5;
-        outline: none;
-        height: 30px;
-        width: 300px;
+      :nth-child(1) {
+        margin: 5.5em 0 3em 0;
       }
-
-      
-    input[name="bio"] {
-        margin: 15px auto;
-        border-radius: 25px;
-        border: 1px solid #d5d5d5;
-        outline: none;
-        height: 90px;
-        width: 300px;
-
     }
 
-    input[type="checkbox"] {
-        margin: 0 15px;
-        color: #1991FF;
-        transform: scale(1.5);
-
-        ::checked{
-        background-color: #2196F3;
-        }
+    .card:nth-child(2) {
+      font-weight: 100;
     }
+  }
+}
 
-    input[type = "submit"] {
-        margin-top: 15px;
-        display: block;
-        border-radius: 25px;
-        border: none;
-        outline: none;
-        padding: 5px 15px;
-        color: #fff;
-        background-color: #1991FF;
-        width: 150px;
-        height: 30px;
-        font-family: 'Quicksand', sans-serif;
-        font-weight: 700;
-        box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
-      }
 
-      input {
-        padding-left: 10px;
-        }
+.pp {
+  border-radius: 50%;
+}
 
-      .error {
-        color: red;
-        margin-top: 15px;
-        text-align: center;
-        font-family: 'Quicksand', sans-serif;
-        font-weight: 800;
-      }
+#cover-image {
+  width: 300px;
+  height: 100px;
+  display: inline-block;
+
+}
+
+input[type="file"] {
+  margin: 15px 15px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="number"], select {
+  margin: 15.5px auto;
+  border-radius: 25px;
+  border: 1px solid #d5d5d5;
+  outline: none;
+  height: 30px;
+  width: 300px;
+}
+
+
+input[name="bio"] {
+  margin: 15px auto;
+  border-radius: 25px;
+  border: 1px solid #d5d5d5;
+  outline: none;
+  height: 90px;
+  width: 300px;
+
+}
+
+input[type="checkbox"] {
+  margin: 0 15px;
+  color: #1991FF;
+  transform: scale(1.5);
+
+  &:checked {
+    background-color: #2196F3;
+  }
+}
+
+input[type = "submit"] {
+  margin-top: 15px;
+  display: block;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  color: #fff;
+  background-color: #1991FF;
+  width: 150px;
+  height: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+input {
+  padding-left: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 15px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+}
