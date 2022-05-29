@@ -31,25 +31,25 @@ $ranks = $setup->getLvl($user['lvl']);
 
 <body>
 
-    <!--Barre de navigation-->
-    <?php require_once 'components/greenbar.php' ?>
+<!--Barre de navigation-->
+<?php require_once 'components/greenbar.php' ?>
 
-    <!--Block principal-->
-    <div id="main-block">
+<!--Block principal-->
+<div id="main-block">
 
-        <!--Block amis-->
-        <div id="settings-block">
-            <h3>PRÉFÉRENCES DU PROFIL</h3>
+    <!--Block amis-->
+    <div id="settings-block">
+        <h3>PRÉFÉRENCES DU PROFIL</h3>
 
-            <div class="grid">
-                <div class="card">
-                    <p>Photo de profil</p><br>
-                    <p>Image de couverture</p><br>
-                    <p>Identifiant</p><br>
-                    <p>Prénom</p><br>
-                    <p>Nom</p><br>
-                    <p>Date de naissance</p><br>
-                    <p>Âge</p><br>
+        <div class="grid">
+            <div class="card">
+                <p>Photo de profil</p><br>
+                <p>Image de couverture</p><br>
+                <p>Identifiant</p><br>
+                <p>Prénom</p><br>
+                <p>Nom</p><br>
+                <p>Date de naissance</p><br>
+                <p>Âge</p><br>
                     <p>Pays</p><br>
                     <p>Jeu favori</p><br>
                     <p>Genre favori</p><br>
@@ -96,11 +96,8 @@ $ranks = $setup->getLvl($user['lvl']);
                     <input type="submit" name="btn" value="Valider">
 
                 </div>
-            </div>
-
         </div>
-
     </div>
-    </div>
-
+</div>
+</body>
 </html>

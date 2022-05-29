@@ -191,4 +191,34 @@ class controller
         }
     }
 
+    public function insertGroups($iduser, $tab, $img)
+    {
+        $r = "INSERT INTO user_groups values(null, :nom, :privacy, :creator, :img)";
+        $data = array(
+            ":nom" => $tab['nomgroupe'],
+            ":privacy" => $tab['privacy'],
+            ":creator" => $iduser,
+            ":img" => $img
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+        }
+
+    }
+
+    public function getGroups($iduser)
+    {
+        $r = "SELECT * from user_groups where creator = $iduser";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
+        }
+    }
+
 }

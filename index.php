@@ -66,6 +66,7 @@ if (isset($_SESSION['pseudo'])) {
 <a href="insert_games.php">ajouter un jeu</a>
 <a href="testpays.php">Pays</a>
 <a href="preferences.php"> Préferences</a>
+<a href="profil_groupes.php">groupes</a>
 
 
 <?php
