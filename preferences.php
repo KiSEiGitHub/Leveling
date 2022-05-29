@@ -18,13 +18,17 @@ $ranks = $setup->getLvl($user['lvl']);
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS !-->
     <link rel="stylesheet" href="./scss/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
     </style>
@@ -33,92 +37,52 @@ $ranks = $setup->getLvl($user['lvl']);
 
 <body>
 
-    <!--Barre de navigation-->
-    <div id="green-bar">
-        <h1>
-            <a href="index.php">LEVELING</a>
-        </h1>
-        <div class="nav-icons">
-            <input type="text" name="search" placeholder="Rechercher" id="search">
+<!--Barre de navigation-->
+<?php require_once 'components/greenbar.php' ?>
+
+<main id="account-preferences">
+    <h3>Préférences du compte</h3>
+    <div class="preference">
+        <form action="#" method="post">
+            <div class="flex-input">
+                <label for="discord">
+                    Compte discord
+                    <input type="text" name="discord" placeholder="">
+                </label>
+            </div>
+            <div class="flex-input">
+                <label for="steam">
+                    Compte steam
+                    <input type="text" name="steam" placeholder="">
+                </label>
+            </div>
+            <div class="flex-input">
+                <label for="twitch">
+                    Compte twitch
+                    <input type="text" name="twitch" placeholder="">
+                </label>
+            </div>
+            <div class="flex-input">
+                <label for="submit">
+                    <input type="submit" class="btn btn-outline-info" name="btn-pref" value="Valider">
+                </label>
+            </div>
             <?php
-            if (isset($_SESSION['pseudo'])) {
+            // back-end
+
+            // On contrôle si on à appuyer sur le bouton valider
+            if (isset($_POST['btn-pref'])) {
+                // on contrôle maintenant les champs, si ils sont remplis ou pas
+                if (!empty($_POST['discord']) && !empty($_POST['steam']) && !empty($_POST['twitch'])) {
+                    $controler->InsertPreference($_SESSION['id'], $_POST);
+                } else {
+                    echo "<p style='color: red'>Veuillez remplir les champs</p>";
+                }
+            }
             ?>
-                <a href="./profil.php">
-                    <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp" />
-                </a>
-            <?php
-            } else { ?>
-                <a href="./profil.php">
-                    <img class="nav-user" src="./images/user-circle.png" alt="">
-                </a>
-            <?php } ?>
-            <a href="./preferences.php">
-                <img class="nav-user" src="./images/settings.png" alt="">
-            </a>
-        </div>
+        </form>
     </div>
-    <h1 class="title-preference">Entrainement</h1>
-    <div class="central-preference">
-        <div class="flex-input-preference">
-            <div class="left-preference">
-                <P>Adresse mail</P>
-            </div>
-            <div class="right-preference">
-                <input type="text" name="mail">
-            </div>
-
-        </div>
-        <div class="flex-input-preference">
-            <div class="left-preference">
-                <P>Compte Discord</P>
-            </div>
-            <div class="right-preference">
-                <input type="text" name="discord" placeholder="@">
-            </div>
-        </div>
-
-        <div class="flex-input-preference">
-            <div class="left-preference">
-                <P>Compte Steam</P>
-            </div>
-            <div class="right-preference">
-                <input type="text" name="steam">
-            </div>
-        </div>
-
-        <div class="flex-input-preference">
-            <div class="left-preference">
-                <P>Compte Twitch</P>
-            </div>
-            <div class="right-preference">
-                <input type="text" name="twitch">
-            </div>
-        </div>
-
-        <div class="flex-input-preference">
-            <div class="left-preference">
-                <P>Liste noire</P>
-            </div>
-            <div class="right-preference">
-                <textarea type="text" name="liste-noir" placeholder="Aucun utilisateur sur liste noire"></textarea>
-            </div>
-        </div>
-
-        <div class="flex-input-preference">
-            <div class="right-preference">
-                <input class="button-submit-preference" type="submit" name="Valider" value="Valider">
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
+</main>
 
 </body>
-
 </html>

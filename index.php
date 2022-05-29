@@ -8,6 +8,7 @@ $setup = new setup();
 
 if (isset($_SESSION['pseudo'])) {
     $user = $controler->getUser($_SESSION['id']);
+    $preference = $controler->getUserPreference($_SESSION['id']);
 } else {
     $user = null;
 }
@@ -65,6 +66,21 @@ if (isset($_SESSION['pseudo'])) {
 <a href="insert_games.php">ajouter un jeu</a>
 <a href="testpays.php">Pays</a>
 <a href="preferences.php"> Préferences</a>
+<a href="profil_groupes.php">groupes</a>
+
+
+<?php
+if ($preference != null) {
+    echo "<h3>Préférence utilisateur</h3>";
+    foreach ($preference as $sigle) { ?>
+        <p>Steam : <?= $sigle['steam'] ?></p>
+        <p>Discord : <?= $sigle['discord'] ?></p>
+        <p>Twitch : <?= $sigle['twitch'] ?></p>
+    <?php }
+} else { ?>
+    <h3>Pas de préférence</h3>
+<?php } ?>
+
 
 <!-- Javascript -->
 <script src="js/main.js"></script>
