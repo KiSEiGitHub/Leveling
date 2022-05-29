@@ -25,7 +25,7 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 <body>
 <?php require_once 'components/greenbar.php' ?>
-<form action="#" method="post">
+<form action="#" method="post" enctype="multipart/form-data">
     <label for="nomgroupe">
         nom du groupe :
         <input type="text" name="nomgroupe">
@@ -38,14 +38,25 @@ $ranks = $setup->getLvl($user['lvl']);
             <option value="private">Privé</option>
         </select>
     </label>
+    <br>
+    <label for="imggroupes">
+        Image du groupe
+        <input type="file" name="imggroupes">
+    </label>
     <label for="submit">
         <input type="submit" name="btn-grp" value="créer">
     </label>
     <?php
-    if (isset($_POST['btn-grp'])) {
+    if (isset($_POST['btn-grp']) && isset($_FILES)) {
         if (!empty($_POST['nomgroupe'])) {
-            $controler->insertGroups($_SESSION['id'], $_POST);
-            header('location: profil_groupes.php');
+            if ($_FILES['imggroupes']['name'] == '') {
+                echo "<p>Veuillez insérer une image de profil du groupe</p>";
+            } else {
+                var_dump('c bon');
+                $img = $setup->FakeImage($_FILES['imggroupes'], "./assets/img/groupesPP/");
+                $controler->insertGroups($_SESSION['id'], $_POST, $img);
+                header('location: profil_groupes.php');
+            }
         } else {
             echo "<p>Renseigner les champs</p>";
         }

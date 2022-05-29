@@ -82,9 +82,9 @@ $ranks = $setup->getLvl($user['lvl']);
         if ($groups != null) {
             foreach ($groups as $sigle) { ?>
                 <div class="friend">
-                    <img src="assets/img/icons/users-solid.png" alt="" width="80px">
+                    <img src="assets/img/groupesPP/<?= $sigle['img'] ?>" alt="" width="80px">
                     <div class="text">
-                        <a href="#">#<?= $sigle['nom'] ?></a>
+                        <a href="index.php">#<?= $sigle['nom'] ?></a>
                         <p>
                             Groupe
                             <span> <?= $sigle['privacy'] ?></span>
