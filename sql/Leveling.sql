@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 28 mai 2022 à 05:59
+-- Généré le : dim. 29 mai 2022 à 08:12
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -422,6 +422,29 @@ CREATE TABLE IF NOT EXISTS `user_games` (
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_groups`
+--
+
+DROP TABLE IF EXISTS `user_groups`;
+CREATE TABLE IF NOT EXISTS `user_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(25) NOT NULL,
+  `privacy` varchar(25) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user_groups`
+--
+
+INSERT INTO `user_groups` (`id`, `nom`, `privacy`, `creator`, `img`) VALUES
+(8, 'Male Alpha', 'private', 20, 'IMG-6293294bebae10.49630174.png');
 
 -- --------------------------------------------------------
 
