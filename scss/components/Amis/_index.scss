@@ -1,13 +1,3 @@
 // l'index.scss de chaque dossier doit SEULEMENT contenir l'importation de tous les petits fichers scss que vous faite SI vous le voulez
-@import "greenNavBar";
-@import "coverImage";
-@import "profilePicture";
 @import "friendsBlock";
-@import "settings";
 @import "bestFriend";
-
-#main-block {
-  margin: 0 auto;
-  max-width: 70em;
-  height: auto;
-}

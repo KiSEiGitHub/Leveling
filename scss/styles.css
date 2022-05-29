@@ -490,138 +490,6 @@ input#floatingInput, input#floatingPassword {
   height: auto;
 }
 
-#green-bar {
-  width: 100%;
-  height: 60px;
-  background-color: #2A2B2F;
-  display: flex;
-  justify-content: space-between;
-}
-#green-bar h1 a {
-  color: white;
-  font-family: toxigenesis;
-  margin: 30px 0 0 20px;
-  text-decoration: none;
-  display: block;
-}
-#green-bar .nav-icons {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
-  justify-content: flex-end;
-}
-#green-bar .nav-icons input {
-  margin: 0 0 0 10px;
-}
-#green-bar .nav-icons input#search {
-  padding-left: 10px;
-}
-#green-bar .nav-icons img {
-  margin-right: 1.2em;
-  height: 30px;
-  width: 30px;
-}
-#green-bar .nav-icons .nav-user {
-  border-radius: 50%;
-}
-#green-bar #search {
-  display: block;
-  margin-right: 20px;
-  border-radius: 20px;
-  border: 1px solid gray;
-  outline: none;
-  align-self: center;
-  height: 25px;
-}
-#green-bar #search::placeholder {
-  padding-left: 15px;
-}
-
-/*Inclure la possibilité de changer l'image de couverture*/
-#cover-image {
-  width: 100%;
-  height: 15em;
-  background-color: #cfcfcf;
-  position: relative;
-  z-index: 0;
-  display: flex;
-  justify-content: space-between;
-  background-size: cover;
-}
-#cover-image #username {
-  font-size: 2em;
-  margin: 0 0 10px 300px;
-  align-self: flex-end;
-  color: white;
-  font-family: toxigenesis;
-  width: 9.5em;
-}
-#cover-image ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style-type: none;
-  height: 4em;
-  align-self: flex-end;
-  font-weight: 600;
-}
-#cover-image ul li {
-  color: white;
-  display: inline;
-  align-self: flex-end;
-  padding: 15px 20px;
-  font-size: 1.2em;
-}
-#cover-image ul li a {
-  text-decoration: none;
-  color: white;
-}
-#cover-image ul .border-white {
-  color: white;
-  border-right: 1px solid white;
-  display: inline;
-  align-self: flex-end;
-  padding: 15px 20px;
-  font-size: 1.2em;
-}
-#cover-image button {
-  height: 3em;
-  width: 10em;
-  border: none;
-  background: none;
-  text-shadow: rgb(0, 0, 0) 1px 0 10px;
-  color: white;
-  position: absolute;
-}
-
-/*Inclure la possibilité de changer la photo de profil*/
-#profile-picture {
-  position: absolute;
-  z-index: 1999;
-  top: 110px;
-  left: 45px;
-}
-#profile-picture #pp {
-  height: 15em;
-  width: 15em;
-  border-radius: 50%;
-  margin: 0 0 1em 0;
-  position: absolute;
-  z-index: 2;
-}
-#profile-picture #lvl-icon {
-  margin-top: 12.5em;
-  position: absolute;
-  left: 88px;
-  z-index: 3;
-}
-#profile-picture #lvl-rank {
-  position: absolute;
-  z-index: 3;
-  top: 270px;
-  left: -77px;
-}
-
 #friends-block {
   margin: 12em 0 0 0;
   border-radius: 15px;
@@ -651,17 +519,6 @@ input#floatingInput, input#floatingPassword {
   text-decoration: none;
   font-family: toxigenesis;
   padding-left: 0.5em;
-}
-
-@font-face {
-  font-family: "toxigenesis";
-  src: url("./assets/fonts/toxigenesis.tff") format("truetype");
-}
-*, ::after, ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
 }
 
 #best-friend {
@@ -694,144 +551,6 @@ input#floatingInput, input#floatingPassword {
 #best-friend #share p {
   color: #d4d4d4;
   margin-left: 1em;
-}
-
-#main-block {
-  margin: 0 auto;
-  max-width: 70em;
-  height: auto;
-}
-
-#green-bar {
-  width: 100%;
-  height: 60px;
-  background-color: #2A2B2F;
-  display: flex;
-  justify-content: space-between;
-}
-#green-bar h1 a {
-  color: white;
-  font-family: toxigenesis;
-  margin: 30px 0 0 20px;
-  text-decoration: none;
-  display: block;
-}
-#green-bar .nav-icons {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
-  justify-content: flex-end;
-}
-#green-bar .nav-icons input {
-  margin: 0 0 0 10px;
-}
-#green-bar .nav-icons input#search {
-  padding-left: 10px;
-}
-#green-bar .nav-icons img {
-  margin-right: 1.2em;
-  height: 30px;
-  width: 30px;
-}
-#green-bar .nav-icons .nav-user {
-  border-radius: 50%;
-}
-#green-bar #search {
-  display: block;
-  margin-right: 20px;
-  border-radius: 20px;
-  border: 1px solid gray;
-  outline: none;
-  align-self: center;
-  height: 25px;
-}
-#green-bar #search::placeholder {
-  padding-left: 15px;
-}
-
-/*Inclure la possibilité de changer l'image de couverture*/
-#cover-image {
-  width: 100%;
-  height: 15em;
-  background-color: #cfcfcf;
-  position: relative;
-  z-index: 0;
-  display: flex;
-  justify-content: space-between;
-  background-size: cover;
-}
-#cover-image #username {
-  font-size: 2em;
-  margin: 0 0 10px 300px;
-  align-self: flex-end;
-  color: white;
-  font-family: toxigenesis;
-  width: 9.5em;
-}
-#cover-image ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style-type: none;
-  height: 4em;
-  align-self: flex-end;
-  font-weight: 600;
-}
-#cover-image ul li {
-  color: white;
-  display: inline;
-  align-self: flex-end;
-  padding: 15px 20px;
-  font-size: 1.2em;
-}
-#cover-image ul li a {
-  text-decoration: none;
-  color: white;
-}
-#cover-image ul .border-white {
-  color: white;
-  border-right: 1px solid white;
-  display: inline;
-  align-self: flex-end;
-  padding: 15px 20px;
-  font-size: 1.2em;
-}
-#cover-image button {
-  height: 3em;
-  width: 10em;
-  border: none;
-  background: none;
-  text-shadow: rgb(0, 0, 0) 1px 0 10px;
-  color: white;
-  position: absolute;
-}
-
-/*Inclure la possibilité de changer la photo de profil*/
-#profile-picture {
-  position: absolute;
-  z-index: 1999;
-  top: 110px;
-  left: 45px;
-}
-#profile-picture #pp {
-  height: 15em;
-  width: 15em;
-  border-radius: 50%;
-  margin: 0 0 1em 0;
-  position: absolute;
-  z-index: 2;
-}
-#profile-picture #lvl-icon {
-  margin-top: 12.5em;
-  position: absolute;
-  left: 88px;
-  z-index: 3;
-}
-#profile-picture #lvl-rank {
-  position: absolute;
-  z-index: 3;
-  top: 270px;
-  left: -77px;
 }
 
 #groups-block {
@@ -877,17 +596,6 @@ input#floatingInput, input#floatingPassword {
   text-decoration: none;
   font-family: toxigenesis;
   font-size: 2em;
-}
-
-@font-face {
-  font-family: "toxigenesis";
-  src: url("./assets/fonts/toxigenesis.tff") format("truetype");
-}
-*, ::after, ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
 }
 
 #best-group {
@@ -1013,17 +721,6 @@ input#floatingInput, input#floatingPassword {
   height: auto;
 }
 
-@font-face {
-  font-family: "toxigenesis";
-  src: url("./assets/fonts/toxigenesis.tff") format("truetype");
-}
-*, ::after, ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-}
-
 #settings-block {
   margin: 4em 0 0 0;
   border-radius: 15px;
@@ -1125,12 +822,6 @@ input {
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-weight: 800;
-}
-
-#main-block {
-  margin: 0 auto;
-  max-width: 70em;
-  height: auto;
 }
 
 #OneGame-block {
