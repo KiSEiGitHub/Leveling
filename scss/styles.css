@@ -730,7 +730,7 @@ input#floatingInput, input#floatingPassword {
 }
 
 #settings-block {
-    margin: 4em 0 0 0;
+    margin: 4em 0 50px 0;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     font-family: "Quicksand", sans-serif;
@@ -748,9 +748,10 @@ input#floatingInput, input#floatingPassword {
     width: 100%;
 }
 #settings-block .grid .card {
-  font-weight: 700;
-  border-radius: 5px;
-  padding: 2em 0 0 1em;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 2em 0 0 1em;
+    margin-bottom: 50px;
 }
 #settings-block .grid .card:nth-child(1) {
   line-height: 1.9em;
