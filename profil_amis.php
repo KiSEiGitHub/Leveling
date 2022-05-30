@@ -30,104 +30,73 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-    <?php require_once 'components/greenbar.php' ?>
+<?php require_once 'components/greenbar.php' ?>
 
-    <!--Block principal-->
-    <div id="main-block">
-        <!--Image de couverture-->
-        <style>
-            #cover-image {
-                background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
-            }
-        </style>
-        <?php require_once 'components/header_profil.php' ?>
-    </div>
-
-
-    <!--Icônes Ajouter un ami + Envoyer un message -->
-    <div class="icons-friend-message">
-        <a href="profil_settings.php"><img src="assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
-        <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
-        <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
-    </div>
+<!--Block principal-->
+<div id="main-block">
+    <!--Image de couverture-->
+    <style>
+        #cover-image {
+            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("./images/cover-image-test.jpg");
+        }
+    </style>
+    <?php require_once 'components/header_profil.php' ?>
+</div>
 
 
-    <!--Block du meilleur ami-->
-    <div id="best-friend">
-        <div id="share">
-            <img src="images/user.png" alt="" width="80px">
-            <div id="text">
-                <h1><a href="">@Friend</a></h1>
-                <p><span>0</span> Heures de jeu passées ensembles</p>
-            </div>
+<!--Icônes Ajouter un ami + Envoyer un message -->
+<div class="icons-friend-message">
+    <a href="profil_settings.php"><img src="assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
+    <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
+    <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
+</div>
+
+
+<!--Block du meilleur ami-->
+<div id="best-friend">
+    <div id="share">
+        <img src="images/user.png" alt="" width="80px">
+        <div id="text">
+            <h1><a href="">@Friend</a></h1>
+            <p><span>0</span> Heures de jeu passées ensembles</p>
         </div>
     </div>
+</div>
 
-    <!--Block amis-->
-    <div id="friends-block">
-        <h3>AMIS</h3>
-
-        <div class="list">
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-            <div class="friend">
-                <img src="images/user.png" alt="" width="60px">
-                <a href="">@Friend</a>
-            </div>
-
-
+<!--Block amis-->
+<div id="friends-block">
+    <h3>AMIS</h3>
+    <div class="all-friends">
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@Arouf Gangsta</span>
         </div>
-
-
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@Kaaris</span>
+        </div>
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@JlSeramx</span>
+        </div>
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@DanLevi</span>
+        </div>
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@Maz</span>
+        </div>
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@Garance</span>
+        </div>
+        <div class="friend">
+            <img src="images/user.png" alt="pfp user">
+            <span>@DylanLan</span>
+        </div>
     </div>
+</div>
 
 
 </body>
