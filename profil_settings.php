@@ -89,9 +89,16 @@ $ranks = $setup->getLvl($user['lvl']);
                         </select><br>
                         <select name="selectcategory" id="selectcategory">
                             <option value="">Sélectionner une catégorie</option>
+                            <option value="action">Action</option>
+                            <option value="aventure">Aventure</option>
+                            <option value="horreur">Horreur</option>
+                            <option value="mmo_rpg">RPG / MMO</option>
                         </select><br>
                         <select name="selectplateform" id="selectplateform">
                             <option value="">Sélectionner une plateforme</option>
+                            <option value="pc">PC</option>
+                            <option value="xbox">Xbox</option>
+                            <option value="playstation">PS4 / PS5</option>
                         </select><br>
                         <input type="text" class="" id="" name="bio" rows="3" maxlength="100"><br>
                         <input type="submit" name="btn" value="Valider">
