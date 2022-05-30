@@ -497,13 +497,11 @@ input#floatingInput, input#floatingPassword {
     font-family: "Quicksand", sans-serif;
     max-width: 70em;
 }
-
 #friends-block h3 {
     text-align: center;
     color: #d4d4d4;
     padding: 0.4em 0.1em;
 }
-
 #friends-block .all-friends {
     width: 100%;
     border: 1px solid #fff;
@@ -514,7 +512,6 @@ input#floatingInput, input#floatingPassword {
     display: flex;
     flex-wrap: wrap;
 }
-
 #friends-block .all-friends .friend {
     width: 213px;
     height: 80px;
@@ -522,13 +519,11 @@ input#floatingInput, input#floatingPassword {
     display: flex;
     align-items: center;
 }
-
 #friends-block .all-friends .friend img {
     width: 50px;
     margin: 0 15px;
     border-radius: 50%;
 }
-
 #friends-block .all-friends .friend span {
     font-size: 23px;
     font-weight: 800;
@@ -537,11 +532,9 @@ input#floatingInput, input#floatingPassword {
 #best-friend {
     margin: 3em 0 0 20em;
 }
-
 #best-friend #icons {
     padding: 0.5em 1em;
 }
-
 #best-friend #share {
     width: 47em;
     height: 7em;

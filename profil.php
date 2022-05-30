@@ -71,7 +71,9 @@ $ranks = $setup->getLvl($user['lvl']);
     <!--Icônes Ajouter un ami + Envoyer un message -->
     <div class="icons-friend-message">
         <a href="profil_settings.php"><img src="assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
-        <img src="assets/img/icons/comment-dots-solid.png" alt="" width="30">
+        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasExample">
+            <img src="assets/img/icons/comment-dots-solid.png" alt="message-icon" width="30">
+        </a>
         <img src="assets/img/icons/user-plus-solid.png" alt="" width="30">
     </div>
 
@@ -141,10 +143,8 @@ $ranks = $setup->getLvl($user['lvl']);
             </div>
         </div>
     </div>
-    </div>
 
     <!--chat-->
-    <a class="btn btn-primary btn-styled" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasExample"></a>
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasScrollingLabel">MESSAGERIE</h5>
