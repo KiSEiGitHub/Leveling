@@ -36,11 +36,9 @@
   border-radius: 20px;
   margin: 5px 0;
 }
-
 .form-signin .sign-form .form-floating input#floatingInput, .form-signin .sign-form .form-floating input#floatingPassword {
     padding-left: 10px;
 }
-
 .form-signin .sign-form input[type=submit] {
     margin-top: 10px;
     border-radius: 20px;
@@ -128,7 +126,6 @@ input#floatingInput, input#floatingPassword {
     font-weight: 700;
     margin-bottom: 10px;
 }
-
 .form-inscription .inscription-form form .form-floating-bio label input {
     display: block;
     margin-top: 0.2em;
@@ -138,7 +135,6 @@ input#floatingInput, input#floatingPassword {
     height: 90px;
     width: 300px;
 }
-
 .form-inscription .inscription-form form input[type=submit] {
     display: block;
     margin: 0 auto;
@@ -470,7 +466,6 @@ input#floatingInput, input#floatingPassword {
   left: 25px;
   font-weight: 800;
 }
-
 #account-preferences .preference form .flex-input label input {
     border-radius: 15px;
     border: 1px solid grey;
@@ -481,7 +476,6 @@ input#floatingInput, input#floatingPassword {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     top: -16px;
 }
-
 #account-preferences .preference form .flex-input input[type=submit] {
     border: none;
     height: auto;
@@ -501,38 +495,53 @@ input#floatingInput, input#floatingPassword {
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     font-family: "Quicksand", sans-serif;
-    width: 70em;
+    max-width: 70em;
 }
+
 #friends-block h3 {
-  text-align: center;
-  color: #d4d4d4;
-  padding: 0.4em 0.1em;
-  border-bottom: 1px solid #F5F5F5;
+    text-align: center;
+    color: #d4d4d4;
+    padding: 0.4em 0.1em;
 }
-#friends-block .list {
-  width: 50%;
-  position: inherit;
+
+#friends-block .all-friends {
+    width: 100%;
+    border: 1px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    height: auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
 }
-#friends-block .friend {
-    font-size: 2em;
-    font-family: toxigenesis;
+
+#friends-block .all-friends .friend {
+    width: 213px;
+    height: 80px;
+    margin: 5px;
     display: flex;
     align-items: center;
-    padding-left: 1em;
-    margin: 0.2em 0;
 }
-#friends-block .friend a {
-  text-decoration: none;
-  font-family: toxigenesis;
-  padding-left: 0.5em;
+
+#friends-block .all-friends .friend img {
+    width: 50px;
+    margin: 0 15px;
+    border-radius: 50%;
+}
+
+#friends-block .all-friends .friend span {
+    font-size: 23px;
+    font-weight: 800;
 }
 
 #best-friend {
-  margin: 3em 0 0 20em;
+    margin: 3em 0 0 20em;
 }
+
 #best-friend #icons {
-  padding: 0.5em 1em;
+    padding: 0.5em 1em;
 }
+
 #best-friend #share {
     width: 47em;
     height: 7em;
@@ -798,7 +807,6 @@ input[type=checkbox] {
     color: #1991FF;
     transform: scale(1.5);
 }
-
 input[type=checkbox]:checked {
     background-color: #2196F3;
 }
