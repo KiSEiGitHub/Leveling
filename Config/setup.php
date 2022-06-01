@@ -183,8 +183,8 @@ class setup
             $new = $this->FakeImage($img, "./assets/img/groupesPP/");
         }
 
-        // création du groupe
+        // création du groupes
         $this->pdo->insertGroups($_SESSION['id'], $tab, $new);
-        header('Location: profil_groupes.php');
+        header('Location: groupes.php');
     }
 }

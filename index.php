@@ -46,28 +46,22 @@ if (isset($_SESSION['pseudo'])) {
         <?php
         if (isset($_SESSION['pseudo'])) {
             ?>
-            <a href="./profil.php">
+            <a href="pages/profil/index.php">
                 <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
             </a>
             <?php
         } else { ?>
-            <a href="./profil.php">
+            <a href="pages/profil/index.php">
                 <img class="nav-user" src="./images/user-circle.png" alt="">
             </a>
         <?php } ?>
-        <a href="./preferences.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
+        <a href="pages/profil/preferences.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
     </div>
 </div>
 
 <!-- ça c'est juste pour le dev -->
 <!-- on supprimera après -->
 <a href="Deconnexion.php">deco</a>
-<a href="profil.php">profil</a>
-<a href="search.php">search</a>
-<a href="insert_games.php">ajouter un jeu</a>
-<a href="testpays.php">Pays</a>
-<a href="preferences.php"> Préferences</a>
-<a href="profil_groupes.php">groupes</a>
 <a href="inscription.php">inscription</a>
 <a href="Connexion.php">connexion</a>
 
