@@ -145,7 +145,7 @@ $ranks = $setup->getLvl($user['lvl']);
                     <div class="friend">
                         <img src="../../assets/img/groupesPP/<?= $sigle['img'] ?>" alt="" width="80px">
                         <div class="text">
-                            <a href="../../index.php">#<?= $sigle['nom'] ?></a>
+                            <a href="../groupes/index.php?idgroup=<?= $sigle['id'] ?>">#<?= $sigle['nom'] ?></a>
                             <p>
                                 Groupe
                                 <span> <?= $sigle['privacy'] ?></span>

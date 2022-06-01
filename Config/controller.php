@@ -221,4 +221,17 @@ class controller
         }
     }
 
+    public function getOneGroups($id)
+    {
+        $r = "SELECT * from user_groups where id = $id";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetch();
+        } else {
+            return null;
+        }
+    }
+
 }
