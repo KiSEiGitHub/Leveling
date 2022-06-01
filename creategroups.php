@@ -48,18 +48,7 @@ $ranks = $setup->getLvl($user['lvl']);
     </label>
     <?php
     if (isset($_POST['btn-grp']) && isset($_FILES)) {
-        if (!empty($_POST['nomgroupe'])) {
-            if ($_FILES['imggroupes']['name'] == '') {
-                echo "<p>Veuillez insérer une image de profil du groupe</p>";
-            } else {
-                var_dump('c bon');
-                $img = $setup->FakeImage($_FILES['imggroupes'], "./assets/img/groupesPP/");
-                $controler->insertGroups($_SESSION['id'], $_POST, $img);
-                header('location: profil_groupes.php');
-            }
-        } else {
-            echo "<p>Renseigner les champs</p>";
-        }
+        echo $setup->checkCreateGroups($_POST, $_FILES['imggroupes']);
     }
     ?>
 </form>
