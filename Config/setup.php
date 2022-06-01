@@ -1,7 +1,15 @@
 <?php
+require_once('controller.php');
 
 class setup
 {
+    public $pdo;
+
+    public function __construct()
+    {
+        $this->pdo = new controller("localhost", "leveling", "root", "");
+    }
+
     public function FakeImage($img, $chemin)
     {
         $name = $img['name'];
@@ -108,4 +116,75 @@ class setup
         return [$level, $ranks];
     }
 
+    public function checkInsertUser($tab, $img)
+    {
+        // on check si on a tous les champs
+        foreach ($tab as $OneValue) {
+            if ($OneValue == '') {
+                return 'Veuillez renseigner tous les champs';
+            }
+        }
+
+        // on check l'image
+        if ($img['name'] == '') {
+            return "Veuillez insérer une image";
+        } else {
+            $UserImg = $this->FakeImage($img, "./assets/img/UserProfilePicture/");
+        }
+
+        // on insert notre user
+        $this->pdo->insertUser($tab, $UserImg);
+        return "Utilisateur crée !";
+    }
+
+    public function checkConnexion($tab)
+    {
+        // on check si l'utilisateur a rensigner tous les champs
+        foreach ($tab as $OneValue) {
+            if ($OneValue == '') {
+                return 'Veuillez renseigner les champs';
+            }
+        }
+
+        // On garde en mémoire ses inputs
+        $PotentialFakePseudo = $tab['pseudo'];
+        $PotentialFakePassword = $tab['mdp'];
+
+        // on récupère le user en fonction du pseudo donné
+        $UserWhoWantToLogin = $this->pdo->Login($tab['pseudo']);
+
+        // On set nos variable de Session
+        $_SESSION['id'] = $UserWhoWantToLogin['id'];
+        $_SESSION['pseudo'] = $UserWhoWantToLogin['pseudo'];
+        $_SESSION['mdp'] = $UserWhoWantToLogin['password'];
+
+        // On vérifie si tout concorde
+        if ($PotentialFakePseudo == $_SESSION['pseudo'] && md5($PotentialFakePassword) == $_SESSION['mdp']) {
+            header('Location: index.php');
+        } else {
+            return 'Mot de passe ou pseudo incorrect';
+        }
+
+    }
+
+    public function checkCreateGroups($tab, $img)
+    {
+        // Renseigner tous les champs
+        foreach ($tab as $OneValue) {
+            if ($OneValue == '') {
+                return 'Veuillez renseigner tous les champs';
+            }
+        }
+
+        // controle image
+        if ($img['name'] == '') {
+            return 'Veuillez insérer une image';
+        } else {
+            $new = $this->FakeImage($img, "./assets/img/groupesPP/");
+        }
+
+        // création du groupe
+        $this->pdo->insertGroups($_SESSION['id'], $tab, $new);
+        header('Location: profil_groupes.php');
+    }
 }
