@@ -5,6 +5,7 @@ require_once("Config/controller.php");
 require_once("Config/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
+$preference = null;
 
 if (isset($_SESSION['pseudo'])) {
     $user = $controler->getUser($_SESSION['id']);
@@ -67,7 +68,8 @@ if (isset($_SESSION['pseudo'])) {
 <a href="testpays.php">Pays</a>
 <a href="preferences.php"> Préferences</a>
 <a href="profil_groupes.php">groupes</a>
-
+<a href="inscription.php">inscription</a>
+<a href="Connexion.php">connexion</a>
 
 <?php
 if ($preference != null) {
