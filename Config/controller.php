@@ -24,7 +24,7 @@ class controller
     // méthodes
     public function insertUser($tab, $img)
     {
-        $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance, :mail, :lvl)";
+        $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance, :mail, :lvl, :banner)";
         $data = array(
             ":nom" => $tab['nom'],
             ":prenom" => $tab['prenom'],
