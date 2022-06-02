@@ -121,6 +121,15 @@ if (!$OneGame) {
         </div>
     </div>
 </main>
+<div class="Button-Onegame">
+        <div class="Button-Onegame-wish">
+            <input type="submit" name=onegame-wish value="Ajouter à la liste de souhaits" >
+        </div>
+        <div class="Button-Onegame-insert">
+        <input type="submit" name=onegame-user value="Ajouter à la galerie" >
+
+        </div>
+    </div>
 
 
 </body>
