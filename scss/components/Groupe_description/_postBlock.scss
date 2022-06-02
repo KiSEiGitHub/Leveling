@@ -1,0 +1,29 @@
+#post-block {
+
+  margin: 3em 0 0 20em;
+
+  #icons {
+    padding: 0.5em 1em;
+
+  }
+
+  #share {
+    width: 47em;
+    height: 5em;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    position: absolute;
+
+    p {
+      margin-left: 10px;
+      color: #d4d4d4;
+      padding: 0.4em 0.1em;
+    }
+
+    #icons {
+      display: block;
+      margin-top: -10px;
+    }
+  }
+}

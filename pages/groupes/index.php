@@ -55,11 +55,7 @@ $creator = $controler->getUser($groups['creator'])
 <!--Barre de navigation-->
 
 <main id="onegroupe">
-    <?php
-    echo "<p>Nom : " . $groups['nom'] . "</p>";
-    echo "<p>Créateur : " . $creator['pseudo'] . "</p>";
-    echo "<p>id : " . $groups['id'] . "</p>";
-    ?>
+
 </main>
 
 </body>
