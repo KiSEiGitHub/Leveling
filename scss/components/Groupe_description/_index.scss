@@ -1,0 +1,16 @@
+@import "coverImage";
+@import "profilePicture";
+@import "aboutBlock";
+@import "feedBlock";
+@import "bio";
+@import "postBlock";
+@import "chat";
+@import "preferences";
+@import "creategroupe";
+
+
+#main-block {
+  margin: 0 auto;
+  max-width: 70em;
+  height: auto;
+}

@@ -180,11 +180,11 @@ class setup
         if ($img['name'] == '') {
             return 'Veuillez insérer une image';
         } else {
-            $new = $this->FakeImage($img, "./assets/img/groupesPP/");
+            $new = $this->FakeImage($img, "../../assets/img/groupesPP/");
         }
 
         // création du groupes
         $this->pdo->insertGroups($_SESSION['id'], $tab, $new);
-        header('Location: groupes.php');
+        header('Location: ../profil/groupes.php');
     }
 }

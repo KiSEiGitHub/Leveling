@@ -59,6 +59,7 @@ $ranks = $setup->getLvl($user['lvl']);
         </a>
     </div>
 </div>
+
 <!--Barre de navigation FIN -->
 
 <!--Block principal DEBUT -->
