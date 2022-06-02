@@ -312,6 +312,7 @@ input#floatingInput, input#floatingPassword {
   align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
+  margin-top: 21px;
 }
 
 #cover-image button {
@@ -371,6 +372,8 @@ input#floatingInput, input#floatingPassword {
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 #about-block ul {
@@ -402,6 +405,8 @@ input#floatingInput, input#floatingPassword {
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 #feed-block ul {
@@ -668,6 +673,8 @@ input#floatingInput, input#floatingPassword {
 
 #groups-block .header-grp h3 {
   color: #d4d4d4;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 #groups-block .header-grp a {
@@ -1108,24 +1115,75 @@ input {
 }
 
 /*Inclure la possibilité de changer l'image de couverture*/
-#cover-image {
+#groupe-cover-image {
+
   width: 100%;
   height: 15em;
   background-color: #cfcfcf;
   position: relative;
   z-index: 0;
+  
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-size: cover;
 }
-#cover-image #username {
+
+#groupe-cover-image #username {
   font-size: 2em;
   margin: 0 0 10px 300px;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   color: white;
   font-family: toxigenesis;
   width: 9.5em;
 }
+
+#groupe-cover-image ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+  height: 4em;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-weight: 600;
+}
+
+#groupe-cover-image ul li {
+  color: white;
+  display: inline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+#groupe-cover-image ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+#groupe-cover-image ul .border-white {
+  color: white;
+  border-right: 1px solid white;
+  display: inline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 21px;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+#groupe-cover-image button {
 #cover-image ul {
   display: flex;
   flex-wrap: wrap;
@@ -1165,241 +1223,213 @@ input {
 }
 
 /*Inclure la possibilité de changer la photo de profil*/
-#profile-picture {
+#groupe-profile-picture {
   position: absolute;
   z-index: 1999;
   top: 110px;
   left: 45px;
 }
-#profile-picture #pp {
+
+#groupe-profile-picture #pp {
   height: 15em;
   width: 15em;
-  border-radius: 50%;
   margin: 0 0 1em 0;
   position: absolute;
   z-index: 2;
 }
-#profile-picture #lvl-icon {
+
+#groupe-profile-picture #lvl-icon {
   margin-top: 12.5em;
   position: absolute;
   left: 88px;
   z-index: 3;
 }
-#profile-picture #lvl-rank {
+
+#groupe-profile-picture #lvl-rank {
   position: absolute;
   z-index: 3;
   top: 270px;
   left: -77px;
 }
 
-#about-block {
-  margin: 12em 0 0 3em;
+#groupe-about-block {
+  margin: 9em 0 0 3em;
   border-radius: 15px;
   background-color: white;
   height: auto;
   width: 15em;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
-#about-block h3 {
+
+#groupe-about-block img {
+  border-radius: 50px;
+}
+
+#groupe-about-block h3 {
   text-align: center;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
 }
-#about-block ul {
+
+#groupe-about-block ul {
   margin: 1em 0 1em 2em;
   list-style-type: circle;
 }
-#about-block ul li {
+
+#groupe-about-block ul li {
   padding: 0.5em;
 }
-#about-block ul li span {
+
+#groupe-about-block ul li span {
   color: #1991FF;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-#feed-block {
-  margin: 12em 0 0 20em;
+#discussions-block {
+  margin: 9em 0 0 20em;
   width: 47em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
-#feed-block h3 {
+
+#discussions-block h3 {
   text-align: center;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
 }
-#feed-block ul {
-  margin: 1em 0 1em 2em;
-  list-style-type: circle;
+
+#discussions-block ul {
+  margin: 1em 0 1em 0;
+  list-style-type: none;
 }
-#feed-block ul li {
+
+#discussions-block ul li {
   padding: 0.5em;
 }
-#feed-block ul li span {
+
+#discussions-block ul li img {
+  margin: 0 0.4em;
+}
+
+#discussions-block ul li span {
   color: #1991FF;
   font-weight: 500;
 }
 
-#bio {
+#membres-block {
+  margin: 27em 0 0 20em;
+  width: 47em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#membres-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#membres-block .all-members {
+  width: 100%;
+  border: 1px solid #fff;
+  height: auto;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#membres-block .all-members .members {
+  width: 60px;
+  height: 80px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#membres-block .all-members .members img {
+  width: 60px;
+  margin: 0 15px;
+  border-radius: 50%;
+}
+
+#membres-block .all-members .members span {
+  font-size: 23px;
+  font-weight: 800;
+}
+
+#description-block {
+  margin: 2em 0 0 44.4em;
+}
+
+#description-block #share {
+  width: 44em;
+  height: 5em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+
+#description-block #share p {
+  margin-left: 10px;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  font-weight: 600;
+}
+
+#groupe-icons {
   max-width: 45em;
   font-weight: 600;
   margin: 10px 0 0 18.5em;
   height: auto;
 }
 
-.icons-friend-message {
-  margin-left: 60em;
+.groupe-icons-friend-message {
+  margin-left: 65em;
   position: absolute;
 }
-.icons-friend-message .btn-styled {
+
+.groupe-icons-friend-message .btn-styled {
   outline: none;
   border: none;
   background-color: #fff;
 }
-.icons-friend-message .btn-styled:hover {
+
+.groupe-icons-friend-message .btn-styled:hover {
   background-color: #fff;
 }
-.icons-friend-message img {
+
+.groupe-icons-friend-message img {
   margin: 8px 2px;
-}
-
-#post-block {
-  margin: 3em 0 0 20em;
-}
-#post-block #icons {
-  padding: 0.5em 1em;
-}
-#post-block #share {
-  width: 47em;
-  height: 5em;
-  border-radius: 15px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  position: absolute;
-}
-#post-block #share p {
-  margin-left: 10px;
-  color: #d4d4d4;
-  padding: 0.4em 0.1em;
-}
-#post-block #share #icons {
-  display: block;
-  margin-top: -10px;
-}
-
-#offcanvasScrolling {
-  background-color: #2A2B2F;
-  color: #fff;
-}
-#offcanvasScrolling h5 {
-  font-size: 32px;
-  margin-top: 50px;
-}
-#offcanvasScrolling button {
-  background-color: #fff;
-}
-#offcanvasScrolling .offcanvas-body .header-title-message {
-  margin-top: 50px;
-}
-#offcanvasScrolling .offcanvas-body .user-message-block {
-  display: flex;
-  margin: 15px 0;
-}
-#offcanvasScrolling .offcanvas-body .user-message-block .profil-picture-message {
-  width: 50px;
-  border-radius: 50%;
-}
-#offcanvasScrolling .offcanvas-body .user-message-block p {
-  position: relative;
-  top: 7px;
-  left: 15px;
-  font-size: 20px;
-}
-
-#account-preferences {
-  max-width: 70em;
-  height: auto;
-  border-radius: 15px;
-  margin: 20px auto 0;
-}
-#account-preferences h3 {
-  position: relative;
-  top: 40px;
-  left: 25px;
-  color: #b7b7b7;
-  font-size: 14px;
-}
-#account-preferences .preference {
-  max-width: 70em;
-  height: 600px;
-  border-radius: 15px;
-  border: solid 1px #bababa;
-  margin: 50px auto 0;
-}
-#account-preferences .preference form {
-  position: relative;
-}
-#account-preferences .preference form .flex-input label {
-  display: block;
-  margin: 50px auto;
-  position: relative;
-  left: 25px;
-  font-weight: 800;
-}
-#account-preferences .preference form .flex-input label input {
-  border-radius: 15px;
-  border: 1px solid grey;
-  position: absolute;
-  right: 500px;
-  width: 350px;
-  height: 25px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  top: -16px;
-}
-#account-preferences .preference form .flex-input input[type=submit] {
-  border: none;
-  height: auto;
-  width: auto;
-  position: relative;
-  left: 270px;
-}
-
-#creategroups .create-groupe-block {
-  max-width: 70em;
-  border: 1px solid grey;
-  height: 700px;
-  border-radius: 20px;
-  margin: 50px auto 0;
-  position: relative;
-  padding: 50px 100px;
-}
-#creategroups .create-groupe-block h3 {
-  color: #d0d0d0;
-  font-size: 14px;
-  position: absolute;
-  top: -30px;
-  left: 30px;
-}
-#creategroups .create-groupe-block form {
-  position: relative;
-}
-#creategroups .create-groupe-block form label {
-  display: block;
-  margin: 40px 0;
-  position: relative;
-  font-weight: 700;
-}
-#creategroups .create-groupe-block form label input, #creategroups .create-groupe-block form label select {
-  position: absolute;
-  right: 300px;
-  top: -18px;
 }
 
 #main-block {
