@@ -348,6 +348,7 @@ input#floatingInput, input#floatingPassword {
       align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
+  margin-top: 21px;
 }
 
 #cover-image button {
@@ -408,6 +409,8 @@ input#floatingInput, input#floatingPassword {
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 #about-block ul {
@@ -440,6 +443,8 @@ input#floatingInput, input#floatingPassword {
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 #feed-block ul {
@@ -730,6 +735,8 @@ input#floatingInput, input#floatingPassword {
 
 #groups-block .header-grp h3 {
   color: #d4d4d4;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 #groups-block .header-grp a {
@@ -1210,5 +1217,298 @@ input {
   border-radius: 25px;
   display: block;
   margin: 10px;
+}
+
+/*Inclure la possibilité de changer l'image de couverture*/
+#groupe-cover-image {
+  width: 100%;
+  height: 15em;
+  background-color: #cfcfcf;
+  position: relative;
+  z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-size: cover;
+}
+
+#groupe-cover-image #username {
+  font-size: 2em;
+  margin: 0 0 10px 300px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: white;
+  font-family: toxigenesis;
+  width: 9.5em;
+}
+
+#groupe-cover-image ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+  height: 4em;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-weight: 600;
+}
+
+#groupe-cover-image ul li {
+  color: white;
+  display: inline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+#groupe-cover-image ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+#groupe-cover-image ul .border-white {
+  color: white;
+  border-right: 1px solid white;
+  display: inline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 21px;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+
+#groupe-cover-image button {
+  height: 3em;
+  width: 10em;
+  border: none;
+  background: none;
+  text-shadow: black 1px 0 10px;
+  color: white;
+  position: absolute;
+}
+
+/*Inclure la possibilité de changer la photo de profil*/
+#groupe-profile-picture {
+  position: absolute;
+  z-index: 1999;
+  top: 110px;
+  left: 45px;
+}
+
+#groupe-profile-picture #pp {
+  height: 15em;
+  width: 15em;
+  margin: 0 0 1em 0;
+  position: absolute;
+  z-index: 2;
+}
+
+#groupe-profile-picture #lvl-icon {
+  margin-top: 12.5em;
+  position: absolute;
+  left: 88px;
+  z-index: 3;
+}
+
+#groupe-profile-picture #lvl-rank {
+  position: absolute;
+  z-index: 3;
+  top: 270px;
+  left: -77px;
+}
+
+#groupe-about-block {
+  margin: 9em 0 0 3em;
+  border-radius: 15px;
+  background-color: white;
+  height: auto;
+  width: 15em;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+
+#groupe-about-block img {
+  border-radius: 50px;
+}
+
+#groupe-about-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#groupe-about-block ul {
+  margin: 1em 0 1em 2em;
+  list-style-type: circle;
+}
+
+#groupe-about-block ul li {
+  padding: 0.5em;
+}
+
+#groupe-about-block ul li span {
+  color: #1991FF;
+  font-weight: 600;
+}
+
+#discussions-block {
+  margin: 9em 0 0 20em;
+  width: 47em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#discussions-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#discussions-block ul {
+  margin: 1em 0 1em 0;
+  list-style-type: none;
+}
+
+#discussions-block ul li {
+  padding: 0.5em;
+}
+
+#discussions-block ul li img {
+  margin: 0 0.4em;
+}
+
+#discussions-block ul li span {
+  color: #1991FF;
+  font-weight: 500;
+}
+
+#membres-block {
+  margin: 27em 0 0 20em;
+  width: 47em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#membres-block h3 {
+  text-align: center;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#membres-block .all-members {
+  width: 100%;
+  border: 1px solid #fff;
+  height: auto;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#membres-block .all-members .members {
+  width: 60px;
+  height: 80px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#membres-block .all-members .members img {
+  width: 60px;
+  margin: 0 15px;
+  border-radius: 50%;
+}
+
+#membres-block .all-members .members span {
+  font-size: 23px;
+  font-weight: 800;
+}
+
+#description-block {
+  margin: 2em 0 0 44.4em;
+}
+
+#description-block #share {
+  width: 44em;
+  height: 5em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+
+#description-block #share p {
+  margin-left: 10px;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  font-weight: 600;
+}
+
+#groupe-icons {
+  max-width: 45em;
+  font-weight: 600;
+  margin: 10px 0 0 18.5em;
+  height: auto;
+}
+
+.groupe-icons-friend-message {
+  margin-left: 65em;
+  position: absolute;
+}
+
+.groupe-icons-friend-message .btn-styled {
+  outline: none;
+  border: none;
+  background-color: #fff;
+}
+
+.groupe-icons-friend-message .btn-styled:hover {
+  background-color: #fff;
+}
+
+.groupe-icons-friend-message img {
+  margin: 8px 2px;
+}
+
+#main-block {
+  margin: 0 auto;
+  max-width: 70em;
+  height: auto;
 }
 /*# sourceMappingURL=styles.css.map */
