@@ -191,14 +191,17 @@ class controller
         }
     }
 
-    public function insertGroups($iduser, $tab, $img)
+    public function insertGroups($iduser, $tab, $img, $banner)
     {
-        $r = "INSERT INTO user_groups values(null, :nom, :privacy, :creator, :img)";
+        $r = "INSERT INTO user_groups values(null, :nom, :privacy, :creator, :img, :banner, :jeux, :desc)";
         $data = array(
             ":nom" => $tab['nomgroupe'],
             ":privacy" => $tab['privacy'],
             ":creator" => $iduser,
-            ":img" => $img
+            ":img" => $img,
+            ":jeux" => $tab['jeux'],
+            ":banner" => $banner,
+            ":desc" => $tab['description']
         );
 
         if ($this->pdo != null) {
