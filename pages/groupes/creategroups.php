@@ -51,32 +51,51 @@ $ranks = $setup->getLvl($user['lvl']);
 </div>
 <!--Barre de navigation FIN -->
 
-<form action="#" method="post" enctype="multipart/form-data">
-    <label for="nomgroupe">
-        nom du groupe :
-        <input type="text" name="nomgroupe">
-    </label>
-    <br>
-    <label for="privacy">
-        Sélectionner privacy
-        <select name="privacy" id="privacy">
-            <option value="public">Public</option>
-            <option value="private">Privé</option>
-        </select>
-    </label>
-    <br>
-    <label for="imggroupes">
-        Image du groupe
-        <input type="file" name="imggroupes">
-    </label>
-    <label for="submit">
-        <input type="submit" name="btn-grp" value="créer">
-    </label>
-    <?php
-    if (isset($_POST['btn-grp']) && isset($_FILES)) {
-        echo $setup->checkCreateGroups($_POST, $_FILES['imggroupes']);
-    }
-    ?>
-</form>
+<main id="creategroups">
+
+    <div class="create-groupe-block">
+        <h3>Création d'un groupe</h3>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="pfp">
+                Photo de profil
+                <input type="file" name="imggroupes">
+            </label>
+            <label for="pfp-cover">
+                Photo de couverture
+                <input type="file" name="imggroupecover">
+            </label>
+            <label for="nomgroupe">
+                Nom du groupe
+                <input type="text" name="nomgroupe">
+            </label>
+            <label for="privacy">
+                Visibilité
+                <select name="privacy" id="privacy">
+                    <option value="public">Public</option>
+                    <option value="prive">privé</option>
+                </select>
+            </label>
+            <label for="jeux">
+                jeux associé
+                <select name="jeux" id="jeux">
+                    <option value="test">jeux</option>
+                </select>
+            </label>
+            <label for="description">
+                Description du groupe
+                <input type="text" name="description" placeholder="300 caractère maximum">
+            </label>
+            <label for="submit">
+                <input type="submit" class="btn btn-primary" name="btn-grp" value="Valider">
+            </label>
+            <?php
+            if (isset($_POST['btn-grp']) && isset($_FILES)) {
+                echo $setup->checkCreateGroups($_POST, $_FILES['imggroupes'], $_FILES['imggroupecover']);
+            }
+            ?>
+        </form>
+    </div>
+</main>
 </body>
 </html>

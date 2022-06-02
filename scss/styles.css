@@ -7,9 +7,8 @@
 *, ::after, ::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
 
 .form-signin {
@@ -17,15 +16,14 @@
   width: 100%;
   position: relative;
   background-color: #2A2B2F;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .form-signin .sign-form {
   position: absolute;
   top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .form-signin .sign-form h1 {
@@ -45,6 +43,17 @@
 
 .form-signin .sign-form .form-floating input#floatingInput, .form-signin .sign-form .form-floating input#floatingPassword {
   padding-left: 10px;
+}
+.form-signin .sign-form input[type=submit] {
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  width: auto;
+  background-color: #1991FF;
+  font-weight: 700;
+  color: white;
 }
 
 .form-signin .sign-form input[type="submit"] {
@@ -85,15 +94,9 @@ input#floatingInput, input#floatingPassword {
 .form-inscription {
   width: 100%;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-inscription .inscription-form form {
@@ -125,7 +128,7 @@ input#floatingInput, input#floatingPassword {
   display: block;
   text-align: left;
   color: #2A2B2F;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -148,7 +151,7 @@ input#floatingInput, input#floatingPassword {
   display: block;
   text-align: left;
   color: #2A2B2F;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -162,8 +165,7 @@ input#floatingInput, input#floatingPassword {
   height: 90px;
   width: 300px;
 }
-
-.form-inscription .inscription-form form input[type="submit"] {
+.form-inscription .inscription-form form input[type=submit] {
   display: block;
   margin: 0 auto;
   border-radius: 25px;
@@ -174,14 +176,13 @@ input#floatingInput, input#floatingPassword {
   background-color: #1991FF;
   width: 150px;
   height: 30px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
-  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
-          box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
 .form-inscription .inscription-form form .inscription span {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: #2A2B2F;
   display: block;
@@ -190,7 +191,7 @@ input#floatingInput, input#floatingPassword {
 }
 
 .form-inscription .inscription-form form .inscription span a {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: #2A2B2F;
   text-decoration-thickness: 2px;
   font-weight: 700;
@@ -200,7 +201,7 @@ input#floatingInput, input#floatingPassword {
   color: red;
   margin-top: 15px;
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 800;
 }
 
@@ -208,12 +209,8 @@ input#floatingInput, input#floatingPassword {
   width: 100%;
   height: 60px;
   background-color: #2A2B2F;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 #green-bar h1 a {
@@ -225,16 +222,10 @@ input#floatingInput, input#floatingPassword {
 }
 
 #green-bar .nav-icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-right: 40px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 #green-bar .nav-icons input {
@@ -262,22 +253,8 @@ input#floatingInput, input#floatingPassword {
   border-radius: 20px;
   border: 1px solid gray;
   outline: none;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   height: 25px;
-}
-
-#green-bar #search::-webkit-input-placeholder {
-  padding-left: 15px;
-}
-
-#green-bar #search:-ms-input-placeholder {
-  padding-left: 15px;
-}
-
-#green-bar #search::-ms-input-placeholder {
-  padding-left: 15px;
 }
 
 #green-bar #search::placeholder {
@@ -291,46 +268,34 @@ input#floatingInput, input#floatingPassword {
   background-color: #cfcfcf;
   position: relative;
   z-index: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   background-size: cover;
 }
 
 #cover-image #username {
   font-size: 2em;
   margin: 0 0 10px 300px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   color: white;
   font-family: toxigenesis;
   width: 9.5em;
 }
 
 #cover-image ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style-type: none;
   height: 4em;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   font-weight: 600;
 }
 
 #cover-image ul li {
   color: white;
   display: inline;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
 }
@@ -344,8 +309,7 @@ input#floatingInput, input#floatingPassword {
   color: white;
   border-right: 1px solid white;
   display: inline;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
   margin-top: 21px;
@@ -398,9 +362,8 @@ input#floatingInput, input#floatingPassword {
   background-color: white;
   height: auto;
   width: 15em;
-  font-family: 'Quicksand', sans-serif;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
 
@@ -432,10 +395,9 @@ input#floatingInput, input#floatingPassword {
   width: 47em;
   border-radius: 15px;
   background-color: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 #feed-block h3 {
@@ -500,8 +462,7 @@ input#floatingInput, input#floatingPassword {
   height: 5em;
   border-radius: 15px;
   background-color: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
 
@@ -595,12 +556,10 @@ input#floatingInput, input#floatingPassword {
   right: 500px;
   width: 350px;
   height: 25px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   top: -16px;
 }
-
-#account-preferences .preference form .flex-input input[type="submit"] {
+#account-preferences .preference form .flex-input input[type=submit] {
   border: none;
   height: auto;
   width: auto;
@@ -617,9 +576,8 @@ input#floatingInput, input#floatingPassword {
 #friends-block {
   margin: 12em 0 0 0;
   border-radius: 15px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: 'Quicksand', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: "Quicksand", sans-serif;
   max-width: 70em;
 }
 
@@ -632,28 +590,20 @@ input#floatingInput, input#floatingPassword {
 #friends-block .all-friends {
   width: 100%;
   border: 1px solid #fff;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   height: auto;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 #friends-block .all-friends .friend {
   width: 213px;
   height: 80px;
   margin: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 #friends-block .all-friends .friend img {
@@ -680,15 +630,10 @@ input#floatingInput, input#floatingPassword {
   height: 7em;
   border-radius: 15px;
   background-color: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 #best-friend #share img {
@@ -713,22 +658,15 @@ input#floatingInput, input#floatingPassword {
 #groups-block {
   margin: 12em 0 0 0;
   border-radius: 15px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: 'Quicksand', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: "Quicksand", sans-serif;
   max-width: 70em;
 }
 
 #groups-block .header-grp {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: relative;
   padding: 10px;
 }
@@ -750,12 +688,8 @@ input#floatingInput, input#floatingPassword {
 
 #groups-block .grp-box .friend {
   font-family: toxigenesis;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding-left: 1em;
   margin: 0.6em 0;
 }
@@ -789,15 +723,10 @@ input#floatingInput, input#floatingPassword {
   height: 7em;
   border-radius: 15px;
   background-color: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 #best-group #share img {
@@ -829,9 +758,8 @@ input#floatingInput, input#floatingPassword {
 #games-block {
   margin: 15em 0 0 0;
   border-radius: 15px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: 'Quicksand', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: "Quicksand", sans-serif;
   max-width: 70em;
 }
 
@@ -870,14 +798,9 @@ input#floatingInput, input#floatingPassword {
 
 #games-block .games-gallery {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #games-block .games-gallery .Game img {
@@ -899,14 +822,9 @@ input#floatingInput, input#floatingPassword {
   height: 7em;
   border-radius: 15px;
   background-color: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 #best-game #share img {
@@ -938,9 +856,8 @@ input#floatingInput, input#floatingPassword {
 #settings-block {
   margin: 4em 0 50px 0;
   border-radius: 15px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: 'Quicksand', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: "Quicksand", sans-serif;
   max-width: 70em;
 }
 
@@ -952,10 +869,8 @@ input#floatingInput, input#floatingPassword {
 }
 
 #settings-block .grid {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 5fr;
-      grid-template-columns: 3fr 5fr;
+  grid-template-columns: 3fr 5fr;
   width: 100%;
 }
 
@@ -989,11 +904,11 @@ input#floatingInput, input#floatingPassword {
   display: inline-block;
 }
 
-input[type="file"] {
+input[type=file] {
   margin: 15px 15px;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="number"], select {
+input[type=text], input[type=password], input[type=date], input[type=number], select {
   margin: 15.5px auto;
   border-radius: 25px;
   border: 1px solid #d5d5d5;
@@ -1002,7 +917,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="numb
   width: 300px;
 }
 
-input[name="bio"] {
+input[name=bio] {
   margin: 15px auto;
   border-radius: 25px;
   border: 1px solid #d5d5d5;
@@ -1011,18 +926,16 @@ input[name="bio"] {
   width: 300px;
 }
 
-input[type="checkbox"] {
+input[type=checkbox] {
   margin: 0 15px;
   color: #1991FF;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  transform: scale(1.5);
 }
-
-input[type="checkbox"]:checked {
+input[type=checkbox]:checked {
   background-color: #2196F3;
 }
 
-input[type="submit"] {
+input[type=submit] {
   margin-top: 15px;
   display: block;
   border-radius: 25px;
@@ -1033,10 +946,9 @@ input[type="submit"] {
   background-color: #1991FF;
   width: 150px;
   height: 30px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
-  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
-          box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
 input {
@@ -1047,7 +959,7 @@ input {
   color: red;
   margin-top: 15px;
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 800;
 }
 
@@ -1090,16 +1002,10 @@ input {
 
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note {
   padding: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   height: 180px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle {
@@ -1107,15 +1013,9 @@ input {
   width: 100px;
   height: 100px;
   border: 1px solid #c7c7c7;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: 0 10px;
 }
 
@@ -1148,12 +1048,8 @@ input {
 }
 
 #OneGame-block #bottomDescription #about .flex-item-about {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 10px;
 }
 
@@ -1189,6 +1085,10 @@ input {
   display: block;
 }
 
+.Button-Onegame {
+  margin-left: 1100px;
+}
+
 #games-block {
   margin: 50px auto 0;
   max-width: 70em;
@@ -1202,14 +1102,9 @@ input {
 #games-block #AllGames {
   max-width: 70em;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #games-block #AllGames img {
@@ -1221,11 +1116,13 @@ input {
 
 /*Inclure la possibilité de changer l'image de couverture*/
 #groupe-cover-image {
+
   width: 100%;
   height: 15em;
   background-color: #cfcfcf;
   position: relative;
   z-index: 0;
+  
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1287,6 +1184,35 @@ input {
 }
 
 #groupe-cover-image button {
+#cover-image ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  height: 4em;
+  align-self: flex-end;
+  font-weight: 600;
+}
+#cover-image ul li {
+  color: white;
+  display: inline;
+  align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+#cover-image ul li a {
+  text-decoration: none;
+  color: white;
+}
+#cover-image ul .border-white {
+  color: white;
+  border-right: 1px solid white;
+  display: inline;
+  align-self: flex-end;
+  padding: 15px 20px;
+  font-size: 1.2em;
+}
+#cover-image button {
   height: 3em;
   width: 10em;
   border: none;
@@ -1511,4 +1437,5 @@ input {
   max-width: 70em;
   height: auto;
 }
+
 /*# sourceMappingURL=styles.css.map */

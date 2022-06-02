@@ -155,11 +155,13 @@ $ranks = $setup->getLvl($user['lvl']);
 
         <div class="games-gallery">
             <?php
-            $AllGames = $controler->getAllGames();
-            foreach ($AllGames as $OneGames) { ?>
+            
+            $AllGamesWish = $controler->selectGameWish($_SESSION['id']);
+            var_dump($AllGamesWish);
+            foreach ($AllGamesWish as $OneGamesWish) { ?>
                 <div class="Game">
-                    <a href="../jeux/OneGame.php?gameid=<?= $OneGames['idinsert_games'] ?>">
-                        <img src="../../assets/img/insert_games/pp/<?= $OneGames['img_pp'] ?>" alt="">
+                    <a href="../jeux/OneGame.php?gameid=<?= $OneGamesWish['idinsert_games'] ?>">
+                        <img src="../../assets/img/insert_games/pp/<?= $OneGamesWish['img_pp'] ?>" alt="">
                     </a>
                 </div>
             <?php } ?>

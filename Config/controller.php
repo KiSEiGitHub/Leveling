@@ -191,14 +191,17 @@ class controller
         }
     }
 
-    public function insertGroups($iduser, $tab, $img)
+    public function insertGroups($iduser, $tab, $img, $banner)
     {
-        $r = "INSERT INTO user_groups values(null, :nom, :privacy, :creator, :img)";
+        $r = "INSERT INTO user_groups values(null, :nom, :privacy, :creator, :img, :banner, :jeux, :desc)";
         $data = array(
             ":nom" => $tab['nomgroupe'],
             ":privacy" => $tab['privacy'],
             ":creator" => $iduser,
-            ":img" => $img
+            ":img" => $img,
+            ":jeux" => $tab['jeux'],
+            ":banner" => $banner,
+            ":desc" => $tab['description']
         );
 
         if ($this->pdo != null) {
@@ -234,4 +237,44 @@ class controller
         }
     }
 
+    public function insertGameWish ($user,$game)
+    {
+        $r= "INSERT INTO user_wish values(null, :games, :user)";
+        $data= array(
+            ":games" => $game,
+            ":user" => $user
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+        }
+    }
+    public function insertGameUser ($user,$game)
+    {
+        $r= "INSERT INTO user_games values(null, :games, :user)";
+        $data= array(
+            ":games" => $game,
+            ":user" => $user
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+        }
+    }
+    
+    public function selectGameWish($iduser)
+    {
+        $r = "SELECT * FROM user_wish WHERE id_user=$iduser";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
+        }
+
+    }
 }
