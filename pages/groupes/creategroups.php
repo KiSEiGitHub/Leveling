@@ -63,7 +63,7 @@ $ranks = $setup->getLvl($user['lvl']);
             </label>
             <label for="pfp-cover">
                 Photo de couverture
-                <input type="file" name="imggroupe-cover">
+                <input type="file" name="imggroupecover">
             </label>
             <label for="nomgroupe">
                 Nom du groupe
@@ -91,7 +91,7 @@ $ranks = $setup->getLvl($user['lvl']);
             </label>
             <?php
             if (isset($_POST['btn-grp']) && isset($_FILES)) {
-                echo $setup->checkCreateGroups($_POST, $_FILES['imggroupes']);
+                echo $setup->checkCreateGroups($_POST, $_FILES['imggroupes'], $_FILES['imggroupecover']);
             }
             ?>
         </form>

@@ -167,7 +167,7 @@ class setup
 
     }
 
-    public function checkCreateGroups($tab, $img)
+    public function checkCreateGroups($tab, $img, $img2)
     {
         // Renseigner tous les champs
         foreach ($tab as $OneValue) {
@@ -176,15 +176,22 @@ class setup
             }
         }
 
-        // controle image
+        // controle image 1
         if ($img['name'] == '') {
             return 'Veuillez insérer une image';
         } else {
             $new = $this->FakeImage($img, "../../assets/img/groupesPP/");
         }
 
+        // on controle l'image 2
+        if ($img2['name'] == '') {
+            return 'Veuillez insérer une image';
+        } else {
+            $banner = $this->FakeImage($img2, "../../assets/img/groupesBanner/");
+        }
+
         // création du groupes
-        $this->pdo->insertGroups($_SESSION['id'], $tab, $new);
+        $this->pdo->insertGroups($_SESSION['id'], $tab, $new, $banner);
         header('Location: ../profil/groupes.php');
     }
 }
