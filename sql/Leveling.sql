@@ -1,17 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 30 mai 2022 à 16:46
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Généré le : jeu. 02 juin 2022 à 14:18
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
-SET
-SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET
-time_zone = "+00:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -439,15 +437,18 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
   `privacy` varchar(25) NOT NULL,
   `creator` int(11) NOT NULL,
   `img` varchar(255) NOT NULL,
+  `banner` varchar(255) NOT NULL,
+  `jeux` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user_groups`
 --
 
-INSERT INTO `user_groups` (`id`, `nom`, `privacy`, `creator`, `img`) VALUES
-(8, 'Male Alpha', 'private', 20, 'IMG-6293294bebae10.49630174.png');
+INSERT INTO `user_groups` (`id`, `nom`, `privacy`, `creator`, `img`, `banner`, `jeux`, `description`) VALUES
+(8, 'Male Alpha', 'private', 20, 'IMG-6293294bebae10.49630174.png', '', '0', '');
 
 -- --------------------------------------------------------
 
