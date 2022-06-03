@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['pseudo'] == null) {
-    header('Location: Connexion.php');
+    header('Location: ../../Connexion.php');
 }
 
 require_once("../../Config/controller.php");
