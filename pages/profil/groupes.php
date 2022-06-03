@@ -66,7 +66,7 @@ $ranks = $setup->getLvl($user['lvl']);
     <!--Image de couverture-->
     <style>
         #cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../images/cover-image-test.jpg");
+            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
         }
     </style>
     <!--Image de couverture-->
