@@ -103,7 +103,7 @@ $creator = $controler->getUser($groups['creator'])
     <div id="groupe-about-block">
         <h3>ABOUT</h3>
         <ul>
-            <li>Jeu associé : Streets of Rage 4</li>
+            <li>Jeu associé : <?= $groups['jeux'] ?></li>
             <li><span>150</span> membres</li>
             <li><span>100</span> membres en ligne</li>
             <li><span>80</span> en jeu</li>
