@@ -27,7 +27,7 @@ if (isset($_SESSION['pseudo'])) {
 <body>
 <div id="green-bar">
     <h1>
-        <a href="index.php">LEVELING</a>
+        <a href="../../index.php">LEVELING</a>
     </h1>
     <div class="nav-icons">
         <input type="text" name="search" placeholder="Rechercher" id="search">
