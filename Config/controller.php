@@ -237,10 +237,10 @@ class controller
         }
     }
 
-    public function insertGameWish ($user,$game)
+    public function insertGameWish($user, $game)
     {
-        $r= "INSERT INTO user_wish values(null, :games, :user)";
-        $data= array(
+        $r = "INSERT INTO user_wish values(null, :games, :user)";
+        $data = array(
             ":games" => $game,
             ":user" => $user
         );
@@ -250,10 +250,11 @@ class controller
             $insert->execute($data);
         }
     }
-    public function insertGameUser ($user,$game)
+
+    public function insertGameUser($user, $game)
     {
-        $r= "INSERT INTO user_games values(null, :games, :user)";
-        $data= array(
+        $r = "INSERT INTO user_games values(null, :games, :user)";
+        $data = array(
             ":games" => $game,
             ":user" => $user
         );
@@ -263,10 +264,10 @@ class controller
             $insert->execute($data);
         }
     }
-    
+
     public function selectGameWish($iduser)
     {
-        $r = "SELECT * FROM user_wish WHERE id_user=$iduser";
+        $r = "SELECT * FROM user_wish WHERE id_user = $iduser";
         if ($this->pdo != null) {
             $select = $this->pdo->prepare($r);
             $select->execute();
@@ -275,6 +276,31 @@ class controller
         } else {
             return null;
         }
+    }
 
+    public function selectGameUser($iduser)
+    {
+        $r = "SELECT * FROM user_games WHERE id_user = $iduser";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetchAll();
+        } else {
+            return null;
+        }
+    }
+
+    public function getOneGame($id)
+    {
+        $r = "SELECT * FROM games where idinsert_games = $id";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetch();
+        } else {
+            return null;
+        }
     }
 }

@@ -139,14 +139,19 @@ $ranks = $setup->getLvl($user['lvl']);
 
         <div class="games-gallery">
             <?php
-            $AllGames = $controler->getAllGames();
-            foreach ($AllGames as $OneGames) { ?>
-                <div class="Game">
-                    <a href="../jeux/OneGame.php?gameid=<?= $OneGames['idinsert_games'] ?>">
-                        <img src="../../assets/img/insert_games/pp/<?= $OneGames['img_pp'] ?>" alt="">
-                    </a>
-                </div>
-            <?php } ?>
+            $AllGamesUser = $controler->selectGameUser($_SESSION['id']);
+            if ($AllGamesUser == null) {
+                echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
+            } else {
+                foreach ($AllGamesUser as $OneGamesUser) {
+                    $Jeux = $controler->getOneGame($OneGamesUser['id_game']) ?>
+                    <div class="Game">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
+                        </a>
+                    </div>
+                <?php }
+            } ?>
         </div>
     </div>
 
@@ -155,16 +160,19 @@ $ranks = $setup->getLvl($user['lvl']);
 
         <div class="games-gallery">
             <?php
-            
             $AllGamesWish = $controler->selectGameWish($_SESSION['id']);
-            var_dump($AllGamesWish);
-            foreach ($AllGamesWish as $OneGamesWish) { ?>
-                <div class="Game">
-                    <a href="../jeux/OneGame.php?gameid=<?= $OneGamesWish['idinsert_games'] ?>">
-                        <img src="../../assets/img/insert_games/pp/<?= $OneGamesWish['img_pp'] ?>" alt="">
-                    </a>
-                </div>
-            <?php } ?>
+            if ($AllGamesWish == null) {
+                echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
+            } else {
+                foreach ($AllGamesWish as $OneGamesWish) {
+                    $Jeux = $controler->getOneGame($OneGamesWish['id_games']) ?>
+                    <div class="Game">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
+                        </a>
+                    </div>
+                <?php }
+            } ?>
         </div>
     </div>
     <!--Block jeux-->

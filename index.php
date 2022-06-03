@@ -64,7 +64,7 @@ if (isset($_SESSION['pseudo'])) {
 <a href="Deconnexion.php">deco</a>
 <a href="inscription.php">inscription</a>
 <a href="Connexion.php">connexion</a>
-
+<a href="pages/jeux/">jeux</a>
 <?php
 if ($preference != null) {
     echo "<h3>Préférence utilisateur</h3>";
