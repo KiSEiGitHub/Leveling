@@ -71,7 +71,7 @@ $creator = $controler->getUser($groups['creator'])
     <!--Image de couverture DEBUT -->
     <style>
         #groupe-cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupe/cover-image.jpg");
+            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupesBanner/<?= $groups['banner'] ?>");
         }
     </style>
     <!--Image de couverture FIN -->
@@ -108,8 +108,8 @@ $creator = $controler->getUser($groups['creator'])
             <li><span>100</span> membres en ligne</li>
             <li><span>80</span> en jeu</li>
             <li>Fondé le : <span>02/06/2022</span></li>
-            <li>Administrateur : <img src="../../assets/img/UserProfilePicture/IMG-627cbd751cc748.34784138.jpg" alt=""
-                                      width="50px"> <span>@Mirinae</span></li>
+            <li>Administrateur : <img src="../../assets/img/UserProfilePicture/<?= $creator['img'] ?>" alt=""
+                                      width="50px"> <span>@<?= $creator['pseudo'] ?></span></li>
         </ul>
     </div>
     <!--Block "About" FIN -->
