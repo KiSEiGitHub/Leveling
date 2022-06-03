@@ -82,7 +82,7 @@ $ranks = $setup->getLvl($user['lvl']);
             <div class="card">
                 <form action="#" method="post" enctype="multipart/form-data">
                     <img class="pp" src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp"
-                         width="100px"><input type="file" name="" value""><br>
+                         width="100px"><input type="file" name="imgpfp" value="<?= $user['img'] ?>"><br>
                     <style>
                         #coverimage {
                             background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../images/cover-image-test.jpg");
@@ -90,18 +90,18 @@ $ranks = $setup->getLvl($user['lvl']);
                     </style>
                     <div id="coverimage"></div>
                     <input type="file" name="img-banner" value""><br>
-                    <input type="text" class="" id="" name="pseudo" maxlength="10"><br>
-                    <input type="text" class="" id="" name="prenom" maxlength="10">
+                    <input type="text" class="" id="" name="pseudo" maxlength="10" value="<?= $user['pseudo'] ?>"><br>
+                    <input type="text" class="" id="" name="prenom" maxlength="10" value="<?= $user['prenom'] ?>">
                     <input type="checkbox" id="" name="">
                     <label for="checkbox">Afficher sur le profil</label>
                     <br>
-                    <input type="text" class="" id="" name="nom" maxlength="10">
+                    <input type="text" class="" id="" name="nom" maxlength="10" value="<?= $user['nom'] ?>">
                     <input type="checkbox" id="" name="">
                     <label for="checkbox">Afficher sur le profil</label><br>
-                    <input type="date" class="" id="" name="dateNaissance">
+                    <input type="date" class="" id="" name="dateNaissance" value="<?= $user['DateDeNaissance'] ?>">
                     <input type="checkbox" id="" name="">
                     <label for="checkbox">Afficher sur le profil</label><br>
-                    <input type="number" class="" id="" name="age">
+                    <input type="number" class="" id="" name="age" value="<?= $user['age'] ?>">
                     <input type="checkbox" id="" name="">
                     <label for="checkbox">Afficher sur le profil</label><br>
                     <select name="selectcountry" id="selectcountry">
@@ -131,7 +131,7 @@ $ranks = $setup->getLvl($user['lvl']);
                     <!-- Back End -->
                     <?php
                     if (isset($_POST['btn'])) {
-                        var_dump($_FILES['img-banner']);
+                        var_dump($_POST);
                     }
                     ?>
                 </form>
