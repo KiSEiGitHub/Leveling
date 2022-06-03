@@ -116,7 +116,7 @@ class setup
         return [$level, $ranks];
     }
 
-    public function checkInsertUser($tab, $img)
+    public function checkInsertUser($tab, $img, $banner)
     {
         // on check si on a tous les champs
         foreach ($tab as $OneValue) {
@@ -132,8 +132,14 @@ class setup
             $UserImg = $this->FakeImage($img, "./assets/img/UserProfilePicture/");
         }
 
+        if($banner['name'] == '') {
+            return 'Veuillez insérer une image de bannière';
+        } else {
+            $profilBanner = $this->FakeImage($banner, "./assets/img/UserProfilBanner/");
+        }
+
         // on insert notre user
-        $this->pdo->insertUser($tab, $UserImg);
+        $this->pdo->insertUser($tab, $UserImg, $profilBanner);
         return "Utilisateur crée !";
     }
 

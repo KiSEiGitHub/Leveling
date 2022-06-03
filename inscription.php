@@ -64,6 +64,12 @@ $setup = new setup();
                 </label>
             </div>
 
+            <div>
+                <label for="imgbanner">Banner
+                    <input type="file" name="imgbanner">
+                </label>
+            </div>
+
             <div class="form-floating">
                 <label for="mdp">Mot de passe
                     <input type="password" class="form-control" id="floatingPassword" name="mdp">
@@ -117,7 +123,7 @@ $setup = new setup();
             </div>
             <?php
             if (isset($_POST['btn'])) {
-                echo $setup->checkInsertUser($_POST, $_FILES['img']);
+                echo $setup->checkInsertUser($_POST, $_FILES['img'], $_FILES['imgbanner']);
             }
             ?>
         </form>

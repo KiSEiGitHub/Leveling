@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 02 juin 2022 à 14:18
+-- Généré le : ven. 03 juin 2022 à 08:54
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -385,16 +385,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lvl` int(11) NOT NULL,
   `img_banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `user`
---
-
-INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`, `mail`, `lvl`, `img_banner`) VALUES
-(20, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-6272c34bab0848.33289667.jpg', 'admin', '0200-08-04', 'tom.lau.974@gmail.com', 10, ''),
-(21, 'AlarÃ§on', 'Salim', 'de888202780abc6fac34f876ded670bf', 19, 'JL SerMaX', 'Penta chaque game viens pas test', 'IMG-627383326958d7.80933972.jpg', 'admin', '20003-01-25', 'alarconsalim95@gmail.com', 10, ''),
-(25, 'Garcia', 'Clara', '2c6ab096dddc9c5e2921f2cc1e95bdc5', 23, 'Mirinae', 'Carglass rÃ©pare', 'IMG-627cbd751cc748.34784138.jpg', 'admin', '1998-09-09', 'clara.garcia.contact@gmail.com', 10, '');
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -422,7 +413,15 @@ CREATE TABLE IF NOT EXISTS `user_games` (
   `id_game` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user_games`
+--
+
+INSERT INTO `user_games` (`id`, `id_game`, `id_user`) VALUES
+(2, 2, 20),
+(3, 9, 20);
 
 -- --------------------------------------------------------
 
@@ -441,14 +440,15 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
   `jeux` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user_groups`
 --
 
 INSERT INTO `user_groups` (`id`, `nom`, `privacy`, `creator`, `img`, `banner`, `jeux`, `description`) VALUES
-(8, 'Male Alpha', 'private', 20, 'IMG-6293294bebae10.49630174.png', '', '0', '');
+(16, 'Reyna Fan Base', 'public', 20, 'IMG-6299c575e4fb25.53114244.jpg', 'IMG-6299c575e54074.26710736.png', 'Valorant', 'Oui'),
+(15, 'Raze Fan Base', 'public', 20, 'IMG-6299c4c4c0e318.77060861.jpg', 'IMG-6299c4c4c14b78.96681343.png', 'Valorant', 'Here');
 
 -- --------------------------------------------------------
 
@@ -485,7 +485,15 @@ CREATE TABLE IF NOT EXISTS `user_wish` (
   `id_games` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user_wish`
+--
+
+INSERT INTO `user_wish` (`id`, `id_games`, `id_user`) VALUES
+(7, 10, 20),
+(6, 8, 20);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
