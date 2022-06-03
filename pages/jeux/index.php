@@ -55,7 +55,7 @@ if (isset($_SESSION['pseudo'])) {
         foreach ($AllGames as $Games) {
             ?>
             <a href="OneGame.php?gameid=<?= $Games['idinsert_games'] ?>">
-                <img src="../assets/img/insert_games/pp/<?= $Games['img_pp'] ?>" alt="arza">
+                <img src="../../assets/img/insert_games/pp/<?= $Games['img_pp'] ?>" alt="arza">
             </a>
         <?php } ?>
     </div>
