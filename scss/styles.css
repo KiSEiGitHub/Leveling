@@ -737,12 +737,12 @@ input#floatingInput, input#floatingPassword {
 }
 
 #settings-block {
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
-  font-family: "Quicksand", sans-serif;
-  max-width: 70em;
-  margin: 50px 0;
-  height: 750px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+    font-family: "Quicksand", sans-serif;
+    max-width: 70em;
+    margin: 50px 0;
+    height: 790px;
 }
 #settings-block h3 {
   text-align: center;
