@@ -112,19 +112,22 @@ $ranks = $setup->getLvl($user['lvl']);
     <!--Block "About" DEBUT -->
     <div id="about-block">
         <h3>ABOUT</h3>
-        <ul>
-            <li>
-                <span>648614</span> EXP
-            </li>
-
-            <li><span><?= $userAbout['jeux_possede'] ?></span> jeux possédés</li>
-            <li><span><?= $userAbout['jeux_termine'] ?></span> jeux terminés</li>
-            <li><span><?= $userAbout['jeux_cent'] ?></span> jeux terminés à 100%</li>
-            <li>Jeu favori : <span><?= $userAbout['jeu_fav'] ?></span></li>
-            <li>Genre favori : <span><?= $userAbout['genre_fav'] ?></span></li>
-            <li>Plateforme favorite : <span><?= $userAbout['plateforme_fav'] ?></span></li>
-            <li>Inscrit depuis le : <span><?= $userAbout['inscription'] ?></span></li>
-        </ul>
+        <?php if ($userAbout['jeu_fav'] != '') { ?>
+            <ul>
+                <li><span><?= $userAbout['exp'] ?></span> EXP</li>
+                <li><span><?= $userAbout['jeux_possede'] ?></span> jeux possédés</li>
+                <li><span><?= $userAbout['jeux_termine'] ?></span> jeux terminés</li>
+                <li><span><?= $userAbout['jeux_cent'] ?></span> jeux terminés à 100%</li>
+                <li>Jeu favori : <span><?= $userAbout['jeu_fav'] ?></span></li>
+                <li>Genre favori : <span><?= $userAbout['genre_fav'] ?></span></li>
+                <li>Plateforme favorite : <span><?= $userAbout['plateforme_fav'] ?></span></li>
+                <li>Inscrit depuis le : <span><?= $userAbout['inscription'] ?></span></li>
+            </ul>
+        <?php } else { ?>
+            <a href="settings.php" style="text-align: center; display: block; color: #000">Configuré
+                maintenant
+            </a>
+        <?php } ?>
     </div>
     <!--Block "About" FIN -->
 

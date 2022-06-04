@@ -332,6 +332,10 @@ class controller
         // About
         $r2 = "
                 UPDATE about SET
+                     exp = 0,
+                     jeux_possede = 0,
+                     jeux_termine = 0,
+                     jeux_cent = 0,
                      jeu_fav = :jeu,
                      genre_fav = :genre,
                      plateforme_fav = :plate
@@ -365,4 +369,16 @@ class controller
             return null;
         }
     }
+
+    public function insertBaseUserAbout($iduser)
+    {
+        $dateInscription = date('d/m/Y');
+        $r = "INSERT INTO about values(null, 0,0,0,0,'','','','$dateInscription', $iduser)";
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute();
+        }
+    }
+
 }
