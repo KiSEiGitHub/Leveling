@@ -307,6 +307,7 @@ class controller
 
     public function updateUserPreference($tab, $iduser)
     {
+        // User
         $r = "
                 UPDATE user SET
                     nom = :nom,
@@ -328,10 +329,40 @@ class controller
             ":mail" => $tab['mail']
         );
 
+        // About
+        $r2 = "
+                UPDATE about SET
+                     jeu_fav = :jeu,
+                     genre_fav = :genre,
+                     plateforme_fav = :plate
+                WHERE id_user = $iduser
+            ";
+
+        $data2 = array(
+            ":jeu" => $tab['jeux'],
+            ":genre" => $tab['genre'],
+            ":plate" => $tab['platforme']
+        );
+
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $insert2 = $this->pdo->prepare($r2);
+            $insert2->execute($data2);
         }
 
+    }
+
+    public function getUserAbout($iduser)
+    {
+        $r = "SELECT * FROM about WHERE id_user = $iduser";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetch();
+        } else {
+            return null;
+        }
     }
 }

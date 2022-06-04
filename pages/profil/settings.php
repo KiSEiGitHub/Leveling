@@ -10,6 +10,7 @@ $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 $user = $controler->getUser($_SESSION['id']);
+$userAbout = $controler->getUserAbout($_SESSION['id']);
 $ranks = $setup->getLvl($user['lvl']);
 ?>
 
@@ -119,6 +120,7 @@ $ranks = $setup->getLvl($user['lvl']);
             <label for="JeuFav">
                 <span>Jeu favori</span>
                 <select class="inputtext" name="jeux" id="jeux">
+                    <option value="<?= $userAbout['jeu_fav'] ?>"><?= $userAbout['jeu_fav'] ?></option>
                     <?php
                     $allGames = $controler->getAllGames();
                     foreach ($allGames as $One) { ?>
@@ -130,17 +132,20 @@ $ranks = $setup->getLvl($user['lvl']);
             <label for="GenreFav">
                 <span>Genre favori</span>
                 <select class="inputtext" name="genre" id="genre">
+                    <option value="<?= $userAbout['genre_fav'] ?>"><?= $userAbout['genre_fav'] ?></option>
                     <option value="Aventure">Aventure</option>
                     <option value="Action">Action</option>
                     <option value="Horreur">Horreur</option>
-                    <option value="mmo">MMO</option>
-                    <option value="rpg">RPG</option>
+                    <option value="MMO">MMO</option>
+                    <option value="FPS">FPS</option>
+                    <option value="RPG">RPG</option>
                 </select>
             </label>
 
             <label for="platforme">
                 <span>Platforme favorite</span>
                 <select class="inputtext" name="platforme" id="#">
+                    <option value="<?= $userAbout['plateforme_fav'] ?>"><?= $userAbout['plateforme_fav'] ?></option>
                     <option value="PC">PC</option>
                     <option value="XBOX">Xbox One</option>
                     <option value="PS4">PS4</option>

@@ -10,6 +10,7 @@ $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 $user = $controler->getUser($_SESSION['id']);
+$userAbout = $controler->getUserAbout($_SESSION['id']);
 $ranks = $setup->getLvl($user['lvl']);
 ?>
 
@@ -116,14 +117,13 @@ $ranks = $setup->getLvl($user['lvl']);
                 <span>648614</span> EXP
             </li>
 
-            <li><span>198</span> jeux possédés</li>
-            <li><span>150</span> jeux terminés</li>
-            <li><span>100</span> jeux terminés à 100%</li>
-            <li>Jeu favori : <span>Assassin's Creed : Brotherhood</span></li>
-            <li>Genre favori : <span>Action, Tactique</span></li>
-            <li>Plateforme favorite : <span>PC</span></li>
-            <li>Inscrit depuis le : <span>09/05/2022</span></li>
-            <li>Dernière connexion le : <span>09/05/2022</span></li>
+            <li><span><?= $userAbout['jeux_possede'] ?></span> jeux possédés</li>
+            <li><span><?= $userAbout['jeux_termine'] ?></span> jeux terminés</li>
+            <li><span><?= $userAbout['jeux_cent'] ?></span> jeux terminés à 100%</li>
+            <li>Jeu favori : <span><?= $userAbout['jeu_fav'] ?></span></li>
+            <li>Genre favori : <span><?= $userAbout['genre_fav'] ?></span></li>
+            <li>Plateforme favorite : <span><?= $userAbout['plateforme_fav'] ?></span></li>
+            <li>Inscrit depuis le : <span><?= $userAbout['inscription'] ?></span></li>
         </ul>
     </div>
     <!--Block "About" FIN -->
