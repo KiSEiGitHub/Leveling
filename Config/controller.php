@@ -304,4 +304,34 @@ class controller
             return null;
         }
     }
+
+    public function updateUserPreference($tab, $iduser)
+    {
+        $r = "
+                UPDATE user SET
+                    nom = :nom,
+                    prenom = :prenom,
+                    age = :age,
+                    pseudo = :pseudo,
+                    bio = :bio,
+                    DateDeNaissance = :date,
+                    mail = :mail
+                WHERE id = $iduser
+            ";
+        $data = array(
+            ":nom" => $tab['nom'],
+            ":prenom" => $tab['prenom'],
+            "age" => $tab['age'],
+            ":pseudo" => $tab['pseudo'],
+            ":bio" => $tab['bio'],
+            ":date" => $tab['DateNaissance'],
+            ":mail" => $tab['mail']
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+        }
+
+    }
 }
