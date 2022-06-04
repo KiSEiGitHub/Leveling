@@ -208,6 +208,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $this->addUserXp($iduser, 'Addgroup');
         }
 
     }
@@ -249,6 +250,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $this->addUserXp($user, 'AddGamesWish');
         }
     }
 
@@ -263,6 +265,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $this->addUserXp($user, 'AddGames');
         }
     }
 
@@ -381,4 +384,44 @@ class controller
         }
     }
 
+    public function addUserXp($iduser, $action)
+    {
+        // récupérer la table about d'un user
+        $UserAbout = $this->getUserAbout($iduser);
+        $id = $UserAbout['id_user'];
+
+
+        switch ($action) {
+            case 'Addgroup':
+            {
+                $MoreXp = $UserAbout['exp'] + 10;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'AddGames' :
+            {
+                $MoreXp = $UserAbout['exp'] + 5;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'AddGamesWish' :
+            {
+                $MoreXp = $UserAbout['exp'] + 3;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+        }
+    }
 }
