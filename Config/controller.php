@@ -208,6 +208,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $this->addUserXp($iduser, 'Addgroup');
         }
 
     }
@@ -249,6 +250,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $this->addUserXp($user, 'AddGamesWish');
         }
     }
 
@@ -263,6 +265,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            $this->addUserXp($user, 'AddGames');
         }
     }
 
@@ -302,6 +305,123 @@ class controller
             return $select->fetch();
         } else {
             return null;
+        }
+    }
+
+    public function updateUserPreference($tab, $iduser)
+    {
+        // User
+        $r = "
+                UPDATE user SET
+                    nom = :nom,
+                    prenom = :prenom,
+                    age = :age,
+                    pseudo = :pseudo,
+                    bio = :bio,
+                    DateDeNaissance = :date,
+                    mail = :mail
+                WHERE id = $iduser
+            ";
+        $data = array(
+            ":nom" => $tab['nom'],
+            ":prenom" => $tab['prenom'],
+            "age" => $tab['age'],
+            ":pseudo" => $tab['pseudo'],
+            ":bio" => $tab['bio'],
+            ":date" => $tab['DateNaissance'],
+            ":mail" => $tab['mail']
+        );
+
+        // About
+        $r2 = "
+                UPDATE about SET
+                     exp = 0,
+                     jeux_possede = 0,
+                     jeux_termine = 0,
+                     jeux_cent = 0,
+                     jeu_fav = :jeu,
+                     genre_fav = :genre,
+                     plateforme_fav = :plate
+                WHERE id_user = $iduser
+            ";
+
+        $data2 = array(
+            ":jeu" => $tab['jeux'],
+            ":genre" => $tab['genre'],
+            ":plate" => $tab['platforme']
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+            $insert2 = $this->pdo->prepare($r2);
+            $insert2->execute($data2);
+        }
+
+    }
+
+    public function getUserAbout($iduser)
+    {
+        $r = "SELECT * FROM about WHERE id_user = $iduser";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetch();
+        } else {
+            return null;
+        }
+    }
+
+    public function insertBaseUserAbout($iduser)
+    {
+        $dateInscription = date('d/m/Y');
+        $r = "INSERT INTO about values(null, 0,0,0,0,'','','','$dateInscription', $iduser)";
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute();
+        }
+    }
+
+    public function addUserXp($iduser, $action)
+    {
+        // récupérer la table about d'un user
+        $UserAbout = $this->getUserAbout($iduser);
+        $id = $UserAbout['id_user'];
+
+
+        switch ($action) {
+            case 'Addgroup':
+            {
+                $MoreXp = $UserAbout['exp'] + 10;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'AddGames' :
+            {
+                $MoreXp = $UserAbout['exp'] + 5;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'AddGamesWish' :
+            {
+                $MoreXp = $UserAbout['exp'] + 3;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
         }
     }
 }

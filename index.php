@@ -6,12 +6,18 @@ require_once("Config/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 $preference = null;
+$userAbout = null;
 
 if (isset($_SESSION['pseudo'])) {
     $user = $controler->getUser($_SESSION['id']);
     $preference = $controler->getUserPreference($_SESSION['id']);
+    $userAbout = $controler->getUserAbout($_SESSION['id']);
 } else {
     $user = null;
+}
+
+if ($userAbout == null) {
+    $controler->insertBaseUserAbout($_SESSION['id']);
 }
 
 ?>
