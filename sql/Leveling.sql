@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 03 juin 2022 à 08:54
+-- Généré le : sam. 04 juin 2022 à 13:20
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -385,7 +385,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `lvl` int(11) NOT NULL,
   `img_banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`, `mail`, `lvl`, `img_banner`) VALUES
+(28, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Roi arouf gangsta', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png');
 
 -- --------------------------------------------------------
 
@@ -440,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
   `jeux` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user_groups`
@@ -448,7 +455,8 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
 
 INSERT INTO `user_groups` (`id`, `nom`, `privacy`, `creator`, `img`, `banner`, `jeux`, `description`) VALUES
 (16, 'Reyna Fan Base', 'public', 20, 'IMG-6299c575e4fb25.53114244.jpg', 'IMG-6299c575e54074.26710736.png', 'Valorant', 'Oui'),
-(15, 'Raze Fan Base', 'public', 20, 'IMG-6299c4c4c0e318.77060861.jpg', 'IMG-6299c4c4c14b78.96681343.png', 'Valorant', 'Here');
+(15, 'Raze Fan Base', 'public', 20, 'IMG-6299c4c4c0e318.77060861.jpg', 'IMG-6299c4c4c14b78.96681343.png', 'Valorant', 'Here'),
+(17, 'Reyna Fan Base', 'public', 28, 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'test', 'ctfghjkl');
 
 -- --------------------------------------------------------
 
