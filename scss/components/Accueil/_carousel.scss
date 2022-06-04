@@ -1,0 +1,33 @@
+.carousel-control-prev-icon {
+    background-image: url(../../assets/img/icons/angle-left-solid.svg);
+    width: 32px;
+    height: 32px;
+    margin-top: 4em;
+    margin-left: 15em;
+}
+.carousel-control-next-icon {
+    background-image: url(../../assets/img/icons/angle-right-solid.svg);
+    width: 32px;
+    height: 32px;
+    margin-top: 4em ;
+    margin-right: 15em;
+}
+
+
+.six-img {
+    display: flex;
+    justify-content: center;
+}
+
+#myCarousel-action{
+    outline: none;
+    border: 0px;
+}
+
+img {
+    margin: 1em 0.5em;
+}
+
+.d-block {
+    width: 10.2em;
+}

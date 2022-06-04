@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 04 juin 2022 à 13:20
+-- Généré le : sam. 04 juin 2022 à 16:24
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS `about` (
   `jeux_possede` int(11) NOT NULL,
   `jeux_termine` int(11) NOT NULL,
   `jeux_cent` int(11) NOT NULL,
-  `jeu_fav` varchar(50) NOT NULL,
-  `genre_fav` varchar(20) NOT NULL,
+  `jeu_fav` varchar(20) NOT NULL,
+  `genre_fav` varchar(15) NOT NULL,
   `plateforme_fav` varchar(10) NOT NULL,
-  `inscription` varchar(10) NOT NULL,
+  `inscrit` varchar(10) NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -383,125 +383,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `DateDeNaissance` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `lvl` int(11) NOT NULL,
-  `img_banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`, `mail`, `lvl`, `img_banner`) VALUES
-(28, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Roi arouf gangsta', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_friends`
---
-
-DROP TABLE IF EXISTS `user_friends`;
-CREATE TABLE IF NOT EXISTS `user_friends` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) NOT NULL,
-  `id_user_friend` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_games`
---
-
-DROP TABLE IF EXISTS `user_games`;
-CREATE TABLE IF NOT EXISTS `user_games` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_game` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `user_games`
---
-
-INSERT INTO `user_games` (`id`, `id_game`, `id_user`) VALUES
-(2, 2, 20),
-(3, 9, 20);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_groups`
---
-
-DROP TABLE IF EXISTS `user_groups`;
-CREATE TABLE IF NOT EXISTS `user_groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(25) NOT NULL,
-  `privacy` varchar(25) NOT NULL,
-  `creator` int(11) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `banner` varchar(255) NOT NULL,
-  `jeux` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `user_groups`
---
-
-INSERT INTO `user_groups` (`id`, `nom`, `privacy`, `creator`, `img`, `banner`, `jeux`, `description`) VALUES
-(16, 'Reyna Fan Base', 'public', 20, 'IMG-6299c575e4fb25.53114244.jpg', 'IMG-6299c575e54074.26710736.png', 'Valorant', 'Oui'),
-(15, 'Raze Fan Base', 'public', 20, 'IMG-6299c4c4c0e318.77060861.jpg', 'IMG-6299c4c4c14b78.96681343.png', 'Valorant', 'Here'),
-(17, 'Reyna Fan Base', 'public', 28, 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'test', 'ctfghjkl');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_preferences`
---
-
-DROP TABLE IF EXISTS `user_preferences`;
-CREATE TABLE IF NOT EXISTS `user_preferences` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) NOT NULL,
-  `steam` varchar(25) NOT NULL,
-  `discord` varchar(25) NOT NULL,
-  `twitch` varchar(25) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `user_preferences`
---
-
-INSERT INTO `user_preferences` (`id`, `id_user`, `steam`, `discord`, `twitch`) VALUES
-(4, 20, 'KiSEi', 'KiSEi', 'axe_kisei');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user_wish`
---
-
-DROP TABLE IF EXISTS `user_wish`;
-CREATE TABLE IF NOT EXISTS `user_wish` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_games` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `user_wish`
---
-
-INSERT INTO `user_wish` (`id`, `id_games`, `id_user`) VALUES
-(7, 10, 20),
-(6, 8, 20);
+INSERT INTO `user` (`id`, `nom`, `prenom`, `password`, `age`, `pseudo`, `bio`, `img`, `role`, `DateDeNaissance`, `mail`, `lvl`) VALUES
+(20, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'KiSEi', 'Je suis mystÃ©rieux', 'IMG-6272c34bab0848.33289667.jpg', 'admin', '0200-08-04', 'tom.lau.974@gmail.com', 0),
+(21, 'AlarÃ§on', 'Salim', 'de888202780abc6fac34f876ded670bf', 19, 'JL SerMaX', 'Penta chaque game viens pas test', 'IMG-627383326958d7.80933972.jpg', 'admin', '20003-01-25', 'alarconsalim95@gmail.com', 0),
+(25, 'Garcia', 'Clara', '2c6ab096dddc9c5e2921f2cc1e95bdc5', 23, 'Mirinae', 'Carglass rÃ©pare', 'IMG-627cbd751cc748.34784138.jpg', 'admin', '1998-09-09', 'clara.garcia.contact@gmail.com', 10);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

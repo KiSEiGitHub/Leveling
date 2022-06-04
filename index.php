@@ -61,6 +61,7 @@ if (isset($_SESSION['pseudo'])) {
 
 <!-- ça c'est juste pour le dev -->
 <!-- on supprimera après -->
+<a href="pages/accueil/accueil.php">accueil</a>
 <a href="Deconnexion.php">deco</a>
 <a href="inscription.php">inscription</a>
 <a href="Connexion.php">connexion</a>
