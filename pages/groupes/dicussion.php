@@ -97,19 +97,7 @@ $creator = $controler->getUser($groups['creator'])
         </div>
         <!--  Le header profil FIN -->
 
-        <!--Block "About" DEBUT -->
-        <div id="groupe-about-block">
-            <h3>ABOUT</h3>
-            <ul>
-                <li>Jeu associé : Streets of Rage 4</li>
-                <li><span>150</span> membres</li>
-                <li><span>100</span> membres en ligne</li>
-                <li><span>80</span> en jeu</li>
-                <li>Fondé le : <span>02/06/2022</span></li>
-                <li>Administrateur : <img src="../../assets/img/UserProfilePicture/IMG-627cbd751cc748.34784138.jpg" alt="" width="50px"> <span>@Mirinae</span></li>
-            </ul>
-        </div>
-        <!--Block "About" FIN -->
+
 
         <!--Icônes Ajouter un ami + Envoyer un message DEBUT -->
         <div class="groupe-icons-friend-message">
@@ -117,143 +105,156 @@ $creator = $controler->getUser($groups['creator'])
             <img src="../../assets/img/icons/user-plus-solid.png" alt="" width="30">
         </div>
         <!--Icônes Ajouter un ami + Envoyer un message FIN -->
-
-
-        <!--Block discussions DEBUT-->
-        <div id="discussions-block">
-            <h3>DERNIERES DISCUSSIONS</h3>
-            <ul>
-                <li>
-                    <img src="../../assets/img/icons/envelope-solid.png" alt="" width="30px">
-                    <span>How local server works ?</span>
-                </li>
-                <li>
-                    <img src="../../assets/img/icons/envelope-solid.png" alt="" width="30px">
-                    <span>Looking for gaming mates</span>
-                </li>
-                <li>
-                    <img src="../../assets/img/icons/envelope-solid.png" alt="" width="30px">
-                    <span>Who is the worst character ?</span>
-                </li>
-                <li>
-                    <img src="../../assets/img/icons/envelope-solid.png" alt="" width="30px">
-                    <span>I need some help</span>
-                </li>
-            </ul>
-        </div>
-        <!--Block discussions FIN-->
-
-        <!--Block membres DEBUT-->
-        <div id="membres-block">
-            <h3>DERNIERS MEMBRES</h3>
-            <div class="all-members">
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
-                <div class="members">
-                    <img src="../../images/user.png" alt="pfp user">
-                </div>
+        <!--Block Description du groupe -->
+        <div id="description-block">
+            <div id="share">
+                <p>JOIN THE STREET FIGHTER 4 DISCORD SERVER BELOW !
+                    <br> ➤ https://discord.gg/j6S3PTRe
+                </p>
             </div>
         </div>
-    </div>
-    <!--Block membres FIN-->
+        <!--Block Description du groupe FIN -->
 
-    <!--Block Description du groupe -->
-    <div id="description-block">
-        <div id="share">
-            <p>JOIN THE STREET FIGHTER 4 DISCORD SERVER BELOW !
-            <br> ➤ https://discord.gg/j6S3PTRe</p>
-        </div>
-    </div>
-    <!--Block Description du groupe FIN -->
+        <!-- Block groupe discussion -->
+        <div class="central-discussions">
+            <h4><strong>DISCUSSIONS</strong></h4>
+            <p>Trier par
+                <input type="text" name="tried-discussions" placeholder="Plus récent">
+                <input type="text" name="search-discussions" palceholder="">
+            </p>
+            <div class="new-discussion">
+                <input type="submit" class="btn-discussions" name="btn-discussion" value="Nouvelle discussion">
+            </div>
 
-    <!-- chat DEBUT -->
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">MESSAGERIE</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <p style="font-size: 14px">Discussions</p>
-            <?php
-            $AllUser = $controler->getAllUsers();
-            foreach ($AllUser as $UnUser) { ?>
-                <div class="user-message-block">
-                    <img src="../../assets/img/UserProfilePicture/<?= $UnUser['img'] ?>" class="profil-picture-message" alt="pfp" />
-                    <p>@<?= $UnUser['pseudo'] ?></p>
+            <div class="oneBlock-discussion">
+                <div class="icon-left-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z" />
+                    </svg>
                 </div>
-            <?php } ?>
-            <p class="header-title-message" style="font-size: 14px">Démarrer une discussion avec...</p>
-            <?php
-            $AllUser = $controler->getAllUsers();
-            foreach ($AllUser as $UnUser) { ?>
-                <div class="user-message-block">
-                    <img src="../../assets/img/UserProfilePicture/<?= $UnUser['img'] ?>" class="profil-picture-message" alt="pfp" />
-                    <p>@<?= $UnUser['pseudo'] ?></p>
+                <div class="text-oneblock-discussion">
+                    <p>ÉPINGLÉ : Official Street of rage 4 Discord server<br>By <strong>@MICHA</strong></p>
+                    <p class="date-discussion"> Le 18/04/2022 à 12:54</p>
                 </div>
-            <?php } ?>
+                <div class="icon-right-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="oneBlock-discussion">
+                <div class="icon-left-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z" />
+                    </svg>
+                </div>
+                <div class="text-oneblock-discussion">
+                    <p>ÉPINGLÉ : Official Street of rage 4 Discord server<br>By <strong>@MICHA</strong></p>
+                    <p class="date-discussion"> Le 18/04/2022 à 12:54</p>
+                </div>
+                <div class="icon-right-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="oneBlock-discussion">
+                <div class="icon-left-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M493.6 163c-24.88-19.62-45.5-35.37-164.3-121.6C312.7 29.21 279.7 0 256.4 0H255.6C232.3 0 199.3 29.21 182.6 41.38c-118.8 86.25-139.4 101.1-164.3 121.6C6.75 172 0 186 0 200.8v263.2C0 490.5 21.49 512 48 512h416c26.51 0 48-21.49 48-47.1V200.8C512 186 505.3 172 493.6 163zM303.2 367.5C289.1 378.5 272.5 384 256 384s-33.06-5.484-47.16-16.47L64 254.9V208.5c21.16-16.59 46.48-35.66 156.4-115.5c3.18-2.328 6.891-5.187 10.98-8.353C236.9 80.44 247.8 71.97 256 66.84c8.207 5.131 19.14 13.6 24.61 17.84c4.09 3.166 7.801 6.027 11.15 8.478C400.9 172.5 426.6 191.7 448 208.5v46.32L303.2 367.5z" />
+                    </svg>
+                </div>
+                <div class="text-oneblock-discussion">
+                    <p>ÉPINGLÉ : Official Street of rage 4 Discord server<br>By <strong>@MICHA</strong></p>
+                    <p class="date-discussion"> Le 18/04/2022 à 12:54</p>
+                </div>
+                <div class="icon-right-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="oneBlock-discussion">
+                <div class="icon-left-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M493.6 163c-24.88-19.62-45.5-35.37-164.3-121.6C312.7 29.21 279.7 0 256.4 0H255.6C232.3 0 199.3 29.21 182.6 41.38c-118.8 86.25-139.4 101.1-164.3 121.6C6.75 172 0 186 0 200.8v263.2C0 490.5 21.49 512 48 512h416c26.51 0 48-21.49 48-47.1V200.8C512 186 505.3 172 493.6 163zM303.2 367.5C289.1 378.5 272.5 384 256 384s-33.06-5.484-47.16-16.47L64 254.9V208.5c21.16-16.59 46.48-35.66 156.4-115.5c3.18-2.328 6.891-5.187 10.98-8.353C236.9 80.44 247.8 71.97 256 66.84c8.207 5.131 19.14 13.6 24.61 17.84c4.09 3.166 7.801 6.027 11.15 8.478C400.9 172.5 426.6 191.7 448 208.5v46.32L303.2 367.5z" />
+                    </svg>
+                </div>
+                <div class="text-oneblock-discussion">
+                    <p>ÉPINGLÉ : Official Street of rage 4 Discord server<br>By <strong>@MICHA</strong></p>
+                    <p class="date-discussion"> Le 18/04/2022 à 12:54</p>
+                </div>
+                <div class="icon-right-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="oneBlock-discussion">
+                <div class="icon-left-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
+                    </svg>
+                </div>
+                <div class="text-oneblock-discussion">
+                    <p>ÉPINGLÉ : Official Street of rage 4 Discord server<br>By <strong>@MICHA</strong></p>
+                    <p class="date-discussion"> Le 18/04/2022 à 12:54</p>
+                </div>
+                <div class="icon-right-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="oneBlock-discussion">
+                <div class="icon-left-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M493.6 163c-24.88-19.62-45.5-35.37-164.3-121.6C312.7 29.21 279.7 0 256.4 0H255.6C232.3 0 199.3 29.21 182.6 41.38c-118.8 86.25-139.4 101.1-164.3 121.6C6.75 172 0 186 0 200.8v263.2C0 490.5 21.49 512 48 512h416c26.51 0 48-21.49 48-47.1V200.8C512 186 505.3 172 493.6 163zM303.2 367.5C289.1 378.5 272.5 384 256 384s-33.06-5.484-47.16-16.47L64 254.9V208.5c21.16-16.59 46.48-35.66 156.4-115.5c3.18-2.328 6.891-5.187 10.98-8.353C236.9 80.44 247.8 71.97 256 66.84c8.207 5.131 19.14 13.6 24.61 17.84c4.09 3.166 7.801 6.027 11.15 8.478C400.9 172.5 426.6 191.7 448 208.5v46.32L303.2 367.5z" />
+                    </svg>
+                </div>
+                <div class="text-oneblock-discussion">
+                    <p>ÉPINGLÉ : Official Street of rage 4 Discord server<br>By <strong>@MICHA</strong></p>
+                    <p class="date-discussion"> Le 18/04/2022 à 12:54</p>
+                </div>
+                <div class="icon-right-discussion">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+                    </svg>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
-    </div>
-    <!-- chat FIN -->
 
-    <!--Block principal DEBUT -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+
+
+
+
+
+        <!-- Block groupe discussion -->
+
+
+
+
+        <!--Block principal DEBUT -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

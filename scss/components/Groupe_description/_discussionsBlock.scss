@@ -1,37 +1,82 @@
-#discussions-block{
-    margin: 9em 0 0 20em;
-    width: 47em;
-    border-radius: 15px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    position: absolute;
-    font-family: 'Quicksand', sans-serif;
+.central-discussions {
+  margin-top: 150px;
+  max-width: 70em;
+  border: solid 1px #bababa;
+  width: 70em;
+  height: auto;
+  align-items: center;
+  border-radius: 15px;
+  margin-bottom: 100px;
+  
 
-    h3 {
-        text-align: center;
-        color: #d4d4d4;
-        padding: 0.4em 0.1em;
-        border-bottom: 1px solid #F5F5F5;
-        font-size: 1.2em;
-        font-weight: 700;
-
+  h4 {
+    text-align: center;
+    color: grey;
+  }
+  p {
+    padding-left: 50px;
+    padding-top: 50px;
+    input {
+      border: solid 1px #bababa;
+      border-radius: 15px;
     }
+  }
+  .new-discussion {
+    margin-bottom: 80px;
+    .btn-discussions {
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      color: white;
+      background-color: #1991ff;
+      left: 50px;
+      position: relative;
+      width: 250px;
+      padding: 5px 15px;
+      
+    }
+  }
+  
+    .oneBlock-discussion {
+        max-width: 70em;
+        margin-left: 30px;
+        margin-right: 30px;
+        border: solid 1px #bababa;
+        width: auto;
+        height: auto;
+        align-items: center;
+        border-radius: 25px;
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 10px;
 
-ul {
-    margin: 1em 0 1em 0;
-    list-style-type: none;
+        .icon-left-discussion {
+            display: inline;
+            width: 80px;
+            height: 100px;
+            svg{
+                margin-top: 25px;
+                margin-left: 10px;
+                width: 50px;
+                height: 50px;
+            }   
+        }
+        .text-oneblock-discussion{
+            p{
+               padding-top: 10px;
+               padding-left: 10px;
+                  
+            }
+            .date-discussion{
+                display: inline-block;
+                justify-content: flex-end;
 
-    li {
-        img{
-            margin: 0 0.4em;
+            }
+        }
+        .icon-right-discussion{
+            background-color: red;
         }
 
-        padding: 0.5em;
 
-        span {
-            color: #1991FF ;
-            font-weight: 500;
-        }
     }
-}
 }

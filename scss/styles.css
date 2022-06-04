@@ -3,11 +3,13 @@
   font-family: "toxigenesis";
   src: url("./assets/fonts/toxigenesis.tff") format("truetype");
 }
+
 *, ::after, ::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .form-signin {
@@ -15,19 +17,23 @@
   width: 100%;
   position: relative;
   background-color: #2A2B2F;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
+
 .form-signin .sign-form {
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
+
 .form-signin .sign-form h1 {
   color: #fff;
   margin: 10px 0;
   font-family: toxigenesis;
 }
+
 .form-signin .sign-form .form-floating input {
   outline: none;
   border: 2px solid #e3e3e3;
@@ -36,10 +42,12 @@
   border-radius: 20px;
   margin: 5px 0;
 }
+
 .form-signin .sign-form .form-floating input#floatingInput, .form-signin .sign-form .form-floating input#floatingPassword {
   padding-left: 10px;
 }
-.form-signin .sign-form input[type=submit] {
+
+.form-signin .sign-form input[type="submit"] {
   margin-top: 10px;
   border-radius: 20px;
   border: none;
@@ -50,12 +58,15 @@
   font-weight: 700;
   color: white;
 }
+
 .form-signin .sign-form .inscription {
   margin-top: 10px;
 }
+
 .form-signin .sign-form .inscription span, .form-signin .sign-form .inscription a {
   color: #fff;
 }
+
 .form-signin .sign-form p {
   margin-top: 10px;
   color: #fff;
@@ -74,38 +85,51 @@ input#floatingInput, input#floatingPassword {
 .form-inscription {
   width: 100%;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .form-inscription .inscription-form form {
   width: 300px;
   height: auto;
 }
+
 .form-inscription .inscription-form form .profile-picture .user img {
   display: block;
   margin: 0 auto;
   width: 150px;
 }
+
 .form-inscription .inscription-form form .profile-picture .user label {
   display: block;
   margin-top: 15px;
 }
+
 .form-inscription .inscription-form form .profile-picture .user label input {
   display: block;
   margin: 0 auto;
 }
+
 .form-inscription .inscription-form form .form-floating {
   margin: 15px auto;
 }
+
 .form-inscription .inscription-form form .form-floating label {
   display: block;
   text-align: left;
   color: #2A2B2F;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
+
 .form-inscription .inscription-form form .form-floating label input {
   display: block;
   margin-top: 0.2em;
@@ -115,17 +139,20 @@ input#floatingInput, input#floatingPassword {
   height: 30px;
   width: 300px;
 }
+
 .form-inscription .inscription-form form .form-floating-bio {
   margin: 15px auto;
 }
+
 .form-inscription .inscription-form form .form-floating-bio label {
   display: block;
   text-align: left;
   color: #2A2B2F;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
+
 .form-inscription .inscription-form form .form-floating-bio label input {
   display: block;
   margin-top: 0.2em;
@@ -135,7 +162,8 @@ input#floatingInput, input#floatingPassword {
   height: 90px;
   width: 300px;
 }
-.form-inscription .inscription-form form input[type=submit] {
+
+.form-inscription .inscription-form form input[type="submit"] {
   display: block;
   margin: 0 auto;
   border-radius: 25px;
@@ -146,29 +174,33 @@ input#floatingInput, input#floatingPassword {
   background-color: #1991FF;
   width: 150px;
   height: 30px;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
-  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+          box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
+
 .form-inscription .inscription-form form .inscription span {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   color: #2A2B2F;
   display: block;
   text-align: center;
   margin-top: 15px;
 }
+
 .form-inscription .inscription-form form .inscription span a {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: #2A2B2F;
   text-decoration-thickness: 2px;
   font-weight: 700;
 }
+
 .form-inscription .inscription-form form .error {
   color: red;
   margin-top: 15px;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 800;
 }
 
@@ -176,9 +208,14 @@ input#floatingInput, input#floatingPassword {
   width: 100%;
   height: 60px;
   background-color: #2A2B2F;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 #green-bar h1 a {
   color: white;
   font-family: toxigenesis;
@@ -186,36 +223,63 @@ input#floatingInput, input#floatingPassword {
   text-decoration: none;
   display: block;
 }
+
 #green-bar .nav-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 40px;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
+
 #green-bar .nav-icons input {
   margin: 0 0 0 10px;
 }
+
 #green-bar .nav-icons input#search {
   padding-left: 10px;
   max-width: 260px;
 }
+
 #green-bar .nav-icons img {
   margin-right: 1.2em;
   height: 30px;
   width: 30px;
 }
+
 #green-bar .nav-icons .nav-user {
   border-radius: 50%;
 }
+
 #green-bar #search {
   display: block;
   margin-right: 20px;
   border-radius: 20px;
   border: 1px solid gray;
   outline: none;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   height: 25px;
 }
+
+#green-bar #search::-webkit-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search:-ms-input-placeholder {
+  padding-left: 15px;
+}
+
+#green-bar #search::-ms-input-placeholder {
+  padding-left: 15px;
+}
+
 #green-bar #search::placeholder {
   padding-left: 15px;
 }
@@ -227,55 +291,74 @@ input#floatingInput, input#floatingPassword {
   background-color: #cfcfcf;
   position: relative;
   z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-size: cover;
 }
+
 #cover-image #username {
   font-size: 2em;
   margin: 0 0 10px 300px;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   color: white;
   font-family: toxigenesis;
   width: 9.5em;
 }
+
 #cover-image ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   list-style-type: none;
   height: 4em;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   font-weight: 600;
 }
+
 #cover-image ul li {
   color: white;
   display: inline;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
 }
+
 #cover-image ul li a {
   text-decoration: none;
   color: white;
 }
+
 #cover-image ul .border-white {
   color: white;
   border-right: 1px solid white;
   display: inline;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
   margin-top: 21px;
 }
+
 #cover-image button {
-    height: 3em;
-    width: 10em;
-    border: none;
-    background: none;
-    text-shadow: rgb(0, 0, 0) 1px 0 10px;
-    color: white;
-    position: absolute;
+  height: 3em;
+  width: 10em;
+  border: none;
+  background: none;
+  text-shadow: black 1px 0 10px;
+  color: white;
+  position: absolute;
 }
 
 /*Inclure la possibilité de changer la photo de profil*/
@@ -285,6 +368,7 @@ input#floatingInput, input#floatingPassword {
   top: 110px;
   left: 45px;
 }
+
 #profile-picture #pp {
   height: 15em;
   width: 15em;
@@ -293,12 +377,14 @@ input#floatingInput, input#floatingPassword {
   position: absolute;
   z-index: 2;
 }
+
 #profile-picture #lvl-icon {
   margin-top: 12.5em;
   position: absolute;
   left: 88px;
   z-index: 3;
 }
+
 #profile-picture #lvl-rank {
   position: absolute;
   z-index: 3;
@@ -312,10 +398,12 @@ input#floatingInput, input#floatingPassword {
   background-color: white;
   height: auto;
   width: 15em;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
+
 #about-block h3 {
   text-align: center;
   color: #d4d4d4;
@@ -324,13 +412,16 @@ input#floatingInput, input#floatingPassword {
   font-size: 1.2em;
   font-weight: 700;
 }
+
 #about-block ul {
   margin: 1em 0 1em 2em;
   list-style-type: circle;
 }
+
 #about-block ul li {
   padding: 0.5em;
 }
+
 #about-block ul li span {
   color: #1991FF;
   font-weight: 500;
@@ -341,10 +432,12 @@ input#floatingInput, input#floatingPassword {
   width: 47em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
+
 #feed-block h3 {
   text-align: center;
   color: #d4d4d4;
@@ -353,13 +446,16 @@ input#floatingInput, input#floatingPassword {
   font-size: 1.2em;
   font-weight: 700;
 }
+
 #feed-block ul {
   margin: 1em 0 1em 2em;
   list-style-type: circle;
 }
+
 #feed-block ul li {
   padding: 0.5em;
 }
+
 #feed-block ul li span {
   color: #1991FF;
   font-weight: 500;
@@ -376,14 +472,17 @@ input#floatingInput, input#floatingPassword {
   margin-left: 60em;
   position: absolute;
 }
+
 .icons-friend-message .btn-styled {
   outline: none;
   border: none;
   background-color: #fff;
 }
+
 .icons-friend-message .btn-styled:hover {
   background-color: #fff;
 }
+
 .icons-friend-message img {
   margin: 8px 2px;
 }
@@ -391,22 +490,27 @@ input#floatingInput, input#floatingPassword {
 #post-block {
   margin: 3em 0 0 20em;
 }
+
 #post-block #icons {
   padding: 0.5em 1em;
 }
+
 #post-block #share {
   width: 47em;
   height: 5em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
+
 #post-block #share p {
   margin-left: 10px;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
 }
+
 #post-block #share #icons {
   display: block;
   margin-top: -10px;
@@ -416,24 +520,32 @@ input#floatingInput, input#floatingPassword {
   background-color: #2A2B2F;
   color: #fff;
 }
+
 #offcanvasScrolling h5 {
   font-size: 32px;
   margin-top: 50px;
 }
+
 #offcanvasScrolling button {
   background-color: #fff;
 }
+
 #offcanvasScrolling .offcanvas-body .header-title-message {
   margin-top: 50px;
 }
+
 #offcanvasScrolling .offcanvas-body .user-message-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 15px 0;
 }
+
 #offcanvasScrolling .offcanvas-body .user-message-block .profil-picture-message {
   width: 50px;
   border-radius: 50%;
 }
+
 #offcanvasScrolling .offcanvas-body .user-message-block p {
   position: relative;
   top: 7px;
@@ -447,6 +559,7 @@ input#floatingInput, input#floatingPassword {
   border-radius: 15px;
   margin: 20px auto 0;
 }
+
 #account-preferences h3 {
   position: relative;
   top: 40px;
@@ -454,6 +567,7 @@ input#floatingInput, input#floatingPassword {
   color: #b7b7b7;
   font-size: 14px;
 }
+
 #account-preferences .preference {
   max-width: 70em;
   height: 600px;
@@ -461,9 +575,11 @@ input#floatingInput, input#floatingPassword {
   border: solid 1px #bababa;
   margin: 50px auto 0;
 }
+
 #account-preferences .preference form {
   position: relative;
 }
+
 #account-preferences .preference form .flex-input label {
   display: block;
   margin: 50px auto;
@@ -471,6 +587,7 @@ input#floatingInput, input#floatingPassword {
   left: 25px;
   font-weight: 800;
 }
+
 #account-preferences .preference form .flex-input label input {
   border-radius: 15px;
   border: 1px solid grey;
@@ -478,10 +595,12 @@ input#floatingInput, input#floatingPassword {
   right: 500px;
   width: 350px;
   height: 25px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   top: -16px;
 }
-#account-preferences .preference form .flex-input input[type=submit] {
+
+#account-preferences .preference form .flex-input input[type="submit"] {
   border: none;
   height: auto;
   width: auto;
@@ -498,37 +617,51 @@ input#floatingInput, input#floatingPassword {
 #friends-block {
   margin: 12em 0 0 0;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: "Quicksand", sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
   max-width: 70em;
 }
+
 #friends-block h3 {
   text-align: center;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
 }
+
 #friends-block .all-friends {
   width: 100%;
   border: 1px solid #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   height: auto;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
+
 #friends-block .all-friends .friend {
   width: 213px;
   height: 80px;
   margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #friends-block .all-friends .friend img {
   width: 50px;
   margin: 0 15px;
   border-radius: 50%;
 }
+
 #friends-block .all-friends .friend span {
   font-size: 23px;
   font-weight: 800;
@@ -537,30 +670,41 @@ input#floatingInput, input#floatingPassword {
 #best-friend {
   margin: 3em 0 0 20em;
 }
+
 #best-friend #icons {
   padding: 0.5em 1em;
 }
+
 #best-friend #share {
   width: 47em;
   height: 7em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #best-friend #share img {
   margin-left: 1em;
 }
+
 #best-friend #share h1 a {
   font-family: toxigenesis;
   margin-left: 0.5em;
   text-decoration: none;
 }
+
 #best-friend #share span {
   font-size: 30px;
 }
+
 #best-friend #share p {
   color: #d4d4d4;
   margin-left: 1em;
@@ -569,44 +713,63 @@ input#floatingInput, input#floatingPassword {
 #groups-block {
   margin: 12em 0 0 0;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: "Quicksand", sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
   max-width: 70em;
 }
+
 #groups-block .header-grp {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   padding: 10px;
 }
+
 #groups-block .header-grp h3 {
   color: #d4d4d4;
   font-size: 1.2em;
   font-weight: 700;
 }
+
 #groups-block .header-grp a {
   position: absolute;
   right: 10px;
 }
+
 #groups-block .grp-box {
   border-top: 1px solid #d4d4d4;
 }
+
 #groups-block .grp-box .friend {
   font-family: toxigenesis;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 1em;
   margin: 0.6em 0;
 }
+
 #groups-block .grp-box .friend .text {
   color: #d4d4d4;
   margin-left: 1em;
 }
+
 #groups-block .grp-box .friend .text span {
   text-transform: uppercase;
   font-size: 30px;
 }
+
 #groups-block .grp-box .friend a {
   text-decoration: none;
   font-family: toxigenesis;
@@ -616,31 +779,42 @@ input#floatingInput, input#floatingPassword {
 #best-group {
   margin: 3em 0 0 20em;
 }
+
 #best-group #icons {
   padding: 0.5em 1em;
 }
+
 #best-group #share {
   width: 47em;
   height: 7em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #best-group #share img {
   margin-left: 1em;
   border-radius: 20%;
 }
+
 #best-group #share h1 a {
   font-family: toxigenesis;
   margin-left: 0.5em;
   text-decoration: none;
 }
+
 #best-group #share span {
   font-size: 30px;
 }
+
 #best-group #share p {
   color: #d4d4d4;
   margin-left: 1em;
@@ -655,26 +829,33 @@ input#floatingInput, input#floatingPassword {
 #games-block {
   margin: 15em 0 0 0;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  font-family: "Quicksand", sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
   max-width: 70em;
 }
+
 #games-block h3 {
   text-align: center;
   color: #d4d4d4;
   padding: 0.3em 0.1em;
   border-bottom: 1px solid #F5F5F5;
 }
+
 #games-block .game-filter {
   margin: 10px 0;
   padding: 5px 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 #games-block .game-filter p {
   font-weight: 800;
   color: #b7b7b7;
   margin-right: 10px;
 }
+
 #games-block .game-filter button {
   margin: 0 5px;
   background-color: #fff;
@@ -686,12 +867,19 @@ input#floatingInput, input#floatingPassword {
   color: gainsboro;
   font-weight: 800;
 }
+
 #games-block .games-gallery {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 #games-block .games-gallery .Game img {
   width: 140px;
   border-radius: 15px;
@@ -701,30 +889,41 @@ input#floatingInput, input#floatingPassword {
 #best-game {
   margin: 3em 0 0 20em;
 }
+
 #best-game #icons {
   padding: 0.5em 1em;
 }
+
 #best-game #share {
   max-width: 47em;
   height: 7em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #best-game #share img {
   margin-left: 1em;
   border-radius: 10%;
 }
+
 #best-game #share h1 a {
   font-family: toxigenesis;
   margin-left: 0.5em;
   text-decoration: none;
 }
+
 #best-game #share span {
   font-size: 30px;
 }
+
 #best-game #share p {
   color: #d4d4d4;
   margin-left: 1em;
@@ -737,52 +936,53 @@ input#floatingInput, input#floatingPassword {
 }
 
 #settings-block {
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
-    font-family: "Quicksand", sans-serif;
-    max-width: 70em;
-    margin: 50px 0;
-    height: 750px;
+  border-radius: 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+  font-family: 'Quicksand', sans-serif;
+  max-width: 70em;
+  margin: 50px 0;
+  height: 750px;
 }
 
 #settings-block h3 {
-    text-align: center;
+  text-align: center;
 }
 
 #settings-block form {
-    position: relative;
+  position: relative;
 }
 
 #settings-block form label {
-    display: block;
-    margin-left: 250px;
-    margin-bottom: 20px;
-    position: relative;
+  display: block;
+  margin-left: 250px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 #settings-block form label span {
-    position: relative;
-    top: 3px;
-    font-weight: 800;
+  position: relative;
+  top: 3px;
+  font-weight: 800;
 }
 
 #settings-block form label .inputtext {
-    border-radius: 20px;
-    outline: none;
-    border: 1px solid #cccccc;
-    right: 250px;
-    position: absolute;
-    width: 250px;
-    padding: 5px 15px;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #cccccc;
+  right: 250px;
+  position: absolute;
+  width: 250px;
+  padding: 5px 15px;
 }
 
 #settings-block form .pfp-user {
-    width: 100px;
-    border-radius: 50%;
+  width: 100px;
+  border-radius: 50%;
 }
 
 #settings-block form .banner-user {
-    width: 190px;
+  width: 190px;
 }
 
 #OneGame-block {
@@ -790,15 +990,21 @@ input#floatingInput, input#floatingPassword {
   max-width: 70em;
   height: auto;
 }
+
 #OneGame-block #frontDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 #OneGame-block #frontDescription .img-container img {
   width: 300px;
 }
+
 #OneGame-block #frontDescription .tagert-block-game {
   margin: 0 15px;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame {
   width: 100%;
   height: 350px;
@@ -806,40 +1012,62 @@ input#floatingInput, input#floatingPassword {
   border-radius: 25px;
   margin-top: 10px;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-text {
   padding: 15px;
   font-size: 1.2em;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame hr {
   width: 100%;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note {
   padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 180px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle {
   border-radius: 50%;
   width: 100px;
   height: 100px;
   border: 1px solid #c7c7c7;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 10px;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle p {
   font-size: 1.7em;
 }
+
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .descrioption-cercle-text {
   margin: 0 10px;
 }
+
 #OneGame-block #bottomDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 15px;
 }
+
 #OneGame-block #bottomDescription #about {
   width: 430px;
   height: 500px;
@@ -847,15 +1075,22 @@ input#floatingInput, input#floatingPassword {
   border: 1px solid #c7c7c7;
   border-radius: 25px;
 }
+
 #OneGame-block #bottomDescription #about h2 {
   text-align: center;
   margin: 10px 0;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about .circle {
   width: 12px;
   height: 12px;
@@ -863,21 +1098,25 @@ input#floatingInput, input#floatingPassword {
   border-radius: 50%;
   margin-right: 5px;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about p:nth-child(2) {
   color: grey;
   font-weight: 600;
   margin-right: 5px;
 }
+
 #OneGame-block #bottomDescription #about .flex-item-about p:nth-child(3) {
   color: #1991FF;
   font-weight: 600;
 }
+
 #OneGame-block #bottomDescription #img-container {
   margin: 0 15px;
   width: 100%;
   height: 0;
   border-radius: 25px;
 }
+
 #OneGame-block #bottomDescription #img-container img {
   width: 100%;
   border-radius: 20px;
@@ -887,6 +1126,7 @@ input#floatingInput, input#floatingPassword {
 .Button-Onegame {
   margin-left: 1100px;
 }
+
 .Button-Onegame .Button-Onegame-insert {
   background-color: red;
 }
@@ -896,16 +1136,24 @@ input#floatingInput, input#floatingPassword {
   max-width: 70em;
   height: auto;
 }
+
 #games-block h1 {
   margin-top: 25px;
 }
+
 #games-block #AllGames {
   max-width: 70em;
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #games-block #AllGames img {
   width: 200px;
   border-radius: 25px;
@@ -920,55 +1168,74 @@ input#floatingInput, input#floatingPassword {
   background-color: #cfcfcf;
   position: relative;
   z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-size: cover;
 }
+
 #groupe-cover-image #username {
   font-size: 2em;
   margin: 0 0 10px 300px;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   color: white;
   font-family: toxigenesis;
   width: 9.5em;
 }
+
 #groupe-cover-image ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   list-style-type: none;
   height: 4em;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   font-weight: 600;
 }
+
 #groupe-cover-image ul li {
   color: white;
   display: inline;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   padding: 15px 20px;
   font-size: 1.2em;
 }
+
 #groupe-cover-image ul li a {
   text-decoration: none;
   color: white;
 }
+
 #groupe-cover-image ul .border-white {
   color: white;
   border-right: 1px solid white;
   display: inline;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   margin-top: 21px;
   padding: 15px 20px;
   font-size: 1.2em;
 }
+
 #groupe-cover-image button {
-    height: 3em;
-    width: 10em;
-    border: none;
-    background: none;
-    text-shadow: rgb(0, 0, 0) 1px 0 10px;
-    color: white;
-    position: absolute;
+  height: 3em;
+  width: 10em;
+  border: none;
+  background: none;
+  text-shadow: black 1px 0 10px;
+  color: white;
+  position: absolute;
 }
 
 /*Inclure la possibilité de changer la photo de profil*/
@@ -978,6 +1245,7 @@ input#floatingInput, input#floatingPassword {
   top: 110px;
   left: 45px;
 }
+
 #groupe-profile-picture #pp {
   height: 15em;
   width: 15em;
@@ -985,12 +1253,14 @@ input#floatingInput, input#floatingPassword {
   position: absolute;
   z-index: 2;
 }
+
 #groupe-profile-picture #lvl-icon {
   margin-top: 12.5em;
   position: absolute;
   left: 88px;
   z-index: 3;
 }
+
 #groupe-profile-picture #lvl-rank {
   position: absolute;
   z-index: 3;
@@ -1004,13 +1274,16 @@ input#floatingInput, input#floatingPassword {
   background-color: white;
   height: auto;
   width: 15em;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
+
 #groupe-about-block img {
   border-radius: 50px;
 }
+
 #groupe-about-block h3 {
   text-align: center;
   color: #d4d4d4;
@@ -1019,48 +1292,112 @@ input#floatingInput, input#floatingPassword {
   font-size: 1.2em;
   font-weight: 700;
 }
+
 #groupe-about-block ul {
   margin: 1em 0 1em 2em;
   list-style-type: circle;
 }
+
 #groupe-about-block ul li {
   padding: 0.5em;
 }
+
 #groupe-about-block ul li span {
   color: #1991FF;
   font-weight: 600;
 }
 
-#discussions-block {
-  margin: 9em 0 0 20em;
-  width: 47em;
+.central-discussions {
+  margin-top: 150px;
+  max-width: 70em;
+  border: solid 1px #bababa;
+  width: 70em;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-radius: 15px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  position: absolute;
-  font-family: "Quicksand", sans-serif;
+  margin-bottom: 100px;
 }
-#discussions-block h3 {
+
+.central-discussions h4 {
   text-align: center;
-  color: #d4d4d4;
-  padding: 0.4em 0.1em;
-  border-bottom: 1px solid #F5F5F5;
-  font-size: 1.2em;
-  font-weight: 700;
+  color: grey;
 }
-#discussions-block ul {
-  margin: 1em 0 1em 0;
-  list-style-type: none;
+
+.central-discussions p {
+  padding-left: 50px;
+  padding-top: 50px;
 }
-#discussions-block ul li {
-  padding: 0.5em;
+
+.central-discussions p input {
+  border: solid 1px #bababa;
+  border-radius: 15px;
 }
-#discussions-block ul li img {
-  margin: 0 0.4em;
+
+.central-discussions .new-discussion {
+  margin-bottom: 80px;
 }
-#discussions-block ul li span {
-  color: #1991FF;
-  font-weight: 500;
+
+.central-discussions .new-discussion .btn-discussions {
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #1991ff;
+  left: 50px;
+  position: relative;
+  width: 250px;
+  padding: 5px 15px;
+}
+
+.central-discussions .oneBlock-discussion {
+  max-width: 70em;
+  margin-left: 30px;
+  margin-right: 30px;
+  border: solid 1px #bababa;
+  width: auto;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.central-discussions .oneBlock-discussion .icon-left-discussion {
+  display: inline;
+  width: 80px;
+  height: 100px;
+}
+
+.central-discussions .oneBlock-discussion .icon-left-discussion svg {
+  margin-top: 25px;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.central-discussions .oneBlock-discussion .text-oneblock-discussion p {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.central-discussions .oneBlock-discussion .text-oneblock-discussion .date-discussion {
+  display: inline-block;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.central-discussions .oneBlock-discussion .icon-right-discussion {
+  background-color: red;
 }
 
 #membres-block {
@@ -1068,10 +1405,12 @@ input#floatingInput, input#floatingPassword {
   width: 47em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
+
 #membres-block h3 {
   text-align: center;
   color: #d4d4d4;
@@ -1080,27 +1419,38 @@ input#floatingInput, input#floatingPassword {
   font-size: 1.2em;
   font-weight: 700;
 }
+
 #membres-block .all-members {
   width: 100%;
   border: 1px solid #fff;
   height: auto;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
+
 #membres-block .all-members .members {
   width: 60px;
   height: 80px;
   margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #membres-block .all-members .members img {
   width: 60px;
   margin: 0 15px;
   border-radius: 50%;
 }
+
 #membres-block .all-members .members span {
   font-size: 23px;
   font-weight: 800;
@@ -1109,14 +1459,17 @@ input#floatingInput, input#floatingPassword {
 #description-block {
   margin: 2em 0 0 44.4em;
 }
+
 #description-block #share {
   width: 44em;
   height: 5em;
   border-radius: 15px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   position: absolute;
 }
+
 #description-block #share p {
   margin-left: 10px;
   color: #d4d4d4;
@@ -1135,14 +1488,17 @@ input#floatingInput, input#floatingPassword {
   margin-left: 65em;
   position: absolute;
 }
+
 .groupe-icons-friend-message .btn-styled {
   outline: none;
   border: none;
   background-color: #fff;
 }
+
 .groupe-icons-friend-message .btn-styled:hover {
   background-color: #fff;
 }
+
 .groupe-icons-friend-message img {
   margin: 8px 2px;
 }
@@ -1156,6 +1512,7 @@ input#floatingInput, input#floatingPassword {
   position: relative;
   padding: 50px 100px;
 }
+
 #creategroups .create-groupe-block h3 {
   color: #d0d0d0;
   font-size: 14px;
@@ -1163,15 +1520,18 @@ input#floatingInput, input#floatingPassword {
   top: -30px;
   left: 30px;
 }
+
 #creategroups .create-groupe-block form {
   position: relative;
 }
+
 #creategroups .create-groupe-block form label {
   display: block;
   margin: 40px 0;
   position: relative;
   font-weight: 700;
 }
+
 #creategroups .create-groupe-block form label input, #creategroups .create-groupe-block form label select {
   position: absolute;
   right: 300px;
@@ -1191,6 +1551,7 @@ input#floatingInput, input#floatingPassword {
   margin: 150px auto 0;
   border-radius: 25px;
 }
+
 #groupes-members .block-member h3 {
   text-align: center;
   border-bottom: 1px solid #646464;
@@ -1200,34 +1561,44 @@ input#floatingInput, input#floatingPassword {
   font-size: 19px;
   font-weight: 800;
 }
+
 #groupes-members .block-member .btn-group {
   margin-left: 50px;
 }
+
 #groupes-members .block-member .btn-group button {
   margin: 0 5px;
 }
+
 #groupes-members .block-member .block-member-2 {
   max-width: 70em;
   height: auto;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
+
 #groupes-members .block-member .block-member-2 .membre {
   width: 150px;
   height: 50px;
   margin: 7px;
 }
+
 #groupes-members .block-member .block-member-2 .membre img {
   width: 50px;
   margin-right: 10px;
 }
+
 #groupes-members .block-member .block-member-2 .membre span {
   font-weight: 800;
   font-size: 17px;
 }
-
 /*# sourceMappingURL=styles.css.map */
