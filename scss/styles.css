@@ -273,7 +273,7 @@ input#floatingInput, input#floatingPassword {
   width: 10em;
   border: none;
   background: none;
-  text-shadow: black 1px 0 10px;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px;
   color: white;
   position: absolute;
 }
@@ -1021,7 +1021,7 @@ input {
   width: 10em;
   border: none;
   background: none;
-  text-shadow: black 1px 0 10px;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px;
   color: white;
   position: absolute;
 }
