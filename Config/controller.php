@@ -422,6 +422,75 @@ class controller
                     break;
                 }
             }
+            case 'UpdateGroups' :
+            {
+                $MoreXp = $UserAbout['exp'] + 1;
+                $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+        }
+    }
+
+    public function updateGroupPeference($tab, $idgroup)
+    {
+        $g = $this->getOneGroups($idgroup);
+        $user = $g['creator'];
+
+        $r = "
+                UPDATE about_groups SET
+                    jeu = :jeu
+                WHERE id_groups = $idgroup
+            ";
+
+        $r2 = "
+            UPDATE user_groups SET
+                nom = :nom,
+                privacy = :pv
+        ";
+
+        $data = array(
+            ":jeu" => $tab['jeu']
+        );
+
+        $data2 = array(
+            ":nom" => $tab['nom'],
+            ":pv" => $tab['privacy']
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+            $insert2 = $this->pdo->prepare($r2);
+            $insert2->execute($data2);
+            $this->addUserXp($user, 'UpdateGroups');
+        }
+    }
+
+    public function insertBaseGroupsPreference($idgroups)
+    {
+        $dateFondation = date('d/m/Y');
+        $r = "INSERT INTO about_groups values(null, '', 0, '$dateFondation', $idgroups)";
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute();
+        }
+    }
+
+    public function getGroupAbout($idgroup)
+    {
+        $r = "SELECT * FROM about_groups WHERE id_groups = $idgroup";
+        if ($this->pdo != null) {
+            $select = $this->pdo->prepare($r);
+            $select->execute();
+            //extraction de tous les users
+            return $select->fetch();
+        } else {
+            return null;
         }
     }
 }
