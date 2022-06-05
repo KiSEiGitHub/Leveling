@@ -1307,6 +1307,27 @@ input#floatingInput, input#floatingPassword {
   font-weight: 600;
 }
 
+#description-block {
+  margin: 2em 0 0 44.4em;
+}
+
+#description-block #share {
+  width: 44em;
+  height: 5em;
+  border-radius: 15px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  position: absolute;
+}
+
+#description-block #share p {
+  margin-left: 10px;
+  color: #d4d4d4;
+  padding: 0.4em 0.1em;
+  font-weight: 600;
+}
+
 .central-discussions {
   margin-top: 150px;
   max-width: 70em;
@@ -1326,11 +1347,20 @@ input#floatingInput, input#floatingPassword {
 }
 
 .central-discussions p {
-  padding-left: 50px;
-  padding-top: 50px;
+  margin-left: 50px;
 }
 
-.central-discussions p input {
+.central-discussions p .input-tried-discussion {
+  margin-top: 40px;
+  border: solid 1px #bababa;
+  border-radius: 15px;
+}
+
+.central-discussions p .input-search-discussion {
+  position: relative;
+  right: -530px;
+  margin-top: 40px;
+  padding-left: 50px;
   border: solid 1px #bababa;
   border-radius: 15px;
 }
@@ -1390,14 +1420,20 @@ input#floatingInput, input#floatingPassword {
 }
 
 .central-discussions .oneBlock-discussion .text-oneblock-discussion .date-discussion {
-  display: inline-block;
+  position: relative;
+  top: -45px;
+  left: 650px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
 .central-discussions .oneBlock-discussion .icon-right-discussion {
-  background-color: red;
+  position: relative;
+  top: 25px;
+  margin-left: 480px;
+  width: 50px;
+  height: 50px;
 }
 
 #membres-block {
