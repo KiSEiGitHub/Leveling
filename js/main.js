@@ -10,3 +10,8 @@ allbtn.forEach(MyButton => {
 
     })
 })
+const btnpref = document.querySelector('#btn_pref');
+
+btnpref.addEventListener('click', () => {
+    location.reload();
+})

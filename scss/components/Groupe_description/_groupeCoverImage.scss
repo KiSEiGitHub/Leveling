@@ -1,6 +1,6 @@
 /*Inclure la possibilité de changer l'image de couverture*/
 
-#cover-image {
+#groupe-cover-image {
     width: 100%;
     height: 15em;
     background-color: #cfcfcf;
@@ -24,7 +24,7 @@
         flex-wrap: wrap;
         justify-content: center;
         list-style-type: none;
-        height: 2em;
+        height: 4em;
         align-self: flex-end;
         font-weight: 600;
 
@@ -47,8 +47,12 @@
             border-right: 1px solid white;
             display: inline;
             align-self: flex-end;
+            margin-top: 21px;
             padding: 15px 20px;
             font-size: 1.2em;
+
+
+            
         }
     }
 

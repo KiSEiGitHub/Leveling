@@ -4,16 +4,16 @@
     </p>
     <ul>
         <li class="border-white">
-            <a href=" ./profil.php">Description</a>
+            <a href="../pages/profil/index.php">Description</a>
         </li>
         <li class="border-white">
-            <a href="./profil_jeux.php">Jeux</a>
+            <a href="../pages/profil/jeux.php">Jeux</a>
         </li>
         <li class="border-white">
-            <a href=" ./profil_groupes.php">Groupes</a>
+            <a href="../pages/profil/groupes.php">Groupes</a>
         </li>
         <li>
-            <a href="./profil_amis.php">Amis</a>
+            <a href="../pages/profil/amis.php">Amis</a>
         </li>
     </ul>
 

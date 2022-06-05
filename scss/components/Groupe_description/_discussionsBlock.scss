@@ -1,5 +1,5 @@
-#feed-block{
-    margin: 12em 0 0 20em;
+#discussions-block{
+    margin: 9em 0 0 20em;
     width: 47em;
     border-radius: 15px;
     background-color: white;
@@ -18,14 +18,15 @@
     }
 
 ul {
-    margin: 1em 0 1em 2em;
-    list-style-type: circle;
+    margin: 1em 0 1em 0;
+    list-style-type: none;
 
     li {
-        padding: 0.5em;
-
         img{
+            margin: 0 0.4em;
         }
+
+        padding: 0.5em;
 
         span {
             color: #1991FF ;

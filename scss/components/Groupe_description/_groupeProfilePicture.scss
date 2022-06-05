@@ -1,0 +1,30 @@
+/*Inclure la possibilité de changer la photo de profil*/
+
+#groupe-profile-picture {
+    position: absolute;
+    z-index: 1999;
+    top: 110px;
+    left: 45px;
+
+    #pp {
+        height: 15em;
+        width: 15em;
+        margin: 0 0 1em 0;
+        position: absolute;
+        z-index: 2;
+    }
+
+    #lvl-icon {
+        margin-top: 12.5em;
+        position: absolute;
+        left: 88px;
+        z-index: 3;
+    }
+
+    #lvl-rank {
+        position: absolute;
+        z-index: 3;
+        top: 270px;
+        left: -77px;
+    }
+}

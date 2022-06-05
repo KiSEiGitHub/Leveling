@@ -1,6 +1,6 @@
 
-#about-block{
-    margin: 12em 0 0 3em;
+#groupe-about-block{
+    margin: 9em 0 0 3em;
     border-radius: 15px;
     background-color: white;
     height: auto;
@@ -8,6 +8,10 @@
     font-family: 'Quicksand', sans-serif;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     position: absolute;
+
+    img{
+        border-radius: 50px;
+    }
     
 
     h3 {
@@ -29,7 +33,7 @@
 
             span {
                 color: #1991FF ;
-                font-weight: 500;
+                font-weight: 600;
             }
         }
     }

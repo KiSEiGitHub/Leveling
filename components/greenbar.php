@@ -7,12 +7,12 @@
         <?php
         if (isset($_SESSION['pseudo'])) {
             ?>
-            <a href="./profil.php">
-                <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+            <a href="../pages/profil/index.php">
+                <img src="../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
             </a>
             <?php
         } else { ?>
-            <a href="./profil.php">
+            <a href="../pages/profil/index.php">
                 <img class="nav-user" src="./images/user-circle.png" alt="">
             </a>
         <?php } ?>
