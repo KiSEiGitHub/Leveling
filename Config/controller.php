@@ -43,6 +43,7 @@ class controller
         if ($this->pdo != null) {
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
+            header("location:connexion.php");
         }
     }
 

@@ -124,6 +124,7 @@ $setup = new setup();
             <?php
             if (isset($_POST['btn'])) {
                 echo $setup->checkInsertUser($_POST, $_FILES['img'], $_FILES['imgbanner']);
+                
             }
             ?>
         </form>
