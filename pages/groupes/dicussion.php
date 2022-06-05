@@ -69,7 +69,7 @@ $creator = $controler->getUser($groups['creator'])
         <!--Image de couverture DEBUT -->
         <style>
             #groupe-cover-image {
-                background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupe/cover-image.jpg");
+                background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupesBanner/<?= $groups['banner'] ?>");
             }
         </style>
         <!--Image de couverture FIN -->
@@ -77,7 +77,7 @@ $creator = $controler->getUser($groups['creator'])
         <!--  Le header profil DEBUT -->
         <div id="groupe-cover-image">
             <p id="username">
-                #SoRPlayers
+                #<?= $groups['nom'] ?>
             </p>
             <ul>
                 <li class="border-white">
@@ -92,7 +92,7 @@ $creator = $controler->getUser($groups['creator'])
             </ul>
 
             <div id="groupe-profile-picture">
-                <img src="../../assets/img/groupe/pp.jpg" alt="pfp" id="pp">
+                <img src="../../assets/img/groupesPP/<?= $groups['img'] ?>" alt="pfp" id="pp">
             </div>
         </div>
         <!--  Le header profil FIN -->
