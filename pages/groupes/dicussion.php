@@ -110,8 +110,8 @@ $group_about = $controler->getGroupAbout($_GET['idgroup']);
         </div>
         <!--Icônes Ajouter un ami + Envoyer un message FIN -->
         <!--Block Description du groupe -->
-        <div id="description-block">
-            <div id="share">
+        <div id="description-block-discussion">
+            <div id="share-discussion">
                 <p>JOIN THE STREET FIGHTER 4 DISCORD SERVER BELOW !
                     <br> ➤ https://discord.gg/j6S3PTRe
                 </p>

@@ -320,9 +320,9 @@ input#floatingInput, input#floatingPassword {
       -ms-flex-pack: center;
           justify-content: center;
   list-style-type: none;
-
   height: 2em;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   font-weight: 600;
 }
 
@@ -355,7 +355,7 @@ input#floatingInput, input#floatingPassword {
   width: 10em;
   border: none;
   background: none;
-  text-shadow: rgb(0, 0, 0) 1px 0 10px;
+  text-shadow: black 1px 0 10px;
   color: white;
   position: absolute;
 }
@@ -936,29 +936,35 @@ input#floatingInput, input#floatingPassword {
 
 #settings-block {
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
-  font-family: "Quicksand", sans-serif;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+  font-family: 'Quicksand', sans-serif;
   max-width: 70em;
   margin: 50px 0;
   height: 790px;
 }
+
 #settings-block h3 {
   text-align: center;
 }
+
 #settings-block form {
   position: relative;
 }
+
 #settings-block form label {
   display: block;
   margin-left: 250px;
   margin-bottom: 20px;
   position: relative;
 }
+
 #settings-block form label span {
   position: relative;
   top: 3px;
   font-weight: 800;
 }
+
 #settings-block form label .inputtext {
   border-radius: 20px;
   outline: none;
@@ -968,10 +974,12 @@ input#floatingInput, input#floatingPassword {
   width: 250px;
   padding: 5px 15px;
 }
+
 #settings-block form .pfp-user {
   width: 100px;
   border-radius: 50%;
 }
+
 #settings-block form .banner-user {
   width: 190px;
 }
@@ -1224,7 +1232,7 @@ input#floatingInput, input#floatingPassword {
   width: 10em;
   border: none;
   background: none;
-  text-shadow: rgb(0, 0, 0) 1px 0 10px;
+  text-shadow: black 1px 0 10px;
   color: white;
   position: absolute;
 }
@@ -1298,13 +1306,15 @@ input#floatingInput, input#floatingPassword {
   font-weight: 600;
 }
 
-#description-block {
+#description-block-discussion {
   margin: 2em 0 0 44.4em;
 }
 
-#description-block #share {
-  width: 44em;
-  height: 5em;
+#description-block-discussion #share-discussion {
+  position: relative;
+  right: 500px;
+  width: 45em;
+  height: 6em;
   border-radius: 15px;
   background-color: white;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -1312,7 +1322,7 @@ input#floatingInput, input#floatingPassword {
   position: absolute;
 }
 
-#description-block #share p {
+#description-block-discussion #share-discussion p {
   margin-left: 10px;
   color: #d4d4d4;
   padding: 0.4em 0.1em;
@@ -1483,13 +1493,37 @@ input#floatingInput, input#floatingPassword {
   font-weight: 800;
 }
 
+#discussions-block {
+  position: relative;
+  margin-left: 400px;
+  left: auto;
+  top: 150px;
+  border: solid 1px #bababa;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+}
+
+#discussions-block h3 {
+  text-align: center;
+  color: grey;
+  margin-bottom: 20px;
+}
+
+#discussions-block li {
+  margin-bottom: 15px;
+}
+
 #description-block {
   margin: 2em 0 0 44.4em;
 }
 
 #description-block #share {
-  width: 44em;
-  height: 5em;
+  position: relative;
+  top: 330px;
+  right: 500px;
+  width: 45em;
+  height: 6em;
   border-radius: 15px;
   background-color: white;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -1629,7 +1663,6 @@ input#floatingInput, input#floatingPassword {
   font-size: 17px;
 }
 
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -1650,5 +1683,4 @@ input#floatingInput, input#floatingPassword {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 /*# sourceMappingURL=styles.css.map */

@@ -1,12 +1,39 @@
+#discussions-block{
+  position: relative;
+  margin-left: 400px;
+  left: auto;
+  top: 150px;
+  border: solid 1px #bababa;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+  
+
+  h3{
+    text-align: center;
+    color: grey;
+    margin-bottom: 20px;
+  }
+
+  li{
+    margin-bottom: 15px;
+  }
+}
+
+
 #description-block {
- margin: 2em 0 0 44.4em;
+  margin: 2em 0 0 44.4em;
 
   #share {
-    width: 44em;
-    height: 5em;
+    position: relative;
+    top: 330px;
+    right: 500px;
+    width: 45em;
+    height: 6em;
     border-radius: 15px;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+      rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     position: absolute;
 
     p {
@@ -14,7 +41,6 @@
       color: #d4d4d4;
       padding: 0.4em 0.1em;
       font-weight: 600;
-
     }
   }
 }
