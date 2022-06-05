@@ -13,7 +13,13 @@ $user = $controler->getUser($_SESSION['id']);
 $ranks = $setup->getLvl($user['lvl']);
 
 $groups = $controler->getOneGroups($_GET['idgroup']);
-$creator = $controler->getUser($groups['creator'])
+$creator = $controler->getUser($groups['creator']);
+
+$group_about = $controler->getGroupAbout($_GET['idgroup']);
+
+if ($group_about['id_groups'] == '') {
+    $controler->insertBaseGroupsPreference($_GET['idgroup']);
+}
 ?>
 
 <!doctype html>
@@ -57,7 +63,7 @@ $creator = $controler->getUser($groups['creator'])
                 <img class="nav-user" src="../../images/user-circle.png" alt="">
             </a>
         <?php } ?>
-        <a href="./preferences.php">
+        <a href="/preferences.php">
             <img class="nav-user" src="../../images/settings.png" alt="">
         </a>
     </div>
@@ -103,11 +109,9 @@ $creator = $controler->getUser($groups['creator'])
     <div id="groupe-about-block">
         <h3>ABOUT</h3>
         <ul>
-            <li>Jeu associé : <?= $groups['jeux'] ?></li>
-            <li><span>150</span> membres</li>
-            <li><span>100</span> membres en ligne</li>
-            <li><span>80</span> en jeu</li>
-            <li>Fondé le : <span>02/06/2022</span></li>
+            <li>Jeu associé : <?= $group_about['jeu'] ?></li>
+            <li><span><?= $group_about['membres'] ?></span> membres</li>
+            <li>Fondé le : <span><?= $group_about['fondation'] ?></span></li>
             <li>Administrateur : <img src="../../assets/img/UserProfilePicture/<?= $creator['img'] ?>" alt=""
                                       width="50px"> <span>@<?= $creator['pseudo'] ?></span></li>
         </ul>
@@ -116,7 +120,10 @@ $creator = $controler->getUser($groups['creator'])
 
     <!--Icônes Ajouter un ami + Envoyer un message DEBUT -->
     <div class="groupe-icons-friend-message">
-        <a href="settings.php"><img src="../../assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
+        <a href="preference.php?idgroup=<?=
+        $groups['id'] ?>">
+            <img src="../../assets/img/icons/paintbrush-solid.png" alt="" width="30">
+        </a>
         <img src="../../assets/img/icons/user-plus-solid.png" alt="" width="30">
     </div>
     <!--Icônes Ajouter un ami + Envoyer un message FIN -->
