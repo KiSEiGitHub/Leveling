@@ -126,7 +126,7 @@ $ranks = $setup->getLvl($user['lvl']);
             </div>
         </div>
 
-        <!-- Controls -->
+        <!-- Controls
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -135,6 +135,7 @@ $ranks = $setup->getLvl($user['lvl']);
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+        -->
 
 
         <!--Carousel FIN-->

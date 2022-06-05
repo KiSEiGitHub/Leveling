@@ -36,7 +36,7 @@ $ranks = $setup->getLvl($user['lvl']);
 
 <body>
 
-<!--Barre de navigation DEBUT -->
+<!--Barre de navigation-->
 <div id="green-bar">
     <h1>
         <a href="../../index.php">LEVELING</a>
@@ -60,8 +60,7 @@ $ranks = $setup->getLvl($user['lvl']);
         </a>
     </div>
 </div>
-
-<!--Barre de navigation FIN -->
+<!--Barre de navigation-->
 
 <!--Block principal DEBUT -->
 <div id="main-block">
@@ -74,7 +73,7 @@ $ranks = $setup->getLvl($user['lvl']);
     </style>
     <!--Image de couverture FIN -->
 
-    <!--  Le header profil DEBUT -->
+    <!--  HEADER PROFIL  -->
     <div id="cover-image">
         <p id="username">
             @<?= $user['pseudo'] ?>
@@ -84,7 +83,7 @@ $ranks = $setup->getLvl($user['lvl']);
                 <a href="../../pages/profil/index.php">Description</a>
             </li>
             <li class="border-white">
-                <a href="jeux.php">Jeux</a>
+                <a href="../../pages/profil/jeux.php">Jeux</a>
             </li>
             <li class="border-white">
                 <a href="groupes.php">Groupes</a>
@@ -107,7 +106,7 @@ $ranks = $setup->getLvl($user['lvl']);
             <?php } ?>
         </div>
     </div>
-    <!--  Le header profil FIN -->
+    <!--  HEADER PROFIL  -->
 
     <!--Block "About" DEBUT -->
     <div id="about-block">
