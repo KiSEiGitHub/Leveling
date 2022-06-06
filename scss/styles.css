@@ -988,6 +988,7 @@ input#floatingInput, input#floatingPassword {
   width: 190px;
 }
 
+
 #OneGame-block {
   margin: 20px auto 0;
   max-width: 70em;
@@ -1009,10 +1010,12 @@ input#floatingInput, input#floatingPassword {
 }
 
 #OneGame-block #frontDescription .Desc-Container #DescriptionGame {
+
   width: 100%;
-  height: 350px;
-  border: 1px solid #c7c7c7;
+  height: auto;
+  border: 1px solid #d5d5d5;
   border-radius: 25px;
+
   margin-top: 10px;
 }
 
@@ -1076,13 +1079,18 @@ input#floatingInput, input#floatingPassword {
   height: 500px;
   margin: 0 15px;
   border: 1px solid #c7c7c7;
+
   border-radius: 25px;
+  border: 1px solid #bababa;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+
 #OneGame-block #bottomDescription #about h2 {
+
   text-align: center;
-  margin: 10px 0;
 }
+
 
 #OneGame-block #bottomDescription #about .flex-item-about {
   display: -webkit-box;
@@ -1098,9 +1106,11 @@ input#floatingInput, input#floatingPassword {
   width: 12px;
   height: 12px;
   border: 2px solid #646464;
+
   border-radius: 50%;
-  margin-right: 5px;
+  border: 5px solid #787878;
 }
+
 
 #OneGame-block #bottomDescription #about .flex-item-about p:nth-child(2) {
   color: grey;
@@ -1109,29 +1119,42 @@ input#floatingInput, input#floatingPassword {
 }
 
 #OneGame-block #bottomDescription #about .flex-item-about p:nth-child(3) {
+
   color: #1991FF;
-  font-weight: 600;
+  margin-left: 10px;
 }
+
 
 #OneGame-block #bottomDescription #img-container {
   margin: 0 15px;
   width: 100%;
   height: 0;
+
   border-radius: 25px;
+  border: 1px solid #bababa;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
 }
+
 
 #OneGame-block #bottomDescription #img-container img {
+
   width: 100%;
   border-radius: 20px;
-  display: block;
+}
+.parent .block-asset-game form {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
-.Button-Onegame {
-  margin-left: 1100px;
-}
 
 .Button-Onegame .Button-Onegame-insert {
   background-color: red;
+
+
 }
 
 #games-block {
