@@ -130,6 +130,12 @@ $ranks = $setup->getLvl($user['lvl']);
     <!--Block amis-->
     <div id="friends-block">
         <h3>AMIS</h3>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addfriends">
+            Ajouter un ami
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removefriends">
+            Supprimer un ami
+        </button>
         <div class="all-friends">
             <div class="friend">
                 <img src="../../images/user.png" alt="pfp user">
@@ -163,7 +169,45 @@ $ranks = $setup->getLvl($user['lvl']);
     </div>
     <!--Block amis-->
 
+    <!-- Modal Ajouter un ami -->
+    <div class="modal fade" id="addfriends" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un ami</h5>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <label for="searchFriend">
+                            <input type="text" name="searchFriend" placeholder="@">
+                        </label>
+                    </form>
+                </div>
+                <button type="button" class="btn btn-primary">Ajouter</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Ajouter un ami -->
 
+    <!--  Modal supprimer un ami  -->
+    <div class="modal fade" id="removefriends" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer un ami</h5>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Modal supprimer un ami  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
