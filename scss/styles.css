@@ -121,6 +121,10 @@ input#floatingInput, input#floatingPassword {
   margin: 15px auto;
 }
 
+.form-inscription .inscription-form form .form-floating .text-inscription {
+  font-size: 3em;
+}
+
 .form-inscription .inscription-form form .form-floating label {
   display: block;
   text-align: left;
@@ -171,7 +175,7 @@ input#floatingInput, input#floatingPassword {
   outline: none;
   padding: 5px 15px;
   color: #fff;
-  background-color: #1991FF;
+  background-color: black;
   width: 150px;
   height: 30px;
   font-family: 'Quicksand', sans-serif;
@@ -1536,6 +1540,12 @@ input#floatingInput, input#floatingPassword {
   color: #d4d4d4;
   padding: 0.4em 0.1em;
   font-weight: 600;
+}
+
+#membres-block {
+  position: relative;
+  left: 50px;
+  top: -250px;
 }
 
 #groupe-icons {

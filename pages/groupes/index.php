@@ -131,7 +131,7 @@ if ($group_about['id_groups'] == '') {
 
     <!--Block discussions DEBUT-->
     <div id="discussions-block">
-        <h3>DERNIERES DISCUSSIONS</h3>
+        <h3><strong>DERNIERES DISCUSSIONS</strong></h3>
         <ul>
             <li>
                 <img src="../../assets/img/icons/envelope-solid.png" alt="" width="30px">
