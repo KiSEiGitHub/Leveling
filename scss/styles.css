@@ -777,110 +777,120 @@ input#floatingInput, input#floatingPassword {
   width: 190px;
 }
 
-#OneGame-block {
-  margin: 20px auto 0;
-  max-width: 70em;
-  height: auto;
+.parent {
+  max-width: 80em;
+  margin: 0 auto 20px;
+  display: grid;
+  grid-template-columns: 0.3fr 1.2fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
-#OneGame-block #frontDescription {
-  display: flex;
+.parent .block-photo {
+  grid-area: 1/1/2/2;
 }
-#OneGame-block #frontDescription .img-container img {
-  width: 300px;
-}
-#OneGame-block #frontDescription .tagert-block-game {
-  margin: 0 15px;
-}
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame {
+.parent .block-photo img {
   width: 100%;
-  height: 350px;
-  border: 1px solid #c7c7c7;
-  border-radius: 25px;
-  margin-top: 10px;
+  object-fit: cover;
 }
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-text {
-  padding: 15px;
-  font-size: 1.2em;
-}
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame hr {
-  width: 100%;
-}
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note {
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  height: 180px;
-  align-items: center;
-}
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #c7c7c7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-}
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .description-cercle p {
-  font-size: 1.7em;
-}
-#OneGame-block #frontDescription .Desc-Container #DescriptionGame .description-note .descrioption-cercle-text {
-  margin: 0 10px;
-}
-#OneGame-block #bottomDescription {
-  display: flex;
-  margin-top: 15px;
-}
-#OneGame-block #bottomDescription #about {
-  width: 430px;
-  height: 500px;
-  margin: 0 15px;
-  border: 1px solid #c7c7c7;
-  border-radius: 25px;
-}
-#OneGame-block #bottomDescription #about h2 {
-  text-align: center;
-  margin: 10px 0;
-}
-#OneGame-block #bottomDescription #about .flex-item-about {
-  display: flex;
-  align-items: center;
+.parent .block-about-game {
+  grid-area: 1/2/2/3;
   padding: 10px;
 }
-#OneGame-block #bottomDescription #about .flex-item-about .circle {
-  width: 12px;
-  height: 12px;
-  border: 2px solid #646464;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-#OneGame-block #bottomDescription #about .flex-item-about p:nth-child(2) {
-  color: grey;
-  font-weight: 600;
-  margin-right: 5px;
-}
-#OneGame-block #bottomDescription #about .flex-item-about p:nth-child(3) {
-  color: #1991FF;
-  font-weight: 600;
-}
-#OneGame-block #bottomDescription #img-container {
-  margin: 0 15px;
+.parent .block-about-game .description-block {
+  margin-top: 25px;
   width: 100%;
-  height: 0;
+  height: auto;
+  border: 1px solid #d5d5d5;
   border-radius: 25px;
+  border-bottom: 1px solid #b7b7b7;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#OneGame-block #bottomDescription #img-container img {
+.parent .block-about-game .description-block #desc {
+  color: #b7b7b7;
+  font-weight: 800;
+  padding: 30px;
+  border-bottom: 1px solid #bababa;
+}
+.parent .block-about-game .description-block .note-container {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.parent .block-about-game .description-block .note-container .circle-note {
+  border-radius: 50%;
+  width: 95px;
+  height: 95px;
+  border: 1px solid #bababa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.parent .block-about-game .description-block .note-container .circle-note p {
+  font-weight: 800;
+  font-size: 20px;
+}
+.parent .block-about-game .description-block .note-container h3 {
+  margin-left: 25px;
+  font-size: 23px;
+}
+.parent .block-about {
+  grid-area: 2/1/3/2;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  border: 1px solid #bababa;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.parent .block-about h3 {
+  padding: 20px;
+  border-bottom: 1px solid #bababa;
+  text-align: center;
+}
+.parent .block-about .about-container {
+  padding: 20px;
+}
+.parent .block-about .about-container .about-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.parent .block-about .about-container .about-item .circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 5px solid #787878;
+}
+.parent .block-about .about-container .about-item span {
+  margin-left: 15px;
+  color: #bababa;
+  font-weight: 800;
+}
+.parent .block-about .about-container .about-item .blue {
+  color: #1991FF;
+  margin-left: 10px;
+}
+.parent .block-asset-game {
+  grid-area: 2/2/3/3;
+  border-radius: 25px;
+  border: 1px solid #bababa;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
+}
+.parent .block-asset-game img {
   width: 100%;
   border-radius: 20px;
-  display: block;
 }
-
-.Button-Onegame {
-  margin-left: 1100px;
+.parent .block-asset-game form {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
-.Button-Onegame .Button-Onegame-insert {
-  background-color: red;
+.parent .block-asset-game form .Button-Onegame-insert, .parent .block-asset-game form .Button-Onegame-wish {
+  margin-left: 20px;
 }
 
 #games-block {

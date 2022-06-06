@@ -25,123 +25,111 @@ if (!$OneGame) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game - <?= $OneGame['name'] ?></title>
 
     <link rel="stylesheet" href="../../scss/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="green-bar">
-        <h1>
-            <a href="../../index.php">LEVELING</a>
-        </h1>
-        <div class="nav-icons">
-            <input type="text" name="search" placeholder="Rechercher" id="search">
-            <?php
-            if (isset($_SESSION['pseudo'])) {
+<div id="green-bar">
+    <h1>
+        <a href="../../index.php">LEVELING</a>
+    </h1>
+    <div class="nav-icons">
+        <input type="text" name="search" placeholder="Rechercher" id="search">
+        <?php
+        if (isset($_SESSION['pseudo'])) {
             ?>
-                <a href="../profil/index.php">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-                </a>
+            <a href="../profil/index.php">
+                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+            </a>
             <?php
-            } else { ?>
-                <a href="../profil/index.php">
-                    <img class="nav-user" src="../../images/user-circle.png" alt="">
-                </a>
-            <?php } ?>
-            <a href="../profil/preferences.php"><img class="nav-user" src="../../images/settings.png" alt=""></a>
+        } else { ?>
+            <a href="../profil/index.php">
+                <img class="nav-user" src="../../images/user-circle.png" alt="">
+            </a>
+        <?php } ?>
+        <a href="../profil/preferences.php"><img class="nav-user" src="../../images/settings.png" alt=""></a>
+    </div>
+</div>
+
+<div class="parent">
+    <div class="block-photo">
+        <img src="../../assets/img/insert_games/pp/<?= $OneGame['img_pp'] ?>" alt="photo du jeu">
+    </div>
+    <div class="block-about-game">
+        <h2><?= $OneGame['name'] ?></h2>
+        <div class="description-block">
+            <p id="desc">
+                <?= $OneGame['description'] ?>
+            </p>
+            <div class="note-container">
+                <div class="circle-note">
+                    <p><?= $OneGame['note_test'] ?>/20</p>
+                </div>
+                <h3>Note de test</h3>
+            </div>
         </div>
     </div>
-
-    <main id="OneGame-block">
-        <div id="frontDescription">
-            <div class="img-container tagert-block-game">
-                <img src="../../assets/img/insert_games/pp/<?= $OneGame['img_pp'] ?>" alt="">
+    <div class="block-about">
+        <h3>ABOUT</h3>
+        <div class="about-container">
+            <div class="about-item">
+                <div class="circle"></div>
+                <span>Prix :</span>
+                <span class="blue"><?= $OneGame['prix'] ?>€</span>
             </div>
-            <div class="Desc-Container tagert-block-game">
-                <h1><?= $OneGame['name'] ?></h1>
-                <div id="DescriptionGame">
-                    <div class="description-text">
-                        <p>
-                            <?= $OneGame['description'] ?>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="description-note">
-                        <div class="description-cercle">
-                            <p>
-                                <?= $OneGame['note_test'] ?>/20
-                            </p>
-                        </div>
-                        <div class="descrioption-cercle-text">
-                            <h2>Note de test</h2>
-                        </div>
-                    </div>
-                </div>
+            <div class="about-item">
+                <div class="circle"></div>
+                <span>Sorti le :</span>
+                <span class="blue"><?= $OneGame['date_sortie'] ?></span>
             </div>
-        </div>
-
-        <div id="bottomDescription">
-            <div id="about">
-                <h2>About</h2>
-                <hr>
-                <div class="flex-item-about">
-                    <div class="circle"></div>
-                    <p>Prix :</p>
-                    <p>
-                        <?= $OneGame['prix'] ?>€
-                    </p>
-                </div>
-                <div class="flex-item-about">
-                    <div class="circle"></div>
-                    <p>Sorti le :</p>
-                    <p>
-                        <?= $OneGame['date_sortie'] ?>
-                    </p>
-                </div>
-                <div class="flex-item-about">
-                    <div class="circle"></div>
-                    <p>Genre :</p>
-                    <p>
-                        <?= $OneGame['genre'] ?>
-                    </p>
-                </div>
-                <div class="flex-item-about">
-                    <div class="circle"></div>
-                    <p>Platformes :</p>
-                    <p>
-                        <?= $OneGame['plateforme'] ?>
-                    </p>
-                </div>
+            <div class="about-item">
+                <div class="circle"></div>
+                <span>Genre :</span>
+                <span class="blue"><?= $OneGame['genre'] ?></span>
             </div>
-
-            <div id="img-container">
-                <img src="../../assets/img/insert_games/banner/<?= $OneGame['img_banner'] ?>" alt="">
+            <div class="about-item">
+                <div class="circle"></div>
+                <span>Plateforme :</span>
+                <span class="blue"><?= $OneGame['plateforme'] ?></span>
+            </div>
+            <div class="about-item">
+                <div class="circle"></div>
+                <span>Classification :</span>
+                <span class="blue"><?= $OneGame['classification'] ?></span>
             </div>
         </div>
-    </main>
-
-    <div class="Button-Onegame">
+    </div>
+    <div class="block-asset-game">
+        <img src="../../assets/img/insert_games/banner/<?= $OneGame['img_banner'] ?>" alt="">
         <form action="#" method="post">
             <div class="Button-Onegame-wish">
-                <input type="submit" name=onegame-wish value="Ajouter à la liste de souhaits">
+                <input class="btn btn-warning" type="submit" name=onegame-wish value="Ajouter à la liste de souhaits">
             </div>
             <div class="Button-Onegame-insert">
-                <input type="submit" name=onegame-user value="Ajouter à la galerie">
+                <input class="btn btn-info" type="submit" name=onegame-user value="Ajouter à la galerie">
             </div>
-            <?php 
-            if(isset($_POST['onegame-wish'])){
-                $controler->insertGameWish($_SESSION['id'] ,$_GET['gameid']);
+            <?php
+            if (isset($_POST['onegame-wish'])) {
+                $controler->insertGameWish($_SESSION['id'], $_GET['gameid']);
             }
-            if(isset($_POST['onegame-user'])){
-                $controler->insertGameUser($_SESSION['id'] ,$_GET['gameid']);
+            if (isset($_POST['onegame-user'])) {
+                $controler->insertGameUser($_SESSION['id'], $_GET['gameid']);
             }
 
             ?>
         </form>
     </div>
+</div>
+
 </body>
 
 </html>
