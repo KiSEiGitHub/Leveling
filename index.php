@@ -14,6 +14,7 @@ if (isset($_SESSION['pseudo'])) {
     $userAbout = $controler->getUserAbout($_SESSION['id']);
 } else {
     $user = null;
+    $_SESSION['id'] = null;
 }
 
 if ($userAbout == null) {
