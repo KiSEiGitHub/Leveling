@@ -61,11 +61,11 @@ if ($userAbout == null) {
             <?php
         } else { ?>
             <a href="./pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
+                <img class="nav-user" src="./images/user-circle.png" alt="">
             </a>
         <?php } ?>
         <a href="./pages/profil/preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
+            <img class="nav-user" src="./images/settings.png" alt="">
         </a>
     </div>
 </div>
