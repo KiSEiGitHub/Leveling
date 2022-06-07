@@ -27,118 +27,106 @@ $setup = new setup();
 </head>
 
 <body>
-    <!--Barre de navigation DEBUT -->
-    <div id="green-bar">
-        <h1>
-            <a href="../../index.php">LEVELING</a>
-        </h1>
-        <div class="nav-icons">
-            <input type="text" name="search" placeholder="Rechercher" id="search">
-            <?php
-            if (isset($_SESSION['pseudo'])) {
-            ?>
-                <a href="../../pages/profil/index.php">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-                </a>
-            <?php
-            } else { ?>
-                <a href="../../pages/profil/index.php">
-                    <img class="nav-user" src="../../images/user-circle.png" alt="">
-                </a>
-            <?php } ?>
-
-        </div>
+<!--Barre de navigation DEBUT -->
+<div id="green-bar">
+    <h1>
+        <a href="index.php">LEVELING</a>
+    </h1>
+    <div class="nav-icons">
+        <input type="text" name="search" placeholder="Rechercher" id="search">
+        <a href="Connexion.php">
+            <img class="nav-user" src="./images/user-circle.png" alt="">
+        </a>
     </div>
+</div>
 
 
-    <main class="form-inscription">
-        <div class="inscription-form">
-            <form method="post" action="#" enctype="multipart/form-data">
-                <div class="text-inscription">
-                    <p><strong>INSCRIPTION</strong></p>
-                </div>
+<main class="form-inscription">
+    <div class="inscription-form">
+        <form method="post" action="#" enctype="multipart/form-data">
+            <div class="text-inscription">
+                <p><strong>INSCRIPTION</strong></p>
+            </div>
 
-                <div class="profile-picture">
-                    <div class="user">
-                        <label><strong>Photo de profil</strong> 
-                            <input type="file" name="img" />
-                        </label>
-                    </div>
-                    <div>
-                        <label for="imgbanner"><strong>Banner</strong>
-                            <input type="file" name="imgbanner">
-                        </label>
-                    </div>
-                </div>
-                <div class="form-floating">
-                    <label for="prenom">Prénom
-                        <input type="text" class="form-control" id="floatingPassword" name="prenom" maxlength="10">
+            <div class="profile-picture">
+                <div class="user">
+                    <label><strong>Photo de profil</strong>
+                        <input type="file" name="img"/>
                     </label>
                 </div>
-
-                <div class="form-floating">
-                    <label for="nom">Nom
-                        <input type="text" class="form-control" id="floatingPassword" name="nom" maxlength="10">
+                <div>
+                    <label for="imgbanner"><strong>Banner</strong>
+                        <input type="file" name="imgbanner">
                     </label>
                 </div>
+            </div>
+            <div class="form-floating">
+                <label for="prenom">Prénom
+                    <input type="text" class="form-control" id="floatingPassword" name="prenom" maxlength="10">
+                </label>
+            </div>
 
-                <div class="form-floating">
-                    <label for="pseudo">Pseudo
-                        <input type="text" class="form-control" id="floatingInput" name="pseudo" maxlength="10">
-                    </label>
-                </div>
+            <div class="form-floating">
+                <label for="nom">Nom
+                    <input type="text" class="form-control" id="floatingPassword" name="nom" maxlength="10">
+                </label>
+            </div>
 
-
-
-                <div class="form-floating">
-                    <label for="mdp">Mot de passe
-                        <input type="password" class="form-control" id="floatingPassword" name="mdp">
-                    </label>
-                </div>
-
-
-
-                <div class="form-floating">
-                    <label for="dateNaissance">Date de naissance
-                        <input type="date" class="form-control" id="floatingPassword" name="dateNaissance">
-                    </label>
-                </div>
-
-                <div class="form-floating">
-                    <label for="age">Age
-                        <input type="number" class="form-control" id="floatingPassword" name="age">
-                    </label>
-                </div>
-
-                <div class="form-floating">
-                    <label for="mail">E-mail
-                        <input type="email" class="form-control" id="floatingPassword" name="mail">
-                    </label>
-                </div>
+            <div class="form-floating">
+                <label for="pseudo">Pseudo
+                    <input type="text" class="form-control" id="floatingInput" name="pseudo" maxlength="10">
+                </label>
+            </div>
 
 
-                <div class="form-floating-bio">
-                    <label for="bio">Bio
-                        <input type="text" class="form-control" id="floatingPassword" name="bio" rows="3" maxlength="100">
-                    </label>
-                </div>
+            <div class="form-floating">
+                <label for="mdp">Mot de passe
+                    <input type="password" class="form-control" id="floatingPassword" name="mdp">
+                </label>
+            </div>
 
-                <input type="submit" name="btn" value="S'inscrire">
 
-                <div class="inscription">
+            <div class="form-floating">
+                <label for="dateNaissance">Date de naissance
+                    <input type="date" class="form-control" id="floatingPassword" name="dateNaissance">
+                </label>
+            </div>
+
+            <div class="form-floating">
+                <label for="age">Age
+                    <input type="number" class="form-control" id="floatingPassword" name="age">
+                </label>
+            </div>
+
+            <div class="form-floating">
+                <label for="mail">E-mail
+                    <input type="email" class="form-control" id="floatingPassword" name="mail">
+                </label>
+            </div>
+
+
+            <div class="form-floating-bio">
+                <label for="bio">Bio
+                    <input type="text" class="form-control" id="floatingPassword" name="bio" rows="3" maxlength="100">
+                </label>
+            </div>
+
+            <input type="submit" name="btn" value="S'inscrire">
+
+            <div class="inscription">
                     <span>Déjà inscrit ?&nbsp;
                         <a href="Connexion.php">Connexion</a>
                     </span>
-                </div>
-                <?php
-                if (isset($_POST['btn'])) {
-                    echo $setup->checkInsertUser($_POST, $_FILES['img'], $_FILES['imgbanner']);
-                }
-                ?>
-            </form>
+            </div>
+            <?php
+            if (isset($_POST['btn'])) {
+                echo $setup->checkInsertUser($_POST, $_FILES['img'], $_FILES['imgbanner']);
+            }
+            ?>
+        </form>
 
-        </div>
-    </main>
+    </div>
+</main>
 </body>
 
 </html>
