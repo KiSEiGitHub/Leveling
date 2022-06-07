@@ -27,21 +27,16 @@ $setup = new setup();
 </head>
 
 <body>
+<!--Barre de navigation DEBUT -->
 <div id="green-bar">
-    <h1>LEVELING</h1>
+    <h1>
+        <a href="index.php">LEVELING</a>
+    </h1>
     <div class="nav-icons">
         <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="pages/profil/index.php"><img src="assets/img/UserProfilePicture/<?= $user['img'] ?>"
-                                                  class="nav-user alt="
-                                                  pfp"></a>
-            <?php
-        } else { ?>
-            <a href="pages/profil/index.php"><img class="nav-user" src="./images/user-circle.png" alt=""></a>
-        <?php } ?>
-        <a href="./settings.php"><img class="nav-user" src="./images/settings.png" alt=""></a>
+        <a href="Connexion.php">
+            <img class="nav-user" src="./images/user-circle.png" alt="">
+        </a>
     </div>
 </div>
 
@@ -49,33 +44,22 @@ $setup = new setup();
 <main class="form-inscription">
     <div class="inscription-form">
         <form method="post" action="#" enctype="multipart/form-data">
+            <div class="text-inscription">
+                <p><strong>INSCRIPTION</strong></p>
+            </div>
+
             <div class="profile-picture">
                 <div class="user">
-                    <img src="images/user.png" alt="">
-                    <label>
+                    <label><strong>Photo de profil</strong>
                         <input type="file" name="img"/>
                     </label>
                 </div>
+                <div>
+                    <label for="imgbanner"><strong>Banner</strong>
+                        <input type="file" name="imgbanner">
+                    </label>
+                </div>
             </div>
-
-            <div class="form-floating">
-                <label for="pseudo">Pseudo
-                    <input type="text" class="form-control" id="floatingInput" name="pseudo" maxlength="10">
-                </label>
-            </div>
-
-            <div>
-                <label for="imgbanner">Banner
-                    <input type="file" name="imgbanner">
-                </label>
-            </div>
-
-            <div class="form-floating">
-                <label for="mdp">Mot de passe
-                    <input type="password" class="form-control" id="floatingPassword" name="mdp">
-                </label>
-            </div>
-
             <div class="form-floating">
                 <label for="prenom">Prénom
                     <input type="text" class="form-control" id="floatingPassword" name="prenom" maxlength="10">
@@ -85,6 +69,19 @@ $setup = new setup();
             <div class="form-floating">
                 <label for="nom">Nom
                     <input type="text" class="form-control" id="floatingPassword" name="nom" maxlength="10">
+                </label>
+            </div>
+
+            <div class="form-floating">
+                <label for="pseudo">Pseudo
+                    <input type="text" class="form-control" id="floatingInput" name="pseudo" maxlength="10">
+                </label>
+            </div>
+
+
+            <div class="form-floating">
+                <label for="mdp">Mot de passe
+                    <input type="password" class="form-control" id="floatingPassword" name="mdp">
                 </label>
             </div>
 
@@ -117,9 +114,9 @@ $setup = new setup();
             <input type="submit" name="btn" value="S'inscrire">
 
             <div class="inscription">
-                <span>Déjà inscrit ?&nbsp;
-                    <a href="Connexion.php">Connexion</a>
-                </span>
+                    <span>Déjà inscrit ?&nbsp;
+                        <a href="Connexion.php">Connexion</a>
+                    </span>
             </div>
             <?php
             if (isset($_POST['btn'])) {
@@ -131,4 +128,5 @@ $setup = new setup();
     </div>
 </main>
 </body>
+
 </html>

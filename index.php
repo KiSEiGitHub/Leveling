@@ -14,6 +14,7 @@ if (isset($_SESSION['pseudo'])) {
     $userAbout = $controler->getUserAbout($_SESSION['id']);
 } else {
     $user = null;
+    $_SESSION['id'] = null;
 }
 
 if ($userAbout == null) {
@@ -60,11 +61,11 @@ if ($userAbout == null) {
             <?php
         } else { ?>
             <a href="./pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
+                <img class="nav-user" src="./images/user-circle.png" alt="">
             </a>
         <?php } ?>
         <a href="./pages/profil/preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
+            <img class="nav-user" src="./images/settings.png" alt="">
         </a>
     </div>
 </div>
