@@ -76,6 +76,7 @@ if ($userAbout == null) {
 <a href="inscription.php">inscription</a>
 <a href="Connexion.php">connexion</a>
 <a href="pages/jeux/">jeux</a>
+<h1>Hello World</h1>
 <?php
 if ($preference != null) {
     echo "<h3>Préférence utilisateur</h3>";
