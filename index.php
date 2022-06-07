@@ -78,8 +78,6 @@ if ($userAbout == null) {
 <a href="Connexion.php">connexion</a>
 <a href="pages/jeux/">jeux</a>
 
-<p>couille</p>
-
 <?php
 if ($preference != null) {
     echo "<h3>Préférence utilisateur</h3>";
