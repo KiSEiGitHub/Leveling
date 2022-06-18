@@ -1,17 +1,14 @@
-// fonction scss pour import les fonts
-@mixin font($fontfam, $fontlocation) {
-  @font-face {
-    font-family: $fontfam;
-    src: url($fontlocation + '.tff') format('truetype');
-  }
-}
-
-@include font("toxigenesis", "./assets/fonts/toxigenesis");
-
 *, ::after, ::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
 
+}
+
+main {
+  max-width: 70em;
+  height: auto;
+  margin: 0 auto 40px;
+  position: relative;
 }

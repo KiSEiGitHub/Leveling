@@ -34,154 +34,76 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-<!--Barre de navigation-->
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-            </a>
-            <?php
-        } else { ?>
-            <a href="../../pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
-            </a>
-        <?php } ?>
-        <a href="./preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-<!--Barre de navigation-->
+<!--Image de couverture DEBUT -->
+<style>
+    #cover-image {
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
+        height: 250px;
+    }
+</style>
+<!--Image de couverture FIN -->
 
-<!--Block principal-->
-<div id="main-block">
-    <!--Image de couverture-->
-    <style>
-        #cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
-        }
-    </style>
-    <!--Image de couverture-->
-
-    <!--  HEADER PROFIL  -->
-    <div id="cover-image">
-        <p id="username">
-            @<?= $user['pseudo'] ?>
-        </p>
-        <ul>
-            <li class="border-white">
-                <a href="../../pages/profil/index.php">Description</a>
-            </li>
-            <li class="border-white">
-                <a href="../../pages/profil/jeux.php">Jeux</a>
-            </li>
-            <li class="border-white">
-                <a href="groupes.php">Groupes</a>
-            </li>
-            <li>
-                <a href="amis.php">Amis</a>
-            </li>
-        </ul>
-
-        <div id="profile-picture">
-            <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
-            <?php
-            if ($ranks === null) {
-                echo "<p>No ranks</p>";
-            } else {
-
-                ?>
-                <img id="lvl-icon" src="../../<?= $ranks[0] ?>" alt="rank" width="65px">
-                <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
-            <?php } ?>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="../../images/leveling-logo.png" alt="leveling-logo">
         </div>
-    </div>
-    <!--  HEADER PROFIL  -->
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
+            <a href="../../pages/profil/index.php">
+                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
+            </a>
+            <a href="#">
+                <img src="../../images/settings.png" alt="settings">
+            </a>
+        </div>
+    </nav>
+</header>
 
-    <!--Icônes Ajouter un ami + Envoyer un message -->
-    <div class="icons-friend-message">
-        <a href="settings.php"><img src="../../assets/img/icons/paintbrush-solid.png" alt=""
-                                    width="30"></a>
-        <img src="../../assets/img/icons/comment-dots-solid.png" alt="" width="30">
-        <img src="../../assets/img/icons/user-plus-solid.png" alt="" width="30">
-    </div>
-    <!--Icônes Ajouter un ami + Envoyer un message -->
-
-
-    <!--Block du meilleur jeu-->
-    <div id="best-game">
-        <div id="share">
-            <img src="../../assets/img/icons/game.png" alt="" width="70px">
-            <div id="text">
-                <h1><a href="">Game</a></h1>
-                <p><span>0</span> Heures de jeu et <span>0</span> Achievements</p>
+<main>
+    <div class="profil-grid">
+        <div id="cover-image">
+            <div class="nav">
+                <div class="pseudo">
+                    <h1 class="title white">@KiSEi</h1>
+                </div>
+                <div class="li">
+                    <ul>
+                        <li>
+                            <a href="index.php">Description</a>
+                        </li>
+                        <li>
+                            <a href="jeux.php">Jeux</a>
+                        </li>
+                        <li>
+                            <a href="groupes.php">Groupes</a>
+                        </li>
+                        <li>
+                            <a href="amis.php">Amis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bio">
+                <span class="bold">Bio :</span>
+                <span class="bold"><?= $user['bio'] ?></span>
             </div>
         </div>
+        <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
+        <?php
+        if ($ranks === null) {
+            echo "<p>No ranks</p>";
+        } else {
+
+            ?>
+            <img id="lvl-icon" src="../../<?= $ranks[0] ?>" alt="rank" width="65px">
+            <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
+        <?php } ?>
     </div>
-    <!--Block du meilleur jeu-->
-
-    <!--Block jeux-->
-    <div id="games-block">
-        <h3>GALLERIE</h3>
-
-        <div class="game-filter">
-            <p>Trier par</p>
-            <button id="OuiMonsieur">Date d'acquisition</button>
-            <button id="OuiMonsieur">Genre</button>
-            <button id="OuiMonsieur">Terminé à 100%</button>
-            <button id="OuiMonsieur">Date de sortie</button>
-            <button id="OuiMonsieur">Evaluation</button>
-            <button id="OuiMonsieur">Dernière utilisation</button>
-        </div>
-
-        <div class="games-gallery">
-            <?php
-            $AllGamesUser = $controler->selectGameUser($_SESSION['id']);
-            if ($AllGamesUser == null) {
-                echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
-            } else {
-                foreach ($AllGamesUser as $OneGamesUser) {
-                    $Jeux = $controler->getOneGame($OneGamesUser['id_game']) ?>
-                    <div class="Game">
-                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
-                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
-                        </a>
-                    </div>
-                <?php }
-            } ?>
-        </div>
-    </div>
-
-    <div id="games-block">
-        <h3>LISTE DE SOUHAIT</h3>
-
-        <div class="games-gallery">
-            <?php
-            $AllGamesWish = $controler->selectGameWish($_SESSION['id']);
-            if ($AllGamesWish == null) {
-                echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
-            } else {
-                foreach ($AllGamesWish as $OneGamesWish) {
-                    $Jeux = $controler->getOneGame($OneGamesWish['id_games']) ?>
-                    <div class="Game">
-                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
-                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
-                        </a>
-                    </div>
-                <?php }
-            } ?>
-        </div>
-    </div>
-    <!--Block jeux-->
-
-    <script src="../../js/main.js"></script>
+</main>
+<script src="../../js/main.js"></script>
 </body>
 
 </html>

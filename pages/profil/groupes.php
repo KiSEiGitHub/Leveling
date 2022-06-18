@@ -35,129 +35,74 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-<!--Barre de navigation-->
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-            </a>
-            <?php
-        } else { ?>
-            <a href="../../pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
-            </a>
-        <?php } ?>
-        <a href="./preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-<!--Barre de navigation-->
+<!--Image de couverture DEBUT -->
+<style>
+    #cover-image {
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
+        height: 250px;
+    }
+</style>
+<!--Image de couverture FIN -->
 
-<!--Block principal-->
-<div id="main-block">
-    <!--Image de couverture-->
-    <style>
-        #cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
-        }
-    </style>
-    <!--Image de couverture-->
-
-    <!--  Le header profil  -->
-    <div id="cover-image">
-        <p id="username">
-            @<?= $user['pseudo'] ?>
-        </p>
-        <ul>
-            <li class="border-white">
-                <a href="../../pages/profil/index.php">Description</a>
-            </li>
-            <li class="border-white">
-                <a href="jeux.php">Jeux</a>
-            </li>
-            <li class="border-white">
-                <a href="groupes.php">Groupes</a>
-            </li>
-            <li>
-                <a href="amis.php">Amis</a>
-            </li>
-        </ul>
-
-        <div id="profile-picture">
-            <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
-            <?php
-            if ($ranks === null) {
-                echo "<p>No ranks</p>";
-            } else {
-
-                ?>
-                <img id="lvl-icon" src="../../<?= $ranks[0] ?>" alt="rank" width="65px">
-                <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
-            <?php } ?>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="../../images/leveling-logo.png" alt="leveling-logo">
         </div>
-    </div>
-    <!--  Le header profil  -->
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
+            <a href="../../pages/profil/index.php">
+                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
+            </a>
+            <a href="#">
+                <img src="../../images/settings.png" alt="settings">
+            </a>
+        </div>
+    </nav>
+</header>
 
-
-    <!--Icônes Ajouter un ami + Envoyer un message -->
-    <div class="icons-friend-message">
-        <a href="settings.php">
-            <img src="../../assets/img/icons/paintbrush-solid.png" alt="" width="30">
-        </a>
-        <img src="../../assets/img/icons/comment-dots-solid.png" alt="" width="30">
-        <img src="../../assets/img/icons/user-plus-solid.png" alt="" width="30">
-    </div>
-    <!--Icônes Ajouter un ami + Envoyer un message -->
-
-    <!--Block du meilleur groupe-->
-    <div id="best-group">
-        <div id="share">
-            <img src="../../assets/img/icons/users-solid.png" alt="" width="80px">
-            <div id="text">
-                <h1><a href="">#Group</a></h1>
-                <p><span>0</span> EXP de contribution</p>
+<main>
+    <div class="profil-grid">
+        <div id="cover-image">
+            <div class="nav">
+                <div class="pseudo">
+                    <h1 class="title white">@KiSEi</h1>
+                </div>
+                <div class="li">
+                    <ul>
+                        <li>
+                            <a href="index.php">Description</a>
+                        </li>
+                        <li>
+                            <a href="jeux.php">Jeux</a>
+                        </li>
+                        <li>
+                            <a href="groupes.php">Groupes</a>
+                        </li>
+                        <li>
+                            <a href="amis.php">Amis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bio">
+                <span class="bold">Bio :</span>
+                <span class="bold"><?= $user['bio'] ?></span>
             </div>
         </div>
-    </div>
-    <!--Block du meilleur groupe-->
+        <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
+        <?php
+        if ($ranks === null) {
+            echo "<p>No ranks</p>";
+        } else {
 
-    <!--Block groupes-->
-    <div id="groups-block">
-        <div class="header-grp">
-            <h3>GROUPES</h3>
-            <?php
-            if ($groups != null) { ?>
-                <a href="../groupes/creategroups.php" class="btn btn-info">Créer un nouveau groupe</a>
-            <?php } ?>
-        </div>
-        <div class="grp-box">
-            <?php
-            if ($groups != null) {
-                foreach ($groups as $sigle) { ?>
-                    <div class="friend">
-                        <img src="../../assets/img/groupesPP/<?= $sigle['img'] ?>" alt="" width="80px">
-                        <div class="text">
-                            <a href="../groupes/index.php?idgroup=<?= $sigle['id'] ?>">#<?= $sigle['nom'] ?></a>
-                            <p>
-                                Groupe
-                                <span> <?= $sigle['privacy'] ?></span>
-                            </p>
-                        </div>
-                    </div>
-                <?php }
-            } else { ?>
-                <a href="../groupes/creategroups.php" class="btn btn-info d-block mx-auto" style="width: 150px">Créer un
-                    groupe</a>
-            <?php } ?>
-        </div>
-        <!--Block groupes-->
+            ?>
+            <img id="lvl-icon" src="../../<?= $ranks[0] ?>" alt="rank" width="65px">
+            <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
+        <?php } ?>
+    </div>
+</main>
 </body>
 </html>

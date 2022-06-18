@@ -1,0 +1,48 @@
+.parent {
+  display: grid;
+  grid-template-columns: 0.38fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+  //background-color: #198ab6;
+  border-radius: 25px;
+  border: 1px solid grey;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+  h3 {
+    border-bottom: 1px solid grey;
+    padding: 10px;
+  }
+
+  .about-section {
+    padding: 0 15px;
+
+    .enfant {
+      margin: 10px 0;
+
+      span {
+        font-size: 1.2em;
+      }
+    }
+
+  }
+
+}
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+  //background-color: #23586d;
+  border-radius: 25px;
+  border: 1px solid grey;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+  h3 {
+    border-bottom: 1px solid grey;
+    padding: 10px;
+  }
+
+}
