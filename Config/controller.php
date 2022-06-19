@@ -483,7 +483,7 @@ class controller
 
     public function getGroupAbout($idgroup)
     {
-        $r = "SELECT * FROM about_groups WHERE id_groups = $idgroup";
+        $r = "SELECT * FROM about_groups WHERE id_groups =" . $idgroup;
         if ($this->pdo != null) {
             $select = $this->pdo->prepare($r);
             $select->execute();

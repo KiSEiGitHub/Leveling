@@ -44,52 +44,36 @@ if ($userAbout == null) {
 </head>
 
 <body>
-<!--Barre de navigation-->
-<!--Barre de navigation-->
-<div id="green-bar">
-    <h1>
-        <a href="index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="./pages/profil/index.php">
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.php">
+                <img src="./images/leveling-logo.png" alt="leveling-logo">
+            </a>
+        </div>
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
+            <a href="pages/profil/index.php">
                 <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
             </a>
-            <?php
-        } else { ?>
-            <a href="./pages/profil/index.php">
-                <img class="nav-user" src="./images/user-circle.png" alt="">
+            <a href="#">
+                <img src="images/settings.png" alt="settings">
             </a>
-        <?php } ?>
-        <a href="./pages/profil/preferences.php">
-            <img class="nav-user" src="./images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-<!--Barre de navigation-->
+        </div>
+    </nav>
+</header>
 
-<!-- ça c'est juste pour le dev -->
-<!-- on supprimera après -->
-<a href="Deconnexion.php">deco</a>
 <a href="inscription.php">inscription</a>
-<a href="Connexion.php">connexion</a>
-<a href="pages/jeux/">jeux</a>
+<a href="Deconnexion.php">déco</a>
+<a href="./pages/jeux/index.php">jeux</a>
 
-<?php
-if ($preference != null) {
-    echo "<h3>Préférence utilisateur</h3>";
-    foreach ($preference as $sigle) { ?>
-        <p>Steam : <?= $sigle['steam'] ?></p>
-        <p>Discord : <?= $sigle['discord'] ?></p>
-        <p>Twitch : <?= $sigle['twitch'] ?></p>
-    <?php }
-} else { ?>
-    <h3>Pas de préférence</h3>
-<?php } ?>
-
+<h1 class="title grey">Bonjour</h1>
+<h2 class="sous-title blue">Bonjour</h2>
+<h3 class="header-title">Bonjour</h3>
+<p class="paragraphe">Bonjour</p>
 
 <!-- Javascript -->
 <script src="js/main.js"></script>

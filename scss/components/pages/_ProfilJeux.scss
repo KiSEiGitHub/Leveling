@@ -1,0 +1,28 @@
+.UserGames {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  border: 1px solid grey;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  margin-bottom: 50px;
+
+  h4 {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+  }
+
+  .Games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .enfant {
+      margin: 10px;
+
+      img {
+        width: 150px;
+      }
+
+    }
+  }
+}

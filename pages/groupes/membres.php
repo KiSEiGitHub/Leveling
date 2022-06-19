@@ -37,140 +37,69 @@ $creator = $controler->getUser($groups['creator'])
 </head>
 
 <body>
-
+<style>
+    #groupe-cover-image {
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupesBanner/<?= $groups['banner'] ?>");
+        height: 250px;
+    }
+</style>
 <!--Barre de navigation DEBUT -->
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+<header>
+    <nav>
+        <div class="logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
             </a>
-            <?php
-        } else { ?>
+        </div>
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
             <a href="../../pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
+                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
             </a>
-        <?php } ?>
-        <a href="./preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-
-<!--Barre de navigation FIN -->
-
-<!--Block principal DEBUT -->
-<div id="main-block">
-
-    <!--Image de couverture DEBUT -->
-    <style>
-        #groupe-cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupesBanner/<?= $groups['banner'] ?>");
-        }
-    </style>
-    <!--Image de couverture FIN -->
-
-    <!--  Le header profil DEBUT -->
-    <div id="groupe-cover-image">
-        <p id="username">
-            #<?= $groups['nom'] ?>
-        </p>
-        <ul>
-            <li class="border-white">
-                <a href="index.php?idgroup=<?= $groups['id'] ?>">Description</a>
-            </li>
-            <li class="border-white">
-                <a href="dicussion.php?idgroup=<?= $groups['id'] ?>">Discussions</a>
-            </li>
-            <li class="border-white">
-                <a href="membres.php?idgroup=<?= $groups['id'] ?>">Membres</a>
-            </li>
-        </ul>
-
-        <div id="groupe-profile-picture">
-            <img src="../../assets/img/groupesPP/<?= $groups['img'] ?>" alt="pfp" id="pp">
+            <a href="#">
+                <img src="../../images/settings.png" alt="settings">
+            </a>
         </div>
-    </div>
-    <!--  Le header profil FIN -->
-</div>
-<main id="groupes-members">
-    <div class="block-member">
-        <h3>Membres</h3>
-        <div class="btn-group">
-            <button class="btn btn-info">Ajouter</button>
-            <button class="btn btn-danger">Supprimer</button>
+    </nav>
+</header>
+<!--Barre de navigation DEBUT -->
+<main>
+    <a href="preference.php?idgroup=<?= $groups['id'] ?>">
+        <img src="../../images/settings.png"
+             style="position: absolute; z-index: 9999; width: 40px; right: 10px; top:10px" alt="">
+    </a>
+    <div class="profil-grid">
+        <div id="groupe-cover-image">
+            <div class="nav">
+                <div class="pseudo">
+                    <h3 class="sous-title white" style="position: relative; top: 5px">@<?= $groups['nom'] ?></h3>
+                </div>
+                <div class="li">
+                    <ul>
+                        <li>
+                            <a href="index.php?idgroup=<?= $groups['id'] ?>">Description</a>
+                        </li>
+                        <li>
+                            <a href="dicussion.php?idgroup=<?= $groups['id'] ?>">Discussion</a>
+                        </li>
+                        <li>
+                            <a href="membres.php?idgroup=<?= $groups['id'] ?>">Membres</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="block-member-2">
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-            <div class="membre">
-                <img src="../../images/user.png" alt="">
-                <span>@KiSEI</span>
-            </div>
-
-        </div>
+        <img src="../../assets/img/groupesPP/<?= $groups['img'] ?>" style="border-radius: 0" alt="pfp" id="pp">
     </div>
-</main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
+    <div class="bottom">
+        <p style="padding: 10px">Rejoingez notre serveur discord !</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

@@ -36,218 +36,153 @@ $ranks = $setup->getLvl($user['lvl']);
 
 <body>
 
-<!--Barre de navigation-->
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+<!--Image de couverture DEBUT -->
+<style>
+    #cover-image {
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
+        height: 250px;
+    }
+</style>
+<!--Image de couverture FIN -->
+
+<!-- Nav début -->
+<header>
+    <nav>
+        <div class="logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
             </a>
-            <?php
-        } else { ?>
-            <a href="../../pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
-            </a>
-        <?php } ?>
-        <a href="./preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-<!--Barre de navigation-->
-
-<!--Block principal DEBUT -->
-<div id="main-block">
-
-    <!--Image de couverture DEBUT -->
-    <style>
-        #cover-image {
-            background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
-        }
-    </style>
-    <!--Image de couverture FIN -->
-
-    <!--  HEADER PROFIL  -->
-    <div id="cover-image">
-        <p id="username">
-            @<?= $user['pseudo'] ?>
-        </p>
-        <ul>
-            <li class="border-white">
-                <a href="../../pages/profil/index.php">Description</a>
-            </li>
-            <li class="border-white">
-                <a href="../../pages/profil/jeux.php">Jeux</a>
-            </li>
-            <li class="border-white">
-                <a href="groupes.php">Groupes</a>
-            </li>
-            <li>
-                <a href="amis.php">Amis</a>
-            </li>
-        </ul>
-
-        <div id="profile-picture">
-            <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
-            <?php
-            if ($ranks === null) {
-                echo "<p>No ranks</p>";
-            } else {
-
-                ?>
-                <img id="lvl-icon" src="../../<?= $ranks[0] ?>" alt="rank" width="65px">
-                <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
-            <?php } ?>
         </div>
-    </div>
-    <!--  HEADER PROFIL  -->
-
-    <!--Block "About" DEBUT -->
-    <div id="about-block">
-        <h3>ABOUT</h3>
-        <?php if ($userAbout['jeu_fav'] != '') { ?>
-            <ul>
-                <li><span><?= $userAbout['exp'] ?></span> EXP</li>
-                <li><span><?= $userAbout['jeux_possede'] ?></span> jeux possédés</li>
-                <li><span><?= $userAbout['jeux_termine'] ?></span> jeux terminés</li>
-                <li><span><?= $userAbout['jeux_cent'] ?></span> jeux terminés à 100%</li>
-                <li>Jeu favori : <span><?= $userAbout['jeu_fav'] ?></span></li>
-                <li>Genre favori : <span><?= $userAbout['genre_fav'] ?></span></li>
-                <li>Plateforme favorite : <span><?= $userAbout['plateforme_fav'] ?></span></li>
-                <li>Inscrit depuis le : <span><?= $userAbout['inscription'] ?></span></li>
-            </ul>
-        <?php } else { ?>
-            <a href="settings.php" style="text-align: center; display: block; color: #000">Configuré
-                maintenant
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
+            <a href="../../pages/profil/index.php">
+                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
             </a>
-        <?php } ?>
-    </div>
-    <!--Block "About" FIN -->
+            <a href="#">
+                <img src="../../images/settings.png" alt="settings">
+            </a>
+        </div>
+    </nav>
+</header>
+<!-- Nav Fin -->
 
-    <!--Icônes Ajouter un ami + Envoyer un message DEBUT -->
-    <div class="icons-friend-message">
-        <a href="settings.php"><img src="../../assets/img/icons/paintbrush-solid.png" alt="" width="30"></a>
-        <a data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasExample">
-            <img src="../../assets/img/icons/comment-dots-solid.png" alt="message-icon" width="30">
-        </a>
-        <img src="../../assets/img/icons/user-plus-solid.png" alt="" width="30">
-    </div>
-    <!--Icônes Ajouter un ami + Envoyer un message FIN -->
-
-
-    <!--Block actualités DEBUT-->
-    <div id="feed-block">
-        <h3>ACTUALITÉS</h3>
-        <ul>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>@Mirinae</span>
-                a rejoint le groupe
-                <span>#SORPlayers</span>
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px"> <img src="../../images/user.png"
-                                                                                   alt="pfp user" width="35px">
-                <span>@Mirinae</span> et <span>@KiSei</span>
-                sont devenus amis
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>@Mirinae</span> a obtenu <span>Assassin's Creed : Odyssey</span>
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>100</span> jeux terminés à 100%
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>@Mirinae</span> stream <span>Beyond Good and Evil 2</span>
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px"> <img src="../../images/user.png"
-                                                                                   alt="pfp user" width="35px">
-                <span>@Mirinae</span> et <span>@JLSermax</span> jouent à <span>Watch Dogs : Legion</span>
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>@Mirinae</span> a rejoint le groupe <span>#Vaporwave</span>
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>@Mirinae</span> a terminé <span>For Honor</span> à <span>100%</span>
-            </li>
-            <li>
-                <img src="../../images/user.png" alt="pfp user" width="35px">
-                <span>@Mirinae</span> a terminé <span>South park : L'annale du destin</span>
-            </li>
-        </ul>
-    </div>
-    <!--Block actualités FIN-->
-
-    <!--Bio DEBUT-->
-    <div id="bio">
-        <p>
-            Bio : <?= $user['bio'] ?>
-        </p>
-    </div>
-    <!--Bio DEBUT FIN-->
-
-    <!--Block pour poster un message DEBUT -->
-    <div id="post-block">
-        <div id="share">
-            <p>Que souhaitez-vous partager ?</p>
-            <div id="icons">
-                <img src="../../assets/img/icons/file-image-solid.png" alt="" width="15em">
-                <img src="../../assets/img/icons/file-video-solid.png" alt="" width="15em">
-                <img src="../../assets/img/icons/calendar-day-solid.png" alt="" width="18em">
-                <img src="../../assets/img/icons/link-solid.png" alt="" width="25em">
+<main>
+    <!--  Profil bannière + photo + nav only début -->
+    <div class="profil-grid">
+        <div id="cover-image">
+            <div class="nav">
+                <div class="pseudo">
+                    <h1 class="title white">@KiSEi</h1>
+                </div>
+                <div class="li">
+                    <ul>
+                        <li>
+                            <a href="index.php">Description</a>
+                        </li>
+                        <li>
+                            <a href="jeux.php">Jeux</a>
+                        </li>
+                        <li>
+                            <a href="groupes.php">Groupes</a>
+                        </li>
+                        <li>
+                            <a href="amis.php">Amis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bio">
+                <span class="bold">Bio :</span>
+                <span class="bold"><?= $user['bio'] ?></span>
             </div>
         </div>
+        <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
+        <?php
+        if ($ranks === null) {
+            echo "<p>No ranks</p>";
+        } else {
+
+            ?>
+            <img id="lvl-icon" src="../../<?= $ranks[0] ?>" alt="rank" width="65px">
+            <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
+        <?php } ?>
     </div>
-    <!--Block pour poster un message DEBUT FIN -->
+    <!--  Profil bannière + photo + nav only fin -->
 
-    <!-- chat DEBUT -->
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-         id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">MESSAGERIE</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <!--  Share block début -->
+    <div class="bottom">
+        <p style="padding: 10px">Que voulez-vous partager ?</p>
+    </div>
+    <!--  Share block  fin -->
+
+
+    <div class="parent">
+        <!--  ABOUT BLOCK début  -->
+        <div class="div1">
+            <h3 class="header-title center grey bold">ABOUT</h3>
+            <div class="about-section">
+                <div class="enfant">
+                    <span class="blue bold">Clara Garcia</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Discord : </span>
+                    <span class="blue bold">@Miranae</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Steam : </span>
+                    <span class="blue bold">@Miranae</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Twitch : </span>
+                    <span class="blue bold">@Miranae</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold blue">82852</span>
+                    <span class="bold">EXP</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold blue">10</span>
+                    <span class="bold">Jeux terminés</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold blue">10</span>
+                    <span class="bold">Jeux possédés</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold blue">10</span>
+                    <span class="bold">Jeux terminés à 100%</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Jeu favori :</span>
+                    <span class="bold blue">Valorant</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Genre favori :</span>
+                    <span class="bold blue">FPS</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Plateforme : </span>
+                    <span class="bold blue">PC</span>
+                </div>
+                <div class="enfant">
+                    <span class="bold">Inscris le : </span>
+                    <span class="bold blue">04/08/2000</span>
+                </div>
+            </div>
         </div>
-        <div class="offcanvas-body">
-            <p style="font-size: 14px">Discussions</p>
-            <?php
-            $AllUser = $controler->getAllUsers();
-            foreach ($AllUser as $UnUser) { ?>
-                <div class="user-message-block">
-                    <img src="../../assets/img/UserProfilePicture/<?= $UnUser['img'] ?>" class="profil-picture-message"
-                         alt="pfp"/>
-                    <p>@<?= $UnUser['pseudo'] ?></p>
-                </div>
-            <?php } ?>
-            <p class="header-title-message" style="font-size: 14px">Démarrer une discussion avec...</p>
-            <?php
-            $AllUser = $controler->getAllUsers();
-            foreach ($AllUser as $UnUser) { ?>
-                <div class="user-message-block">
-                    <img src="../../assets/img/UserProfilePicture/<?= $UnUser['img'] ?>" class="profil-picture-message"
-                         alt="pfp"/>
-                    <p>@<?= $UnUser['pseudo'] ?></p>
-                </div>
-            <?php } ?>
+        <!--  ABOUT BLOCK Fin  -->
+        <div class="div2">
+            <h3 class="header-title center grey bold">ACTUALITES</h3>
         </div>
     </div>
-    <!-- chat FIN -->
 
+</main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
 </body>
 
 </html>

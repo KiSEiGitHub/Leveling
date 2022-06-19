@@ -28,19 +28,6 @@ $setup = new setup();
 
 <body>
 <!--Barre de navigation DEBUT -->
-<div id="green-bar">
-    <h1>
-        <a href="index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <a href="Connexion.php">
-            <img class="nav-user" src="./images/user-circle.png" alt="">
-        </a>
-    </div>
-</div>
-
-
 <main class="form-inscription">
     <div class="inscription-form">
         <form method="post" action="#" enctype="multipart/form-data">

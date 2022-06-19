@@ -1,12 +1,5 @@
 @import "settings";
-@import "components/Sign/sign";
-@import "components/Inscription/inscription";
-@import "components/Profile/index";
-@import "components/Amis/index";
-@import "components/Groupes/index";
-@import "components/Jeux_User/index";
-@import "components/Profile_Settings/index";
-@import "components/Jeux/index";
-@import "components/Groupe_description/index";
-@import "components/Groupe_membre/index";
-@import "components/customscrollbar";
+@import "components/Nav";
+@import "components/Typo/index";
+@import "components/pages/index";
+@import "components/Extra/index";
