@@ -46,7 +46,9 @@ $ranks = $setup->getLvl($user['lvl']);
 <header>
     <nav>
         <div class="logo">
-            <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            </a>
         </div>
         <div class="right">
             <label for="search">
@@ -102,6 +104,58 @@ $ranks = $setup->getLvl($user['lvl']);
             <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
         <?php } ?>
     </div>
+
+    <!--  Jeux fav  -->
+    <div class="bottom" style="padding: 20px">
+        <h2 class="sous-title bold">VALORANT</h2>
+        <h3 class="header-title bold">269h</h3>
+    </div>
+    <!--  Jeux fav  -->
+
+    <!--  Gallerie  -->
+    <section id="gallerie" class="UserGames">
+        <h4 class="sous-title grey bold center">GALLERIE</h4>
+        <div class="Games">
+            <?php
+            $AllGamesUser = $controler->selectGameUser($_SESSION['id']);
+            if ($AllGamesUser == null) {
+                echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
+            } else {
+                foreach ($AllGamesUser as $OneGamesUser) {
+                    $Jeux = $controler->getOneGame($OneGamesUser['id_game']) ?>
+                    <div class="enfant">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
+                        </a>
+                    </div>
+                <?php }
+            } ?>
+        </div>
+    </section>
+    <!--  Gallerie  -->
+
+    <!--  Souhait  -->
+    <section id="Souhait" class="UserGames">
+        <h4 class="sous-title grey bold center">Liste de souhait</h4>
+        <div class="Games">
+            <?php
+            $AllGamesWish = $controler->selectGameWish($_SESSION['id']);
+            if ($AllGamesWish == null) {
+                echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
+            } else {
+                foreach ($AllGamesWish as $OneGamesWish) {
+                    $Jeux = $controler->getOneGame($OneGamesWish['id_games']) ?>
+                    <div class="enfant">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
+                        </a>
+                    </div>
+                <?php }
+            } ?>
+        </div>
+    </section>
+    <!--  Souhait  -->
+
 </main>
 <script src="../../js/main.js"></script>
 </body>

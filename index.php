@@ -48,7 +48,9 @@ if ($userAbout == null) {
 <header>
     <nav>
         <div class="logo">
-            <img src="images/leveling-logo.png" alt="leveling-logo">
+            <a href="index.php">
+                <img src="./images/leveling-logo.png" alt="leveling-logo">
+            </a>
         </div>
         <div class="right">
             <label for="search">
@@ -66,6 +68,7 @@ if ($userAbout == null) {
 
 <a href="inscription.php">inscription</a>
 <a href="Deconnexion.php">déco</a>
+<a href="./pages/jeux/index.php">jeux</a>
 
 <h1 class="title grey">Bonjour</h1>
 <h2 class="sous-title blue">Bonjour</h2>

@@ -47,7 +47,9 @@ $ranks = $setup->getLvl($user['lvl']);
 <header>
     <nav>
         <div class="logo">
-            <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            </a>
         </div>
         <div class="right">
             <label for="search">
@@ -103,6 +105,40 @@ $ranks = $setup->getLvl($user['lvl']);
             <img id="lvl-rank" src="../../<?= $ranks[1] ?>" alt="ranks" width="400px">
         <?php } ?>
     </div>
+
+    <div class="bottom" style="padding: 20px">
+        <h2 class="sous-title bold">#REYNA FAN BASE</h2>
+        <h3 class="header-title bold grey">269 EXP de contribution</h3>
+    </div>
+
+    <section id="groupe" class="UserGames">
+        <h4 class="sous-title bold center grey">Groupes</h4>
+        <?php
+        if ($groups != null) { ?>
+            <a href="../groupes/creategroups.php" class="btn btn-info">Créer un nouveau groupe</a>
+        <?php } ?>
+        <?php if ($groups != null): ?>
+            <div class="grp">
+                <?php foreach ($groups as $One): ?>
+                    <?php $about = $controler->getGroupAbout($One['id']) ?>
+                    <div class="OneGroupe">
+                        <div class="img-container">
+                            <img src="../../assets/img/groupesPP/<?= $One['img'] ?>" alt="">
+                        </div>
+                        <div class="Text-container">
+                            <h2 class="title">
+                                <a href="../groupes/index.php?idgroup=<?= $One['id'] ?>" style="text-decoration: none">
+                                    <?= $One['nom'] ?>
+                                </a>
+                            </h2>
+                            <h3 class="sous-title"><?= $about['membres'] ?> Membres </h3>
+                            <p class="bold grey">groupe <?= $One['privacy'] ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </section>
 </main>
 </body>
 </html>

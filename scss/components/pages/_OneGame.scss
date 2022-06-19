@@ -1,0 +1,142 @@
+.parent {
+  max-width: 80em;
+  margin: 0 auto 20px;
+  display: grid;
+  grid-template-columns: 0.3fr 1.2fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+  .block-photo {
+    grid-area: 1 / 1 / 2 / 2;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .block-about-game {
+    grid-area: 1 / 2 / 2 / 3;
+    padding: 10px;
+
+    .description-block {
+      margin-top: 25px;
+      width: 100%;
+      height: auto;
+      border: 1px solid #d5d5d5;
+      border-radius: 25px;
+      border-bottom: 1px solid #b7b7b7;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      #desc {
+        color: #b7b7b7;
+        font-weight: 800;
+        padding: 30px;
+        border-bottom: 1px solid #bababa;
+      }
+
+      .note-container {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .circle-note {
+          border-radius: 50%;
+          width: 95px;
+          height: 95px;
+          border: 1px solid #bababa;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            font-weight: 800;
+            font-size: 20px;
+          }
+        }
+
+        h3 {
+          margin-left: 25px;
+          font-size: 23px;
+        }
+      }
+
+
+    }
+
+  }
+
+  .block-about {
+    grid-area: 2 / 1 / 3 / 2;
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    border: 1px solid #bababa;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    h3 {
+      padding: 20px;
+      border-bottom: 1px solid #bababa;
+      text-align: center;
+    }
+
+    .about-container {
+
+      padding: 20px;
+
+      .about-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .circle {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          border: 5px solid #787878;
+        }
+
+        span {
+          margin-left: 15px;
+          color: #bababa;
+          font-weight: 800;
+        }
+
+        .blue {
+          color: #1991FF;
+          margin-left: 10px;
+        }
+      }
+    }
+
+  }
+
+  .block-asset-game {
+    grid-area: 2 / 2 / 3 / 3;
+    border-radius: 25px;
+    border: 1px solid #bababa;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      .Button-Onegame-insert, .Button-Onegame-wish {
+        margin-left: 20px;
+      }
+    }
+
+  }
+
+}

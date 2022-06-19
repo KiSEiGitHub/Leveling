@@ -33,26 +33,26 @@ if (isset($_SESSION['pseudo'])) {
     <title>Profil</title>
 </head>
 <body>
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../profil/index.php">
+<header>
+    <nav>
+        <div class="logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            </a>
+        </div>
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
+            <a href="../../pages/profil/index.php">
                 <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
             </a>
-            <?php
-        } else { ?>
-            <a href="../profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
+            <a href="#">
+                <img src="../../images/settings.png" alt="settings">
             </a>
-        <?php } ?>
-    </div>
-</div>
+        </div>
+    </nav>
+</header>
 
 <!-- main -->
 <main id="games-block">

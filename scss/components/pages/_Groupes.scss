@@ -1,0 +1,18 @@
+.grp {
+  .OneGroupe {
+    display: flex;
+    margin-top: 20px;
+
+    .img-container {
+      margin-left: 10px;
+      img {
+        width: 100px;
+      }
+    }
+
+    .Text-container {
+      margin-left: 10px;
+      line-height: 2px;
+    }
+  }
+}

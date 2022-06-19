@@ -49,7 +49,9 @@ $ranks = $setup->getLvl($user['lvl']);
 <header>
     <nav>
         <div class="logo">
-            <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
+            </a>
         </div>
         <div class="right">
             <label for="search">
