@@ -56,20 +56,36 @@ if ($userAbout == null) {
             <label for="search">
                 <input type="search" name="search">
             </label>
-            <a href="pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
-            </a>
-            <a href="#">
-                <img src="images/settings.png" alt="settings">
-            </a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="border: none; outline: none; background: none;">
+                    <?php if (isset($_SESSION['id'])): ?>
+                        <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp"
+                             style="width: 40px; border-radius: 50%;">
+                    <?php else: ?>
+                        <img src="images/user-circle.png" class="nav-user" alt="pfp"
+                             style="width: 40px; border-radius: 50%;">
+                    <?php endif; ?>
+                </button>
+                <?php if (isset($_SESSION['id'])): ?>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="./pages/profil/index.php">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                        <li><a class="dropdown-item" href="Deconnexion.php">Se déconnecter</a></li>
+                    </ul>
+                <?php else: ?>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="inscription.php">S'inscrire</a></li>
+                        <li><a class="dropdown-item" href="Connexion.php">Se connecter</a></li>
+                    </ul>
+                <?php endif; ?>
+            </div>
         </div>
     </nav>
 </header>
 
-<a href="inscription.php">inscription</a>
-<a href="Deconnexion.php">déco</a>
 <a href="./pages/jeux/index.php">jeux</a>
-
 
 <!-- Javascript -->
 <script src="js/main.js"></script>
