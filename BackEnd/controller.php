@@ -88,7 +88,6 @@ class controller
 
     public function getAllUsers()
     {
-
         $requete = "select * from user;";
         if ($this->pdo != null) {
             $select = $this->pdo->prepare($requete);
@@ -115,7 +114,7 @@ class controller
 
     public function searchUser($recherche)
     {
-        $r = 'SELECT * FROM user WHERE pseudo LIKE "%' . $recherche . '%" ORDER BY id DESC';
+        $r = "SELECT * FROM user WHERE pseudo LIKE '%$recherche%' ORDER BY DESC ";
         if ($this->pdo != null) {
             $r2 = $this->pdo->prepare($r);
             $r2->execute();
@@ -181,14 +180,14 @@ class controller
 
     public function getUserPreference($iduser)
     {
-        $r = "SELECT * from user_preferences where id_user = $iduser";
+        $r = "SELECT * from user_preferences where id_user = {$iduser}";
         if ($this->pdo != null) {
             $select = $this->pdo->prepare($r);
             $select->execute();
             //extraction de tous les users
-            return $select->fetchAll();
+            return $select->fetch();
         } else {
-            return null;
+            return [];
         }
     }
 

@@ -70,10 +70,6 @@ if ($userAbout == null) {
 <a href="Deconnexion.php">déco</a>
 <a href="./pages/jeux/index.php">jeux</a>
 
-<h1 class="title grey">Bonjour</h1>
-<h2 class="sous-title blue">Bonjour</h2>
-<h3 class="header-title">Bonjour</h3>
-<p class="paragraphe">Bonjour</p>
 
 <!-- Javascript -->
 <script src="js/main.js"></script>
