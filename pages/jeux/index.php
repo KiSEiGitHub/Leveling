@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("../../Config/controller.php");
-require_once("../../Config/setup.php");
+require_once("../../BackEnd/controller.php");
+require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 

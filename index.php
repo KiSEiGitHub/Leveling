@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("Config/controller.php");
-require_once("Config/setup.php");
+require_once("BackEnd/controller.php");
+require_once("BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 $preference = null;
@@ -70,10 +70,6 @@ if ($userAbout == null) {
 <a href="Deconnexion.php">déco</a>
 <a href="./pages/jeux/index.php">jeux</a>
 
-<h1 class="title grey">Bonjour</h1>
-<h2 class="sous-title blue">Bonjour</h2>
-<h3 class="header-title">Bonjour</h3>
-<p class="paragraphe">Bonjour</p>
 
 <!-- Javascript -->
 <script src="js/main.js"></script>

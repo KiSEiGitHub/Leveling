@@ -4,13 +4,14 @@ if ($_SESSION['pseudo'] == null) {
     header('Location: ../../Connexion.php');
 }
 
-require_once("../../Config/controller.php");
-require_once("../../Config/setup.php");
+require_once("../../BackEnd/controller.php");
+require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 $user = $controler->getUser($_SESSION['id']);
 $userAbout = $controler->getUserAbout($_SESSION['id']);
+$userPreference = $controler->getUserPreference((int)$_SESSION['id']);
 $ranks = $setup->getLvl($user['lvl']);
 ?>
 
@@ -74,7 +75,7 @@ $ranks = $setup->getLvl($user['lvl']);
         <div id="cover-image">
             <div class="nav">
                 <div class="pseudo">
-                    <h1 class="title white">@KiSEi</h1>
+                    <h1 class="title white">@<?= $user['pseudo'] ?></h1>
                 </div>
                 <div class="li">
                     <ul>
@@ -124,51 +125,54 @@ $ranks = $setup->getLvl($user['lvl']);
             <h3 class="header-title center grey bold">ABOUT</h3>
             <div class="about-section">
                 <div class="enfant">
-                    <span class="blue bold">Clara Garcia</span>
+                    <span class="blue bold">
+                        <?= $user['prenom'] ?>
+                        <?= $user['nom'] ?>
+                    </span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Discord : </span>
-                    <span class="blue bold">@Miranae</span>
+                    <span class="blue bold"><?= $userPreference['discord'] ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Steam : </span>
-                    <span class="blue bold">@Miranae</span>
+                    <span class="blue bold">@<?= $userPreference['steam'] ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Twitch : </span>
-                    <span class="blue bold">@Miranae</span>
+                    <span class="blue bold">@<?= $userPreference['twitch'] ?></span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue">82852</span>
+                    <span class="bold blue"><?= $userAbout['exp'] ?></span>
                     <span class="bold">EXP</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue">10</span>
+                    <span class="bold blue"><?= $userAbout['jeux_termine'] ?></span>
                     <span class="bold">Jeux terminés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue">10</span>
+                    <span class="bold blue"><?= $userAbout['jeux_possede'] ?></span>
                     <span class="bold">Jeux possédés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue">10</span>
+                    <span class="bold blue"><?= $userAbout['jeux_cent'] ?></span>
                     <span class="bold">Jeux terminés à 100%</span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Jeu favori :</span>
-                    <span class="bold blue">Valorant</span>
+                    <span class="bold blue"><?= $userAbout['jeu_fav'] ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Genre favori :</span>
-                    <span class="bold blue">FPS</span>
+                    <span class="bold blue"><?= $userAbout['genre_fav'] ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Plateforme : </span>
-                    <span class="bold blue">PC</span>
+                    <span class="bold blue"><?= $userAbout['plateforme_fav'] ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Inscris le : </span>
-                    <span class="bold blue">04/08/2000</span>
+                    <span class="bold blue"><?= $userAbout['inscription'] ?></span>
                 </div>
             </div>
         </div>
