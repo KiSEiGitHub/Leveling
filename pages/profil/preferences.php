@@ -36,75 +36,30 @@ $ranks = $setup->getLvl($user['lvl']);
 </head>
 
 <body>
-
-<!--Barre de navigation DEBUT -->
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+<!-- Nav début -->
+<header>
+    <nav>
+        <div class="logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
             </a>
-            <?php
-        } else { ?>
+        </div>
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
             <a href="../../pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
+                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
             </a>
-        <?php } ?>
-        <a href="./preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-<!--Barre de navigation FIN -->
+            <a href="preferences.php">
+                <img src="../../images/settings.png" alt="settings">
+            </a>
+        </div>
+    </nav>
+</header>
+<!-- Nav Fin -->
+<main>
 
-<main id="account-preferences">
-    <h3>Préférences du compte</h3>
-    <div class="preference">
-        <form action="#" method="post">
-            <div class="flex-input">
-                <label for="discord">
-                    Compte discord
-                    <input type="text" name="discord" placeholder="">
-                </label>
-            </div>
-            <div class="flex-input">
-                <label for="steam">
-                    Compte steam
-                    <input type="text" name="steam" placeholder="">
-                </label>
-            </div>
-            <div class="flex-input">
-                <label for="twitch">
-                    Compte twitch
-                    <input type="text" name="twitch" placeholder="">
-                </label>
-            </div>
-            <div class="flex-input">
-                <label for="submit">
-                    <input type="submit" class="btn btn-outline-info" name="btn-pref" value="Valider">
-                </label>
-            </div>
-            <?php
-            // back-end
-
-            // On contrôle si on à appuyer sur le bouton valider
-            if (isset($_POST['btn-pref'])) {
-                // on contrôle maintenant les champs, si ils sont remplis ou pas
-                if (!empty($_POST['discord']) && !empty($_POST['steam']) && !empty($_POST['twitch'])) {
-                    $controler->InsertPreference($_SESSION['id'], $_POST);
-                } else {
-                    echo "<p style='color: red'>Veuillez remplir les champs</p>";
-                }
-            }
-            ?>
-        </form>
-    </div>
 </main>
 
 </body>

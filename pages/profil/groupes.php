@@ -55,12 +55,19 @@ $ranks = $setup->getLvl($user['lvl']);
             <label for="search">
                 <input type="search" name="search">
             </label>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
-            </a>
-            <a href="#">
-                <img src="../../images/settings.png" alt="settings">
-            </a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="border: none; outline: none; background: none;">
+                    <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp"
+                         style="width: 40px; border-radius: 50%;">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="index.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                    <li><a class="dropdown-item" href="../../Deconnexion.php">Se déconnecter</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
@@ -140,5 +147,9 @@ $ranks = $setup->getLvl($user['lvl']);
         <?php endif; ?>
     </section>
 </main>
+<script src="../../js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 </html>
