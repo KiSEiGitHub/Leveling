@@ -8,7 +8,7 @@ require_once("../../BackEnd/controller.php");
 require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
-$user = $controler->getUser($_SESSION['id']);
+$user = $controler->getUserById($_SESSION['id']);
 $groups = $controler->getOneGroups($_GET['idgroup']);
 $groups_about = $controler->getGroupAbout($_GET['idgroup']);
 ?>
@@ -85,7 +85,7 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
                 <select class="inputtext" name="jeu" id="jeu">
                     <option value="<?= $groups_about->jeu ?>"><?= $groups_about->jeu ?></option>
                     <?php
-                    $AllGames = $controler->getAllGames();
+                    $AllGames = $controler->getGames();
                     foreach ($AllGames as $One) { ?>
                         <option value="<?= $One->name ?>"><?= $One->name ?></option>
                     <?php } ?>

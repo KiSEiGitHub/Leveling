@@ -9,7 +9,7 @@ require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
-$user = $controler->getUser($_SESSION['id']);
+$user = $controler->getUserById($_SESSION['id']);
 $ranks = $setup->getLvl($user->lvl);
 ?>
 

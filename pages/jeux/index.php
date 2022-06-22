@@ -7,7 +7,7 @@ $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUser($_SESSION['id']);
+    $user = $controler->getUserById($_SESSION['id']);
 } else {
     $user = null;
 }
@@ -59,7 +59,7 @@ if (isset($_SESSION['pseudo'])) {
     <h1>TOUS LES JEUX</h1>
     <div id="AllGames">
         <?php
-        $AllGames = $controler->getAllGames();
+        $AllGames = $controler->getGames();
         foreach ($AllGames as $Games) {
             ?>
             <a href="OneGame.php?gameid=<?= $Games->idinsert_games ?>">

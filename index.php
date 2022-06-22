@@ -9,7 +9,7 @@ $preference = null;
 $userAbout = null;
 
 if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUser($_SESSION['id']);
+    $user = $controler->getUserById($_SESSION['id']);
     $preference = $controler->getUserPreference($_SESSION['id']);
     $userAbout = $controler->getUserAbout($_SESSION['id']);
 } else {

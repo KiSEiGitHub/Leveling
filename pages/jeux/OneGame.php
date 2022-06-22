@@ -7,7 +7,7 @@ $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUser($_SESSION['id']);
+    $user = $controler->getUserById($_SESSION['id']);
     extract((array)$user);
 } else {
     $user = null;
@@ -122,10 +122,10 @@ if (!$OneGame) {
             </div>
             <?php
             if (isset($_POST['onegame-wish'])) {
-                $controler->insertGameWish($_SESSION['id'], $_GET['gameid']);
+                $controler->insertGamesUser('user_wish', $_SESSION['id'], $_GET['gameid']);
             }
             if (isset($_POST['onegame-user'])) {
-                $controler->insertGameUser($_SESSION['id'], $_GET['gameid']);
+                $controler->insertGamesUser('user_games', $_SESSION['id'], $_GET['gameid']);
             }
 
             ?>

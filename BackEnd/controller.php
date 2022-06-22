@@ -35,19 +35,6 @@ class controller
     }
 
 
-    public function getCate()
-    {
-        $r = "select * from categorie";
-        if ($this->pdo != null) {
-            $r2 = $this->pdo->prepare($r);
-            $r2->execute();
-            return $r2->fetchAll();
-        } else {
-            return "pas bon";
-        }
-    }
-
-
     public function insertUser($tab, $img, $banner)
     {
         $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance, :mail, :lvl, :banner)";
@@ -72,35 +59,8 @@ class controller
         }
     }
 
-    public function insertGame($tab, $img_pp, $img_banner, $img_others)
-    {
-        $r = "insert into games values(null, :name, :description, :genre, :plateforme, :date_sortie, :note_test, :note_avis, :modele_eco, :classification, 
-        :prix, :img_pp, :img_banner, :img_others)";
-        $data = array(
-            ":name" => $tab['name'],
-            ":description" => $tab['description'],
-            ":genre" => $tab['genre'],
-            ":plateforme" => $tab['plateforme'],
-            ":date_sortie" => $tab['date_sortie'],
-            ":note_test" => $tab['note_test'],
-            ":note_avis" => $tab['note_avis'],
-            ":modele_eco" => $tab['modele_eco'],
-            ":classification" => $tab['classification'],
-            ":prix" => $tab['prix'],
-            ":img_pp" => $img_pp,
-            ":img_banner" => $img_banner,
-            ":img_others" => $img_others,
-
-        );
-
-        if ($this->pdo != null) {
-            $insert = $this->pdo->prepare($r);
-            $insert->execute($data);
-        }
-    }
-
     // fonction qui récupère UN SEUL utilisateur
-    public function getUser($id)
+    public function getUserById($id)
     {
         $r = "select * from user where id =" . $id;
         if ($this->pdo != null) {
@@ -112,7 +72,7 @@ class controller
         }
     }
 
-    public function getAllUsers()
+    public function getUsers()
     {
         $requete = "select * from user;";
         if ($this->pdo != null) {
@@ -137,33 +97,7 @@ class controller
         }
     }
 
-
-    public function searchUser($recherche)
-    {
-        $r = "SELECT * FROM user WHERE pseudo LIKE '%$recherche%' ORDER BY DESC ";
-        if ($this->pdo != null) {
-            $r2 = $this->pdo->prepare($r);
-            $r2->execute();
-            return $r2->fetch();
-        } else {
-            return "erryu";
-        }
-    }
-
-    public function selectAllPays()
-    {
-        $requete = "select * from pays;";
-        if ($this->pdo != null) {
-            $select = $this->pdo->prepare($requete);
-            $select->execute();
-            //extraction de tous les users
-            return $select->fetchAll();
-        } else {
-            return null;
-        }
-    }
-
-    public function getAllGames()
+    public function getGames()
     {
         $requete = "select * from games;";
         if ($this->pdo != null) {
@@ -264,36 +198,6 @@ class controller
         }
     }
 
-    public function insertGameWish($user, $game)
-    {
-        $r = "INSERT INTO user_wish values(null, :games, :user)";
-        $data = array(
-            ":games" => $game,
-            ":user" => $user
-        );
-
-        if ($this->pdo != null) {
-            $insert = $this->pdo->prepare($r);
-            $insert->execute($data);
-            $this->addUserXp($user, 'AddGamesWish');
-        }
-    }
-
-    public function insertGameUser($user, $game)
-    {
-        $r = "INSERT INTO user_games values(null, :games, :user)";
-        $data = array(
-            ":games" => $game,
-            ":user" => $user
-        );
-
-        if ($this->pdo != null) {
-            $insert = $this->pdo->prepare($r);
-            $insert->execute($data);
-            $this->addUserXp($user, 'AddGames');
-        }
-    }
-
     public function selectGameWish($iduser)
     {
         $r = "SELECT * FROM user_wish WHERE id_user = $iduser";
@@ -304,6 +208,35 @@ class controller
             return $select->fetchAll();
         } else {
             return null;
+        }
+    }
+
+    public function insertGamesUser($table, $idUser, $idGame)
+    {
+        $r = "";
+
+        switch ($table) {
+            case 'user_games' :
+            {
+                $r = "INSERT INTO user_games values(null, :games, :user)";
+                break;
+            }
+            case 'user_wish' :
+            {
+                $r = "INSERT INTO user_wish values(null, :games, :user)";
+                break;
+            }
+        }
+
+        $data = array(
+            ":games" => $idGame,
+            ":user" => $idUser
+        );
+
+        if ($this->pdo != null) {
+            $insert = $this->pdo->prepare($r);
+            $insert->execute($data);
+            $this->addUserXp($idUser, 'AddGames');
         }
     }
 

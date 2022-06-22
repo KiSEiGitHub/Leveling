@@ -9,7 +9,7 @@ require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
-$user = $controler->getUser($_SESSION['id']);
+$user = $controler->getUserById($_SESSION['id']);
 $userAbout = $controler->getUserAbout($_SESSION['id']);
 $ranks = $setup->getLvl($user['lvl']);
 ?>
@@ -122,7 +122,7 @@ $ranks = $setup->getLvl($user['lvl']);
                 <select class="inputtext" name="jeux" id="jeux">
                     <option value="<?= $userAbout['jeu_fav'] ?>"><?= $userAbout['jeu_fav'] ?></option>
                     <?php
-                    $allGames = $controler->getAllGames();
+                    $allGames = $controler->getGames();
                     foreach ($allGames as $One) { ?>
                         <option value="<?= $One['name'] ?>"><?= $One['name'] ?></option>
                     <?php } ?>
