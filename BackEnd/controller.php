@@ -27,6 +27,27 @@ class controller
 
 
     // méthodes
+    public function getUserGroups()
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM user_groups INNER JOIN user WHERE user_groups.creator = user.id");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+
+    public function getCate()
+    {
+        $r = "select * from categorie";
+        if ($this->pdo != null) {
+            $r2 = $this->pdo->prepare($r);
+            $r2->execute();
+            return $r2->fetchAll();
+        } else {
+            return "pas bon";
+        }
+    }
+
+
     public function insertUser($tab, $img, $banner)
     {
         $r = "insert into user values(null, :nom, :prenom, :password, :age, :pseudo, :bio, :img, :role, :dateNaissance, :mail, :lvl, :banner)";
@@ -98,7 +119,7 @@ class controller
             $select = $this->pdo->prepare($requete);
             $select->execute();
             //extraction de tous les users
-            return $select->fetchAll(PDO::FETCH_OBJ);
+            return $select->fetchAll();
         } else {
             return null;
         }
