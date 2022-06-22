@@ -45,7 +45,7 @@ if (isset($_SESSION['pseudo'])) {
                 <input type="search" name="search">
             </label>
             <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp">
             </a>
             <a href="#">
                 <img src="../../images/settings.png" alt="settings">
@@ -62,8 +62,8 @@ if (isset($_SESSION['pseudo'])) {
         $AllGames = $controler->getAllGames();
         foreach ($AllGames as $Games) {
             ?>
-            <a href="OneGame.php?gameid=<?= $Games['idinsert_games'] ?>">
-                <img src="../../assets/img/insert_games/pp/<?= $Games['img_pp'] ?>" alt="arza">
+            <a href="OneGame.php?gameid=<?= $Games->idinsert_games ?>">
+                <img src="../../assets/img/insert_games/pp/<?= $Games->img_pp ?>" alt="arza">
             </a>
         <?php } ?>
     </div>
