@@ -125,7 +125,7 @@ $ranks = $setup->getLvl($user->lvl);
         <h4 class="sous-title grey bold center">GALLERIE</h4>
         <div class="Games">
             <?php
-            $AllGamesUser = $controler->selectGameUser($_SESSION['id']);
+            $AllGamesUser = $controler->getUserGames('user_games', $_SESSION['id']);
             if ($AllGamesUser == null) {
                 echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
             } else {
@@ -147,7 +147,7 @@ $ranks = $setup->getLvl($user->lvl);
         <h4 class="sous-title grey bold center">Liste de souhait</h4>
         <div class="Games">
             <?php
-            $AllGamesWish = $controler->selectGameWish($_SESSION['id']);
+            $AllGamesWish = $controler->getUserGames('user_wish', $_SESSION['id']);
             if ($AllGamesWish == null) {
                 echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
             } else {

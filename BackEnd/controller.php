@@ -198,9 +198,23 @@ class controller
         }
     }
 
-    public function selectGameWish($iduser)
+    public function getUserGames($table, $id)
     {
-        $r = "SELECT * FROM user_wish WHERE id_user = $iduser";
+        $r = "";
+
+        switch ($table) {
+            case 'user_games' :
+            {
+                $r = "SELECT * FROM user_games WHERE id_user = $id";
+                break;
+            }
+            case 'user_wish' :
+            {
+                $r = "SELECT * FROM user_wish WHERE id_user = $id";
+                break;
+            }
+        }
+
         if ($this->pdo != null) {
             $select = $this->pdo->prepare($r);
             $select->execute();
@@ -209,6 +223,7 @@ class controller
         } else {
             return null;
         }
+
     }
 
     public function insertGamesUser($table, $idUser, $idGame)
@@ -237,19 +252,6 @@ class controller
             $insert = $this->pdo->prepare($r);
             $insert->execute($data);
             $this->addUserXp($idUser, 'AddGames');
-        }
-    }
-
-    public function selectGameUser($iduser)
-    {
-        $r = "SELECT * FROM user_games WHERE id_user = $iduser";
-        if ($this->pdo != null) {
-            $select = $this->pdo->prepare($r);
-            $select->execute();
-            //extraction de tous les users
-            return $select->fetchAll();
-        } else {
-            return null;
         }
     }
 
