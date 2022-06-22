@@ -10,7 +10,7 @@ $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 $user = $controler->getUserById($_SESSION['id']);
-$ranks = $setup->getLvl($user['lvl']);
+$ranks = $setup->getLvl($user->lvl);
 ?>
 
 <!doctype html>
@@ -36,7 +36,7 @@ $ranks = $setup->getLvl($user['lvl']);
         if (isset($_SESSION['pseudo'])) {
             ?>
             <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp">
             </a>
             <?php
         } else { ?>

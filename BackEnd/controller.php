@@ -348,13 +348,13 @@ class controller
     {
         // récupérer la table about d'un user
         $UserAbout = $this->getUserAbout($iduser);
-        $id = $UserAbout['id_user'];
+        $id = $UserAbout->id_user;
 
 
         switch ($action) {
             case 'Addgroup':
             {
-                $MoreXp = $UserAbout['exp'] + 10;
+                $MoreXp = $UserAbout->exp + 10;
                 $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
                 if ($this->pdo != null) {
                     $insert = $this->pdo->prepare($r);
@@ -364,7 +364,7 @@ class controller
             }
             case 'AddGames' :
             {
-                $MoreXp = $UserAbout['exp'] + 5;
+                $MoreXp = $UserAbout->exp + 5;
                 $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
                 if ($this->pdo != null) {
                     $insert = $this->pdo->prepare($r);
@@ -374,7 +374,7 @@ class controller
             }
             case 'AddGamesWish' :
             {
-                $MoreXp = $UserAbout['exp'] + 3;
+                $MoreXp = $UserAbout->exp + 3;
                 $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
                 if ($this->pdo != null) {
                     $insert = $this->pdo->prepare($r);
@@ -384,7 +384,7 @@ class controller
             }
             case 'UpdateGroups' :
             {
-                $MoreXp = $UserAbout['exp'] + 1;
+                $MoreXp = $UserAbout->exp + 1;
                 $r = "UPDATE about SET exp = $MoreXp WHERE id_user = $id";
                 if ($this->pdo != null) {
                     $insert = $this->pdo->prepare($r);
@@ -398,7 +398,7 @@ class controller
     public function updateGroupPeference($tab, $idgroup)
     {
         $g = $this->getOneGroups($idgroup);
-        $user = $g['creator'];
+        $user = $g->creator;
 
         $r = "
                 UPDATE about_groups SET
@@ -449,6 +449,44 @@ class controller
             $select->execute();
             //extraction de tous les users
             return $select->fetch();
+        } else {
+            return null;
+        }
+    }
+
+    public function getAboutAndPreferenceFromUser($iduser)
+    {
+        $r = "
+            SELECT * FROM user 
+                INNER JOIN about 
+                INNER JOIN user_preferences 
+                     WHERE $iduser = about.id_user 
+                       AND user.id = user_preferences.id_user
+        ";
+
+        if ($this->pdo != null) {
+            $query = $this->pdo->prepare($r);
+            $query->execute();
+            return $query->fetch();
+        } else {
+            return null;
+        }
+    }
+
+    public function getGroupandAboutGroupFromUser($iduser)
+    {
+        $r = "
+            SELECT * FROM user 
+                INNER JOIN user_groups 
+                INNER JOIN about_groups 
+                     WHERE $iduser = user_groups.creator 
+                       AND user_groups.id = about_groups.id_groups
+        ";
+
+        if ($this->pdo != null) {
+            $query = $this->pdo->prepare($r);
+            $query->execute();
+            return $query->fetchAll();
         } else {
             return null;
         }

@@ -111,7 +111,7 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
 <?php
 if (isset($_POST['btn'])) {
     $controler->updateGroupPeference($_POST, $_GET['idgroup']);
-    header('Location: index.php?idgroup=' . $_GET['idgroup']);
+    header('Location: index.php?idgroup=' . $groups->id);
 }
 ?>
 <script src="../../js/main.js"></script>

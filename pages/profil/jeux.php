@@ -9,8 +9,7 @@ require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
-$user = $controler->getUserById($_SESSION['id']);
-$userAbout = $controler->getUserAbout($_SESSION['id']);
+$user = $controler->getAboutAndPreferenceFromUser($_SESSION['id']);
 $ranks = $setup->getLvl($user->lvl);
 ?>
 
@@ -115,7 +114,7 @@ $ranks = $setup->getLvl($user->lvl);
 
     <!--  Jeux fav  -->
     <div class="bottom" style="padding: 20px">
-        <h2 class="sous-title bold"><?= $userAbout->jeu_fav ?></h2>
+        <h2 class="sous-title bold"><?= $user->jeu_fav ?></h2>
         <h3 class="header-title bold">269h</h3>
     </div>
     <!--  Jeux fav  -->

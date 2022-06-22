@@ -11,6 +11,7 @@ $setup = new setup();
 
 $user = $controler->getUserById($_SESSION['id']);
 $groups = $controler->getGroups($_SESSION['id']);
+//$groups = $controler->getGroupandAboutGroupFromUser($_SESSION['id']);
 $ranks = $setup->getLvl($user->lvl);
 ?>
 

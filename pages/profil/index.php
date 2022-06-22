@@ -9,9 +9,7 @@ require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
-$user = $controler->getUserById($_SESSION['id']);
-$userAbout = $controler->getUserAbout($_SESSION['id']);
-$userPreference = $controler->getUserPreference($_SESSION['id']);
+$user = $controler->getAboutAndPreferenceFromUser($_SESSION['id']);
 $ranks = $setup->getLvl($user->lvl);
 ?>
 
@@ -139,47 +137,47 @@ $ranks = $setup->getLvl($user->lvl);
                 </div>
                 <div class="enfant">
                     <span class="bold">Discord : </span>
-                    <span class="blue bold"><?= $userPreference->discord ?></span>
+                    <span class="blue bold"><?= $user->discord ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Steam : </span>
-                    <span class="blue bold">@<?= $userPreference->steam ?></span>
+                    <span class="blue bold">@<?= $user->steam ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Twitch : </span>
-                    <span class="blue bold">@<?= $userPreference->twitch ?></span>
+                    <span class="blue bold">@<?= $user->twitch ?></span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout->exp ?></span>
+                    <span class="bold blue"><?= $user->exp ?></span>
                     <span class="bold">EXP</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout->jeux_termine ?></span>
+                    <span class="bold blue"><?= $user->jeux_termine ?></span>
                     <span class="bold">Jeux terminés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout->jeux_possede ?></span>
+                    <span class="bold blue"><?= $user->jeux_possede ?></span>
                     <span class="bold">Jeux possédés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout->jeux_cent ?></span>
+                    <span class="bold blue"><?= $user->jeux_cent ?></span>
                     <span class="bold">Jeux terminés à 100%</span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Jeu favori :</span>
-                    <span class="bold blue"><?= $userAbout->jeu_fav ?></span>
+                    <span class="bold blue"><?= $user->jeu_fav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Genre favori :</span>
-                    <span class="bold blue"><?= $userAbout->genre_fav ?></span>
+                    <span class="bold blue"><?= $user->genre_fav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Plateforme : </span>
-                    <span class="bold blue"><?= $userAbout->plateforme_fav ?></span>
+                    <span class="bold blue"><?= $user->plateforme_fav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Inscris le : </span>
-                    <span class="bold blue"><?= $userAbout->inscription ?></span>
+                    <span class="bold blue"><?= $user->inscription ?></span>
                 </div>
             </div>
         </div>
