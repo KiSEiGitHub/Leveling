@@ -160,9 +160,9 @@ class setup
         $UserWhoWantToLogin = $this->pdo->Login($tab['pseudo']);
 
         // On set nos variable de Session
-        $_SESSION['id'] = $UserWhoWantToLogin['id'];
-        $_SESSION['pseudo'] = $UserWhoWantToLogin['pseudo'];
-        $_SESSION['mdp'] = $UserWhoWantToLogin['password'];
+        $_SESSION['id'] = $UserWhoWantToLogin->id;
+        $_SESSION['pseudo'] = $UserWhoWantToLogin->pseudo;
+        $_SESSION['mdp'] = $UserWhoWantToLogin->password;
 
         // On vérifie si tout concorde
         if ($PotentialFakePseudo == $_SESSION['pseudo'] && md5($PotentialFakePassword) == $_SESSION['mdp']) {
