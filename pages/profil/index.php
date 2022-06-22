@@ -11,8 +11,8 @@ $setup = new setup();
 
 $user = $controler->getUser($_SESSION['id']);
 $userAbout = $controler->getUserAbout($_SESSION['id']);
-$userPreference = $controler->getUserPreference((int)$_SESSION['id']);
-$ranks = $setup->getLvl($user['lvl']);
+$userPreference = $controler->getUserPreference($_SESSION['id']);
+$ranks = $setup->getLvl($user->lvl);
 ?>
 
 <!doctype html>
@@ -40,7 +40,7 @@ $ranks = $setup->getLvl($user['lvl']);
 <!--Image de couverture DEBUT -->
 <style>
     #cover-image {
-        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user->img_banner ?>");
         height: 250px;
     }
 </style>
@@ -62,7 +62,7 @@ $ranks = $setup->getLvl($user['lvl']);
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp"
+                    <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
                          style="width: 40px; border-radius: 50%;">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -82,7 +82,7 @@ $ranks = $setup->getLvl($user['lvl']);
         <div id="cover-image">
             <div class="nav">
                 <div class="pseudo">
-                    <h1 class="title white">@<?= $user['pseudo'] ?></h1>
+                    <h1 class="title white">@<?= $user->pseudo ?></h1>
                 </div>
                 <div class="li">
                     <ul>
@@ -103,10 +103,10 @@ $ranks = $setup->getLvl($user['lvl']);
             </div>
             <div class="bio">
                 <span class="bold">Bio :</span>
-                <span class="bold"><?= $user['bio'] ?></span>
+                <span class="bold"><?= $user->bio ?></span>
             </div>
         </div>
-        <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
+        <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp" id="pp">
         <?php
         if ($ranks === null) {
             echo "<p>No ranks</p>";
@@ -133,53 +133,53 @@ $ranks = $setup->getLvl($user['lvl']);
             <div class="about-section">
                 <div class="enfant">
                     <span class="blue bold">
-                        <?= $user['prenom'] ?>
-                        <?= $user['nom'] ?>
+                        <?= $user->prenom ?>
+                        <?= $user->nom ?>
                     </span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Discord : </span>
-                    <span class="blue bold"><?= $userPreference['discord'] ?></span>
+                    <span class="blue bold"><?= $userPreference->discord ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Steam : </span>
-                    <span class="blue bold">@<?= $userPreference['steam'] ?></span>
+                    <span class="blue bold">@<?= $userPreference->steam ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Twitch : </span>
-                    <span class="blue bold">@<?= $userPreference['twitch'] ?></span>
+                    <span class="blue bold">@<?= $userPreference->twitch ?></span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout['exp'] ?></span>
+                    <span class="bold blue"><?= $userAbout->exp ?></span>
                     <span class="bold">EXP</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout['jeux_termine'] ?></span>
+                    <span class="bold blue"><?= $userAbout->jeux_termine ?></span>
                     <span class="bold">Jeux terminés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout['jeux_possede'] ?></span>
+                    <span class="bold blue"><?= $userAbout->jeux_possede ?></span>
                     <span class="bold">Jeux possédés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $userAbout['jeux_cent'] ?></span>
+                    <span class="bold blue"><?= $userAbout->jeux_cent ?></span>
                     <span class="bold">Jeux terminés à 100%</span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Jeu favori :</span>
-                    <span class="bold blue"><?= $userAbout['jeu_fav'] ?></span>
+                    <span class="bold blue"><?= $userAbout->jeu_fav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Genre favori :</span>
-                    <span class="bold blue"><?= $userAbout['genre_fav'] ?></span>
+                    <span class="bold blue"><?= $userAbout->genre_fav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Plateforme : </span>
-                    <span class="bold blue"><?= $userAbout['plateforme_fav'] ?></span>
+                    <span class="bold blue"><?= $userAbout->plateforme_fav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Inscris le : </span>
-                    <span class="bold blue"><?= $userAbout['inscription'] ?></span>
+                    <span class="bold blue"><?= $userAbout->inscription ?></span>
                 </div>
             </div>
         </div>

@@ -10,9 +10,14 @@ class controller
     {
         // on met ça à null pour controler plus tard si la connexion à la bdd sera succès ou pas
         $this->pdo = null;
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
 
         try {
-            $this->pdo = new PDO("mysql:host=" . $server . ";dbname=" . $dbname, $user, $password);
+            $this->pdo = new PDO("mysql:host=" . $server . ";dbname=" . $dbname, $user, $password, $options);
         } catch (PDOException $e) {
             echo "Erreur de connexion à la base de donnée";
             echo $e->getMessage();
@@ -93,7 +98,7 @@ class controller
             $select = $this->pdo->prepare($requete);
             $select->execute();
             //extraction de tous les users
-            return $select->fetchAll();
+            return $select->fetchAll(PDO::FETCH_OBJ);
         } else {
             return null;
         }

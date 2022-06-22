@@ -43,7 +43,7 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
                 <input type="search" name="search">
             </label>
             <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
+                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp">
             </a>
             <a href="#">
                 <img src="../../images/settings.png" alt="settings">
@@ -62,32 +62,32 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
 
             <label for="pfp">
                 <span>Photo de profil</span>
-                <img class="pfp-user" src="../../assets/img/groupesPP/<?= $groups['img'] ?>"
+                <img class="pfp-user" src="../../assets/img/groupesPP/<?= $groups->img ?>"
                      alt="photo de profil de l'utilisateur">
                 <input type="file" name="pfp" value="Bonjour">
             </label>
 
             <label for="banner">
                 <span>Image de couverture</span>
-                <img class="banner-user" src="../../assets/img/groupesBanner/<?= $groups['banner'] ?>"
+                <img class="banner-user" src="../../assets/img/groupesBanner/<?= $groups->banner ?>"
                      alt="bannière de l'utilisateur">
-                <input type="file" name="banner" value="../../assets/img/groupesBanner/<?= $groups['banner'] ?>">
+                <input type="file" name="banner" value="../../assets/img/groupesBanner/<?= $groups->banner ?>">
             </label>
 
             <label for="nom">
                 <span>Nom du groupe</span>
-                <input class="inputtext" type="text" name="nom" value="<?= $groups['nom'] ?>">
+                <input class="inputtext" type="text" name="nom" value="<?= $groups->nom ?>">
             </label>
 
 
             <label for="jeu">
                 <span>Jeu</span>
                 <select class="inputtext" name="jeu" id="jeu">
-                    <option value="<?= $groups_about['jeu'] ?>"><?= $groups_about['jeu'] ?></option>
+                    <option value="<?= $groups_about->jeu ?>"><?= $groups_about->jeu ?></option>
                     <?php
                     $AllGames = $controler->getAllGames();
                     foreach ($AllGames as $One) { ?>
-                        <option value="<?= $One['name'] ?>"><?= $One['name'] ?></option>
+                        <option value="<?= $One->name ?>"><?= $One->name ?></option>
                     <?php } ?>
                 </select>
             </label>

@@ -11,7 +11,7 @@ $setup = new setup();
 
 $user = $controler->getUser($_SESSION['id']);
 $userAbout = $controler->getUserAbout($_SESSION['id']);
-$ranks = $setup->getLvl($user['lvl']);
+$ranks = $setup->getLvl($user->lvl);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $ranks = $setup->getLvl($user['lvl']);
 <!--Image de couverture DEBUT -->
 <style>
     #cover-image {
-        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user['img_banner'] ?>");
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user->img_banner ?>");
         height: 250px;
     }
 </style>
@@ -59,7 +59,7 @@ $ranks = $setup->getLvl($user['lvl']);
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp"
+                    <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
                          style="width: 40px; border-radius: 50%;">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -98,10 +98,10 @@ $ranks = $setup->getLvl($user['lvl']);
             </div>
             <div class="bio">
                 <span class="bold">Bio :</span>
-                <span class="bold"><?= $user['bio'] ?></span>
+                <span class="bold"><?= $user->bio ?></span>
             </div>
         </div>
-        <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp" id="pp">
+        <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp" id="pp">
         <?php
         if ($ranks === null) {
             echo "<p>No ranks</p>";
@@ -115,7 +115,7 @@ $ranks = $setup->getLvl($user['lvl']);
 
     <!--  Jeux fav  -->
     <div class="bottom" style="padding: 20px">
-        <h2 class="sous-title bold"><?= $userAbout['jeu_fav'] ?></h2>
+        <h2 class="sous-title bold"><?= $userAbout->jeu_fav ?></h2>
         <h3 class="header-title bold">269h</h3>
     </div>
     <!--  Jeux fav  -->
@@ -130,10 +130,10 @@ $ranks = $setup->getLvl($user['lvl']);
                 echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
             } else {
                 foreach ($AllGamesUser as $OneGamesUser) {
-                    $Jeux = $controler->getOneGame($OneGamesUser['id_game']) ?>
+                    $Jeux = $controler->getOneGame($OneGamesUser->id_game) ?>
                     <div class="enfant">
-                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
-                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux->idinsert_games ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux->img_pp ?>" alt="">
                         </a>
                     </div>
                 <?php }
@@ -152,10 +152,10 @@ $ranks = $setup->getLvl($user['lvl']);
                 echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
             } else {
                 foreach ($AllGamesWish as $OneGamesWish) {
-                    $Jeux = $controler->getOneGame($OneGamesWish['id_games']) ?>
+                    $Jeux = $controler->getOneGame($OneGamesWish->id_games) ?>
                     <div class="enfant">
-                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux['idinsert_games'] ?>">
-                            <img src="../../assets/img/insert_games/pp/<?= $Jeux['img_pp'] ?>" alt="">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux->idinsert_games ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux->img_pp ?>" alt="">
                         </a>
                     </div>
                 <?php }

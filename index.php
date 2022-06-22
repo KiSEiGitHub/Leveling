@@ -61,7 +61,7 @@ if ($userAbout == null) {
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
                     <?php if (isset($_SESSION['id'])): ?>
-                        <img src="assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp"
+                        <img src="assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
                              style="width: 40px; border-radius: 50%;">
                     <?php else: ?>
                         <img src="images/user-circle.png" class="nav-user" alt="pfp"
@@ -86,6 +86,7 @@ if ($userAbout == null) {
 </header>
 
 <a href="./pages/jeux/index.php">jeux</a>
+
 
 <!-- Javascript -->
 <script src="js/main.js"></script>

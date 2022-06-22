@@ -10,10 +10,10 @@ $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
 $user = $controler->getUser($_SESSION['id']);
-$ranks = $setup->getLvl($user['lvl']);
+$ranks = $setup->getLvl($user->lvl);
 
 $groups = $controler->getOneGroups($_GET['idgroup']);
-$creator = $controler->getUser($groups['creator'])
+$creator = $controler->getUser($groups->creator)
 ?>
 
 <!doctype html>
@@ -39,7 +39,7 @@ $creator = $controler->getUser($groups['creator'])
 <body>
 <style>
     #groupe-cover-image {
-        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupesBanner/<?= $groups['banner'] ?>");
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/groupesBanner/<?= $groups->banner ?>");
         height: 250px;
     }
 </style>
@@ -56,7 +56,7 @@ $creator = $controler->getUser($groups['creator'])
                 <input type="search" name="search">
             </label>
             <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" alt="pfp">
+                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp">
             </a>
             <a href="#">
                 <img src="../../images/settings.png" alt="settings">
@@ -66,7 +66,7 @@ $creator = $controler->getUser($groups['creator'])
 </header>
 <!--Barre de navigation DEBUT -->
 <main>
-    <a href="preference.php?idgroup=<?= $groups['id'] ?>">
+    <a href="preference.php?idgroup=<?= $groups->id ?>">
         <img src="../../images/settings.png"
              style="position: absolute; z-index: 9999; width: 40px; right: 10px; top:10px" alt="">
     </a>
@@ -74,24 +74,24 @@ $creator = $controler->getUser($groups['creator'])
         <div id="groupe-cover-image">
             <div class="nav">
                 <div class="pseudo">
-                    <h3 class="sous-title white" style="position: relative; top: 5px">@<?= $groups['nom'] ?></h3>
+                    <h3 class="sous-title white" style="position: relative; top: 5px">@<?= $groups->nom ?></h3>
                 </div>
                 <div class="li">
                     <ul>
                         <li>
-                            <a href="index.php?idgroup=<?= $groups['id'] ?>">Description</a>
+                            <a href="index.php?idgroup=<?= $groups->id ?>">Description</a>
                         </li>
                         <li>
-                            <a href="dicussion.php?idgroup=<?= $groups['id'] ?>">Discussion</a>
+                            <a href="dicussion.php?idgroup=<?= $groups->id ?>">Discussion</a>
                         </li>
                         <li>
-                            <a href="membres.php?idgroup=<?= $groups['id'] ?>">Membres</a>
+                            <a href="membres.php?idgroup=<?= $groups->id ?>">Membres</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <img src="../../assets/img/groupesPP/<?= $groups['img'] ?>" style="border-radius: 0" alt="pfp" id="pp">
+        <img src="../../assets/img/groupesPP/<?= $groups->img ?>" style="border-radius: 0" alt="pfp" id="pp">
     </div>
 
     <div class="bottom">
