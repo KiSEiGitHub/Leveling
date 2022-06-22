@@ -410,6 +410,7 @@ class controller
             UPDATE user_groups SET
                 nom = :nom,
                 privacy = :pv
+            WHERE id = $idgroup
         ";
 
         $data = array(
