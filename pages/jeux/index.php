@@ -1,13 +1,18 @@
 <?php
 session_start();
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+require '../../BackEnd/modele.php';
 
-if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUserById($_SESSION['id']);
+// instanciation de notre modele
+$modele = new modele("localhost", "leveling", "root", "");
+
+/*
+l'utilisateur peut naviguer sur le site sans être connecter,
+si il s'est connecté, alors on a forcément une variable de session
+sinon, pas grave user = null;
+*/
+if (isset($_SESSION['id'])) {
+    $user = $modele->findById('tblUsers', 'PK_Users', (int)$_SESSION['id'], 'fetch');
 } else {
     $user = null;
 }
@@ -45,7 +50,7 @@ if (isset($_SESSION['pseudo'])) {
                 <input type="search" name="search">
             </label>
             <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp">
+                <img src="../../assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>" class="nav-user" alt="pfp">
             </a>
             <a href="#">
                 <img src="../../images/settings.png" alt="settings">
@@ -59,11 +64,11 @@ if (isset($_SESSION['pseudo'])) {
     <h1>TOUS LES JEUX</h1>
     <div id="AllGames">
         <?php
-        $AllGames = $controler->getGames();
+        $AllGames = $modele->all('tblGames');
         foreach ($AllGames as $Games) {
             ?>
-            <a href="OneGame.php?gameid=<?= $Games->idinsert_games ?>">
-                <img src="../../assets/img/insert_games/pp/<?= $Games->img_pp ?>" alt="arza">
+            <a href="OneGame.php?gameid=<?= $Games->PK_Games ?>">
+                <img src="../../assets/img/insert_games/pp/<?= $Games->UQ_Games_Img ?>" alt="arza">
             </a>
         <?php } ?>
     </div>

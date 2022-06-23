@@ -5,10 +5,8 @@ if (isset($_SESSION['pseudo'])) {
     header('Location: index.php');
 }
 
-require_once("BackEnd/controller.php");
-require_once("BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+require 'BackEnd/modele.php';
+$modele = new modele("localhost", "leveling", "root", "");
 ?>
 
 <!doctype html>
@@ -49,7 +47,7 @@ $setup = new setup();
             <p>&copy; 2022</p>
             <?php
             if (isset($_POST['btn_Connexion'])) {
-                echo $setup->checkConnexion($_POST);
+                echo $modele->checkConnexion($_POST);
             }
             ?>
         </form>

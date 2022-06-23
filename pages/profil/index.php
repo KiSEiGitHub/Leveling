@@ -1,16 +1,40 @@
 <?php
 session_start();
-if ($_SESSION['pseudo'] == null) {
-    header('Location: ../../Connexion.php');
+require '../../BackEnd/modele.php';
+
+// instanciation de notre modele
+$modele = new modele("localhost", "leveling", "root", "");
+
+$user = null;
+
+/*
+Il faut absolument que l'utilisateur soit connecté pour accéder à son profil
+Donc il faut controler ça grâce à une variable de session
+*/
+if (isset($_SESSION['id'])) {
+    // l'utilisateur est connecté
+    // on va chercher les informations d'un user avec des requête de jointure
+    // pour avoir les tables user, userPreferences, aboutUsers
+    $user = $modele->tripleJointure(
+        'tblusers',
+        'tbluserpreferences',
+        'tblaboutusers',
+        'PK_Users',
+        'FK_Users_UserPreferences',
+        'FK_Users_AboutUsers',
+        'fetch'
+    );
+} else {
+    header('Location: ../../index.php');
 }
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+// Très important elle permet de faire du destructuting de tableau
+// (array) permet de convertir en tableau
+extract((array)$user);
 
-$user = $controler->getAboutAndPreferenceFromUser($_SESSION['id']);
-$ranks = $setup->getLvl($user->lvl);
+// notre lvl
+$ranks = $modele->getLvl($UQ_Users_Level);
+
 ?>
 
 <!doctype html>
@@ -38,7 +62,7 @@ $ranks = $setup->getLvl($user->lvl);
 <!--Image de couverture DEBUT -->
 <style>
     #cover-image {
-        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user->img_banner ?>");
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $UQ_Users_ImgBanner ?>");
         height: 250px;
     }
 </style>
@@ -60,7 +84,8 @@ $ranks = $setup->getLvl($user->lvl);
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
+                    <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" class="nav-user"
+                         alt="pfp"
                          style="width: 40px; border-radius: 50%;">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -80,7 +105,7 @@ $ranks = $setup->getLvl($user->lvl);
         <div id="cover-image">
             <div class="nav">
                 <div class="pseudo">
-                    <h1 class="title white">@<?= $user->pseudo ?></h1>
+                    <h1 class="title white">@<?= $UQ_Users_Pseudo ?></h1>
                 </div>
                 <div class="li">
                     <ul>
@@ -101,10 +126,10 @@ $ranks = $setup->getLvl($user->lvl);
             </div>
             <div class="bio">
                 <span class="bold">Bio :</span>
-                <span class="bold"><?= $user->bio ?></span>
+                <span class="bold"><?= $UQ_Users_Bio ?></span>
             </div>
         </div>
-        <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp" id="pp">
+        <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" alt="pfp" id="pp">
         <?php
         if ($ranks === null) {
             echo "<p>No ranks</p>";
@@ -131,53 +156,53 @@ $ranks = $setup->getLvl($user->lvl);
             <div class="about-section">
                 <div class="enfant">
                     <span class="blue bold">
-                        <?= $user->prenom ?>
-                        <?= $user->nom ?>
+                        <?= $UQ_Users_Prenom ?>
+                        <?= $UQ_Users_Nom ?>
                     </span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Discord : </span>
-                    <span class="blue bold"><?= $user->discord ?></span>
+                    <span class="blue bold"><?= $UQ_UserPreferences_Discord ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Steam : </span>
-                    <span class="blue bold">@<?= $user->steam ?></span>
+                    <span class="blue bold">@<?= $UQ_UserPreferences_Discord ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Twitch : </span>
-                    <span class="blue bold">@<?= $user->twitch ?></span>
+                    <span class="blue bold">@<?= $UQ_UserPreferences_Twitch ?></span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $user->exp ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_Exp ?></span>
                     <span class="bold">EXP</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $user->jeux_termine ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_JeuxTermine ?></span>
                     <span class="bold">Jeux terminés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $user->jeux_possede ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_JeuxPossede ?></span>
                     <span class="bold">Jeux possédés</span>
                 </div>
                 <div class="enfant">
-                    <span class="bold blue"><?= $user->jeux_cent ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_JeuxCent ?></span>
                     <span class="bold">Jeux terminés à 100%</span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Jeu favori :</span>
-                    <span class="bold blue"><?= $user->jeu_fav ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_JeuFav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Genre favori :</span>
-                    <span class="bold blue"><?= $user->genre_fav ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_GenreFav ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Plateforme : </span>
-                    <span class="bold blue"><?= $user->plateforme_fav ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_Plateforme ?></span>
                 </div>
                 <div class="enfant">
                     <span class="bold">Inscris le : </span>
-                    <span class="bold blue"><?= $user->inscription ?></span>
+                    <span class="bold blue"><?= $UQ_AboutUsers_DateInscription ?></span>
                 </div>
             </div>
         </div>
