@@ -40,9 +40,9 @@ class modele
         $this->controller->insertUserGames($tbl, $idUser, $idGame);
     }
 
-    public function doubleJointure($tbl1, $tbl2, $PK, $FK, $fetchMethode)
+    public function doubleJointure($tbl1, $tbl2, $PK, $FK, $fetchMethode, $id)
     {
-        return $this->query->doubleJointure($tbl1, $tbl2, $PK, $FK, $fetchMethode);
+        return $this->query->doubleJointure($tbl1, $tbl2, $PK, $FK, $fetchMethode, $id);
     }
 
     public function getLvl($lvl)
@@ -58,6 +58,26 @@ class modele
     public function quadraJointure($table1, $table2, $table3, $table4, $PK_Table1, $FK_Table2, $FK_Table3, $FK_Table4, $fetchMethode)
     {
         return $this->query->quadraJointure($table1, $table2, $table3, $table4, $PK_Table1, $FK_Table2, $FK_Table3, $FK_Table4, $fetchMethode);
+    }
+
+    public function checkCreateGroups($tab, $img, $img2)
+    {
+        $this->controller->checkCreateGroups($tab, $img, $img2);
+    }
+
+    public function getUserGroupsAbout($iduser, $idgroup)
+    {
+        return $this->query->getUserGroupsAbout($iduser, $idgroup);
+    }
+
+    public function insertBaseAboutGroups($idgroup)
+    {
+        $this->controller->insertBaseAboutGroups($idgroup);
+    }
+
+    public function updateUserGroup($tab, $idgroup)
+    {
+        $this->controller->updateUserGroup($tab, $idgroup);
     }
 
 }

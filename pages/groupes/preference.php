@@ -1,16 +1,28 @@
 <?php
 session_start();
+
+// import + instanciation de notre modele
+require '../../BackEnd/modele.php';
+$modele = new modele("localhost", "leveling", "root", "");
+
+// Si l'utilisateur change lui même l'url et qu'il n'estp as connecté alors on le revoie
 if ($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');
 }
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
-$user = $controler->getUserById($_SESSION['id']);
-$groups = $controler->getOneGroups($_GET['idgroup']);
-$groups_about = $controler->getGroupAbout($_GET['idgroup']);
+// on récupére le user, le groupe associé et le about associé au groupe
+$user = $modele->getUserGroupsAbout($_SESSION['id'], $_GET['idgroup']);
+
+// destructuring de la variable user
+extract((array)$user);
+
+// Pour des soucis de header already sent by
+// il que je place ça au dessus du head sinon y'a un problème
+if (isset($_POST['btn'])) {
+    $modele->updateUserGroup($_POST, $_GET['idgroup']);
+    header('Location: index.php?idgroup=' . $PK_UserGroups);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +55,7 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
                 <input type="search" name="search">
             </label>
             <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp">
+                <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" alt="pfp">
             </a>
             <a href="#">
                 <img src="../../images/settings.png" alt="settings">
@@ -62,32 +74,32 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
 
             <label for="pfp">
                 <span>Photo de profil</span>
-                <img class="pfp-user" src="../../assets/img/groupesPP/<?= $groups->img ?>"
+                <img class="pfp-user" src="../../assets/img/groupesPP/<?= $UQ_UserGroups_ProfilePicture ?>"
                      alt="photo de profil de l'utilisateur">
                 <input type="file" name="pfp" value="Bonjour">
             </label>
 
             <label for="banner">
                 <span>Image de couverture</span>
-                <img class="banner-user" src="../../assets/img/groupesBanner/<?= $groups->banner ?>"
+                <img class="banner-user" src="../../assets/img/groupesBanner/<?= $UQ_UserGroups_ImgBanner ?>"
                      alt="bannière de l'utilisateur">
-                <input type="file" name="banner" value="../../assets/img/groupesBanner/<?= $groups->banner ?>">
+                <input type="file" name="banner">
             </label>
 
             <label for="nom">
                 <span>Nom du groupe</span>
-                <input class="inputtext" type="text" name="nom" value="<?= $groups->nom ?>">
+                <input class="inputtext" type="text" name="nom" value="<?= $UQ_UserGroups_Nom ?>">
             </label>
 
 
             <label for="jeu">
                 <span>Jeu</span>
                 <select class="inputtext" name="jeu" id="jeu">
-                    <option value="<?= $groups_about->jeu ?>"><?= $groups_about->jeu ?></option>
+                    <option value="<?= $UQ_AboutGroups_Game ?>"><?= $UQ_AboutGroups_Game ?></option>
                     <?php
-                    $AllGames = $controler->getGames();
+                    $AllGames = $modele->all('tblGames');
                     foreach ($AllGames as $One) { ?>
-                        <option value="<?= $One->name ?>"><?= $One->name ?></option>
+                        <option value="<?= $One->UQ_Games_Name ?>"><?= $One->UQ_Games_Name ?></option>
                     <?php } ?>
                 </select>
             </label>
@@ -101,6 +113,11 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
                 </select>
             </label>
 
+            <label for="description">
+                <span>Description</span>
+                <input type="text" class="inputtext" name="desc" value="<?= $UQ_UserGroups_Description ?>">
+            </label>
+
             <label for="submit">
                 <input class="inputtext" type="submit" id="btn_pref" name="btn" value="Valider">
             </label>
@@ -108,12 +125,7 @@ $groups_about = $controler->getGroupAbout($_GET['idgroup']);
         </form>
     </div>
 </div>
-<?php
-if (isset($_POST['btn'])) {
-    $controler->updateGroupPeference($_POST, $_GET['idgroup']);
-    header('Location: index.php?idgroup=' . $groups->id);
-}
-?>
+
 <script src="../../js/main.js"></script>
 </body>
 

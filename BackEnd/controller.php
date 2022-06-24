@@ -224,7 +224,7 @@ class controller
         }
 
         // création du groupes
-        $this->pdo->insertGroups($_SESSION['id'], $tab, $new, $banner);
+        $this->insertGroups($_SESSION['id'], $tab, $new, $banner);
         header('Location: ../profil/groupes.php');
     }
 
@@ -243,5 +243,142 @@ class controller
     public function insertUserGames($tbl, $idUser, $idGame)
     {
         return $this->pdo->prepare("INSERT INTO {$tbl} values(null, :user, :game)")->execute([":user" => $idUser, ":game" => $idGame]);
+    }
+
+    public function insertGroups($iduser, $tab, $img, $banner)
+    {
+        // Insérer dans la table userGroups
+        $r = "INSERT INTO tblusergroups values(null, :nom, :privacy, :img, :banner, :jeux, :desc, :FK, :membre)";
+        $data = array(
+            ":nom" => $tab['nomgroupe'],
+            ":privacy" => $tab['privacy'],
+            ":img" => $img,
+            ":banner" => $banner,
+            ":jeux" => $tab['jeux'],
+            ":desc" => $tab['description'],
+            ":FK" => $iduser,
+            ":membre" => 0
+        );
+
+        if ($this->pdo != null) {
+            $stmt = $this->pdo->prepare($r);
+            $stmt->execute($data);
+            $this->addUserXp($iduser, 'Addgroup');
+        }
+
+    }
+
+    public function addUserXp($id, $action)
+    {
+        // récupération d'un user
+        $user = $this->pdo->query("SELECT * FROM tblusers WHERE PK_Users = {$_SESSION['id']}")->fetch();
+
+        // récupération about d'un user
+        $UserAbout = $this->pdo->query("SELECT * FROM tblaboutusers WHERE FK_Users_AboutUsers = {$user->PK_Users}")->fetch();
+
+        switch ($action) {
+            case 'Addgroup':
+            {
+                $MoreXp = $UserAbout->UQ_AboutUsers_Exp + 7;
+                $r = "UPDATE tblaboutusers SET UQ_AboutUsers_Exp = $MoreXp WHERE FK_Users_AboutUsers = $user->PK_Users";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'AddGames' :
+            {
+                $MoreXp = $UserAbout->UQ_AboutUsers_Exp + 5;
+                $r = "UPDATE tblaboutusers SET UQ_AboutUsers_Exp = $MoreXp WHERE FK_Users_AboutUsers = $user->PK_Users";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'AddGamesWish' :
+            {
+                $MoreXp = $UserAbout->UQ_AboutUsers_Exp + 3;
+                $r = "UPDATE tblaboutusers SET UQ_AboutUsers_Exp = $MoreXp WHERE FK_Users_AboutUsers = $user->PK_Users";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+            case 'UpdateGroups' :
+            {
+                $MoreXp = $UserAbout->UQ_AboutUsers_Exp + 1;
+                $r = "UPDATE tblaboutusers SET UQ_AboutUsers_Exp = $MoreXp WHERE FK_Users_AboutUsers = $user->PK_Users";
+                if ($this->pdo != null) {
+                    $insert = $this->pdo->prepare($r);
+                    $insert->execute();
+                    break;
+                }
+            }
+        }
+    }
+
+    public function insertBaseAboutGroups($idgroup)
+    {
+        // on récupère la date du jour
+        $dateOfTheDay = date('j/m/Y');
+
+
+        $r = "INSERT INTO tblaboutgroups values(null, :game, :fondation, :FK_UserGroups)";
+        $data = [
+            ":game" => '',
+            ":fondation" => $dateOfTheDay,
+            ":FK_UserGroups" => $idgroup
+        ];
+
+        if ($this->pdo != null) {
+            $stmt = $this->pdo->prepare($r);
+            $stmt->execute($data);
+        }
+    }
+
+    public function updateUserGroup($tab, $idgroup)
+    {
+        /*
+         * Pour update un groupe il faut update 2 tables
+         * tblUserGroups
+         * tblAboutGroups
+         * car le jeu associé au groupe se trouve dans aboutGroups
+         */
+
+        // update UserGroups
+        $r = "UPDATE tblUserGroups set 
+                UQ_UserGroups_Nom = :nomGroupe,
+                UQ_UserGroups_Privacy = :privacy,
+                UQ_UserGroups_Description = :bu
+                WHERE PK_UserGroups = :idgroups
+             ";
+
+        $data = array(
+            ":nomGroupe" => $tab['nom'],
+            ":privacy" => $tab['privacy'],
+            ":bu" => $tab['desc'],
+            ":idgroups" => $idgroup
+        );
+
+        $stmt = $this->pdo->prepare($r);
+        $stmt->execute($data);
+
+        // Update AboutGroups
+        $r2 = "
+                UPDATE tblAboutGroups set
+                UQ_AboutGroups_Game = :game
+                WHERE FK_UserGroups_AboutGroups = :idgroup
+             ";
+
+        $data2 = array(
+            ":game" => $tab['jeu'],
+            ":idgroup" => $idgroup
+        );
+
+        $stmt = $this->pdo->prepare($r2);
+        $stmt->execute($data2);
     }
 }

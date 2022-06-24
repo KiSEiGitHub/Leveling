@@ -50,23 +50,15 @@ class query
         $id -> l'id le int
         */
 
-        /*
-            De base :
-            1. $requete
-            2. prepare
-            3. execute
-            4. fetch
-
-            La je fais tout d'un coup
-        */
         $stmt = $this->pdo->query("SELECT * FROM {$tbl} WHERE {$PK} = {$id}");
 
-        switch ($fetchMode)
-        {
-            case 'all' : {
+        switch ($fetchMode) {
+            case 'all' :
+            {
                 return $stmt->fetchAll();
             }
-            case 'fetch': {
+            case 'fetch':
+            {
                 return $stmt->fetch();
             }
         }
@@ -96,12 +88,13 @@ class query
     }
 
     // Fonction qui fait une jointure sur deux table
-    public function doubleJointure($tbl1, $tbl2, $PK_tbl1, $FK_tbl2, $fetchMethode)
+    public function doubleJointure($tbl1, $tbl2, $PK_tbl1, $FK_tbl2, $fetchMethode, $id)
     {
         $query = "
           SELECT * FROM {$tbl1}
             INNER JOIN {$tbl2}
-                WHERE {$tbl1}.{$PK_tbl1} = {$tbl2}.{$FK_tbl2}
+                WHERE {$tbl1}.{$PK_tbl1} = $id
+                    and $id = {$tbl2}.{$FK_tbl2}
         ";
 
         $stmt = $this->pdo->prepare($query);
@@ -129,7 +122,7 @@ class query
                 INNER JOIN {$table2} 
                 INNER JOIN {$table3} 
                      WHERE {$table1}.{$PK_Table1} = {$table2}.{$FK_Table2} 
-                       and {$table1}.{$PK_Table1} = {$table3}.{$FK_Table3};
+                       and {$table2}.{$FK_Table2} = {$table3}.{$FK_Table3}
             ";
 
         $stmt = $this->pdo->prepare($query);
@@ -156,8 +149,8 @@ class query
                 INNER JOIN {$table3} 
                 INNER JOIN {$table4}
                      WHERE {$table1}.{$PK_Table1} = {$table2}.{$FK_Table2} 
-                        and {$table1}.{$PK_Table1} = {$table3}.{$FK_Table3}
-                        and {$table1}.{$PK_Table1} = {$table4}.{$FK_Table4}
+                        and {$table2}.{$FK_Table2} = {$table3}.{$FK_Table3}
+                        and {$table3}.{$FK_Table3} = {$table4}.{$FK_Table4}
             ";
 
         $stmt = $this->pdo->prepare($query);
@@ -173,5 +166,19 @@ class query
                 return $stmt->fetch();
             }
         }
+    }
+
+    public function getUserGroupsAbout($iduser, $idgroup)
+    {
+        $r = "SELECT * from tblusers 
+                INNER JOIN tblusergroups 
+                INNER JOIN tblaboutgroups 
+                    WHERE tblusers.PK_Users = {$iduser}
+                        and tblusergroups.PK_UserGroups = $idgroup
+                        and tblaboutgroups.FK_UserGroups_AboutGroups = $idgroup
+             ";
+        $stmt = $this->pdo->query($r);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 }

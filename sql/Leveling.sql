@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `tblusergroups` (
 --
 
 INSERT INTO `tblusergroups` (`PK_UserGroups`, `UQ_UserGroups_Nom`, `UQ_UserGroups_Privacy`, `UQ_UserGroups_ProfilePicture`, `UQ_UserGroups_ImgBanner`, `UQ_UserGroups_Jeu`, `UQ_UserGroups_Description`, `FK_Users_UserGroups`) VALUES
-(17, 'Reyna Fan Base', 'PUBLIC', '28', 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'test', 0);
+(17, 'Reyna Fan Base', 'PUBLIC', 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'test', 'ar', 28);
 
 -- --------------------------------------------------------
 

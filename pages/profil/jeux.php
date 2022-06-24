@@ -18,7 +18,8 @@ if (isset($_SESSION['id'])) {
         'tblAboutUsers',
         'PK_Users',
         'FK_Users_AboutUsers',
-        'fetch'
+        'fetch',
+        $_SESSION['id']
     );
 }
 
