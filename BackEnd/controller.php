@@ -142,7 +142,7 @@ class controller
         return [$level, $ranks];
     }
 
-    public function checkInsertUser(array $tab, $img, $banner): string
+    public function checkInsertUser(array $tab, $img, $banner): ? string
     {
         // on check si on a tous les champs
         foreach ($tab as $OneValue) {
@@ -165,8 +165,41 @@ class controller
         }
 
         // on insert notre user
-        $this->pdo->insertUser($tab, $UserImg, $profilBanner);
-        return "Utilisateur crée !";
+        $this->insertUser($tab, $UserImg, $profilBanner);
+        return 'Utilisateur créé !';
+    }
+
+    public function insertUser(array $tab, string $profilePicture, string $profileBanner): string 
+    {
+        // requête d'insertion
+        $r = "INSERT INTO `tblUsers` VALUES(null, :nom, :prenom, :mdp, :age, :bio, :pp, :role, :dateNaissance, :mail, :lvl, :imgBanner, :pseudo)";
+
+        // variable de protection de la requête
+        $data = array(
+            ":nom" => $tab['nom'],
+            ":prenom" => $tab['prenom'],
+            ":mdp" => md5($tab['mdp']),
+            ":age" => $tab['age'],
+            ":bio" => $tab['bio'],
+            ":pp" => $profilePicture,
+            ":role" => 'user',
+            ":dateNaissance" => $tab['dateNaissance'],
+            ":mail" => $tab['mail'],
+            ":lvl" => 1,
+            ":imgBanner" => $profileBanner,
+            ":pseudo" => $tab['pseudo']
+        );
+
+        // on controle si on est bien relié à la bdd
+        if($this->pdo != null) {
+            $stmt = $this->pdo->prepare($r);
+            $stmt->execute($data);
+            return 'Utilisateur crée';
+        } else {
+            return 'Erreur de connexion à la bdd';
+        }
+
+
     }
 
     public function checkConnexion(array $tab): ?string
