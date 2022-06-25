@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 24 juin 2022 à 03:58
+-- Généré le : sam. 25 juin 2022 à 00:06
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -31,18 +31,17 @@ DROP TABLE IF EXISTS `tblaboutgroups`;
 CREATE TABLE IF NOT EXISTS `tblaboutgroups` (
   `PK_AboutGroups` int(11) NOT NULL AUTO_INCREMENT,
   `UQ_AboutGroups_Game` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `UQ_AboutGroups_Membres` int(11) NOT NULL,
   `UQ_AboutGroups_Fondation` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `FK_UserGroups_AboutGroups` int(11) NOT NULL,
   PRIMARY KEY (`PK_AboutGroups`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblaboutgroups`
 --
 
-INSERT INTO `tblaboutgroups` (`PK_AboutGroups`, `UQ_AboutGroups_Game`, `UQ_AboutGroups_Membres`, `UQ_AboutGroups_Fondation`, `FK_UserGroups_AboutGroups`) VALUES
-(5, 'Riders Republic', 0, '05/06/2022', 17);
+INSERT INTO `tblaboutgroups` (`PK_AboutGroups`, `UQ_AboutGroups_Game`, `UQ_AboutGroups_Fondation`, `FK_UserGroups_AboutGroups`) VALUES
+(5, 'Riders Republic', '05/06/2022', 17);
 
 -- --------------------------------------------------------
 
@@ -70,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `tblaboutusers` (
 --
 
 INSERT INTO `tblaboutusers` (`PK_AboutUsers`, `UQ_AboutUsers_Exp`, `UQ_AboutUsers_JeuxPossede`, `UQ_AboutUsers_JeuxTermine`, `UQ_AboutUsers_JeuxCent`, `UQ_AboutUsers_GenreFav`, `UQ_AboutUsers_JeuFav`, `UQ_AboutUsers_Plateforme`, `UQ_AboutUsers_DateInscription`, `FK_Users_AboutUsers`) VALUES
-(6, 8, 0, 0, 0, 'FPS', 'ASSASSIN\'S CREED VALHALLA', 'PC', '04/06/2022', 28);
+(6, 99999, 0, 0, 0, 'FPS', 'ASSASSIN\'S CREED VALHALLA', 'PC', '04/06/2022', 28);
 
 -- --------------------------------------------------------
 
@@ -138,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `tblusergames` (
   `FK_Users_UserGames` int(11) NOT NULL,
   `FK_Games_UserGames` int(11) NOT NULL,
   PRIMARY KEY (`PK_UserGames`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblusergames`
@@ -147,7 +146,8 @@ CREATE TABLE IF NOT EXISTS `tblusergames` (
 INSERT INTO `tblusergames` (`PK_UserGames`, `FK_Users_UserGames`, `FK_Games_UserGames`) VALUES
 (13, 28, 2),
 (14, 28, 14),
-(15, 28, 13);
+(15, 28, 13),
+(16, 28, 9);
 
 -- --------------------------------------------------------
 
@@ -160,20 +160,21 @@ CREATE TABLE IF NOT EXISTS `tblusergroups` (
   `PK_UserGroups` int(11) NOT NULL AUTO_INCREMENT,
   `UQ_UserGroups_Nom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `UQ_UserGroups_Privacy` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `UQ_UserGroups_ProfilePicture` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `UQ_UserGroups_ProfilePicture` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `UQ_UserGroups_ImgBanner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `UQ_UserGroups_Jeu` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `UQ_UserGroups_Description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `FK_Users_UserGroups` int(3) NOT NULL,
+  `UQ_UserGroups_Membres` int(11) NOT NULL,
   PRIMARY KEY (`PK_UserGroups`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblusergroups`
 --
 
-INSERT INTO `tblusergroups` (`PK_UserGroups`, `UQ_UserGroups_Nom`, `UQ_UserGroups_Privacy`, `UQ_UserGroups_ProfilePicture`, `UQ_UserGroups_ImgBanner`, `UQ_UserGroups_Jeu`, `UQ_UserGroups_Description`, `FK_Users_UserGroups`) VALUES
-(17, 'Reyna Fan Base', 'PUBLIC', 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'test', 'ar', 28);
+INSERT INTO `tblusergroups` (`PK_UserGroups`, `UQ_UserGroups_Nom`, `UQ_UserGroups_Privacy`, `UQ_UserGroups_ProfilePicture`, `UQ_UserGroups_ImgBanner`, `UQ_UserGroups_Jeu`, `UQ_UserGroups_Description`, `FK_Users_UserGroups`, `UQ_UserGroups_Membres`) VALUES
+(17, 'Reyna Fan Base', 'PUBLIC', 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'ctfghjkl', 'Instalock Reyna = prison', 28, 0);
 
 -- --------------------------------------------------------
 
@@ -220,14 +221,15 @@ CREATE TABLE IF NOT EXISTS `tblusers` (
   `UQ_Users_ImgBanner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `UQ_Users_Pseudo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`PK_Users`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblusers`
 --
 
 INSERT INTO `tblusers` (`PK_Users`, `UQ_Users_Nom`, `UQ_Users_Prenom`, `UQ_Users_Password`, `UQ_Users_Age`, `UQ_Users_Bio`, `UQ_Users_ProfilePicture`, `UQ_Users_Role`, `UQ_Users_DateNaissance`, `UQ_Users_Mail`, `UQ_Users_Level`, `UQ_Users_ImgBanner`, `UQ_Users_Pseudo`) VALUES
-(28, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'Oui', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png', 'KiSEi');
+(28, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'Oui', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png', 'KiSEi'),
+(30, 'Salim', 'Alarcon', 'eaed214ee947c77fdadb3a08633d4046', 21, 'Oui', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png', 'KiSEi');
 
 -- --------------------------------------------------------
 
