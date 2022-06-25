@@ -60,13 +60,12 @@ if (!$OneGame) {
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>" class="nav-user"
-                         alt="pfp"
-                         style="width: 40px; border-radius: 50%;">
+                    <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" class="nav-user"
+                         alt="pfp" style="width: 40px; border-radius: 50%;">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="../profil/index.php">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                    <li><a class="dropdown-item" href="index.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="../settings/index.php">Paramètres</a></li>
                     <li><a class="dropdown-item" href="../../Deconnexion.php">Se déconnecter</a></li>
                 </ul>
             </div>
