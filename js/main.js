@@ -1,3 +1,5 @@
+import {Swiper} from "swiper";
+
 const allbtn = document.querySelectorAll('#OuiMonsieur');
 
 allbtn.forEach(MyButton => {
@@ -15,3 +17,4 @@ const btnpref = document.querySelector('#btn_pref');
 btnpref.addEventListener('click', () => {
     location.reload();
 })
+
