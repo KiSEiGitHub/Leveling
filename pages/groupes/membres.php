@@ -9,11 +9,11 @@ require_once("../../BackEnd/setup.php");
 $controler = new controller("localhost", "leveling", "root", "");
 $setup = new setup();
 
-$user = $controler->getUser($_SESSION['id']);
+$user = $controler->getUserById($_SESSION['id']);
 $ranks = $setup->getLvl($user->lvl);
 
 $groups = $controler->getOneGroups($_GET['idgroup']);
-$creator = $controler->getUser($groups->creator)
+$creator = $controler->getUserById($groups->creator)
 ?>
 
 <!doctype html>

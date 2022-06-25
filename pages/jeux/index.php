@@ -1,13 +1,18 @@
 <?php
 session_start();
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+require '../../BackEnd/modele.php';
 
-if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUser($_SESSION['id']);
+// instanciation de notre modele
+$modele = new modele("localhost", "leveling", "root", "");
+
+/*
+l'utilisateur peut naviguer sur le site sans être connecter,
+si il s'est connecté, alors on a forcément une variable de session
+sinon, pas grave user = null;
+*/
+if (isset($_SESSION['id'])) {
+    $user = $modele->findById('tblUsers', 'PK_Users', (int)$_SESSION['id'], 'fetch');
 } else {
     $user = null;
 }
@@ -44,12 +49,20 @@ if (isset($_SESSION['pseudo'])) {
             <label for="search">
                 <input type="search" name="search">
             </label>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp">
-            </a>
-            <a href="#">
-                <img src="../../images/settings.png" alt="settings">
-            </a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="border: none; outline: none; background: none;">
+                    <img src="../../assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>" class="nav-user"
+                         alt="pfp"
+                         style="width: 40px; border-radius: 50%;">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="../profil/index.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                    <li><a class="dropdown-item" href="../../Deconnexion.php">Se déconnecter</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
@@ -59,14 +72,20 @@ if (isset($_SESSION['pseudo'])) {
     <h1>TOUS LES JEUX</h1>
     <div id="AllGames">
         <?php
-        $AllGames = $controler->getAllGames();
+        $AllGames = $modele->all('tblGames');
         foreach ($AllGames as $Games) {
             ?>
-            <a href="OneGame.php?gameid=<?= $Games->idinsert_games ?>">
-                <img src="../../assets/img/insert_games/pp/<?= $Games->img_pp ?>" alt="arza">
+            <a href="OneGame.php?gameid=<?= $Games->PK_Games ?>">
+                <img src="../../assets/img/insert_games/pp/<?= $Games->UQ_Games_Img ?>" alt="arza">
             </a>
         <?php } ?>
     </div>
 </main>
+
+<script src="../../js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+</script>
 </body>
 </html>

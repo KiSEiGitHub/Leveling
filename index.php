@@ -1,24 +1,22 @@
 <?php
 session_start();
 
-require_once("BackEnd/controller.php");
-require_once("BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
-$preference = null;
-$userAbout = null;
+// appel de la classe
+require 'BackEnd/modele.php';
 
-if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUser($_SESSION['id']);
-    $preference = $controler->getUserPreference($_SESSION['id']);
-    $userAbout = $controler->getUserAbout($_SESSION['id']);
+// instanciation de la class query
+$modele = new modele("localhost", "leveling", "root", "");
+
+
+/*
+l'utilisateur peut naviguer sur le site sans être connecter,
+si il s'est connecté, alors on a forcément une variable de session
+sinon, pas grave user = null;
+*/
+if (isset($_SESSION['id'])) {
+    $user = $modele->findById('tblUsers', 'PK_Users', (int)$_SESSION['id'], 'fetch');
 } else {
     $user = null;
-    $_SESSION['id'] = null;
-}
-
-if ($userAbout == null) {
-    $controler->insertBaseUserAbout($_SESSION['id']);
 }
 
 ?>
@@ -61,7 +59,8 @@ if ($userAbout == null) {
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
                     <?php if (isset($_SESSION['id'])): ?>
-                        <img src="assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
+                        <img src="assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>" class="nav-user"
+                             alt="pfp"
                              style="width: 40px; border-radius: 50%;">
                     <?php else: ?>
                         <img src="images/user-circle.png" class="nav-user" alt="pfp"

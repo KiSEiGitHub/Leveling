@@ -1,22 +1,24 @@
 <?php
 session_start();
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+require '../../BackEnd/modele.php';
+
+// instancier notre modele
+$modele = new modele("localhost", "leveling", "root", "");
 
 if (isset($_SESSION['pseudo'])) {
-    $user = $controler->getUser($_SESSION['id']);
+    $user = $modele->findById('tblUsers', 'PK_Users', (int)$_SESSION['id'], 'fetch');
     extract((array)$user);
 } else {
     $user = null;
 }
 
-$OneGame = $controler->OneGame($_GET['gameid']);
+// va chercher tous nos jeux
+$OneGame = $modele->findById('tblGames', 'PK_Games', $_GET['gameid'], 'fetch');
 
 // Très important elle permet de faire du destructuting de tableau
 // (array) permet de convertir en tableau
+
 extract((array)$OneGame);
 
 if (!$OneGame) {
@@ -33,7 +35,7 @@ if (!$OneGame) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Game - <?= $name ?></title>
+    <title>Game - <?= $UQ_Games_Name ?></title>
 
     <link rel="stylesheet" href="../../scss/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -54,28 +56,37 @@ if (!$OneGame) {
             <label for="search">
                 <input type="search" name="search">
             </label>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $img ?>" class="nav-user" alt="pfp">
-            </a>
-            <a href="#">
-                <img src="../../images/settings.png" alt="settings">
-            </a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="border: none; outline: none; background: none;">
+                    <img src="../../assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>" class="nav-user"
+                         alt="pfp"
+                         style="width: 40px; border-radius: 50%;">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="../profil/index.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                    <li><a class="dropdown-item" href="../../Deconnexion.php">Se déconnecter</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
+
 <div class="parent">
     <div class="block-photo">
-        <img src="../../assets/img/insert_games/pp/<?= $img_pp ?>" alt="photo du jeu">
+        <img src="../../assets/img/insert_games/pp/<?= $UQ_Games_Img ?>" alt="photo du jeu">
     </div>
     <div class="block-about-game">
-        <h2><?= $name ?></h2>
+        <h2><?= $UQ_Games_Name ?></h2>
         <div class="description-block">
             <p id="desc">
-                <?= $description ?>
+                <?= $UQ_Games_Description ?>
             </p>
             <div class="note-container">
                 <div class="circle-note">
-                    <p><?= $note_test ?>/20</p>
+                    <p><?= $UQ_Games_NoteTest ?>/20</p>
                 </div>
                 <h3>Note de test</h3>
             </div>
@@ -87,32 +98,27 @@ if (!$OneGame) {
             <div class="about-item">
                 <div class="circle"></div>
                 <span>Prix :</span>
-                <span class="blue"><?= $prix ?>€</span>
+                <span class="blue"><?= $UQ_Games_Price ?>€</span>
             </div>
             <div class="about-item">
                 <div class="circle"></div>
                 <span>Sorti le :</span>
-                <span class="blue"><?= $date_sortie ?></span>
+                <span class="blue"><?= $UQ_Games_DateSortie ?></span>
             </div>
             <div class="about-item">
                 <div class="circle"></div>
                 <span>Genre :</span>
-                <span class="blue"><?= $genre ?></span>
+                <span class="blue"><?= $UQ_Games_Genre ?></span>
             </div>
             <div class="about-item">
                 <div class="circle"></div>
                 <span>Plateforme :</span>
-                <span class="blue"><?= $plateforme ?></span>
-            </div>
-            <div class="about-item">
-                <div class="circle"></div>
-                <span>Classification :</span>
-                <span class="blue"><?= $classification ?></span>
+                <span class="blue"><?= $UQ_Games_Plateforme ?></span>
             </div>
         </div>
     </div>
     <div class="block-asset-game">
-        <img src="../../assets/img/insert_games/banner/<?= $img_banner ?>" alt="">
+        <img src="../../assets/img/insert_games/banner/<?= $UQ_Games_ImgBanner ?>" alt="">
         <form action="#" method="post">
             <div class="Button-Onegame-wish">
                 <input class="btn btn-warning" type="submit" name=onegame-wish value="Ajouter à la liste de souhaits">
@@ -122,10 +128,10 @@ if (!$OneGame) {
             </div>
             <?php
             if (isset($_POST['onegame-wish'])) {
-                $controler->insertGameWish($_SESSION['id'], $_GET['gameid']);
+                $modele->insertUserGames('tblUserWishs', $_SESSION['id'], $_GET['gameid']);
             }
             if (isset($_POST['onegame-user'])) {
-                $controler->insertGameUser($_SESSION['id'], $_GET['gameid']);
+                $modele->insertUserGames('tblUserGames', $_SESSION['id'], $_GET['gameid']);
             }
 
             ?>
@@ -133,6 +139,11 @@ if (!$OneGame) {
     </div>
 </div>
 
+<script src="../../js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+</script>
 </body>
 
 </html>

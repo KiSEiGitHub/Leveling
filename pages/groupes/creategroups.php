@@ -1,16 +1,17 @@
 <?php
 session_start();
+require '../../BackEnd/modele.php';
+
+// instanciation
+$modele = new modele('localhost', 'leveling', 'root', '');
+
 if ($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');
 }
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
-
-$user = $controler->getUser($_SESSION['id']);
-$ranks = $setup->getLvl($user['lvl']);
+$user = $modele->findById('tblUsers', 'PK_Users', $_SESSION['id'], 'fetch');
+extract((array)$user);
+$ranks = $modele->getLvl($UQ_Users_Level);
 ?>
 
 <!doctype html>
@@ -26,30 +27,27 @@ $ranks = $setup->getLvl($user['lvl']);
 <body>
 
 <!--Barre de navigation DEBUT -->
-<div id="green-bar">
-    <h1>
-        <a href="../../index.php">LEVELING</a>
-    </h1>
-    <div class="nav-icons">
-        <input type="text" name="search" placeholder="Rechercher" id="search">
-        <?php
-        if (isset($_SESSION['pseudo'])) {
-            ?>
-            <a href="../../pages/profil/index.php">
-                <img src="../../assets/img/UserProfilePicture/<?= $user['img'] ?>" class="nav-user" alt="pfp">
+<header>
+    <nav>
+        <div class="logo">
+            <a href="../../index.php">
+                <img src="../../images/leveling-logo.png" alt="leveling-logo">
             </a>
-            <?php
-        } else { ?>
+        </div>
+        <div class="right">
+            <label for="search">
+                <input type="search" name="search">
+            </label>
             <a href="../../pages/profil/index.php">
-                <img class="nav-user" src="../../images/user-circle.png" alt="">
+                <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" alt="pfp">
             </a>
-        <?php } ?>
-        <a href="./preferences.php">
-            <img class="nav-user" src="../../images/settings.png" alt="">
-        </a>
-    </div>
-</div>
-<!--Barre de navigation FIN -->
+            <a href="#">
+                <img src="../../images/settings.png" alt="settings">
+            </a>
+        </div>
+    </nav>
+</header>
+<!--Barre de navigation DEBUT -->
 
 <main id="creategroups">
 
@@ -91,7 +89,7 @@ $ranks = $setup->getLvl($user['lvl']);
             </label>
             <?php
             if (isset($_POST['btn-grp']) && isset($_FILES)) {
-                echo $setup->checkCreateGroups($_POST, $_FILES['imggroupes'], $_FILES['imggroupecover']);
+                $modele->checkCreateGroups($_POST, $_FILES['imggroupes'], $_FILES['imggroupecover']);
             }
             ?>
         </form>

@@ -1,17 +1,31 @@
 <?php
 session_start();
+
+require '../../BackEnd/modele.php';
+
+// instanciation
+$modele = new modele('localhost', 'leveling', 'root', '');
+
 if ($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');
 }
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+$user = null;
 
-$user = $controler->getUser($_SESSION['id']);
-$userAbout = $controler->getUserAbout($_SESSION['id']);
-$ranks = $setup->getLvl($user->lvl);
+if (isset($_SESSION['id'])) {
+    $user = $modele->doubleJointure(
+        'tblUsers',
+        'tblAboutUsers',
+        'PK_Users',
+        'FK_Users_AboutUsers',
+        'fetch',
+        $_SESSION['id']
+    );
+}
+
+extract((array)$user);
+
+$ranks = $modele->getLvl($UQ_Users_Level);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +52,7 @@ $ranks = $setup->getLvl($user->lvl);
 <!--Image de couverture DEBUT -->
 <style>
     #cover-image {
-        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user->img_banner ?>");
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $UQ_Users_ImgBanner ?>");
         height: 250px;
     }
 </style>
@@ -59,7 +73,8 @@ $ranks = $setup->getLvl($user->lvl);
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
+                    <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" class="nav-user"
+                         alt="pfp"
                          style="width: 40px; border-radius: 50%;">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -71,13 +86,14 @@ $ranks = $setup->getLvl($user->lvl);
         </div>
     </nav>
 </header>
+<!-- Nav Fin -->
 
 <main>
     <div class="profil-grid">
         <div id="cover-image">
             <div class="nav">
                 <div class="pseudo">
-                    <h1 class="title white">@KiSEi</h1>
+                    <h1 class="title white">@ <?= $UQ_Users_Pseudo ?></h1>
                 </div>
                 <div class="li">
                     <ul>
@@ -98,10 +114,10 @@ $ranks = $setup->getLvl($user->lvl);
             </div>
             <div class="bio">
                 <span class="bold">Bio :</span>
-                <span class="bold"><?= $user->bio ?></span>
+                <span class="bold"><?= $UQ_Users_Bio ?></span>
             </div>
         </div>
-        <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp" id="pp">
+        <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" alt="pfp" id="pp">
         <?php
         if ($ranks === null) {
             echo "<p>No ranks</p>";
@@ -115,7 +131,7 @@ $ranks = $setup->getLvl($user->lvl);
 
     <!--  Jeux fav  -->
     <div class="bottom" style="padding: 20px">
-        <h2 class="sous-title bold"><?= $userAbout->jeu_fav ?></h2>
+        <h2 class="sous-title bold"><?= $UQ_AboutUsers_JeuFav ?></h2>
         <h3 class="header-title bold">269h</h3>
     </div>
     <!--  Jeux fav  -->
@@ -125,15 +141,16 @@ $ranks = $setup->getLvl($user->lvl);
         <h4 class="sous-title grey bold center">GALLERIE</h4>
         <div class="Games">
             <?php
-            $AllGamesUser = $controler->selectGameUser($_SESSION['id']);
-            if ($AllGamesUser == null) {
+            $userGames = $modele->findById('tblUserGames', 'FK_Users_UserGames', $_SESSION['id'], 'all');
+            if ($userGames == null) {
                 echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
             } else {
-                foreach ($AllGamesUser as $OneGamesUser) {
-                    $Jeux = $controler->getOneGame($OneGamesUser->id_game) ?>
+                foreach ($userGames as $userGame) {
+                    $Jeux = $modele->findById('tblGames', 'PK_Games', $userGame->FK_Games_UserGames, 'fetch');
+                    ?>
                     <div class="enfant">
-                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux->idinsert_games ?>">
-                            <img src="../../assets/img/insert_games/pp/<?= $Jeux->img_pp ?>" alt="">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux->PK_Games ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux->UQ_Games_Img ?>" alt="">
                         </a>
                     </div>
                 <?php }
@@ -143,19 +160,20 @@ $ranks = $setup->getLvl($user->lvl);
     <!--  Gallerie  -->
 
     <!--  Souhait  -->
-    <section id="Souhait" class="UserGames">
-        <h4 class="sous-title grey bold center">Liste de souhait</h4>
+    <section id="gallerie" class="UserGames">
+        <h4 class="sous-title grey bold center">Liste de souhaits</h4>
         <div class="Games">
             <?php
-            $AllGamesWish = $controler->selectGameWish($_SESSION['id']);
-            if ($AllGamesWish == null) {
+            $userWishs = $modele->findById('tblUserWishs', 'FK_Users_UserWishs', $_SESSION['id'], 'all');
+            if ($userWishs == null) {
                 echo "<p style='color: #b7b7b7; font-weight: 800; font-size: 24px'>Vous n'avez aucun jeu</p>";
             } else {
-                foreach ($AllGamesWish as $OneGamesWish) {
-                    $Jeux = $controler->getOneGame($OneGamesWish->id_games) ?>
+                foreach ($userWishs as $userWish) {
+                    $Jeux = $modele->findById('tblGames', 'PK_Games', $userWish->FK_Games_UserWishs, 'fetch');
+                    ?>
                     <div class="enfant">
-                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux->idinsert_games ?>">
-                            <img src="../../assets/img/insert_games/pp/<?= $Jeux->img_pp ?>" alt="">
+                        <a href="../jeux/OneGame.php?gameid=<?= $Jeux->PK_Games ?>">
+                            <img src="../../assets/img/insert_games/pp/<?= $Jeux->UQ_Games_Img ?>" alt="">
                         </a>
                     </div>
                 <?php }

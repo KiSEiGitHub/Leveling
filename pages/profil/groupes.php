@@ -1,17 +1,20 @@
 <?php
 session_start();
+require '../../BackEnd/modele.php';
+
+//instanciation du modele
+$modele = new modele("localhost", 'leveling', 'root', '');
+
 if ($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');
 }
 
-require_once("../../BackEnd/controller.php");
-require_once("../../BackEnd/setup.php");
-$controler = new controller("localhost", "leveling", "root", "");
-$setup = new setup();
+$user = $modele->findById('tblUsers', 'PK_Users', $_SESSION['id'], 'fetch');
+extract((array)$user);
 
-$user = $controler->getUser($_SESSION['id']);
-$groups = $controler->getGroups($_SESSION['id']);
-$ranks = $setup->getLvl($user->lvl);
+$ranks = $modele->getLvl($user->UQ_Users_Level);
+
+$groups = $modele->findById('tblUserGroups', 'FK_Users_UserGroups', $_SESSION['id'], 'all');
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@ $ranks = $setup->getLvl($user->lvl);
 <!--Image de couverture DEBUT -->
 <style>
     #cover-image {
-        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $user->img_banner ?>");
+        background-image: linear-gradient(to bottom, transparent 30%, black 150%), url("../../assets/img/UserProfilBanner/<?= $UQ_Users_ImgBanner ?>");
         height: 250px;
     }
 </style>
@@ -59,7 +62,8 @@ $ranks = $setup->getLvl($user->lvl);
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false"
                         style="border: none; outline: none; background: none;">
-                    <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" class="nav-user" alt="pfp"
+                    <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" class="nav-user"
+                         alt="pfp"
                          style="width: 40px; border-radius: 50%;">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -77,7 +81,7 @@ $ranks = $setup->getLvl($user->lvl);
         <div id="cover-image">
             <div class="nav">
                 <div class="pseudo">
-                    <h1 class="title white">@KiSEi</h1>
+                    <h1 class="title white">@ <?= $UQ_Users_Pseudo ?></h1>
                 </div>
                 <div class="li">
                     <ul>
@@ -98,10 +102,10 @@ $ranks = $setup->getLvl($user->lvl);
             </div>
             <div class="bio">
                 <span class="bold">Bio :</span>
-                <span class="bold"><?= $user->bio ?></span>
+                <span class="bold"><?= $UQ_Users_Bio ?></span>
             </div>
         </div>
-        <img src="../../assets/img/UserProfilePicture/<?= $user->img ?>" alt="pfp" id="pp">
+        <img src="../../assets/img/UserProfilePicture/<?= $UQ_Users_ProfilePicture ?>" alt="pfp" id="pp">
         <?php
         if ($ranks === null) {
             echo "<p>No ranks</p>";
@@ -114,7 +118,7 @@ $ranks = $setup->getLvl($user->lvl);
     </div>
 
     <div class="bottom" style="padding: 20px">
-        <h2 class="sous-title bold">#REYNA FAN BASE</h2>
+        <h2 class="sous-title bold">#Remplacer par le groupe fav</h2>
         <h3 class="header-title bold grey">269 EXP de contribution</h3>
     </div>
 
@@ -127,19 +131,19 @@ $ranks = $setup->getLvl($user->lvl);
         <?php if ($groups != null): ?>
             <div class="grp">
                 <?php foreach ($groups as $One): ?>
-                    <?php $about = $controler->getGroupAbout($One->id) ?>
                     <div class="OneGroupe">
                         <div class="img-container">
-                            <img src="../../assets/img/groupesPP/<?= $One->img ?>" alt="">
+                            <img src="../../assets/img/groupesPP/<?= $One->UQ_UserGroups_ProfilePicture ?>" alt="">
                         </div>
                         <div class="Text-container">
                             <h2 class="title">
-                                <a href="../groupes/index.php?idgroup=<?= $One->id ?>" style="text-decoration: none">
-                                    <?= $One->nom ?>
+                                <a href="../groupes/index.php?idgroup=<?= $One->PK_UserGroups ?>"
+                                   style="text-decoration: none">
+                                    <?= $One->UQ_UserGroups_Nom ?>
                                 </a>
                             </h2>
-                            <h3 class="sous-title"><?= $about->membres ?> Membres </h3>
-                            <p class="bold grey">groupe <?= $One->privacy ?></p>
+                            <h3 class="sous-title"><?= $One->UQ_UserGroups_Membres ?> Membres </h3>
+                            <p class="bold grey">groupe <?= $One->UQ_UserGroups_Privacy ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
