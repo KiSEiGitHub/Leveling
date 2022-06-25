@@ -57,10 +57,11 @@ class modele
         string $PK_Table1,
         string $FK_Table2,
         string $FK_Table3,
-        string $fetchMethode
+        string $fetchMethode,
+        int $id
     ): bool|array
     {
-        return $this->query->tripleJointure($table1, $table2, $table3, $PK_Table1, $FK_Table2, $FK_Table3, $fetchMethode);
+        return $this->query->tripleJointure($table1, $table2, $table3, $PK_Table1, $FK_Table2, $FK_Table3, $fetchMethode, $id);
     }
 
     public function quadraJointure(
@@ -101,6 +102,11 @@ class modele
     public function checkInsertUser(array $tab, $img, $banner): ? string
     {
         return $this->controller->checkInsertUser($tab, $img, $banner);
+    }
+
+    public function getUserAboutPreference(int $id): stdClass
+    {
+        return $this->controller->getUserAboutPreference($id);
     }
 
 }

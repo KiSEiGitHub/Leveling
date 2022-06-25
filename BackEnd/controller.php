@@ -7,10 +7,10 @@ Ce fichier va servir à controler
 class controller
 {
     public function __construct(
-        string $host,
-        string $dbname,
-        string $root,
-        string $mdp,
+        string      $host,
+        string      $dbname,
+        string      $root,
+        string      $mdp,
         public ?PDO $pdo = null
     )
     {
@@ -142,7 +142,7 @@ class controller
         return [$level, $ranks];
     }
 
-    public function checkInsertUser(array $tab, $img, $banner): ? string
+    public function checkInsertUser(array $tab, $img, $banner): ?string
     {
         // on check si on a tous les champs
         foreach ($tab as $OneValue) {
@@ -169,7 +169,7 @@ class controller
         return 'Utilisateur créé !';
     }
 
-    public function insertUser(array $tab, string $profilePicture, string $profileBanner): string 
+    public function insertUser(array $tab, string $profilePicture, string $profileBanner): string
     {
         // requête d'insertion
         $r = "INSERT INTO `tblUsers` VALUES(null, :nom, :prenom, :mdp, :age, :bio, :pp, :role, :dateNaissance, :mail, :lvl, :imgBanner, :pseudo)";
@@ -191,7 +191,7 @@ class controller
         );
 
         // on controle si on est bien relié à la bdd
-        if($this->pdo != null) {
+        if ($this->pdo != null) {
             $stmt = $this->pdo->prepare($r);
             $stmt->execute($data);
             return 'Utilisateur crée';
@@ -267,7 +267,7 @@ class controller
         if ($this->pdo != null) {
             $r2 = $this->pdo->prepare($r);
             $r2->execute();
-           return $r2->fetch();
+            return $r2->fetch();
         } else {
             return "pas bon";
         }
@@ -413,5 +413,21 @@ class controller
 
         $stmt = $this->pdo->prepare($r2);
         $stmt->execute($data2);
+    }
+
+    public function getUserAboutPreference(int $id): stdClass
+    {
+        $r = "
+          SELECT * FROM tblusers
+            INNER JOIN tblaboutusers
+            INNER JOIN tbluserpreferences
+                WHERE PK_Users = $id
+                and tblaboutusers.FK_Users_AboutUsers = $id
+                and tbluserpreferences.FK_Users_UserPreferences = $id
+        ";
+
+        $stmt = $this->pdo->query($r);
+        return $stmt->fetch();
+
     }
 }
