@@ -7,7 +7,7 @@ Ce fichier va servir à controler
 class controller
 {
 
-    public $pdo;
+    public ?PDO $pdo;
 
     public function __construct($host, $dbname, $root, $mdp)
     {
@@ -37,7 +37,7 @@ class controller
         }
     }
 
-    public function FakeImage($img, $chemin)
+    public function FakeImage($img, string $chemin): string
     {
         $name = $img['name'];
         $size = $img['size'];
@@ -69,7 +69,7 @@ class controller
         return $newimg;
     }
 
-    public function getLvl($lvl)
+    public function getLvl(string $lvl): ?array
     {
         $level = "";
         $ranks = "";
@@ -143,7 +143,7 @@ class controller
         return [$level, $ranks];
     }
 
-    public function checkInsertUser($tab, $img, $banner)
+    public function checkInsertUser(array $tab, $img, $banner): string
     {
         // on check si on a tous les champs
         foreach ($tab as $OneValue) {
@@ -170,7 +170,7 @@ class controller
         return "Utilisateur crée !";
     }
 
-    public function checkConnexion($tab)
+    public function checkConnexion(array $tab): ?string
     {
         // on check si l'utilisateur a rensigner tous les champs
         foreach ($tab as $OneValue) {
@@ -194,13 +194,13 @@ class controller
         // On vérifie si tout concorde
         if ($PotentialFakePseudo == $_SESSION['pseudo'] && md5($PotentialFakePassword) == $_SESSION['mdp']) {
             header('Location: index.php');
-        } else {
-            return 'Mot de passe ou pseudo incorrect';
         }
+
+        return 'utilisateur créé';
 
     }
 
-    public function checkCreateGroups($tab, $img, $img2)
+    public function checkCreateGroups(array $tab, $img, $img2): ?string
     {
         // Renseigner tous les champs
         foreach ($tab as $OneValue) {
@@ -226,26 +226,27 @@ class controller
         // création du groupes
         $this->insertGroups($_SESSION['id'], $tab, $new, $banner);
         header('Location: ../profil/groupes.php');
+        return 'oui';
     }
 
-    public function Login($pseudo)
+    public function Login(string $pseudo): ?stdClass
     {
         $r = "select * from tblusers where UQ_Users_Pseudo ='$pseudo'";
         if ($this->pdo != null) {
             $r2 = $this->pdo->prepare($r);
             $r2->execute();
-            return $r2->fetch();
+           return $r2->fetch();
         } else {
             return "pas bon";
         }
     }
 
-    public function insertUserGames($tbl, $idUser, $idGame)
+    public function insertUserGames(string $tbl, int $idUser, int $idGame): bool
     {
         return $this->pdo->prepare("INSERT INTO {$tbl} values(null, :user, :game)")->execute([":user" => $idUser, ":game" => $idGame]);
     }
 
-    public function insertGroups($iduser, $tab, $img, $banner)
+    public function insertGroups(int $iduser, array $tab, $img, $banner): void
     {
         // Insérer dans la table userGroups
         $r = "INSERT INTO tblusergroups values(null, :nom, :privacy, :img, :banner, :jeux, :desc, :FK, :membre)";
@@ -268,7 +269,7 @@ class controller
 
     }
 
-    public function addUserXp($id, $action)
+    public function addUserXp(int $id, string $action): void
     {
         // récupération d'un user
         $user = $this->pdo->query("SELECT * FROM tblusers WHERE PK_Users = {$_SESSION['id']}")->fetch();
@@ -320,7 +321,7 @@ class controller
         }
     }
 
-    public function insertBaseAboutGroups($idgroup)
+    public function insertBaseAboutGroups(int $idgroup): void
     {
         // on récupère la date du jour
         $dateOfTheDay = date('j/m/Y');
@@ -339,7 +340,7 @@ class controller
         }
     }
 
-    public function updateUserGroup($tab, $idgroup)
+    public function updateUserGroup(array $tab, int $idgroup): void
     {
         /*
          * Pour update un groupe il faut update 2 tables

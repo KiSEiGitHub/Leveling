@@ -11,8 +11,8 @@ require 'query.php';
 class modele
 {
     // On définit nos deux instances
-    private $query;
-    private $controller;
+    private query $query;
+    private controller $controller;
 
     public function __construct($host, $db, $user, $mdp)
     {
@@ -25,57 +25,75 @@ class modele
         return $this->query->findById($tbl, $PK, $id, $fetchMode);
     }
 
-    public function all($tbl)
+    public function all(string $tbl): bool|array
     {
         return $this->query->all($tbl);
     }
 
-    public function checkConnexion($tab)
+    public function checkConnexion(array $tab): ?string
     {
         return $this->controller->checkConnexion($tab);
     }
 
-    public function insertUserGames($tbl, $idUser, $idGame)
+    public function insertUserGames(string $tbl, int $idUser, int $idGame): void
     {
         $this->controller->insertUserGames($tbl, $idUser, $idGame);
     }
 
-    public function doubleJointure($tbl1, $tbl2, $PK, $FK, $fetchMethode, $id)
+    public function doubleJointure(string $tbl1, string $tbl2, string $PK, string $FK, string $fetchMethode, int $id): bool|array
     {
         return $this->query->doubleJointure($tbl1, $tbl2, $PK, $FK, $fetchMethode, $id);
     }
 
-    public function getLvl($lvl)
+    public function getLvl(string $lvl): ?array
     {
         return $this->controller->getLvl($lvl);
     }
 
-    public function tripleJointure($table1, $table2, $table3, $PK_Table1, $FK_Table2, $FK_Table3, $fetchMethode)
+    public function tripleJointure(
+        string $table1,
+        string $table2,
+        string $table3,
+        string $PK_Table1,
+        string $FK_Table2,
+        string $FK_Table3,
+        string $fetchMethode
+    ): bool|array
     {
         return $this->query->tripleJointure($table1, $table2, $table3, $PK_Table1, $FK_Table2, $FK_Table3, $fetchMethode);
     }
 
-    public function quadraJointure($table1, $table2, $table3, $table4, $PK_Table1, $FK_Table2, $FK_Table3, $FK_Table4, $fetchMethode)
+    public function quadraJointure(
+        string $table1,
+        string $table2,
+        string $table3,
+        string $table4,
+        string $PK_Table1,
+        string $FK_Table2,
+        string $FK_Table3,
+        string $FK_Table4,
+        string $fetchMethode
+    ): bool|array
     {
         return $this->query->quadraJointure($table1, $table2, $table3, $table4, $PK_Table1, $FK_Table2, $FK_Table3, $FK_Table4, $fetchMethode);
     }
 
-    public function checkCreateGroups($tab, $img, $img2)
+    public function checkCreateGroups(array $tab, $img, $img2): void
     {
         $this->controller->checkCreateGroups($tab, $img, $img2);
     }
 
-    public function getUserGroupsAbout($iduser, $idgroup)
+    public function getUserGroupsAbout(int $iduser, int $idgroup)
     {
         return $this->query->getUserGroupsAbout($iduser, $idgroup);
     }
 
-    public function insertBaseAboutGroups($idgroup)
+    public function insertBaseAboutGroups(int $idgroup): void
     {
         $this->controller->insertBaseAboutGroups($idgroup);
     }
 
-    public function updateUserGroup($tab, $idgroup)
+    public function updateUserGroup(array $tab, int $idgroup): void
     {
         $this->controller->updateUserGroup($tab, $idgroup);
     }
