@@ -67,7 +67,7 @@ class query
 
     /* -------------------------------------------------------------------------- */
     // all = select * from
-    public function all($tbl)
+    public function all(string $tbl): bool|array
     {
 
         /*
@@ -88,7 +88,7 @@ class query
     }
 
     // Fonction qui fait une jointure sur deux table
-    public function doubleJointure($tbl1, $tbl2, $PK_tbl1, $FK_tbl2, $fetchMethode, $id)
+    public function doubleJointure(string $tbl1, string $tbl2, string $PK_tbl1, string $FK_tbl2, string $fetchMethode, int $id): array
     {
         $query = "
           SELECT * FROM {$tbl1}
@@ -103,18 +103,19 @@ class query
         switch ($fetchMethode) {
             case 'all':
             {
-                return $stmt->fetchAll();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
             case 'fetch':
             {
-                return $stmt->fetch();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
             }
         }
 
+        return [];
 
     }
 
-    public function tripleJointure($table1, $table2, $table3, $PK_Table1, $FK_Table2, $FK_Table3, $fetchMethode)
+    public function tripleJointure(string $table1, string $table2, string $table3, string $PK_Table1, string $FK_Table2, string $FK_Table3, string $fetchMethode): array
     {
         $query =
             "
@@ -131,16 +132,28 @@ class query
         switch ($fetchMethode) {
             case 'all':
             {
-                return $stmt->fetchAll();
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
             case 'fetch':
             {
-                return $stmt->fetch();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
             }
         }
+
+        return [];
     }
 
-    public function quadraJointure($table1, $table2, $table3, $table4, $PK_Table1, $FK_Table2, $FK_Table3, $FK_Table4, $fetchMethode)
+    public function quadraJointure(
+        string $table1,
+        string $table2,
+        string $table3,
+        string $table4,
+        string $PK_Table1,
+        string $FK_Table2,
+        string $FK_Table3,
+        string $FK_Table4,
+        string $fetchMethode
+    ): array|bool
     {
         $query =
             "
@@ -166,9 +179,11 @@ class query
                 return $stmt->fetch();
             }
         }
+
+        return false;
     }
 
-    public function getUserGroupsAbout($iduser, $idgroup)
+    public function getUserGroupsAbout(int $iduser, int $idgroup)
     {
         $r = "SELECT * from tblusers 
                 INNER JOIN tblusergroups 

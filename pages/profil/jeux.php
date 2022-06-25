@@ -19,7 +19,7 @@ if (isset($_SESSION['id'])) {
         'PK_Users',
         'FK_Users_AboutUsers',
         'fetch',
-        $_SESSION['id']
+        (int)$_SESSION['id']
     );
 }
 
