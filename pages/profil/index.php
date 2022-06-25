@@ -22,7 +22,8 @@ if (isset($_SESSION['id'])) {
         'PK_Users',
         'FK_Users_UserPreferences',
         'FK_Users_AboutUsers',
-        'fetch'
+        'fetch',
+        $_SESSION['id']
     );
 } else {
     header('Location: ../../index.php');

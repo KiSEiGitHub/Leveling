@@ -115,15 +115,16 @@ class query
 
     }
 
-    public function tripleJointure(string $table1, string $table2, string $table3, string $PK_Table1, string $FK_Table2, string $FK_Table3, string $fetchMethode): array
+    public function tripleJointure(string $table1, string $table2, string $table3, string $PK_Table1, string $FK_Table2, string $FK_Table3, string $fetchMethode, int $id): array
     {
         $query =
             "
                SELECT * FROM {$table1}
                 INNER JOIN {$table2} 
                 INNER JOIN {$table3} 
-                     WHERE {$table1}.{$PK_Table1} = {$table2}.{$FK_Table2} 
-                       and {$table2}.{$FK_Table2} = {$table3}.{$FK_Table3}
+                     WHERE {$table1}.{$PK_Table1} = $id
+                       and $id = {$table2}.{$FK_Table2}
+                        and {$table2}.{$FK_Table2} = {$table3}.{$FK_Table3}
             ";
 
         $stmt = $this->pdo->prepare($query);
