@@ -71,7 +71,7 @@ if (isset($_SESSION['id'])) {
                 <?php if (isset($_SESSION['id'])) : ?>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="./pages/profil/index.php">Profile</a></li>
-                        <li><a class="dropdown-item" href="settings.php">Paramètres</a></li>
+                        <li><a class="dropdown-item" href="pages/settings/index.php">Paramètres</a></li>
                         <li><a class="dropdown-item" href="Deconnexion.php">Se déconnecter</a></li>
                     </ul>
                 <?php else : ?>
