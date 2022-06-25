@@ -98,4 +98,9 @@ class modele
         $this->controller->updateUserGroup($tab, $idgroup);
     }
 
+    public function checkInsertUser(array $tab, $img, $banner): ? string
+    {
+        return $this->controller->checkInsertUser($tab, $img, $banner);
+    }
+
 }
