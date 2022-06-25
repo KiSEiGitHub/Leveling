@@ -6,14 +6,14 @@ Ce fichier va servir à controler
 
 class controller
 {
-
-    public ?PDO $pdo;
-
-    public function __construct($host, $dbname, $root, $mdp)
+    public function __construct(
+        string $host,
+        string $dbname,
+        string $root,
+        string $mdp,
+        public ?PDO $pdo = null
+    )
     {
-        // on la définit à null au début car elle va nous servir à controller si on s'est bien connecté
-        $this->pdo = null;
-
         /*
             ça c'est additionnel, le seul truc important à savoir c'est le défault fetch mode.
             De base le fetch nous return un array (tableau), aujourd'hui c'est mieux de travailler avec des Objets
@@ -28,7 +28,6 @@ class controller
         // On essaye de se connecter, dans le cas ou ça ne marche pas, on aura une erreur afficher à l'écran
         try {
             $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $root, $mdp, $options);
-
         } catch (PDOException $e) {
             echo "Erreur de connexion à la bdd";
             echo "<br>";
