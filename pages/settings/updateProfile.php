@@ -20,6 +20,11 @@ if (isset($_SESSION['id'])) {
     $user = null;
 }
 
+if (isset($_POST['btn-profile'])) {
+    $modele->updateUserProfile($_POST, $_SESSION['id']);
+    header('Location: profile.php');
+}
+
 ?>
 
 <!doctype html>
@@ -92,71 +97,98 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class="setting-container-content">
             <h3>Information de <?= $user->UQ_Users_Pseudo ?></h3>
-            <div class="display-info">
-                <h4>Bio :&ensp;</h4>
-                <label for="Bio">
-                    <input type="text" name="bio" value="<?= $user->UQ_Users_Bio ?>">
+            <form action="#" method="post">
+                <div class="display-info">
+                    <h4>Bio :&ensp;</h4>
+                    <label for="Bio">
+                        <input type="text" name="bio" value="<?= $user->UQ_Users_Bio ?>">
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Plateforme :&ensp;</h4>
+                    <label for="plateforme">
+                        <!-- Remplacer par un select -->
+                        <select name="plateforme" id="plateforme">
+                            <option value="PC">PC</option>
+                            <option value="PS4/PS5">PS4/PS5</option>
+                            <option value="XBOX">XBOX</option>
+                            <option value="Switch">Switch</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Discord :&ensp;</h4>
+                    <label for="discord">
+                        <input type="text" name="discord" value="<?= $user->UQ_UserPreferences_Discord ?>">
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Twitch :&ensp;</h4>
+                    <label for="twitch">
+                        <input type="text" name="twitch" value="<?= $user->UQ_UserPreferences_Twitch ?>">
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Steam :&ensp;</h4>
+                    <label for="steam">
+                        <input type="text" name="steam" value="<?= $user->UQ_UserPreferences_Steam ?>">
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Pseudo :&ensp;</h4>
+                    <label for="pseudo">
+                        <input type="text" name="pseudo" value="<?= $user->UQ_Users_Pseudo ?>">
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Jeu favori :&ensp;</h4>
+                    <label for="jeufav">
+                        <!-- Select -->
+                        <select name="jeufav" id="jeufav">
+                            <!-- On récupère tous nos jeux -->
+                            <?php $games = $modele->all('tblGames') ?>
+                            <!-- foreach pour nos options -->
+                            <?php foreach ($games as $game): ?>
+                                <!-- tout ce qui sera en dessous, appartiendra au foreach -->
+                                <option value="<?= $game->UQ_Games_Name ?>">
+                                    <?= $game->UQ_Games_Name ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Genre favori :&ensp;</h4>
+                    <label for="genrefav">
+                        <!--  Select  -->
+                        <select name="genreFav" id="genreFav">
+                            <!-- On récupère tous nos genre -->
+                            <?php $genres = $modele->all('tblCategorieGames') ?>
+                            <!-- foreach pour nos options -->
+                            <?php foreach ($genres as $genre): ?>
+                                <!-- tout ce qui sera en dessous, appartiendra au foreach -->
+                                <option value="<?= $genre->UQ_CategorieGames_Libelle ?>">
+                                    <?= $genre->UQ_CategorieGames_Libelle ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </label>
+                </div>
+                <div class="display-info">
+                    <h4>Photo de profile :&ensp;</h4>
+                    <img class="setting-pfp"
+                         src="../../assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>"
+                         alt="">
+                </div>
+                <div class="display-info">
+                    <h4>Bannière :&ensp;</h4>
+                    <img class="setting-banner" src="../../assets/img/UserProfilBanner/<?= $user->UQ_Users_ImgBanner ?>"
+                         alt="">
+                </div>
+                <label for="submit">
+                    <input type="submit" name="btn-profile" value="modifier" style="margin-top: 20px;">
                 </label>
-            </div>
-            <div class="display-info">
-                <h4>Plateforme :&ensp;</h4>
-                <label for="plateforme">
-                    <!-- Remplacer par un select -->
-                    <input type="text" name="plateforme" value="<?= $user->UQ_AboutUsers_Plateforme ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Discord :&ensp;</h4>
-                <label for="discord">
-                    <input type="text" name="discord" value="<?= $user->UQ_UserPreferences_Discord ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Twitch :&ensp;</h4>
-                <label for="twitch">
-                    <input type="text" name="twitch" value="<?= $user->UQ_UserPreferences_Twitch ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Steam :&ensp;</h4>
-                <label for="steam">
-                    <input type="text" name="steam" value="<?= $user->UQ_UserPreferences_Steam ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Pseudo :&ensp;</h4>
-                <label for="pseudo">
-                    <input type="text" name="pseudo" value="<?= $user->UQ_Users_Pseudo ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Jeu favori :&ensp;</h4>
-                <label for="jeufav">
-                    <!-- Select -->
-                    <input type="text" name="jeufav" value="<?= $user->UQ_AboutUsers_JeuFav ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Genre favori :&ensp;</h4>
-                <label for="genrefav">
-                    <!--  Select  -->
-                    <input type="text" name="genrefav" value="<?= $user->UQ_AboutUsers_GenreFav ?>">
-                </label>
-            </div>
-            <div class="display-info">
-                <h4>Photo de profile :&ensp;</h4>
-                <img class="setting-pfp"
-                     src="../../assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>"
-                     alt="">
-            </div>
-            <div class="display-info">
-                <h4>Bannière :&ensp;</h4>
-                <img class="setting-banner" src="../../assets/img/UserProfilBanner/<?= $user->UQ_Users_ImgBanner ?>"
-                     alt="">
-            </div>
-            <label for="submit">
-                <input type="submit" name="btn" value="modifier" style="margin-top: 20px;">
-            </label>
+            </form>
         </div>
     </div>
 </main>

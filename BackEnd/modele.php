@@ -109,4 +109,14 @@ class modele
         return $this->controller->getUserAboutPreference($id);
     }
 
+    public function updateUser(array $tab, int $id): void
+    {
+        $this->controller->updateUser($tab, $id);
+    }
+
+    public function updateUserProfile(array $tab, int $id): void
+    {
+        $this->controller->updateUserProfile($tab, $id);
+    }
+
 }

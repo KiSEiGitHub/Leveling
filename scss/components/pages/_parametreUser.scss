@@ -65,6 +65,15 @@
         width: 270px;
         padding: 2px 15px;
       }
+
+      select {
+        border-radius: 20px;
+        padding: 2px 15px;
+        border: 1px solid #bababa;
+        outline: none;
+        position: relative;
+        top: -3px;
+      }
     }
 
     a {

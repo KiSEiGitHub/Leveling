@@ -607,6 +607,14 @@ p.paragraphe {
   width: 270px;
   padding: 2px 15px;
 }
+.setting-container .setting-container-content label select {
+  border-radius: 20px;
+  padding: 2px 15px;
+  border: 1px solid #bababa;
+  outline: none;
+  position: relative;
+  top: -3px;
+}
 .setting-container .setting-container-content a {
   text-decoration: none;
 }

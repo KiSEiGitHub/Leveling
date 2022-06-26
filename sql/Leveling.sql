@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 25 juin 2022 à 00:06
+-- Généré le : dim. 26 juin 2022 à 19:04
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -34,14 +34,15 @@ CREATE TABLE IF NOT EXISTS `tblaboutgroups` (
   `UQ_AboutGroups_Fondation` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `FK_UserGroups_AboutGroups` int(11) NOT NULL,
   PRIMARY KEY (`PK_AboutGroups`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblaboutgroups`
 --
 
 INSERT INTO `tblaboutgroups` (`PK_AboutGroups`, `UQ_AboutGroups_Game`, `UQ_AboutGroups_Fondation`, `FK_UserGroups_AboutGroups`) VALUES
-(5, 'Riders Republic', '05/06/2022', 17);
+(5, 'ASSASSIN\'S CREED VALHALLA', '05/06/2022', 17),
+(8, 'Far Cry 6', '25/06/2022', 31);
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,31 @@ CREATE TABLE IF NOT EXISTS `tblaboutusers` (
 --
 
 INSERT INTO `tblaboutusers` (`PK_AboutUsers`, `UQ_AboutUsers_Exp`, `UQ_AboutUsers_JeuxPossede`, `UQ_AboutUsers_JeuxTermine`, `UQ_AboutUsers_JeuxCent`, `UQ_AboutUsers_GenreFav`, `UQ_AboutUsers_JeuFav`, `UQ_AboutUsers_Plateforme`, `UQ_AboutUsers_DateInscription`, `FK_Users_AboutUsers`) VALUES
-(6, 99999, 0, 0, 0, 'FPS', 'ASSASSIN\'S CREED VALHALLA', 'PC', '04/06/2022', 28);
+(6, 100006, 0, 0, 0, 'Horreur / Epouvante', 'ASSASSIN\'S CREED VALHALLA', 'PC', '04/06/2022', 28);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tblcategoriegames`
+--
+
+DROP TABLE IF EXISTS `tblcategoriegames`;
+CREATE TABLE IF NOT EXISTS `tblcategoriegames` (
+  `PK_CategorieGames` int(11) NOT NULL AUTO_INCREMENT,
+  `UQ_CategorieGames_Libelle` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`PK_CategorieGames`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `tblcategoriegames`
+--
+
+INSERT INTO `tblcategoriegames` (`PK_CategorieGames`, `UQ_CategorieGames_Libelle`) VALUES
+(1, 'Horreur / Epouvante'),
+(2, 'FPS'),
+(3, 'Aventure'),
+(4, 'Arcade'),
+(5, 'Action');
 
 -- --------------------------------------------------------
 
@@ -137,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `tblusergames` (
   `FK_Users_UserGames` int(11) NOT NULL,
   `FK_Games_UserGames` int(11) NOT NULL,
   PRIMARY KEY (`PK_UserGames`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblusergames`
@@ -147,7 +172,8 @@ INSERT INTO `tblusergames` (`PK_UserGames`, `FK_Users_UserGames`, `FK_Games_User
 (13, 28, 2),
 (14, 28, 14),
 (15, 28, 13),
-(16, 28, 9);
+(16, 28, 9),
+(17, 28, 12);
 
 -- --------------------------------------------------------
 
@@ -167,14 +193,15 @@ CREATE TABLE IF NOT EXISTS `tblusergroups` (
   `FK_Users_UserGroups` int(3) NOT NULL,
   `UQ_UserGroups_Membres` int(11) NOT NULL,
   PRIMARY KEY (`PK_UserGroups`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblusergroups`
 --
 
 INSERT INTO `tblusergroups` (`PK_UserGroups`, `UQ_UserGroups_Nom`, `UQ_UserGroups_Privacy`, `UQ_UserGroups_ProfilePicture`, `UQ_UserGroups_ImgBanner`, `UQ_UserGroups_Jeu`, `UQ_UserGroups_Description`, `FK_Users_UserGroups`, `UQ_UserGroups_Membres`) VALUES
-(17, 'Reyna Fan Base', 'PUBLIC', 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'ctfghjkl', 'Instalock Reyna = prison', 28, 0);
+(17, 'Reyna Fan Base', 'PUBLIC', 'IMG-6299d57fad6549.57080524.jpg', 'IMG-6299d57fad9d87.59320703.png', 'ctfghjkl', 'Instalock Reyna = prison', 28, 0),
+(31, 'azrazr', 'PUBLIC', 'IMG-62b65b0d1088a4.54277131.jpg', 'IMG-62b65b0d12eb12.81344256.jpg', 'test', 'azrazrazrazr', 28, 0);
 
 -- --------------------------------------------------------
 
@@ -221,14 +248,14 @@ CREATE TABLE IF NOT EXISTS `tblusers` (
   `UQ_Users_ImgBanner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `UQ_Users_Pseudo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`PK_Users`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tblusers`
 --
 
 INSERT INTO `tblusers` (`PK_Users`, `UQ_Users_Nom`, `UQ_Users_Prenom`, `UQ_Users_Password`, `UQ_Users_Age`, `UQ_Users_Bio`, `UQ_Users_ProfilePicture`, `UQ_Users_Role`, `UQ_Users_DateNaissance`, `UQ_Users_Mail`, `UQ_Users_Level`, `UQ_Users_ImgBanner`, `UQ_Users_Pseudo`) VALUES
-(28, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'Oui', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png', 'KiSEi'),
+(28, 'LAU', 'Tom', 'eaed214ee947c77fdadb3a08633d4046', 21, 'Valorant', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png', 'KiSEi'),
 (30, 'Salim', 'Alarcon', 'eaed214ee947c77fdadb3a08633d4046', 21, 'Oui', 'IMG-6299d2722a3384.29245626.jpg', 'admin', '2000-08-04', 'tom.lau.974@gmail.com', 10, 'IMG-6299d2722a7302.07240015.png', 'KiSEi');
 
 -- --------------------------------------------------------
@@ -243,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `tbluserwishs` (
   `FK_Users_UserWishs` int(11) NOT NULL,
   `FK_Games_UserWishs` int(11) NOT NULL,
   PRIMARY KEY (`PK_UserWishs`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `tbluserwishs`
@@ -251,7 +278,8 @@ CREATE TABLE IF NOT EXISTS `tbluserwishs` (
 
 INSERT INTO `tbluserwishs` (`PK_UserWishs`, `FK_Users_UserWishs`, `FK_Games_UserWishs`) VALUES
 (3, 28, 11),
-(4, 28, 9);
+(4, 28, 9),
+(5, 28, 8);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

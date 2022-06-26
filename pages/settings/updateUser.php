@@ -19,6 +19,14 @@ if (isset($_SESSION['id'])) {
     $user = null;
 }
 
+// je le met ici car c'est pour le header location
+// si je le met en dessous du formulaire, le header location ne marchera pas
+if (isset($_POST['btn'])) {
+    $modele->updateUser($_POST, $_SESSION['id']);
+    header('Location: index.php');
+}
+
+
 ?>
 
 <!doctype html>
@@ -102,25 +110,25 @@ if (isset($_SESSION['id'])) {
                 <div class="display-info">
                     <h4>Prénom :&ensp;</h4>
                     <label for="nom">
-                        <input type="text" name="nom" value="<?= $user->UQ_Users_Prenom ?>">
+                        <input type="text" name="prenom" value="<?= $user->UQ_Users_Prenom ?>">
                     </label>
                 </div>
                 <div class="display-info">
                     <h4>Email :&ensp;</h4>
                     <label for="nom">
-                        <input type="text" name="nom" value="<?= $user->UQ_Users_Mail ?>">
+                        <input type="text" name="mail" value="<?= $user->UQ_Users_Mail ?>">
                     </label>
                 </div>
                 <div class="display-info">
                     <h4>Age :&ensp;</h4>
                     <label for="nom">
-                        <input type="text" name="nom" value="<?= $user->UQ_Users_Age ?>">
+                        <input type="number" name="age" value="<?= $user->UQ_Users_Age ?>">
                     </label>
                 </div>
                 <div class="display-info">
                     <h4>Date de naissance :&ensp;</h4>
                     <label for="nom">
-                        <input type="text" name="nom" value="<?= $user->UQ_Users_DateNaissance ?>">
+                        <input type="text" name="dateNaissance" value="<?= $user->UQ_Users_DateNaissance ?>">
                     </label>
                 </div>
                 <label for="submit">
