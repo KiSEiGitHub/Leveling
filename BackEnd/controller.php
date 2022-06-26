@@ -172,7 +172,7 @@ class controller
     public function insertUser(array $tab, string $profilePicture, string $profileBanner): string
     {
         // requête d'insertion
-        $r = "INSERT INTO `tblUsers` VALUES(null, :nom, :prenom, :mdp, :age, :bio, :pp, :role, :dateNaissance, :mail, :lvl, :imgBanner, :pseudo)";
+        $r = "INSERT INTO tblUsers VALUES(null, :nom, :prenom, :mdp, :age, :bio, :pp, :role, :dateNaissance, :mail, :lvl, :imgBanner, :pseudo)";
 
         // variable de protection de la requête
         $data = array(
@@ -429,5 +429,89 @@ class controller
         $stmt = $this->pdo->query($r);
         return $stmt->fetch();
 
+    }
+
+    public function updateUser(array $tab, int $id): void
+    {
+        $r = "UPDATE tblUsers SET 
+                    UQ_Users_Nom = :nom, 
+                    UQ_Users_Prenom = :prenom, 
+                    UQ_Users_Mail = :mail, 
+                    UQ_Users_Age = :age, 
+                    UQ_Users_DateNaissance = :dateNaissance 
+                WHERE PK_Users = :id";
+
+        $stmt = $this->pdo->prepare($r);
+        $stmt->execute([
+            ":nom" => $tab['nom'],
+            ":prenom" => $tab['prenom'],
+            ":mail" => $tab['mail'],
+            ":age" => $tab['age'],
+            ":dateNaissance" => $tab['dateNaissance'],
+            ":id" => $id
+        ]);
+
+    }
+
+    public function updateUserProfile(array $tab, int $id): void
+    {
+        /*
+         * Plusieurs table à update en même temps
+         * tblAboutUsers
+         * tblUserPreferences
+         * tblUsers
+         */
+
+        // requête de la table tblAboutUSers
+        $updateAboutUsers =
+            "UPDATE tblAboutUsers SET 
+                    UQ_AboutUsers_GenreFav = :genre, 
+                    UQ_AboutUsers_JeuFav = :jeu, 
+                    UQ_AboutUsers_Plateforme = :plat
+                    WHERE FK_Users_AboutUsers = :id
+            ";
+
+        // requête de la table tblUsers
+        $updateUsers =
+            "UPDATE tblUsers SET
+                    UQ_Users_Pseudo = :pseudo,
+                    UQ_Users_Bio = :bio
+                    WHERE PK_Users = :id
+            ";
+
+        // requête de la table UserPreferences
+        $updateUserPreferences =
+            "UPDATE tblUserPreferences SET
+                    UQ_UserPreferences_Discord = :discord,
+                    UQ_UserPreferences_Steam = :steam,
+                    UQ_UserPreferences_Twitch = :twitch
+                    WHERE FK_Users_UserPreferences = :id 
+            ";
+
+        // préparation des requêtes en utlisant pdo
+        $stmt_updateAboutUser = $this->pdo->prepare($updateAboutUsers);
+        $stmt_Users = $this->pdo->prepare($updateUsers);
+        $stmt_UserPreferences = $this->pdo->prepare($updateUserPreferences);
+
+        // Exécution de la préparation en passant le tableau associatif
+        $stmt_updateAboutUser->execute([
+            ":genre" => $tab['genreFav'],
+            ":jeu" => $tab['jeufav'],
+            ":plat" => $tab['plateforme'],
+            ":id" => $id
+        ]);
+
+        $stmt_Users->execute(array(
+            ":pseudo" => $tab['pseudo'],
+            ":bio" => $tab['bio'],
+            ":id" => $id
+        ));
+
+        $stmt_UserPreferences->execute([
+            ":discord" => $tab['discord'],
+            ":steam" => $tab['steam'],
+            ":twitch" => $tab['twitch'],
+            ":id" => $id
+        ]);
     }
 }
