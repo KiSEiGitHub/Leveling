@@ -16,8 +16,12 @@ sinon, pas grave user = null;
 if (isset($_SESSION['id'])) {
     // attention $user est de type array
     $user = $modele->getUserAboutPreference($_SESSION['id']);
+    
+    // pour faciliter le developpement
+    $userFavGame = $modele->findById('tblAboutUsers', 'FK_Users_AboutUsers', $_SESSION['id'], 'fetch');
 } else {
     $user = null;
+    $userFavGame = null;
 }
 
 if (isset($_POST['btn-profile'])) {
@@ -145,6 +149,7 @@ if (isset($_POST['btn-profile'])) {
                     <label for="jeufav">
                         <!-- Select -->
                         <select name="jeufav" id="jeufav">
+                            <option value="<?= $userFavGame->UQ_AboutUsers_JeuFav ?>"><?= $userFavGame->UQ_AboutUsers_JeuFav ?></option>
                             <!-- On récupère tous nos jeux -->
                             <?php $games = $modele->all('tblGames') ?>
                             <!-- foreach pour nos options -->
@@ -162,6 +167,7 @@ if (isset($_POST['btn-profile'])) {
                     <label for="genrefav">
                         <!--  Select  -->
                         <select name="genreFav" id="genreFav">
+                            <option value="<?= $userFavGame->UQ_AboutUsers_GenreFav ?>"><?= $userFavGame->UQ_AboutUsers_GenreFav ?></option>
                             <!-- On récupère tous nos genre -->
                             <?php $genres = $modele->all('tblCategorieGames') ?>
                             <!-- foreach pour nos options -->
