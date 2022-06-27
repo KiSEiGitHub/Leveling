@@ -178,7 +178,7 @@ if (isset($_SESSION['id'])) {
                     <img src="assets/img/insert_games/pp/IMG-627c1d61578b82.37357550.jpg" alt="photo">
                 </div>
                 <div class="grid-actu">
-                    <img src="assets/img/UserProfilePicture/IMG-6299d2722a3384.29245626.jpg" alt="photo user">
+                    <img src="assets/img/UserProfilePicture/<?= $user->UQ_Users_ProfilePicture ?>" alt="photo user">
                     <div class="grid-actu-text">
                         <div class="grid-actu-text-header">
                             <h2 class="bold">@MIYA</h2>

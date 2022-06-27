@@ -178,7 +178,8 @@ class controller
         $data = array(
             ":nom" => $tab['nom'],
             ":prenom" => $tab['prenom'],
-            ":mdp" => md5($tab['mdp']),
+            // password_hash est une fonction de hasshage + salt, beacuoups plus sécuriser que le md5 ou le sha1 / sha256
+            ":mdp" => password_hash($tab['mdp'], PASSWORD_DEFAULT),
             ":age" => $tab['age'],
             ":bio" => $tab['bio'],
             ":pp" => $profilePicture,
@@ -223,13 +224,68 @@ class controller
         $_SESSION['pseudo'] = $UserWhoWantToLogin->UQ_Users_Pseudo;
         $_SESSION['mdp'] = $UserWhoWantToLogin->UQ_Users_Password;
 
+
+        // on check si le mot de passe correspond
+        /*
+         * On utilise la fonction password_verify
+         * qui va pouvoir décrypter le mot de passe
+         * note : ne marche que si on rendre le bon mot de passe d'abord
+         */
+
         // On vérifie si tout concorde
-        if ($PotentialFakePseudo == $_SESSION['pseudo'] && md5($PotentialFakePassword) == $_SESSION['mdp']) {
+        if ($PotentialFakePseudo == $_SESSION['pseudo'] && password_verify($PotentialFakePassword, $UserWhoWantToLogin->UQ_Users_Password)) {
+            /*
+             * Pour accéder au profile de l'utilisateur, il doit obligatoirement avoir une ligne dans la table tblAboutUsers et tblUserPreferences
+             * Donc lors de la connexion, on doit lui en crée, vide et il les remplira lui même après
+             */
+            $this->insertBaseProfileUser($_SESSION['id']);
+
+            // sinon il est directement r'envoyer
             header('Location: index.php');
         }
 
-        return 'utilisateur créé';
+        // ça c'est dans le cas ou l'utilisateur n'as pas le bon mdp ou pseudo
+        return 'Mot de passe ou pseudo incorrect';
 
+    }
+
+    private function insertBaseProfileUser(int $id): void
+    {
+        // cette fonction va regrouper la création des deux lignes dans les tables qu'il faut pour ue l'utilisateur ai accès à son profile
+
+        // requête pour l'insertion dans la table tblAboutUsers
+        $query_tblAboutUsers = "
+            INSERT INTO tblaboutusers values(null, :exp, :jeuxPossede, :jeuxTermine, :jeuxCent, :genreFav, :jeuFav, :plateforme, :dateInscription, :FKUser)
+        ";
+
+        // requête pour l'insertion dans la table tblUserPreferences
+        $query_tblUserPreferences = "
+            INSERT INTO tbluserpreferences values(null, :FKUser, :steam, :discord, :twitch);
+        ";
+
+        // On prepare les deux requêtes
+        $prepare_tblAboutUsers = $this->pdo->prepare($query_tblAboutUsers);
+        $prepare_tblUserPreferences = $this->pdo->prepare($query_tblUserPreferences);
+
+        // on les executes en passant le tableau associatif
+        $prepare_tblAboutUsers->execute([
+            ":exp" => 0,
+            ":jeuxPossede" => 0,
+            ":jeuxTermine" => 0,
+            ":jeuxCent" => 0,
+            ":genreFav" => '',
+            ":jeuFav" => '',
+            ":plateforme" => '',
+            ":dateInscription" => date('j-m-Y'),
+            ":FKUser" => $id
+        ]);
+
+        $prepare_tblUserPreferences->execute([
+            ":FKUser" => $id,
+            ":steam" => '',
+            ":discord" => '',
+            ":twitch" => ''
+        ]);
     }
 
     public function checkCreateGroups(array $tab, $img, $img2): ?string

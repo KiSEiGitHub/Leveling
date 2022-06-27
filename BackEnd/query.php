@@ -8,7 +8,7 @@ La class query va servir à créer toutes les requêtes nue, c'est pour optimise
 class query
 {
     // On définit une variable qui servir d'instance pour notre class PDO
-    private $pdo;
+    private ?PDO $pdo;
 
     public function __construct($host, $dbname, $root, $mdp)
     {
