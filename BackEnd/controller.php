@@ -147,26 +147,26 @@ class controller
         // on check si on a tous les champs
         foreach ($tab as $OneValue) {
             if ($OneValue == '') {
-                return 'Veuillez renseigner tous les champs';
+                return 'champs';
             }
         }
 
         // on check l'image
         if ($img['name'] == '') {
-            return "Veuillez insérer une image";
+            return "image";
         } else {
             $UserImg = $this->FakeImage($img, "./assets/img/UserProfilePicture/");
         }
 
         if ($banner['name'] == '') {
-            return 'Veuillez insérer une image de bannière';
+            return 'banner';
         } else {
             $profilBanner = $this->FakeImage($banner, "./assets/img/UserProfilBanner/");
         }
 
         // on insert notre user
         $this->insertUser($tab, $UserImg, $profilBanner);
-        return 'Utilisateur créé !';
+        return 'sucess';
     }
 
     public function insertUser(array $tab, string $profilePicture, string $profileBanner): string
