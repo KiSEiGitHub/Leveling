@@ -128,10 +128,11 @@ $groups = $modele->findById('tblUserGroups', 'FK_Users_UserGroups', $_SESSION['i
     <section id="groupe" class="UserGames">
         <h4 class="sous-title bold center grey">Groupes</h4>
         <?php
-        if ($groups != null) { ?>
-            <a href="../groupes/creategroups.php" class="btn btn-info">Créer un nouveau groupe</a>
+        if ($groups == null) { ?>
+            <a href="../groupes/creategroups.php" class="btn btn-info">Créer un groupe</a>
         <?php } ?>
         <?php if ($groups != null): ?>
+            <a href="../groupes/creategroups.php" class="btn btn-info">Créer un nouveau groupe</a>
             <div class="grp">
                 <?php foreach ($groups as $One): ?>
                     <div class="OneGroupe">
