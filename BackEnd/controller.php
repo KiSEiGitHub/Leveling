@@ -212,42 +212,37 @@ class controller
             }
         }
 
-        // On garde en mémoire ses inputs
-        $PotentialFakePseudo = $tab['pseudo'];
-        $PotentialFakePassword = $tab['mdp'];
+        // on récupère notre user en fonction du pseudo
+        $stmt = $this->pdo->prepare("SELECT UQ_Users_Pseudo, UQ_Users_Password, PK_Users FROM tblusers WHERE UQ_Users_Pseudo = ?");
+        $stmt->execute([$tab['pseudo']]);
+        $data = $stmt->fetch();
+        $row = $stmt->rowCount();
 
-        // on récupère le user en fonction du pseudo donné
-        $UserWhoWantToLogin = $this->Login($tab['pseudo']);
-
-        // On set nos variable de Session
-        $_SESSION['id'] = $UserWhoWantToLogin->PK_Users;
-        $_SESSION['pseudo'] = $UserWhoWantToLogin->UQ_Users_Pseudo;
-        $_SESSION['mdp'] = $UserWhoWantToLogin->UQ_Users_Password;
-
-
-        // on check si le mot de passe correspond
-        /*
-         * On utilise la fonction password_verify
-         * qui va pouvoir décrypter le mot de passe
-         * note : ne marche que si on rendre le bon mot de passe d'abord
-         */
-
-        // On vérifie si tout concorde
-        if ($PotentialFakePseudo == $_SESSION['pseudo'] && password_verify($PotentialFakePassword, $UserWhoWantToLogin->UQ_Users_Password)) {
-            /*
-             * Pour accéder au profile de l'utilisateur, il doit obligatoirement avoir une ligne dans la table tblAboutUsers et tblUserPreferences
-             * Donc lors de la connexion, on doit lui en crée, vide et il les remplira lui même après
-             */
-
-            // on doit d'abord controler si l'utilisateur possède un about
-             $this->insertBaseProfileUser($_SESSION['id']);
-
-            return 'Connexion';
+        // si row > 0 alors l'utilisateur existe
+        if ($row > 0) {
+            // on contrôle le mot de passe donné par le user
+            if (password_verify($tab['mdp'], $data->UQ_Users_Password)) {
+                // vérifier si l'utilisateur possède un about
+                $stmt2 = $this->pdo->prepare('SELECT * FROM tblaboutusers WHERE FK_Users_AboutUsers = ?');
+                $stmt2->execute([$data->PK_Users]);
+                $data2 = $stmt2->fetch();
+                if (!$data2) {
+                    // L'utilisateur ne possède pas de about
+                    $this->insertBaseProfileUser($data->PK_Users);
+                }
+            } else {
+                return 'mdp';
+            }
         } else {
-            // ça c'est dans le cas ou l'utilisateur n'as pas le bon mdp ou pseudo
-            return 'erreur';
+            return 'inc';
         }
-        return 'bug';
+
+        // si on arrive la, c'est que l'utilisateur s'est connecté
+        // on set les variables de session
+        $_SESSION['id'] = $data->PK_Users;
+        $_SESSION['pseudo'] = $data->UQ_Users_Pseudo;
+
+        return 'sucess';
     }
 
     private function insertBaseProfileUser(int $id): void
@@ -316,18 +311,6 @@ class controller
         $this->insertGroups($_SESSION['id'], $tab, $new, $banner);
         header('Location: ../profil/groupes.php');
         return 'oui';
-    }
-
-    public function Login(string $pseudo): stdClass|string
-    {
-        $r = "select * from tblusers where UQ_Users_Pseudo ='$pseudo'";
-        if ($this->pdo != null) {
-            $r2 = $this->pdo->prepare($r);
-            $r2->execute();
-            return $r2->fetch();
-        } else {
-            return "pas bon";
-        }
     }
 
     public function insertUserGames(string $tbl, int $idUser, int $idGame): bool

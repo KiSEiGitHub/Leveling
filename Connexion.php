@@ -61,6 +61,27 @@ $modele = new modele(HOST, DB, USER, MDP);
                         echo "<p style='color: red;' class='bold'>Mot de passe ou pseudo incorrect</p>";
                         break;
                     }
+                    case 'sucess' :
+                    {
+//                        header('Location: index.php');
+                        echo "<p style='color: green;' class='bold'>Connecté</p>";
+                        break;
+                    }
+                    case 'inc' :
+                    {
+                        echo "<p style='color: red;' class='bold'>L'utilisateur n'existe pas</p>";
+                        break;
+                    }
+                    case 'mdp':
+                    {
+                        echo "<p style='color: red;' class='bold'>Mot de passe incorrect</p>";
+                        break;
+                    }
+                    case 'test' :
+                    {
+                        echo "<p style='color: red;' class='bold'>{$_GET['msg']}</p>";
+                        break;
+                    }
                 }
             }
             ?>
