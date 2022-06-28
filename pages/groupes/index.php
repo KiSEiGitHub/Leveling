@@ -1,9 +1,13 @@
 <?php
 session_start();
 
+// import des cosntante
+require '../../constante.php';
+
+
 // import & instanciation de la classe modele
 require '../../BackEnd/modele.php';
-$modele = new modele('localhost', 'leveling', 'root', '');
+$modele = new modele(HOST, DB, USER, MDP);
 
 // Si l'utlisateur change lui même l'url et qu'il n'est pas connecté alors on le renvoie sur Connexion.php
 if ($_SESSION['pseudo'] == null) {

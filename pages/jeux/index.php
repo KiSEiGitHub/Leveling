@@ -1,10 +1,14 @@
 <?php
 session_start();
 
+// import des cosntante
+require '../../constante.php';
+
+
 require '../../BackEnd/modele.php';
 
 // instanciation de notre modele
-$modele = new modele("localhost", "leveling", "root", "");
+$modele = new modele(HOST, DB, USER, MDP);
 
 /*
 l'utilisateur peut naviguer sur le site sans être connecter,

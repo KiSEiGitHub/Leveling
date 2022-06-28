@@ -1,10 +1,13 @@
 <?php
 session_start();
 
+// import des cosntante
+require '../../constante.php';
+
 require '../../BackEnd/modele.php';
 
 // instanciation
-$modele = new modele('localhost', 'leveling', 'root', '');
+$modele = new modele(HOST, DB, USER, MDP);
 
 if ($_SESSION['pseudo'] == null) {
     header('Location: Connexion.php');

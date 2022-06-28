@@ -1,12 +1,15 @@
 <?php
 session_start();
 
+// import des constantes
+require 'constante.php';
+
 if (isset($_SESSION['pseudo'])) {
     header('Location: index.php');
 }
 
 require 'BackEnd/modele.php';
-$modele = new modele("localhost", "leveling", "root", "");
+$modele = new modele(HOST, DB, USER, MDP);
 ?>
 
 <!doctype html>

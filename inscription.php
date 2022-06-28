@@ -1,9 +1,12 @@
 <?php
 session_start();
 
+// import des constante
+require 'constante.php';
+
 // import + instanciation du modele
 require './BackEnd/modele.php';
-$modele = new modele('localhost', 'leveling', 'root', '');
+$modele = new modele(HOST, DB, USER, MDP);
 
 // Si l'utilisateur est déjà connecté alors on le revoie sur la page d'accueil
 if (isset($_SESSION['pseudo'])) {
