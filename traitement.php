@@ -18,3 +18,10 @@ if (isset($_POST['btn-inscription'])) {
     $msg = $modele->checkInsertUser($_POST, $_FILES['img'], $_FILES['imgbanner']);
     header("Location: inscription.php?msg=$msg");
 }
+
+
+// traitement de Connexion
+if (isset($_POST['btn_Connexion'])) {
+    $msgConnexion = $modele->checkConnexion($_POST);
+    header("Location: Connexion.php?msg=$msgConnexion");
+}

@@ -37,23 +37,28 @@ if (isset($_SESSION['pseudo'])) {
 <main class="form-inscription">
     <div>
         <?php
-        switch ($_GET['msg']) {
-            case 'champs':
-            {
-                echo "<p style='text-align: center; color: red'>Veuillez renseigner tous les champs</p>";
-                break;
-            }
-            case 'image' : {
-                echo "<p style='text-align: center; color: red'>Selectionner une image valide</p>";
-                break;
-            }
-            case 'banner' : {
-                echo "<p style='text-align: center; color: red'>Selectionner une bannière valide</p>";
-                break;
-            }
-            case 'sucess' : {
-                echo "<p style='text-align: center; color: green'>Votre compte a été créé !</p>";
-                break;
+        if (isset($_GET['msg'])) {
+            switch ($_GET['msg']) {
+                case 'champs':
+                {
+                    echo "<p style='text-align: center; color: red'>Veuillez renseigner tous les champs</p>";
+                    break;
+                }
+                case 'image' :
+                {
+                    echo "<p style='text-align: center; color: red'>Selectionner une image valide</p>";
+                    break;
+                }
+                case 'banner' :
+                {
+                    echo "<p style='text-align: center; color: red'>Selectionner une bannière valide</p>";
+                    break;
+                }
+                case 'sucess' :
+                {
+                    echo "<p style='text-align: center; color: green'>Votre compte a été créé !</p>";
+                    break;
+                }
             }
         }
         ?>

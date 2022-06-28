@@ -4,6 +4,7 @@ session_start();
 // import des constantes
 require 'constante.php';
 
+// me renvoie si la variable de session pseudo existe
 if (isset($_SESSION['pseudo'])) {
     header('Location: index.php');
 }
@@ -28,7 +29,7 @@ $modele = new modele(HOST, DB, USER, MDP);
 
 <main class="form-signin">
     <div class="sign-form">
-        <form method="post" action="#">
+        <form method="post" action="traitement.php">
             <img class="mb-4" src="./assets/img/website/leveling-logo.png" alt="" height="57">
             <h1 class="connexion">CONNEXION</h1>
 
@@ -46,11 +47,21 @@ $modele = new modele(HOST, DB, USER, MDP);
                 <span>Toujours pas inscrit ?&nbsp;</span>
                 <a href="inscription.php">Inscription</a>
             </div>
-
             <p>&copy; 2022</p>
             <?php
-            if (isset($_POST['btn_Connexion'])) {
-                echo $modele->checkConnexion($_POST);
+            if (isset($_GET['msg'])) {
+                switch ($_GET['msg']) {
+                    case 'champs' :
+                    {
+                        echo "<p style='color: red;' class='bold'>Veuillez renseigner tous les champs</p>";
+                        break;
+                    }
+                    case 'erreur' :
+                    {
+                        echo "<p style='color: red;' class='bold'>Mot de passe ou pseudo incorrect</p>";
+                        break;
+                    }
+                }
             }
             ?>
         </form>

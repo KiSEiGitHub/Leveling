@@ -208,7 +208,7 @@ class controller
         // on check si l'utilisateur a rensigner tous les champs
         foreach ($tab as $OneValue) {
             if ($OneValue == '') {
-                return 'Veuillez renseigner les champs';
+                return 'champs';
             }
         }
 
@@ -238,15 +238,16 @@ class controller
              * Pour accéder au profile de l'utilisateur, il doit obligatoirement avoir une ligne dans la table tblAboutUsers et tblUserPreferences
              * Donc lors de la connexion, on doit lui en crée, vide et il les remplira lui même après
              */
-            $this->insertBaseProfileUser($_SESSION['id']);
 
-            // sinon il est directement r'envoyer
-            header('Location: index.php');
+            // on doit d'abord controler si l'utilisateur possède un about
+             $this->insertBaseProfileUser($_SESSION['id']);
+
+            return 'Connexion';
+        } else {
+            // ça c'est dans le cas ou l'utilisateur n'as pas le bon mdp ou pseudo
+            return 'erreur';
         }
-
-        // ça c'est dans le cas ou l'utilisateur n'as pas le bon mdp ou pseudo
-        return 'Mot de passe ou pseudo incorrect';
-
+        return 'bug';
     }
 
     private function insertBaseProfileUser(int $id): void
@@ -317,7 +318,7 @@ class controller
         return 'oui';
     }
 
-    public function Login(string $pseudo): ?stdClass
+    public function Login(string $pseudo): stdClass|string
     {
         $r = "select * from tblusers where UQ_Users_Pseudo ='$pseudo'";
         if ($this->pdo != null) {
